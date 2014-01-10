@@ -24,16 +24,13 @@ int main(int argvc, char *argv[]) {
     	int machineType = atoi(argv[2]); // Tipo de máquina
 
     	switch(machineType){
-    	case 0: // KVecinos
-    		machine = new GodMachine(KVecinos);
-    		break;
-    	case 1: // Logistic Regression
+    	case 0: // Logistic Regression
     		machine = new GodMachine(LogisticRegression);
     		break;
-    	case 2: // Neural Network
+    	case 1: // Neural Network
 			machine = new GodMachine(NeuralNetwork);
 			break;
-    	case 3: // SVM
+    	case 2: // SVM
     		machine = new GodMachine(SVM);
     		break;
     	default: // Por defecto, LogisticRegression

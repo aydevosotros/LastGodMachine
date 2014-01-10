@@ -6,10 +6,9 @@
 #include <vector>
 #include <float.h>
 #include "IMachine.h"
-#include "KVMachine.h"
 #include "LRMachine.h"
 
-enum Machine {LogisticRegression, KVecinos, NeuralNetwork, SVM};
+enum Machine {LogisticRegression, NeuralNetwork, SVM};
 
 //Falta
 class GodMachine {
@@ -23,9 +22,6 @@ public:
 		switch(m){
 			case LogisticRegression:
 				C_machine = new LRMachine();
-				break;
-			case KVecinos:
-				C_machine = new KVMachine();
 				break;
 			//Faltan por añadir los casos de la SVM y de la NN
 		}
