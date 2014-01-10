@@ -44,7 +44,6 @@ private:
 	void trainByGradient(int iter, double alpha);
 	void trainByGradientAdvanced(int iter, double alpha);
 	void trainByNormalEcuation();
-	void upgradeParameters();
 
 	// Auxiliar functions
 	void fillX();

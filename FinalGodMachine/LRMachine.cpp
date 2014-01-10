@@ -17,7 +17,6 @@ LRMachine::LRMachine() {
 	trainType = 1; //1 normal, 2 gradiente
 }
 
-
 LRMachine::~LRMachine() {
 	// TODO Auto-generated destructor stub
 }
@@ -77,7 +76,7 @@ void LRMachine::setParameters() {
 ////	std::cout << "He clasificado correctamente " << classifySuccesses << std::endl;
 ////
 //}
-//
+
 //bool LRMachine::isDoorOnFire(double input[]) {
 //	double p = 0.0;
 //	for(int i=0; i<nFeatures+1; i++){
@@ -95,11 +94,13 @@ void LRMachine::setParameters() {
 //	else return false;
 //}
 
+//Completo
 double LRMachine::sigmoid(double z) {
 	double e = 2.71828182845904523536;
 	return 1/(1+pow(e,-z));
 }
 
+//Supongo que este método no habrá que tocarlo, es pure blue math
 double LRMachine::cost(std::vector<double> theta, std::vector<std::vector<double> > X, std::vector<double> y) {
 	double J = 0.0;
 	for(int i=0; i<y.size(); i++){
@@ -115,6 +116,7 @@ double LRMachine::cost(std::vector<double> theta, std::vector<std::vector<double
 	return J/y.size();
 }
 
+//Supongo que este método no habrá que tocarlo, es pure blue math
 void LRMachine::grad(std::vector<double> tetha, std::vector<std::vector<double> > X, std::vector<double> y, std::vector<double> grad) {
 	for(int j=0; j<theta.size(); j++){
 		double parcial = 0.0;
@@ -131,6 +133,7 @@ void LRMachine::grad(std::vector<double> tetha, std::vector<std::vector<double> 
 	}
 }
 
+//Todito comentadito
 void LRMachine::trainByGradientAdvanced(int iter, double alpha) {
 //	int i, ret = 0;
 //	lbfgsfloatval_t fx;
@@ -163,6 +166,7 @@ void LRMachine::trainByGradientAdvanced(int iter, double alpha) {
 //	lbfgs_free(theta);
 }
 
+//Usa funciones inacabadas
 void LRMachine::trainByGradient(int iter, double alpha) {
 	double vari = 0.01;
 	double pCoste = 0.0;
@@ -196,6 +200,7 @@ void LRMachine::trainByGradient(int iter, double alpha) {
 
 }
 
+//Ya estaba comentado cuando llegué
 void LRMachine::trainByNormalEcuation() {
 //	// Actualizo aqui el número de características
 //	int nFeaturesCuad = 2*nFeatures;
@@ -238,8 +243,8 @@ void LRMachine::trainByNormalEcuation() {
 //	}
 }
 
+//Pendiente de Sample
 void LRMachine::fillX() {
-	//
 	for(int i=0; i<C_trainingSet.size(); i++){
 		for(int j=0; j<nFeatures+1; j++){
 			if(j==0)
@@ -249,11 +254,13 @@ void LRMachine::fillX() {
 	}
 }
 
+//Completo
 void LRMachine::fillTheta() {
 	for(int i=0; i<nFeatures+1; i++)
 		theta[i]=0;
 }
 
+//Pendiente de Sample
 void LRMachine::fillY() {
 //	for(int i=0; i<trainingSet.size(); i++){
 //		if(trainingSet[i].burn)
@@ -261,8 +268,3 @@ void LRMachine::fillY() {
 //		else y[i]=0;
 //	}
 }
-
-void LRMachine::upgradeParameters() {
-
-}
-
