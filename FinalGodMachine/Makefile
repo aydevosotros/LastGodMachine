@@ -3,10 +3,10 @@ CFLAGS=
 INC_DIR=include/
 LIB_DIR=lib/ 
 MAINFILE=main
-OBJFILE=firebitch
-LIBS=-lFireDoorEscaper -lboost_random -larmadillo -lCGAL
-SVMKernels= SVMachine/LinearKernel.cpp SVMachine/PolynomialKernel.cpp SVMachine/RBFKernel.cpp
-MORE_INCLUDES= KVMachine.cpp LRMachine.cpp NNMachine.cpp SVMachine/SVMachine.cpp
+OBJFILE=lgm
+LIBS= -lboost_random -larmadillo -lCGAL
+#SVMKernels= SVMachine/LinearKernel.cpp SVMachine/PolynomialKernel.cpp SVMachine/RBFKernel.cpp
+MORE_INCLUDES= KVMachine.cpp LRMachine.cpp
 
 all: $(MAINFILE) 
 

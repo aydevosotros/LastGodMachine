@@ -14,8 +14,7 @@
 #include "IMachine.h"
 #include "KVMachine.h"
 #include "LRMachine.h"
-#include "NNMachine.h"
-#include "SVMachine/SVMachine.h"
+
 
 enum Machine {LogisticRegresion, KVecinos, neuralNetwork, SVM};
 
@@ -30,10 +29,6 @@ public:
 			case LogisticRegresion: machine=new LRMachine();
 				break;
 			case KVecinos: machine=new KVMachine();
-				break;
-			case neuralNetwork: machine = new NNMachine();
-				break;
-			case SVM: machine = new SVMachine(RBF);
 				break;
 		}
 	}
