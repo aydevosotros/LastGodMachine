@@ -1,63 +1,45 @@
-/*
- * GodMachine.h
- *
- *  Created on: 11/11/2013
- *      Author: leopoldo
- */
-
 #ifndef GODMACHINE_H_
 #define GODMACHINE_H_
 
 #include <iostream>     // std::cout
 #include <cmath>        // std::abs
+#include <vector>
 #include <float.h>
 #include "IMachine.h"
 #include "KVMachine.h"
 #include "LRMachine.h"
 
+enum Machine {LogisticRegression, KVecinos, NeuralNetwork, SVM};
 
-enum Machine {LogisticRegresion, KVecinos, neuralNetwork, SVM};
-
+//Falta
 class GodMachine {
 public:
 	GodMachine(){
-		machine = new LRMachine();
+		C_machine = new LRMachine();
 	}
 
+	//Falta
 	GodMachine(Machine m){
 		switch(m){
-			case LogisticRegresion: machine=new LRMachine();
+			case LogisticRegression:
+				C_machine = new LRMachine();
 				break;
-			case KVecinos: machine=new KVMachine();
+			case KVecinos:
+				C_machine = new KVMachine();
 				break;
+			//Faltan por añadir los casos de la SVM y de la NN
 		}
 	}
 
 	virtual ~GodMachine(){}
-	void pedirParametros(){
-		machine->pedirParametros();
-	}
-	void addTrainingSample(Sample sample){
-		machine->addTrainingSample(sample);
-	}
-	bool isTrainingReady(){
-		return machine->isTrainingReady();
-	}
-	bool isReadyToCross(){
-		return machine->isReadyToCross();
-	}
-	void classifySample(Sample sample){
-		machine->classifySample(sample);
-	}
-	bool isDoorOnFire(double input[]){
-		return machine->isDoorOnFire(input);
-	}
-	void clearTrainingSet(){
-		machine->clearTrainingSet();
-	}
-private:
-	IMachine* machine;
-};
 
+	//Y como estos todos
+	void addTrainingSet(std::vector<Sample> trainingSet){
+		C_machine->addTrainingSet(trainingSet);
+	}
+
+private:
+	IMachine* C_machine;
+};
 
 #endif /* GODMACHINE_H_ */

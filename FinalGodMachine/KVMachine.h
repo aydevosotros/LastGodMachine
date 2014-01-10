@@ -18,17 +18,13 @@ public:
 	KVMachine();
 	virtual ~KVMachine();
 
-	void addTrainingSample(Sample sample);
-	bool isTrainingReady();
-	bool isReadyToCross();
-	void classifySample(Sample sample);
-	bool isDoorOnFire(double input[]);
+	void addTrainingSet(std::vector<Sample> trainingSet);
 	void clearTrainingSet();
-	void pedirParametros();
+	void setParameters();
 
 private:
-	std::vector<Sample> trainingSet;
-	int classifySuccesses;
+	std::vector<Sample> C_trainingSet;
+	int C_classifySuccesses;
 };
 
 #endif /* KVMACHINE_H_ */
