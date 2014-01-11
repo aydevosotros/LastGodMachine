@@ -1,19 +1,13 @@
-/*
- * LRMachine.h
- *
- *  Created on: Nov 21, 2013
- *      Author: antonio
- */
-
 #ifndef LRMACHINE_H_
 #define LRMACHINE_H_
 
-#include "IMachine.h"
 #include <cmath>
 #include <iostream>
 #include <vector>
-#include "armadillo"
 #include <lbfgs.h>
+#include "armadillo"
+
+#include "IMachine.h"
 
 // Implementar Precision and Recall
 
@@ -30,6 +24,7 @@ public:
 	void clearTrainingSet();
 
 private:
+	double C_lambda;
 	std::vector<Sample> C_trainingSet;
 	int C_classifySuccesses;
 	int nFeatures;

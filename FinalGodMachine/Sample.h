@@ -14,6 +14,4 @@ public:
 	}
 };
 
-
-
 #endif /* SAMPLE_H_ */

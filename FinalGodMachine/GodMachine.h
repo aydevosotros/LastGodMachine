@@ -1,10 +1,11 @@
 #ifndef GODMACHINE_H_
 #define GODMACHINE_H_
 
-#include <iostream>     // std::cout
-#include <cmath>        // std::abs
-#include <vector>		// std::vector
+#include <iostream>
+#include <cmath>
+#include <vector>
 #include <float.h>
+
 #include "IMachine.h"
 #include "LRMachine.h"
 

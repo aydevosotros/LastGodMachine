@@ -1,4 +1,3 @@
-
 #ifndef IMACHINE_H_
 #define IMACHINE_H_
 

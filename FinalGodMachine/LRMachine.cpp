@@ -1,10 +1,3 @@
-/*
- * LRMachine.cpp
- *
- *  Created on: Nov 21, 2013
- *      Author: antonio
- */
-
 #include "LRMachine.h"
 
 LRMachine::LRMachine() {
@@ -19,6 +12,9 @@ LRMachine::~LRMachine() {}
 
 void LRMachine::setParameters(char *argv[]) {
 	std::cout << "I'm setting parameters with the LRMachine" << std::endl;
+	C_lambda = atoi(argv[2]);
+
+//	Algo más a partir de argv[3];
 }
 
 void LRMachine::addTrainingSet(std::vector<Sample> trainingSet) {
