@@ -11,10 +11,15 @@ void loadDataSet(std::string fileName){
 	//Algooo
 }
 
+void loadInput(std::string input){
+	//Algooo
+}
+
 int main(int argvc, char *argv[]) {
 	GodMachine *machine;
 
 	std::vector<Sample> dataSet;
+	Sample input;
 
 	int maquinaElegida;
 	double lambda;
@@ -38,12 +43,23 @@ int main(int argvc, char *argv[]) {
     		break;
     	}
 
-    	loadDataSet("hardCoded.txt"); //Carga los datos, donde quiera que estén, en el vector de samples
+    	machine->setParameters(argv);
+
+    	loadDataSet("hardCodedDataSet.txt"); //Carga los datos, donde quiera que estén, en el vector de samples
 
     	machine->addTrainingSet(dataSet);
 
-    	//Y seguiríamos
+    	machine->train();
 
+    	loadInput("hardCodedInput.txt"); //Carga la prueba que queremos predecir
+
+    	machine->addInput(input);
+
+    	machine->predict();
+
+    	//Y ahora qué?
+
+//		machine->clearTrainingSet();
     } else{
     	// Error de "Nº de parámetros incorrecto, pero ¿cómo?"
     }

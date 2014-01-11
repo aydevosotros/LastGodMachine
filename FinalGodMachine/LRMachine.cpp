@@ -21,16 +21,29 @@ LRMachine::~LRMachine() {
 	// TODO Auto-generated destructor stub
 }
 
+void LRMachine::setParameters(char *argv[]) {
+	//Algooo
+}
+
 void LRMachine::addTrainingSet(std::vector<Sample> trainingSet) {
 	C_trainingSet = trainingSet;
+}
+
+void LRMachine::train(){
+	//LOL train dice
+}
+
+void LRMachine::addInput(Sample input){
+	//Add?
+}
+
+void LRMachine::predict(){
+	//This is the shit
 }
 
 void LRMachine::clearTrainingSet() {
 	C_trainingSet.clear();
 	C_classifySuccesses = 0;
-}
-
-void LRMachine::setParameters() {
 }
 
 //bool LRMachine::isTrainingReady() {

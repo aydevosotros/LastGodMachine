@@ -22,9 +22,12 @@ public:
 	LRMachine();
 	virtual ~LRMachine();
 
+	void setParameters(char *argv[]);
 	void addTrainingSet(std::vector<Sample> trainingSet);
+	void train();
+	void addInput(Sample input);
+	void predict();
 	void clearTrainingSet();
-	void setParameters();
 
 private:
 	std::vector<Sample> C_trainingSet;

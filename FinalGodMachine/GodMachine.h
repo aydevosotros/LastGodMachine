@@ -3,7 +3,7 @@
 
 #include <iostream>     // std::cout
 #include <cmath>        // std::abs
-#include <vector>
+#include <vector>		// std::vector
 #include <float.h>
 #include "IMachine.h"
 #include "LRMachine.h"
@@ -29,13 +29,33 @@ public:
 
 	virtual ~GodMachine(){}
 
-	//Y como estos todos
+	void setParameters(char *argv[]){
+		C_machine->setParameters(argv);
+	}
+
 	void addTrainingSet(std::vector<Sample> trainingSet){
 		C_machine->addTrainingSet(trainingSet);
 	}
 
+	void train(){
+		C_machine->train();
+	}
+
+	void addInput(Sample input){
+		C_machine->addInput(input);
+	}
+
+	void predict(){
+		C_machine->predict();
+	}
+
+	void clearTrainingSet(){
+		C_machine->clearTrainingSet();
+	}
+
 private:
 	IMachine* C_machine;
+
 };
 
 #endif /* GODMACHINE_H_ */
