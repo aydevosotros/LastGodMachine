@@ -7,9 +7,7 @@
 
 #include "LRMachine.h"
 
-
 LRMachine::LRMachine() {
-	// TODO Auto-generated constructor stub
 	nFeatures = 4;
 	C_classifySuccesses = 0;
 	iterTrain = 1000;
@@ -17,30 +15,30 @@ LRMachine::LRMachine() {
 	trainType = 1; //1 normal, 2 gradiente
 }
 
-LRMachine::~LRMachine() {
-	// TODO Auto-generated destructor stub
-}
+LRMachine::~LRMachine() {}
 
 void LRMachine::setParameters(char *argv[]) {
-	//Algooo
+	std::cout << "I'm setting parameters with the LRMachine" << std::endl;
 }
 
 void LRMachine::addTrainingSet(std::vector<Sample> trainingSet) {
+	std::cout << "I'm adding training set with the LRMachine" << std::endl;
 	C_trainingSet = trainingSet;
 }
 
 void LRMachine::train(){
-	//LOL train dice
+	std::cout << "I'm training with the LRMachine" << std::endl;
 }
 
 void LRMachine::addInput(Sample input){
-	//Add?
+	std::cout << "I'm adding input with the LRMachine" << std::endl;
 }
 
 void LRMachine::predict(){
-	//This is the shit
+	std::cout << "I'm predicting with the LRMachine" << std::endl;
 }
 
+//Completa
 void LRMachine::clearTrainingSet() {
 	C_trainingSet.clear();
 	C_classifySuccesses = 0;

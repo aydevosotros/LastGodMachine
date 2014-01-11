@@ -26,7 +26,7 @@ int main(int argvc, char *argv[]) {
 
     // Obtengo parametros e inicializo
     if(argvc > 1){
-    	int machineType = atoi(argv[2]); // Tipo de máquina
+    	int machineType = atoi(argv[1]); // Tipo de máquina
 
     	switch(machineType){
     	case 0: // Logistic Regression
@@ -61,7 +61,7 @@ int main(int argvc, char *argv[]) {
 
 //		machine->clearTrainingSet();
     } else{
-    	// Error de "Nº de parámetros incorrecto, pero ¿cómo?"
+    	std::cout << "Nº de argumentos incorrecto" << std::endl;
     }
 }
 
