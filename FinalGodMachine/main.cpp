@@ -4,6 +4,7 @@
 #include <string>
 
 #include "GodMachine.h"
+#include "Sample.h"
 
 // Ejecución: lgm machine [parámetros de la máquina]
 
@@ -47,15 +48,13 @@ int main(int argvc, char *argv[]) {
 
     	loadDataSet("hardCodedDataSet.txt"); //Carga los datos, donde quiera que estén, en el vector de samples
 
+    	loadInput("hardCodedInput.txt"); //Carga la prueba que queremos predecir
+
     	machine->addTrainingSet(dataSet);
 
     	machine->train();
 
-    	loadInput("hardCodedInput.txt"); //Carga la prueba que queremos predecir
-
-    	machine->addInput(input);
-
-    	machine->predict();
+    	machine->predict(input);
 
     	//Y ahora qué?
 

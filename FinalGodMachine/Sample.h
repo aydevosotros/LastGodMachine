@@ -7,7 +7,7 @@
 class Sample{
 public:
 	std::vector<double> input;
-	int result;
+	bool burn;
 
 	int getNFeatures(){
 		return input.size();

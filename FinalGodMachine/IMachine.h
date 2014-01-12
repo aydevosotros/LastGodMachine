@@ -8,8 +8,7 @@ public:
 	virtual void setParameters(char *argv[])=0;
 	virtual void addTrainingSet(std::vector<Sample> trainingSet)=0;
 	virtual void train()=0;
-	virtual void addInput(Sample input)=0;
-	virtual void predict()=0;
+	virtual void predict(Sample input)=0;
 	virtual void clearTrainingSet()=0;
 };
 

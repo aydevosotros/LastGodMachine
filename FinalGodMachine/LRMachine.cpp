@@ -1,7 +1,7 @@
 #include "LRMachine.h"
 
 LRMachine::LRMachine() {
-	nFeatures = 4;
+	C_nFeatures = 4;
 	C_classifySuccesses = 0;
 	iterTrain = 1000;
 	alphaTrain = 0.01;
@@ -27,15 +27,39 @@ void LRMachine::train(){
 	std::cout << "I'm training with the LRMachine" << std::endl;
 }
 
-void LRMachine::addInput(Sample input){
-	std::cout << "I'm adding input with the LRMachine" << std::endl;
+//Está copypasteado el classifySample
+void LRMachine::predict(Sample input){
+	std::cout << "I'm predicting this input with the LRMachine" << std::endl;
+
+//	// Como tengo un sigmoide, con un threshold voy to cheto
+//	double p = 0.0;
+//	for(int i=0; i<C_nFeatures+1; i++){
+//		if(i==0)
+//			p = C_theta[i];
+//		else p += C_theta[i]*input.input[i-1];
+//	}
+//	p=sigmoid(p);
+//	if((p>0.5 && input.burn) || (p<=0.5 && !input.burn)){
+//		if(p>0.5)
+//			std::cout << "Predigo que la siguiente puerta está encendida" << std::endl;
+//		else std::cout << "Predigo que la siguiente puerta está apagada" << std::endl;
+//		std::cout << "Ha clasificao de puta madre" << std::endl;
+//		this->C_classifySuccesses++;
+//	} else if ((p<=0.5 && input.burn) || (p>0.5 && !input.burn)){
+//		if(p>0.5)
+//			std::cout << "Predigo que la siguiente puerta está encendida" << std::endl;
+//		else std::cout << "Predigo que la siguiente puerta está apagada" << std::endl;
+//		std::cout << "Pinyico... volviendo a entrenar" << std::endl;
+//		this->C_trainingSet.push_back(input);
+//		if(trainType == 2)this->trainByGradient(iterTrain, alphaTrain);
+//		else this->trainByNormalEcuation();
+//		this->C_classifySuccesses--;
+//	} else std::cout << "No se que carajo ha pasado" << std::endl;
+//	std::cout << "He clasificado correctamente " << C_classifySuccesses << std::endl;
+
 }
 
-void LRMachine::predict(){
-	std::cout << "I'm predicting with the LRMachine" << std::endl;
-}
-
-//Completa
+//Correcto
 void LRMachine::clearTrainingSet() {
 	C_trainingSet.clear();
 	C_classifySuccesses = 0;
@@ -57,32 +81,7 @@ void LRMachine::clearTrainingSet() {
 //}
 
 //void LRMachine::classifySample(Sample sample) {
-////	// Como tengo un sigmoide, con un threshold voy to cheto
-////	double p = 0.0;
-////	for(int i=0; i<nFeatures+1; i++){
-////		if(i==0)
-////			p = theta[i];
-////		else p += theta[i]*sample.input[i-1];
-////	}
-////	p=sigmoid(p);
-////	if((p>0.5 && sample.burn) || (p<=0.5 && !sample.burn)){
-////		if(p>0.5)
-////			std::cout << "Predigo que la siguiente puerta está encendida" << std::endl;
-////		else std::cout << "Predigo que la siguiente puerta está apagada" << std::endl;
-////		std::cout << "Ha clasificao de puta madre" << std::endl;
-////		this->classifySuccesses++;
-////	} else if ((p<=0.5 && sample.burn) || (p>0.5 && !sample.burn)){
-////		if(p>0.5)
-////			std::cout << "Predigo que la siguiente puerta está encendida" << std::endl;
-////		else std::cout << "Predigo que la siguiente puerta está apagada" << std::endl;
-////		std::cout << "Pinyico... volviendo a entrenar" << std::endl;
-////		this->trainingSet.push_back(sample);
-////		if(trainType == 2)this->trainByGradient(iterTrain, alphaTrain);
-////		else this->trainByNormalEcuation();
-////		this->classifySuccesses--;
-////	} else std::cout << "No se que carajo ha pasado" << std::endl;
-////	std::cout << "He clasificado correctamente " << classifySuccesses << std::endl;
-////
+
 //}
 
 //bool LRMachine::isDoorOnFire(double input[]) {
@@ -102,19 +101,19 @@ void LRMachine::clearTrainingSet() {
 //	else return false;
 //}
 
-//Completo
+//Correcto
 double LRMachine::sigmoid(double z) {
 	double e = 2.71828182845904523536;
 	return 1/(1+pow(e,-z));
 }
 
-//Supongo que este método no habrá que tocarlo, es pure blue math
+//Presuntamente correcto
 double LRMachine::cost(std::vector<double> theta, std::vector<std::vector<double> > X, std::vector<double> y) {
 	double J = 0.0;
-	for(int i=0; i<y.size(); i++){
+	for(unsigned int i=0; i<y.size(); i++){
 		// Calculo el valor de la hipótises para la theta dada
 		double h = 0.0;
-		for(int j=0; j<theta.size(); j++){
+		for(unsigned int j=0; j<theta.size(); j++){
 			h += theta[j]*X[i][j];
 		}
 		h = sigmoid(h);
@@ -124,24 +123,24 @@ double LRMachine::cost(std::vector<double> theta, std::vector<std::vector<double
 	return J/y.size();
 }
 
-//Supongo que este método no habrá que tocarlo, es pure blue math
+//Presuntamente correcto
 void LRMachine::grad(std::vector<double> tetha, std::vector<std::vector<double> > X, std::vector<double> y, std::vector<double> grad) {
-	for(int j=0; j<theta.size(); j++){
+	for(unsigned int j=0; j<C_theta.size(); j++){
 		double parcial = 0.0;
-		for(int i=0; i<y.size(); i++){
+		for(unsigned int i=0; i<y.size(); i++){
 			// Calculo el valor de la hipótises para la theta dada
 			double h = 0.0;
-			for(int k=0; k<theta.size(); k++){
-				h += theta[k]*X[i][k];
+			for(unsigned int k=0; k<C_theta.size(); k++){
+				h += C_theta[k]*X[i][k];
 			}
 			h = sigmoid(h);
 			parcial += (h-y[i])*X[i][j];
 		}
-		grad[j] = parcial/theta.size();
+		grad[j] = parcial/C_theta.size();
 	}
 }
 
-//Todito comentadito
+//Todito comentadito estaba
 void LRMachine::trainByGradientAdvanced(int iter, double alpha) {
 //	int i, ret = 0;
 //	lbfgsfloatval_t fx;
@@ -174,7 +173,7 @@ void LRMachine::trainByGradientAdvanced(int iter, double alpha) {
 //	lbfgs_free(theta);
 }
 
-//Usa funciones inacabadas
+//Usa funciones dependientes de Sample
 void LRMachine::trainByGradient(int iter, double alpha) {
 	double vari = 0.01;
 	double pCoste = 0.0;
@@ -185,13 +184,13 @@ void LRMachine::trainByGradient(int iter, double alpha) {
 
 	for(int k=0; k<iter; k++){
 		// Calculo el coste
-		double coste = cost(theta, X, y);
+		double coste = cost(C_theta, C_X, C_y);
 		std::cout << "Para la iteración " << k << " el coste es: " << coste << std::endl;
 		// Recalculo theta para la siguiente iteracion
-		grad(theta, X, y, gradiente);
+		grad(C_theta, C_X, C_y, gradiente);
 //		std::cout << "El nuevo theta para la it " << k << " es: ";
-		for(int i=0; i<theta.size(); i++){
-			theta[i]=theta[i]-alpha*gradiente[i];
+		for(unsigned int i=0; i<C_theta.size(); i++){
+			C_theta[i]=C_theta[i]-alpha*gradiente[i];
 //			std::cout << theta[i]-alpha*gradiente[i] << " (" << alpha*gradiente[i] << ") ";
 		}
 //		std::cout << std::endl;
@@ -253,26 +252,26 @@ void LRMachine::trainByNormalEcuation() {
 
 //Pendiente de Sample
 void LRMachine::fillX() {
-	for(int i=0; i<C_trainingSet.size(); i++){
-		for(int j=0; j<nFeatures+1; j++){
+	for(unsigned int i=0; i<C_trainingSet.size(); i++){
+		for(int j=0; j<C_nFeatures+1; j++){
 			if(j==0)
-				X[i][j]=1.0;
-			else X[i][j]=C_trainingSet[i].input[j-1];
+				C_X[i][j]=1.0;
+			else C_X[i][j]=C_trainingSet[i].input[j-1];
 		}
 	}
 }
 
-//Completo
+//Correcto
 void LRMachine::fillTheta() {
-	for(int i=0; i<nFeatures+1; i++)
-		theta[i]=0;
+	for(int i=0; i<C_nFeatures+1; i++)
+		C_theta[i]=0;
 }
 
 //Pendiente de Sample
 void LRMachine::fillY() {
-//	for(int i=0; i<trainingSet.size(); i++){
-//		if(trainingSet[i].burn)
-//			y[i]=1;
-//		else y[i]=0;
-//	}
+	for(unsigned int i=0; i<C_trainingSet.size(); i++){
+		if(C_trainingSet[i].burn)
+			C_y[i]=1;
+		else C_y[i]=0;
+	}
 }

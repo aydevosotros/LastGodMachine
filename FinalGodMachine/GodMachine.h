@@ -42,12 +42,8 @@ public:
 		C_machine->train();
 	}
 
-	void addInput(Sample input){
-		C_machine->addInput(input);
-	}
-
-	void predict(){
-		C_machine->predict();
+	void predict(Sample input){
+		C_machine->predict(input);
 	}
 
 	void clearTrainingSet(){

@@ -19,18 +19,18 @@ public:
 	void setParameters(char *argv[]);
 	void addTrainingSet(std::vector<Sample> trainingSet);
 	void train();
-	void addInput(Sample input);
-	void predict();
+	void predict(Sample input);
 	void clearTrainingSet();
 
 private:
 	double C_lambda;
 	std::vector<Sample> C_trainingSet;
 	int C_classifySuccesses;
-	int nFeatures;
-	std::vector<std::vector<double> > X;
-	std::vector<double> y;
-	std::vector<double> theta;
+	int C_nFeatures;
+	std::vector<std::vector<double> > C_X;
+	std::vector<double> C_y;
+	std::vector<double> C_theta;
+
 	int iterTrain;
 	double alphaTrain;
 	int trainType;
