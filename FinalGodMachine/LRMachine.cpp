@@ -13,6 +13,7 @@ LRMachine::~LRMachine() {}
 void LRMachine::setParameters(char *argv[]) {
 	std::cout << "I'm setting parameters with the LRMachine" << std::endl;
 	C_lambda = atoi(argv[2]);
+	std::cout << "Lambda set to " << C_lambda << std::endl;
 
 //	Algo más a partir de argv[3];
 }
