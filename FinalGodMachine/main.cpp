@@ -14,7 +14,8 @@
  * 			0 para el testing
  * 			1 para la ejecución
  * 		2. Dependiendo del parametro anterior
- * 			0 - nombre del fichero training y test
+ * 			0 - nombre del fichero training
+ * 				nombre del fichero test
  * 			1 - nombre del fichero del input
  * 		3. Lambda
 */
