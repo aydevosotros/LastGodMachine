@@ -24,34 +24,92 @@ void LRMachine::setParameters(char *argv[]) {
 
 		std::cout	<< "Training with " << C_trainingFile
 					<< " and testing with " << C_testingFile << std::endl;
+
+		C_lambda = atoi(argv[5]);
+		std::cout << "Lambda set to " << C_lambda << std::endl;
 	} else 	if(C_executionMode == 1){
-		C_thetasFile = argv[3];
-		C_inputFile = argv[4];
+		C_inputFile = argv[3];
 
-		std::cout	<< "Predicting " << C_inputFile
-					<< " with " << C_thetasFile << std::endl;
+		std::cout	<< "Predicting " << C_inputFile << std::endl;
+
+		C_lambda = atoi(argv[4]);
+		std::cout << "Lambda set to " << C_lambda << std::endl;
 	}
-
-	C_lambda = atoi(argv[5]);
-	std::cout << "Lambda set to " << C_lambda << std::endl;
 
 //	Algo más a partir de aquí
 }
 
+//Falta ver estructura del fichero
 void LRMachine::loadTrainingSet(std::string filename) {
 	std::cout << "I'm loading training set with the LRMachine from " << filename << std::endl;
+
+	std::string line;
+	std::ifstream trainingFile(filename.c_str());
+
+	if(trainingFile.is_open()){
+		while(std::getline(trainingFile,line)) {
+			//Aquí se leería lo que fuera y se guardaría en la variable
+			std::cout << line << std::endl;
+		}
+
+		trainingFile.close();
+	} else{
+		std::cout << "Unable to open file" << std::endl;
+	}
 }
 
 void LRMachine::loadTestingSet(std::string filename) {
 	std::cout << "I'm loading testing set with the LRMachine from " << filename << std::endl;
+
+	std::string line;
+	std::ifstream testingFile(filename.c_str());
+
+	if(testingFile.is_open()){
+		while(std::getline(testingFile,line)) {
+			//Aquí se leería lo que fuera y se guardaría en la variable
+			std::cout << line << std::endl;
+		}
+
+		testingFile.close();
+	} else{
+		std::cout << "Unable to open file" << std::endl;
+	}
 }
 
 void LRMachine::loadInput(std::string filename) {
 	std::cout << "I'm loading input with the LRMachine from " << filename << std::endl;
+
+	std::string line;
+	std::ifstream inputFile(filename.c_str());
+
+	if(inputFile.is_open()){
+		while(std::getline(inputFile,line)) {
+			//Aquí se leería lo que fuera y se guardaría en la variable
+			std::cout << line << std::endl;
+		}
+
+		inputFile.close();
+	} else{
+		std::cout << "Unable to open file" << std::endl;
+	}
 }
 
+//Correcto?
 void LRMachine::loadThetas(std::string filename) {
 	std::cout << "I'm loading Thetas with the LRMachine from " << filename << std::endl;
+
+	std::string line;
+	std::ifstream thetasFile(filename.c_str());
+
+	if(thetasFile.is_open()){
+		while(std::getline(thetasFile,line)) {
+			C_theta.push_back(atoi(line.c_str()));
+		}
+
+		thetasFile.close();
+	} else{
+		std::cout << "Unable to open file" << std::endl;
+	}
 }
 
 //Correcto?
@@ -69,15 +127,38 @@ void LRMachine::run(){
 	} else if(C_executionMode == 1){
 		std::cout << "Predict" << std::endl;
 
-		loadThetas(C_thetasFile);
+		loadThetas("LR_C_theta.txt");
 		loadInput(C_inputFile);
 
 		predict();
 	}
 }
 
+//Cuidadito con el nFeatures hardcodeao que hay aqui
 void LRMachine::train(){
 	std::cout << "I'm training with the LRMachine" << std::endl;
+
+	C_nFeatures = 5; //Esto es temporal as hell
+	fillTheta();
+
+	//Toa la shit
+
+	//Y para terminar, escribimos las thetas en un archivo
+
+	std::string line;
+	std::ofstream thetasFile("LR_C_theta.txt");
+
+	if(thetasFile.is_open()){
+		thetasFile << C_theta[0];
+
+		for(unsigned int i = 1; i < C_theta.size(); i++){
+			thetasFile << "\n" << C_theta[i];
+		}
+
+		thetasFile.close();
+	} else{
+		std::cout << "Unable to open file" << std::endl;
+	}
 }
 
 void LRMachine::test(){
@@ -320,8 +401,9 @@ void LRMachine::fillX() {
 
 //Correcto
 void LRMachine::fillTheta() {
-	for(int i=0; i<C_nFeatures+1; i++)
-		C_theta[i]=0;
+	for(int i=0; i<C_nFeatures+1; i++) {
+		C_theta.push_back(0.0);
+	}
 }
 
 //Pendiente de Sample

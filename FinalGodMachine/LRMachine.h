@@ -3,6 +3,7 @@
 
 #include <cmath>
 #include <iostream>
+#include <fstream>
 #include <vector>
 #include <lbfgs.h>
 #include "armadillo"
@@ -34,7 +35,6 @@ private:
 	int C_executionMode;
 	std::string C_trainingFile;
 	std::string C_testingFile;
-	std::string C_thetasFile;
 	std::string C_inputFile;
 
 	//Atributos cargados desde archivo

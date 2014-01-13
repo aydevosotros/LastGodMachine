@@ -15,7 +15,7 @@
  * 			1 para la ejecución
  * 		2. Dependiendo del parametro anterior
  * 			0 - nombre del fichero training y test
- * 			1 - nombre del fichero thetas y del input
+ * 			1 - nombre del fichero del input
  * 		3. Lambda
 */
 
