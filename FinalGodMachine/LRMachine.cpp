@@ -1,5 +1,6 @@
 #include "LRMachine.h"
 
+//En el constructor no se que poner
 LRMachine::LRMachine() {
 	C_nFeatures = 4;
 	C_classifySuccesses = 0;
@@ -10,25 +11,81 @@ LRMachine::LRMachine() {
 
 LRMachine::~LRMachine() {}
 
+//Falta lo que vaya detrás del lambda
 void LRMachine::setParameters(char *argv[]) {
 	std::cout << "I'm setting parameters with the LRMachine" << std::endl;
-	C_lambda = atoi(argv[2]);
+
+	C_executionMode = atoi(argv[2]);
+	std::cout << "Execution mode set to " << C_executionMode << std::endl;
+
+	if(C_executionMode == 0){
+		C_trainingFile = argv[3];
+		C_testingFile = argv[4];
+
+		std::cout	<< "Training with " << C_trainingFile
+					<< " and testing with " << C_testingFile << std::endl;
+	} else 	if(C_executionMode == 1){
+		C_thetasFile = argv[3];
+		C_inputFile = argv[4];
+
+		std::cout	<< "Predicting " << C_inputFile
+					<< " with " << C_thetasFile << std::endl;
+	}
+
+	C_lambda = atoi(argv[5]);
 	std::cout << "Lambda set to " << C_lambda << std::endl;
 
-//	Algo más a partir de argv[3];
+//	Algo más a partir de aquí
 }
 
-void LRMachine::addTrainingSet(std::vector<Sample> trainingSet) {
-	std::cout << "I'm adding training set with the LRMachine" << std::endl;
-	C_trainingSet = trainingSet;
+void LRMachine::loadTrainingSet(std::string filename) {
+	std::cout << "I'm loading training set with the LRMachine from " << filename << std::endl;
+}
+
+void LRMachine::loadTestingSet(std::string filename) {
+	std::cout << "I'm loading testing set with the LRMachine from " << filename << std::endl;
+}
+
+void LRMachine::loadInput(std::string filename) {
+	std::cout << "I'm loading input with the LRMachine from " << filename << std::endl;
+}
+
+void LRMachine::loadThetas(std::string filename) {
+	std::cout << "I'm loading Thetas with the LRMachine from " << filename << std::endl;
+}
+
+//Correcto?
+void LRMachine::run(){
+	std::cout << "I'm running the mode ";
+
+	if(C_executionMode == 0){
+		std::cout << "Test" << std::endl;
+
+		loadTrainingSet(C_trainingFile);
+		loadTestingSet(C_testingFile);
+
+		train();
+		test();
+	} else if(C_executionMode == 1){
+		std::cout << "Predict" << std::endl;
+
+		loadThetas(C_thetasFile);
+		loadInput(C_inputFile);
+
+		predict();
+	}
 }
 
 void LRMachine::train(){
 	std::cout << "I'm training with the LRMachine" << std::endl;
 }
 
+void LRMachine::test(){
+	std::cout << "I'm testing with the LRMachine" << std::endl;
+}
+
 //Está copypasteado el classifySample
-void LRMachine::predict(Sample input){
+void LRMachine::predict(){
 	std::cout << "I'm predicting this input with the LRMachine" << std::endl;
 
 //	// Como tengo un sigmoide, con un threshold voy to cheto
@@ -252,13 +309,13 @@ void LRMachine::trainByNormalEcuation() {
 
 //Pendiente de Sample
 void LRMachine::fillX() {
-	for(unsigned int i=0; i<C_trainingSet.size(); i++){
-		for(int j=0; j<C_nFeatures+1; j++){
-			if(j==0)
-				C_X[i][j]=1.0;
-			else C_X[i][j]=C_trainingSet[i].input[j-1];
-		}
-	}
+//	for(unsigned int i=0; i<C_trainingSet.size(); i++){
+//		for(int j=0; j<C_nFeatures+1; j++){
+//			if(j==0)
+//				C_X[i][j]=1.0;
+//			else C_X[i][j]=C_trainingSet[i].getInput()[j-1];
+//		}
+//	}
 }
 
 //Correcto
@@ -269,9 +326,9 @@ void LRMachine::fillTheta() {
 
 //Pendiente de Sample
 void LRMachine::fillY() {
-	for(unsigned int i=0; i<C_trainingSet.size(); i++){
-		if(C_trainingSet[i].burn)
-			C_y[i]=1;
-		else C_y[i]=0;
-	}
+//	for(unsigned int i=0; i<C_trainingSet.size(); i++){
+//		if(C_trainingSet[i].burn)
+//			C_y[i]=1;
+//		else C_y[i]=0;
+//	}
 }

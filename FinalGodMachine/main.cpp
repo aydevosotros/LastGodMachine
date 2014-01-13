@@ -6,24 +6,21 @@
 #include "GodMachine.h"
 #include "Sample.h"
 
-// Ejecución: lgm machine [parámetros de la máquina]
-
-void loadDataSet(std::string fileName){
-	//Algooo
-}
-
-void loadInput(std::string input){
-	//Algooo
-}
+/* Ejecución: lgm machine [parámetros de la máquina]
+ *
+ * Parámetros de la máquina:
+ * 0 - Logistic Regression:
+ * 		1. Modo de ejecución
+ * 			0 para el testing
+ * 			1 para la ejecución
+ * 		2. Dependiendo del parametro anterior
+ * 			0 - nombre del fichero training y test
+ * 			1 - nombre del fichero thetas y del input
+ * 		3. Lambda
+*/
 
 int main(int argvc, char *argv[]) {
 	GodMachine *machine;
-
-	std::vector<Sample> dataSet;
-	Sample input;
-
-	int maquinaElegida;
-	double lambda;
 
     // Obtengo parametros e inicializo
     if(argvc > 1){
@@ -46,20 +43,20 @@ int main(int argvc, char *argv[]) {
 
     	machine->setParameters(argv);
 
-    	loadDataSet("hardCodedDataSet.txt"); //Carga los datos, donde quiera que estén, en el vector de samples
-
-    	loadInput("hardCodedInput.txt"); //Carga la prueba que queremos predecir
-
-    	machine->addTrainingSet(dataSet);
-
-    	machine->train();
-
-    	machine->predict(input);
-
-    	//Y ahora qué?
+    	machine->run();
+//
+//    	loadDataSet("hardCodedDataSet.txt"); //Carga los datos, donde quiera que estén, en el vector de samples
+//
+//    	loadInput("hardCodedInput.txt"); //Carga la prueba que queremos predecir
+//
+//    	machine->addTrainingSet(dataSet);
+//
+//    	machine->train();
+//
+//    	machine->predict(input);
+//
+//    	//Y ahora qué?
 
 //		machine->clearTrainingSet();
-    } else{
-    	std::cout << "Nº de argumentos incorrecto" << std::endl;
     }
 }

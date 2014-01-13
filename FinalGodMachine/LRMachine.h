@@ -17,23 +17,44 @@ public:
 	virtual ~LRMachine();
 
 	void setParameters(char *argv[]);
-	void addTrainingSet(std::vector<Sample> trainingSet);
+	void loadTrainingSet(std::string filename);
+	void loadTestingSet(std::string filename);
+	void loadInput(std::string filename);
 	void train();
-	void predict(Sample input);
+	void run();
+	void test();
+	void predict();
 	void clearTrainingSet();
 
 private:
+	//ATRIBUTOS
+
+	//Atributos pasados por parámetro
 	double C_lambda;
+	int C_executionMode;
+	std::string C_trainingFile;
+	std::string C_testingFile;
+	std::string C_thetasFile;
+	std::string C_inputFile;
+
+	//Atributos cargados desde archivo
 	std::vector<Sample> C_trainingSet;
+	std::vector<Sample> C_testingSet;
+	std::vector<double> C_theta;
+	Sample C_input;
+
+	//Usados en el cálculo
 	int C_classifySuccesses;
 	int C_nFeatures;
-	std::vector<std::vector<double> > C_X;
-	std::vector<double> C_y;
-	std::vector<double> C_theta;
+	std::vector<std::vector<double> > C_X; //esto no es una matriz BIdimensional diría
+	std::vector<double> C_y; //Son doubles pero los valores son enteros, no?
 
+	//Ni zorra
 	int iterTrain;
 	double alphaTrain;
 	int trainType;
+
+	//FUNCIONES
 
 	// Internal functions
 	double sigmoid(double z);
@@ -47,6 +68,8 @@ private:
 	void fillX();
 	void fillTheta();
 	void fillY();
+
+	void loadThetas(std::string filename);
 
 };
 

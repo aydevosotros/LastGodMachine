@@ -3,15 +3,33 @@
 
 #include <vector>
 
-//Por determinar
+typedef std::vector<std::vector<double> > double_2M;
+
 class Sample{
 public:
-	std::vector<double> input;
-	bool burn;
-
 	int getNFeatures(){
 		return input.size();
 	}
+
+	const double_2M& getInput() const {
+		return input;
+	}
+
+	void setInput(const double_2M& input) {
+		this->input = input;
+	}
+
+	int getResult() const {
+		return result;
+	}
+
+	void setResult(int result) {
+		this->result = result;
+	}
+	
+private:
+	double_2M input;
+	int result;
 };
 
 #endif /* SAMPLE_H_ */

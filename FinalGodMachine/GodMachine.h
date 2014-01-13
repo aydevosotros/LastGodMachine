@@ -34,16 +34,32 @@ public:
 		C_machine->setParameters(argv);
 	}
 
-	void addTrainingSet(std::vector<Sample> trainingSet){
-		C_machine->addTrainingSet(trainingSet);
+	void loadTrainingSet(std::string filename){
+		C_machine->loadTrainingSet(filename);
+	}
+
+	void loadTestingSet(std::string filename){
+		C_machine->loadTestingSet(filename);
+	}
+
+	void loadInput(std::string filename){
+		C_machine->loadInput(filename);
 	}
 
 	void train(){
 		C_machine->train();
 	}
 
-	void predict(Sample input){
-		C_machine->predict(input);
+	void run(){
+		C_machine->run();
+	}
+
+	void test(){
+		C_machine->test();
+	}
+
+	void predict(){
+		C_machine->predict();
 	}
 
 	void clearTrainingSet(){

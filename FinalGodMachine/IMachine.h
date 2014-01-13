@@ -6,9 +6,13 @@
 class IMachine {
 public:
 	virtual void setParameters(char *argv[])=0;
-	virtual void addTrainingSet(std::vector<Sample> trainingSet)=0;
+	virtual void loadTrainingSet(std::string filename)=0;
+	virtual void loadTestingSet(std::string filename)=0;
+	virtual void loadInput(std::string filename)=0;
 	virtual void train()=0;
-	virtual void predict(Sample input)=0;
+	virtual void run()=0;
+	virtual void test()=0;
+	virtual void predict()=0;
 	virtual void clearTrainingSet()=0;
 };
 
