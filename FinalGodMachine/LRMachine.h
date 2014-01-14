@@ -48,6 +48,7 @@ private:
 	int C_nFeatures;
 	std::vector<std::vector<double> > C_X; //esto no es una matriz BIdimensional diría
 	std::vector<double> C_y; //Son doubles pero los valores son enteros, no?
+	std::vector<double> C_obtainedY; //Estos son los que calculamos nosotros. Precission y recall
 
 	//Ni zorra
 	int iterTrain;

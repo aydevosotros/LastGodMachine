@@ -103,13 +103,18 @@ void LRMachine::loadThetas(std::string filename) {
 
 	if(thetasFile.is_open()){
 		while(std::getline(thetasFile,line)) {
-			C_theta.push_back(atoi(line.c_str()));
+			C_theta.push_back(atof(line.c_str()));
 		}
 
 		thetasFile.close();
 	} else{
 		std::cout << "Unable to open file" << std::endl;
 	}
+
+//	Lee bien las thetas?
+//	for(unsigned int i = 0; i < C_theta.size(); i++){
+//		std::cout << C_theta[i] << std::endl;
+//	}
 }
 
 //Correcto?
@@ -402,7 +407,7 @@ void LRMachine::fillX() {
 //Correcto
 void LRMachine::fillTheta() {
 	for(int i=0; i<C_nFeatures+1; i++) {
-		C_theta.push_back(0.0);
+		C_theta.push_back(0.5);
 	}
 }
 
