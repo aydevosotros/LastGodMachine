@@ -145,6 +145,7 @@ void LRMachine::train(){
 
 	C_nFeatures = 5; //Esto es temporal as hell
 	fillTheta();
+	fillY();
 
 	//Toa la shit
 
@@ -168,6 +169,33 @@ void LRMachine::train(){
 
 void LRMachine::test(){
 	std::cout << "I'm testing with the LRMachine" << std::endl;
+
+	fillActualY();
+
+	//Al final, cuando tengamos lleno el C_obtainedY, calculamos Precission y Recall
+
+	double tPositives = 0.0;
+	double fPositives = 0.0;
+	double tNegatives = 0.0;
+	double fNegatives = 0.0;
+
+	for(unsigned int i = 0; i < C_actualY.size(); i++){
+		if(C_actualY[i] > 0 && C_predictedY[i] > 0){
+			tPositives++;
+		} else if(C_actualY[i] > 0 && C_predictedY[i] < 0){
+			fNegatives++;
+		} else if(C_actualY[i] < 0 && C_predictedY[i] > 0){
+			fPositives++;
+		} else if(C_actualY[i] < 0 && C_predictedY[i] < 0){
+			tNegatives++;
+		}
+	}
+
+	double precission = tPositives / (tPositives + fPositives);
+	double recall = tPositives / (tPositives + fNegatives);
+	double fScore = 2 * ( (precission * recall) / (precission + recall) );
+
+	//Y escribirlos en el formato adecuado
 }
 
 //Está copypasteado el classifySample
@@ -413,9 +441,13 @@ void LRMachine::fillTheta() {
 
 //Pendiente de Sample
 void LRMachine::fillY() {
-//	for(unsigned int i=0; i<C_trainingSet.size(); i++){
-//		if(C_trainingSet[i].burn)
-//			C_y[i]=1;
-//		else C_y[i]=0;
-//	}
+	for(unsigned int i=0; i<C_trainingSet.size(); i++){
+		C_y[i] = C_trainingSet[i].getResult();
+	}
+}
+
+void LRMachine::fillActualY(){
+	for(unsigned int i=0; i<C_trainingSet.size(); i++){
+		C_actualY[i] = C_testingSet[i].getResult();
+	}
 }

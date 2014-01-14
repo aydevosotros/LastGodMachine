@@ -43,12 +43,15 @@ private:
 	std::vector<double> C_theta;
 	Sample C_input;
 
-	//Usados en el cálculo
+	//Usados en el training
 	int C_classifySuccesses;
 	int C_nFeatures;
 	std::vector<std::vector<double> > C_X; //esto no es una matriz BIdimensional diría
 	std::vector<double> C_y; //Son doubles pero los valores son enteros, no?
-	std::vector<double> C_obtainedY; //Estos son los que calculamos nosotros. Precission y recall
+
+	//Usados en el testing
+	std::vector<double> C_actualY;
+	std::vector<double> C_predictedY; //Estos son los que calculamos nosotros. Precission y recall
 
 	//Ni zorra
 	int iterTrain;
@@ -69,6 +72,7 @@ private:
 	void fillX();
 	void fillTheta();
 	void fillY();
+	void fillActualY();
 
 	void loadThetas(std::string filename);
 
