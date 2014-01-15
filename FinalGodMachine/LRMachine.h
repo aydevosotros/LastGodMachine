@@ -66,7 +66,7 @@ private:
 
 	// Auxiliar functions
 	void fillX();
-	void fillTheta();
+	void initTheta();
 	void fillY();
 
 	void loadThetas(std::string filename);

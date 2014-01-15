@@ -112,7 +112,7 @@ void LRMachine::loadThetas(std::string filename) {
 	}
 }
 
-//Correcto?
+
 void LRMachine::run(){
 	std::cout << "I'm running the mode ";
 
@@ -134,12 +134,12 @@ void LRMachine::run(){
 	}
 }
 
-//Cuidadito con el nFeatures hardcodeao que hay aqui
+
 void LRMachine::train(){
 	std::cout << "I'm training with the LRMachine" << std::endl;
 
 	C_nFeatures = 5; //Esto es temporal as hell
-	fillTheta();
+	initTheta();
 
 	//Toa la shit
 
@@ -197,55 +197,19 @@ void LRMachine::predict(){
 
 }
 
-//Correcto
+
 void LRMachine::clearTrainingSet() {
 	C_trainingSet.clear();
 	C_classifySuccesses = 0;
 }
 
-//bool LRMachine::isTrainingReady() {
-//	if(trainingSet.size() == 1){
-//		nFeatures=trainingSet[0].getNFeatures();
-//	}
-//	if(trainingSet.size() > 20 ){
-//		if(trainType == 2)trainByGradient(iterTrain, alphaTrain);
-//		else trainByNormalEcuation();
-//		return true;
-//	} else return false;
-//}
 
-//bool LRMachine::isReadyToCross() {
-//	return classifySuccesses > 10;
-//}
-
-//void LRMachine::classifySample(Sample sample) {
-
-//}
-
-//bool LRMachine::isDoorOnFire(double input[]) {
-//	double p = 0.0;
-//	for(int i=0; i<nFeatures+1; i++){
-//		if(i==0)
-//			p = theta[i];
-//		else p += theta[i]*input[i-1];
-//	}
-//	p=sigmoid(p);
-//	std::cout << "La probabilidad de que la siguiente puerta esté caliente es: " << p << std::endl;
-////	if(p>0.4 && p <0.6)
-//	if(p>0.40)
-//		return true; // Esto es un truquillo para no jugarsela en un rango de más indecisión
-////	if(p>0.5)
-////		return true;
-//	else return false;
-//}
-
-//Correcto
 double LRMachine::sigmoid(double z) {
 	double e = 2.71828182845904523536;
 	return 1/(1+pow(e,-z));
 }
 
-//Presuntamente correcto
+
 double LRMachine::cost(std::vector<double> theta, std::vector<std::vector<double> > X, std::vector<double> y) {
 	double J = 0.0;
 	for(unsigned int i=0; i<y.size(); i++){
@@ -261,7 +225,7 @@ double LRMachine::cost(std::vector<double> theta, std::vector<std::vector<double
 	return J/y.size();
 }
 
-//Presuntamente correcto
+
 void LRMachine::grad(std::vector<double> tetha, std::vector<std::vector<double> > X, std::vector<double> y, std::vector<double> grad) {
 	for(unsigned int j=0; j<C_theta.size(); j++){
 		double parcial = 0.0;
@@ -278,7 +242,7 @@ void LRMachine::grad(std::vector<double> tetha, std::vector<std::vector<double> 
 	}
 }
 
-//Todito comentadito estaba
+
 void LRMachine::trainByGradientAdvanced(int iter, double alpha) {
 //	int i, ret = 0;
 //	lbfgsfloatval_t fx;
@@ -317,7 +281,7 @@ void LRMachine::trainByGradient(int iter, double alpha) {
 	double pCoste = 0.0;
 	std::vector<double> gradiente;
 	fillX();
-	fillTheta();
+	initTheta();
 	fillY();
 
 	for(int k=0; k<iter; k++){
@@ -347,45 +311,45 @@ void LRMachine::trainByGradient(int iter, double alpha) {
 
 //Ya estaba comentado cuando llegué
 void LRMachine::trainByNormalEcuation() {
-//	// Actualizo aqui el número de características
-//	int nFeaturesCuad = 2*nFeatures;
-//	// Obtengo la X
-//	arma::mat X = arma::mat(trainingSet.size(), nFeaturesCuad+1);
-//	for(int i=0; i<trainingSet.size(); i++){
-//		for(int j=0; j<nFeatures+1; j++){
-//			if(j==0)
-//				X(i,j)=1.0;
-//			else X(i,j)=trainingSet[i].input[j-1];
-//		}
-//	}
-//	// Elementos cuadráticos
-//	for(int i=0; i<trainingSet.size(); i++){
-//		for(int j=0; j<nFeatures; j++){
-//			X(i,nFeatures+j+1)=pow(trainingSet[i].input[j],2);
-//		}
-//	}
-//	// Obtengo la Y
-//	arma::mat y = arma::mat(trainingSet.size(), 1);
-//	for(int i=0; i<trainingSet.size(); i++){
-//		if(trainingSet[i].burn)
-//			y(i)=1;
-//		else y(i)=0;
-//	}
-//	// Calculo la matriz de alpha
-//	arma::mat Alpha(nFeaturesCuad+1, nFeaturesCuad+1);
-//	Alpha.eye();
-//	Alpha(0,0)=0;
-//	alphaTrain*Alpha;
-////	std::cout << Alpha;
-//	// Inicializo theta
-//	arma::mat theta = arma::mat(nFeaturesCuad+1, 1);
-//	// Calculo vectorialmente
-//	theta = arma::pinv(X.t()*X+Alpha)*X.t()*y;
-////	std::cout << theta;
-//	this->theta.clear();
-//	for(int i=0; i<nFeaturesCuad+1; i++){
-//		this->theta.push_back(theta(i));
-//	}
+	// Actualizo aqui el número de características
+	int nFeaturesCuad = 2*nFeatures;
+	// Obtengo la X
+	arma::mat X = arma::mat(trainingSet.size(), nFeaturesCuad+1);
+	for(int i=0; i<trainingSet.size(); i++){
+		for(int j=0; j<nFeatures+1; j++){
+			if(j==0)
+				X(i,j)=1.0;
+			else X(i,j)=trainingSet[i].input[j-1];
+		}
+	}
+	// Elementos cuadráticos
+	for(int i=0; i<trainingSet.size(); i++){
+		for(int j=0; j<nFeatures; j++){
+			X(i,nFeatures+j+1)=pow(trainingSet[i].input[j],2);
+		}
+	}
+	// Obtengo la Y
+	arma::mat y = arma::mat(trainingSet.size(), 1);
+	for(int i=0; i<trainingSet.size(); i++){
+		if(trainingSet[i].burn)
+			y(i)=1;
+		else y(i)=0;
+	}
+	// Calculo la matriz de alpha
+	arma::mat Alpha(nFeaturesCuad+1, nFeaturesCuad+1);
+	Alpha.eye();
+	Alpha(0,0)=0;
+	alphaTrain*Alpha;
+//	std::cout << Alpha;
+	// Inicializo theta
+	arma::mat theta = arma::mat(nFeaturesCuad+1, 1);
+	// Calculo vectorialmente
+	theta = arma::pinv(X.t()*X+Alpha)*X.t()*y;
+//	std::cout << theta;
+	this->theta.clear();
+	for(int i=0; i<nFeaturesCuad+1; i++){
+		this->theta.push_back(theta(i));
+	}
 }
 
 //Pendiente de Sample
@@ -400,7 +364,7 @@ void LRMachine::fillX() {
 }
 
 //Correcto
-void LRMachine::fillTheta() {
+void LRMachine::initTheta() {
 	for(int i=0; i<C_nFeatures+1; i++) {
 		C_theta.push_back(0.0);
 	}
