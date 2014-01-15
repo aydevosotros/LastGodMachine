@@ -24,7 +24,7 @@ public:
 	void train();
 	void run();
 	void test();
-	void predict();
+	double predict(Sample input);
 	void clearTrainingSet();
 
 private:

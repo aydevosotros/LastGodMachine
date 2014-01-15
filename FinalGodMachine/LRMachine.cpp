@@ -1,10 +1,11 @@
 #include "LRMachine.h"
 #include "Utils.h"
 
-//En el constructor no se que poner
+//Hay cosas hardcodeadas y tal
 LRMachine::LRMachine() {
 	C_nFeatures = 4;
 	C_classifySuccesses = 0;
+	//iterTrain y alphaTrain son parámetros que se hardcodean aqui
 	iterTrain = 1000;
 	alphaTrain = 0.01;
 	trainType = 1; //1 normal, 2 gradiente
@@ -127,7 +128,6 @@ void LRMachine::loadThetas(std::string filename) {
 	}
 }
 
-//Correcto?
 void LRMachine::run(){
 	std::cout << "I'm running the mode ";
 
@@ -137,23 +137,25 @@ void LRMachine::run(){
 		loadTrainingSet(C_trainingFile);
 		loadTestingSet(C_testingFile);
 
-		//Comprobamos que se han cargado bien los dos archivos
-		for(unsigned int i = 0; i < C_trainingSet.size(); i++){
-			for(unsigned int j = 0; j < C_trainingSet[i].getInput().size(); j++){
-				std::cout << C_trainingSet[i].getInput()[j] << ' ';
-			}
-			std::cout << std::endl << C_trainingSet[i].getResult() << std::endl;
-		}
-
-		std::cout << std::endl;
-
-		for(unsigned int i = 0; i < C_testingSet.size(); i++){
-			for(unsigned int j = 0; j < C_testingSet[i].getInput().size(); j++){
-				std::cout << C_testingSet[i].getInput()[j] << ' ';
-			}
-			std::cout << std::endl << C_testingSet[i].getResult() << std::endl;
-		}
-		//Fin de la comprobacion
+//		//Comprobamos que se han cargado bien los dos archivos
+//
+//		for(unsigned int i = 0; i < C_trainingSet.size(); i++){
+//			for(unsigned int j = 0; j < C_trainingSet[i].getInput().size(); j++){
+//				std::cout << C_trainingSet[i].getInput()[j] << ' ';
+//			}
+//			std::cout << std::endl << C_trainingSet[i].getResult() << std::endl;
+//		}
+//
+//		std::cout << std::endl;
+//
+//		for(unsigned int i = 0; i < C_testingSet.size(); i++){
+//			for(unsigned int j = 0; j < C_testingSet[i].getInput().size(); j++){
+//				std::cout << C_testingSet[i].getInput()[j] << ' ';
+//			}
+//			std::cout << std::endl << C_testingSet[i].getResult() << std::endl;
+//		}
+//
+//		//Fin de la comprobacion
 
 		train();
 		test();
@@ -163,32 +165,37 @@ void LRMachine::run(){
 		loadThetas("LR_C_theta.txt");
 		loadInput(C_inputFile);
 
-		//Comprobamos que se leen bien los archivos
-		for(unsigned int i = 0; i < C_theta.size(); i++){
-			std::cout << C_theta[i] << ' ';
-		}
-		std::cout << std::endl << std::endl;
+//		//Comprobamos que se leen bien los archivos
+//
+//		for(unsigned int i = 0; i < C_theta.size(); i++){
+//			std::cout << C_theta[i] << ' ';
+//		}
+//		std::cout << std::endl << std::endl;
+//
+//		for(unsigned int i = 0; i < C_input.getInput().size(); i++){
+//			std::cout << C_input.getInput()[i] << ' ';
+//		}
+//		std::cout << std::endl << C_input.getResult() << std::endl;
+//
+//		//Fin de la comprobacion
 
-		for(unsigned int i = 0; i < C_input.getInput().size(); i++){
-			std::cout << C_input.getInput()[i] << ' ';
-		}
-		std::cout << std::endl << C_input.getResult() << std::endl;
+		predict(C_input);
 
-		//Fin de la comprobacion
-
-		predict();
+		//Escribir lo que devuelve input en algun lado?
 	}
 }
 
-//Cuidadito con el nFeatures hardcodeao que hay aqui
+//Lleva dentro el isTrainingReady
 void LRMachine::train(){
 	std::cout << "I'm training with the LRMachine" << std::endl;
 
-	C_nFeatures = 5; //Esto es temporal as hell
-	fillTheta();
-	fillY();
+	C_nFeatures=C_trainingSet[0].getNFeatures();
 
-	//Toa la shit
+	if(trainType == 2){
+		trainByGradient(iterTrain, alphaTrain);
+	} else{
+		trainByNormalEcuation();
+	}
 
 	//Y para terminar, escribimos las thetas en un archivo
 
@@ -208,13 +215,40 @@ void LRMachine::train(){
 	}
 }
 
+//Llamada al predict y... ¿ya?
 void LRMachine::test(){
 	std::cout << "I'm testing with the LRMachine" << std::endl;
 
 	fillActualY();
-	C_predictedY = C_actualY;//Temporal as hell, para que no de fallo de segmentacion
 
-	//Al final, cuando tengamos lleno el C_obtainedY, calculamos Precission y Recall
+	for(unsigned int i = 0; i < C_testingSet.size(); i++){
+		double p = (double)predict(C_testingSet[i]);
+
+		if((p>0.5 && C_testingSet[i].getResult() > 0) || (p<=0.5 && C_testingSet[i].getResult() < 0)){
+			if(p>0.5){
+				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
+			} else {
+				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
+			}
+
+			std::cout << "Ha clasificao de puta madre" << std::endl;
+
+		} else if((p>0.5 && C_testingSet[i].getResult() < 0) || (p<=0.5 && C_testingSet[i].getResult() > 0)){
+			if(p>0.5){
+				std::cout << "Predigo que la siguiente puerta está encendida" << std::endl;
+			} else {
+				std::cout << "Predigo que la siguiente puerta está apagada" << std::endl;
+			}
+
+			std::cout << "Pinyico... volviendo a entrenar" << std::endl;
+		} else {
+			std::cout << "No se que carajo ha pasado" << std::endl;
+		}
+
+		C_predictedY.push_back(p);
+	}
+
+	//Al final, cuando tengamos lleno el C_predictedY, calculamos Precission y Recall
 
 	double tPositives = 0.0;
 	double fPositives = 0.0;
@@ -238,38 +272,25 @@ void LRMachine::test(){
 	double fScore = 2 * ( (precission * recall) / (precission + recall) );
 
 	//Y escribirlos en el formato adecuado
+	std::cout << fScore << std::endl;
 }
 
 //Está copypasteado el classifySample
-void LRMachine::predict(){
+double LRMachine::predict(Sample input){
 	std::cout << "I'm predicting this input with the LRMachine" << std::endl;
 
-//	// Como tengo un sigmoide, con un threshold voy to cheto
-//	double p = 0.0;
-//	for(int i=0; i<C_nFeatures+1; i++){
-//		if(i==0)
-//			p = C_theta[i];
-//		else p += C_theta[i]*input.input[i-1];
-//	}
-//	p=sigmoid(p);
-//	if((p>0.5 && input.burn) || (p<=0.5 && !input.burn)){
-//		if(p>0.5)
-//			std::cout << "Predigo que la siguiente puerta está encendida" << std::endl;
-//		else std::cout << "Predigo que la siguiente puerta está apagada" << std::endl;
-//		std::cout << "Ha clasificao de puta madre" << std::endl;
-//		this->C_classifySuccesses++;
-//	} else if ((p<=0.5 && input.burn) || (p>0.5 && !input.burn)){
-//		if(p>0.5)
-//			std::cout << "Predigo que la siguiente puerta está encendida" << std::endl;
-//		else std::cout << "Predigo que la siguiente puerta está apagada" << std::endl;
-//		std::cout << "Pinyico... volviendo a entrenar" << std::endl;
-//		this->C_trainingSet.push_back(input);
-//		if(trainType == 2)this->trainByGradient(iterTrain, alphaTrain);
-//		else this->trainByNormalEcuation();
-//		this->C_classifySuccesses--;
-//	} else std::cout << "No se que carajo ha pasado" << std::endl;
-//	std::cout << "He clasificado correctamente " << C_classifySuccesses << std::endl;
+	// Como tengo un sigmoide, con un threshold voy to cheto
+	double p = 0.0;
 
+	for(int i=0; i<C_nFeatures+1; i++){
+		if(i==0) {
+			p = C_theta[i];
+		} else {
+			p += C_theta[i]*input.getInput()[i-1];
+		}
+	}
+
+	return sigmoid(p);
 }
 
 //Correcto
@@ -277,25 +298,6 @@ void LRMachine::clearTrainingSet() {
 	C_trainingSet.clear();
 	C_classifySuccesses = 0;
 }
-
-//bool LRMachine::isTrainingReady() {
-//	if(trainingSet.size() == 1){
-//		nFeatures=trainingSet[0].getNFeatures();
-//	}
-//	if(trainingSet.size() > 20 ){
-//		if(trainType == 2)trainByGradient(iterTrain, alphaTrain);
-//		else trainByNormalEcuation();
-//		return true;
-//	} else return false;
-//}
-
-//bool LRMachine::isReadyToCross() {
-//	return classifySuccesses > 10;
-//}
-
-//void LRMachine::classifySample(Sample sample) {
-
-//}
 
 //bool LRMachine::isDoorOnFire(double input[]) {
 //	double p = 0.0;
@@ -314,7 +316,6 @@ void LRMachine::clearTrainingSet() {
 //	else return false;
 //}
 
-//Correcto
 double LRMachine::sigmoid(double z) {
 	double e = 2.71828182845904523536;
 	return 1/(1+pow(e,-z));
@@ -386,7 +387,7 @@ void LRMachine::trainByGradientAdvanced(int iter, double alpha) {
 //	lbfgs_free(theta);
 }
 
-//Usa funciones dependientes de Sample
+//Aun no esta repasado
 void LRMachine::trainByGradient(int iter, double alpha) {
 	double vari = 0.01;
 	double pCoste = 0.0;
@@ -420,58 +421,67 @@ void LRMachine::trainByGradient(int iter, double alpha) {
 
 }
 
-//Ya estaba comentado cuando llegué
 void LRMachine::trainByNormalEcuation() {
-//	// Actualizo aqui el número de características
-//	int nFeaturesCuad = 2*nFeatures;
-//	// Obtengo la X
-//	arma::mat X = arma::mat(trainingSet.size(), nFeaturesCuad+1);
-//	for(int i=0; i<trainingSet.size(); i++){
-//		for(int j=0; j<nFeatures+1; j++){
-//			if(j==0)
-//				X(i,j)=1.0;
-//			else X(i,j)=trainingSet[i].input[j-1];
-//		}
-//	}
-//	// Elementos cuadráticos
-//	for(int i=0; i<trainingSet.size(); i++){
-//		for(int j=0; j<nFeatures; j++){
-//			X(i,nFeatures+j+1)=pow(trainingSet[i].input[j],2);
-//		}
-//	}
-//	// Obtengo la Y
-//	arma::mat y = arma::mat(trainingSet.size(), 1);
-//	for(int i=0; i<trainingSet.size(); i++){
-//		if(trainingSet[i].burn)
-//			y(i)=1;
-//		else y(i)=0;
-//	}
-//	// Calculo la matriz de alpha
-//	arma::mat Alpha(nFeaturesCuad+1, nFeaturesCuad+1);
-//	Alpha.eye();
-//	Alpha(0,0)=0;
-//	alphaTrain*Alpha;
-////	std::cout << Alpha;
-//	// Inicializo theta
-//	arma::mat theta = arma::mat(nFeaturesCuad+1, 1);
-//	// Calculo vectorialmente
-//	theta = arma::pinv(X.t()*X+Alpha)*X.t()*y;
-////	std::cout << theta;
-//	this->theta.clear();
-//	for(int i=0; i<nFeaturesCuad+1; i++){
-//		this->theta.push_back(theta(i));
-//	}
+	// Actualizo aqui el número de características
+	int nFeaturesCuad = 2*C_nFeatures;
+
+	// Obtengo la X
+	arma::mat X = arma::mat(C_trainingSet.size(), nFeaturesCuad+1);
+
+	for(unsigned int i = 0; i < C_trainingSet.size(); i++){
+		for(int j = 0; j < C_nFeatures+1; j++){
+			if(j==0){
+				X(i,j) = 1.0;
+			} else{
+				X(i,j) = C_trainingSet[i].getInput()[j-1];
+			}
+		}
+	}
+
+	// Elementos cuadráticos
+	for(unsigned int i = 0; i < C_trainingSet.size(); i++){
+		for(int j = 0; j < C_nFeatures; j++){
+			X(i,C_nFeatures+j+1) = pow(C_trainingSet[i].getInput()[j],2.0);
+		}
+	}
+
+	// Obtengo la Y
+	arma::mat y = arma::mat(C_trainingSet.size(), 1);
+
+	for(unsigned int i=0; i<C_trainingSet.size(); i++){
+		y(i) = C_trainingSet[i].getResult();
+	}
+
+	// Calculo la matriz de alpha
+	arma::mat Alpha(nFeaturesCuad+1, nFeaturesCuad+1);
+	Alpha.eye();
+	Alpha(0,0)=0;
+	alphaTrain*Alpha;
+
+//	std::cout << Alpha;
+
+	// Inicializo theta
+	arma::mat theta = arma::mat(nFeaturesCuad+1, 1);
+
+	// Calculo vectorialmente
+	theta = arma::pinv(X.t()*X+Alpha)*X.t()*y;
+
+//	std::cout << theta;
+	C_theta.clear();
+
+	for(int i=0; i<nFeaturesCuad+1; i++){
+		C_theta.push_back(theta(i));
+	}
 }
 
-//Pendiente de Sample
 void LRMachine::fillX() {
-//	for(unsigned int i=0; i<C_trainingSet.size(); i++){
-//		for(int j=0; j<C_nFeatures+1; j++){
-//			if(j==0)
-//				C_X[i][j]=1.0;
-//			else C_X[i][j]=C_trainingSet[i].getInput()[j-1];
-//		}
-//	}
+	for(unsigned int i=0; i<C_trainingSet.size(); i++){
+		for(int j=0; j<C_nFeatures+1; j++){
+			if(j==0)
+				C_X[i][j] = 1.0;
+			else C_X[i][j] = C_trainingSet[i].getInput()[j-1];
+		}
+	}
 }
 
 void LRMachine::fillTheta() {

@@ -12,7 +12,7 @@ public:
 	virtual void train()=0;
 	virtual void run()=0;
 	virtual void test()=0;
-	virtual void predict()=0;
+	virtual double predict(Sample input)=0;
 	virtual void clearTrainingSet()=0;
 };
 

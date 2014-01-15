@@ -58,8 +58,8 @@ public:
 		C_machine->test();
 	}
 
-	void predict(){
-		C_machine->predict();
+	double predict(Sample input){
+		return C_machine->predict(input);
 	}
 
 	void clearTrainingSet(){
