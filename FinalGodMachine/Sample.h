@@ -3,19 +3,23 @@
 
 #include <vector>
 
-typedef std::vector<std::vector<double> > double_2M;
-
 class Sample{
 public:
+	void scalate(double value){
+		for(unsigned int i = 0; i < input.size(); i++){
+			input[i] /= value;
+		}
+	}
+
 	int getNFeatures(){
 		return input.size();
 	}
 
-	const double_2M& getInput() const {
+	const std::vector<double>& getInput() const {
 		return input;
 	}
 
-	void setInput(const double_2M& input) {
+	void setInput(const std::vector<double>& input) {
 		this->input = input;
 	}
 
@@ -28,7 +32,7 @@ public:
 	}
 	
 private:
-	double_2M input;
+	std::vector<double> input;
 	int result;
 };
 

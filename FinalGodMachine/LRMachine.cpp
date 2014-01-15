@@ -1,4 +1,5 @@
 #include "LRMachine.h"
+#include "Utils.h"
 
 //En el constructor no se que poner
 LRMachine::LRMachine() {
@@ -32,14 +33,13 @@ void LRMachine::setParameters(char *argv[]) {
 
 		std::cout	<< "Predicting " << C_inputFile << std::endl;
 
-		C_lambda = atoi(argv[4]);
+		C_lambda = atof(argv[4]);
 		std::cout << "Lambda set to " << C_lambda << std::endl;
 	}
 
 //	Algo más a partir de aquí
 }
 
-//Falta ver estructura del fichero
 void LRMachine::loadTrainingSet(std::string filename) {
 	std::cout << "I'm loading training set with the LRMachine from " << filename << std::endl;
 
@@ -48,8 +48,15 @@ void LRMachine::loadTrainingSet(std::string filename) {
 
 	if(trainingFile.is_open()){
 		while(std::getline(trainingFile,line)) {
-			//Aquí se leería lo que fuera y se guardaría en la variable
-			std::cout << line << std::endl;
+			Sample tmp;
+
+			tmp.setInput(Utils::vStovD(Utils::split(line,';')));
+
+			std::getline(trainingFile,line);
+
+			tmp.setResult(atoi(line.c_str()));
+
+			C_trainingSet.push_back(tmp);
 		}
 
 		trainingFile.close();
@@ -66,8 +73,15 @@ void LRMachine::loadTestingSet(std::string filename) {
 
 	if(testingFile.is_open()){
 		while(std::getline(testingFile,line)) {
-			//Aquí se leería lo que fuera y se guardaría en la variable
-			std::cout << line << std::endl;
+			Sample tmp;
+
+			tmp.setInput(Utils::vStovD(Utils::split(line,';')));
+
+			std::getline(testingFile,line);
+
+			tmp.setResult(atoi(line.c_str()));
+
+			C_testingSet.push_back(tmp);
 		}
 
 		testingFile.close();
@@ -76,6 +90,7 @@ void LRMachine::loadTestingSet(std::string filename) {
 	}
 }
 
+//Cargo el input, y el result lo pongo a 0
 void LRMachine::loadInput(std::string filename) {
 	std::cout << "I'm loading input with the LRMachine from " << filename << std::endl;
 
@@ -83,10 +98,11 @@ void LRMachine::loadInput(std::string filename) {
 	std::ifstream inputFile(filename.c_str());
 
 	if(inputFile.is_open()){
-		while(std::getline(inputFile,line)) {
-			//Aquí se leería lo que fuera y se guardaría en la variable
-			std::cout << line << std::endl;
-		}
+		std::getline(inputFile,line);
+
+		C_input.setInput(Utils::vStovD(Utils::split(line,';')));
+
+		C_input.setResult(0);
 
 		inputFile.close();
 	} else{
@@ -94,7 +110,6 @@ void LRMachine::loadInput(std::string filename) {
 	}
 }
 
-//Correcto?
 void LRMachine::loadThetas(std::string filename) {
 	std::cout << "I'm loading Thetas with the LRMachine from " << filename << std::endl;
 
@@ -110,11 +125,6 @@ void LRMachine::loadThetas(std::string filename) {
 	} else{
 		std::cout << "Unable to open file" << std::endl;
 	}
-
-//	Lee bien las thetas?
-//	for(unsigned int i = 0; i < C_theta.size(); i++){
-//		std::cout << C_theta[i] << std::endl;
-//	}
 }
 
 //Correcto?
@@ -127,6 +137,24 @@ void LRMachine::run(){
 		loadTrainingSet(C_trainingFile);
 		loadTestingSet(C_testingFile);
 
+		//Comprobamos que se han cargado bien los dos archivos
+		for(unsigned int i = 0; i < C_trainingSet.size(); i++){
+			for(unsigned int j = 0; j < C_trainingSet[i].getInput().size(); j++){
+				std::cout << C_trainingSet[i].getInput()[j] << ' ';
+			}
+			std::cout << std::endl << C_trainingSet[i].getResult() << std::endl;
+		}
+
+		std::cout << std::endl;
+
+		for(unsigned int i = 0; i < C_testingSet.size(); i++){
+			for(unsigned int j = 0; j < C_testingSet[i].getInput().size(); j++){
+				std::cout << C_testingSet[i].getInput()[j] << ' ';
+			}
+			std::cout << std::endl << C_testingSet[i].getResult() << std::endl;
+		}
+		//Fin de la comprobacion
+
 		train();
 		test();
 	} else if(C_executionMode == 1){
@@ -134,6 +162,19 @@ void LRMachine::run(){
 
 		loadThetas("LR_C_theta.txt");
 		loadInput(C_inputFile);
+
+		//Comprobamos que se leen bien los archivos
+		for(unsigned int i = 0; i < C_theta.size(); i++){
+			std::cout << C_theta[i] << ' ';
+		}
+		std::cout << std::endl << std::endl;
+
+		for(unsigned int i = 0; i < C_input.getInput().size(); i++){
+			std::cout << C_input.getInput()[i] << ' ';
+		}
+		std::cout << std::endl << C_input.getResult() << std::endl;
+
+		//Fin de la comprobacion
 
 		predict();
 	}
@@ -171,6 +212,7 @@ void LRMachine::test(){
 	std::cout << "I'm testing with the LRMachine" << std::endl;
 
 	fillActualY();
+	C_predictedY = C_actualY;//Temporal as hell, para que no de fallo de segmentacion
 
 	//Al final, cuando tengamos lleno el C_obtainedY, calculamos Precission y Recall
 
@@ -432,22 +474,20 @@ void LRMachine::fillX() {
 //	}
 }
 
-//Correcto
 void LRMachine::fillTheta() {
 	for(int i=0; i<C_nFeatures+1; i++) {
 		C_theta.push_back(0.5);
 	}
 }
 
-//Pendiente de Sample
 void LRMachine::fillY() {
 	for(unsigned int i=0; i<C_trainingSet.size(); i++){
-		C_y[i] = C_trainingSet[i].getResult();
+		C_y.push_back((double)C_trainingSet[i].getResult());
 	}
 }
 
 void LRMachine::fillActualY(){
-	for(unsigned int i=0; i<C_trainingSet.size(); i++){
-		C_actualY[i] = C_testingSet[i].getResult();
+	for(unsigned int i=0; i<C_testingSet.size(); i++){
+		C_actualY.push_back((double)C_testingSet[i].getResult());
 	}
 }

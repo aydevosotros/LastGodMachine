@@ -9,6 +9,29 @@
 //Sin novedad
 class Utils{
 public:
+	static std::vector<std::string> &split(const std::string &s, char delim, std::vector<std::string> &elems) {
+	    std::stringstream ss(s);
+	    std::string item;
+	    while (std::getline(ss, item, delim)) {
+	        elems.push_back(item);
+	    }
+	    return elems;
+	}
+
+	static std::vector<std::string> split(const std::string &s, char delim) {
+	    std::vector<std::string> elems;
+	    split(s, delim, elems);
+	    return elems;
+	}
+
+	static std::vector<double> vStovD(std::vector<std::string> vS){
+		std::vector<double> vD;
+		for(unsigned int i = 0; i < vS.size(); i++){
+			vD.push_back(atof(vS[i].c_str()));
+		}
+		return vD;
+	}
+
 	static double getElement(std::vector<double> vect, std::vector<int> info, int l, int j, int k){
 		int index = 0;
 		int i;
@@ -68,9 +91,9 @@ public:
 	static void scalation(std::vector<Sample> &trainingSet){
 		double absolMax = DBL_MIN;
 
-		for(int i = 0; i < trainingSet.size(); i++){
-			for(int j = 0; j < trainingSet[i].input.size(); j++){
-				double num = trainingSet[i].input[j];
+		for(unsigned int i = 0; i < trainingSet.size(); i++){
+			for(unsigned int j = 0; j < trainingSet[i].getInput().size(); j++){
+				double num = trainingSet[i].getInput()[j];
 
 				if(num < 0){
 					num *= -1.0;
@@ -82,10 +105,8 @@ public:
 			}
 		}
 
-		for(int i = 0; i < trainingSet.size(); i++){
-			for(int j = 0; j < trainingSet[i].input.size(); j++){
-				trainingSet[i].input[j] /= absolMax;
-			}
+		for(unsigned int i = 0; i < trainingSet.size(); i++){
+			trainingSet[i].scalate(absolMax);
 		}
 	}
 };
