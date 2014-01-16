@@ -10,14 +10,22 @@
  *
  * Parámetros de la máquina:
  * 0 - Logistic Regression:
- * 		1. Modo de ejecución
- * 			0 para el testing
- * 			1 para la ejecución
- * 		2. Dependiendo del parametro anterior
- * 			0 - nombre del fichero training
- * 				nombre del fichero test
- * 			1 - nombre del fichero del input
- * 		3. Lambda
+ * 		param1 = Modo de ejecución:
+ * 			0 - para el testing
+ * 			1 - para la ejecución
+ *
+ * 		param2 = Dependiendo del parametro anterior:
+ * 			param1 = 0 -> 	nombre del fichero training
+ * 							nombre del fichero test
+ *
+ * 			param1 = 1 -> 	nombre del fichero del input
+ *
+ * 		param3 = Lambda
+ *
+ * 2 - Support Vector Machine:
+ * 		param1 = Margin
+ * 			0 - soft
+ * 			1 - hard
 */
 
 int main(int argvc, char *argv[]) {
@@ -37,7 +45,7 @@ int main(int argvc, char *argv[]) {
     	case 2: // SVM
     		machine = new GodMachine(SVM);
     		break;
-    	default: // Por defecto, LogisticRegression
+    	default: // Por defecto, Logistic Regression
     		machine = new GodMachine(LogisticRegression);
     		break;
     	}
@@ -45,19 +53,5 @@ int main(int argvc, char *argv[]) {
     	machine->setParameters(argv);
 
     	machine->run();
-//
-//    	loadDataSet("hardCodedDataSet.txt"); //Carga los datos, donde quiera que estén, en el vector de samples
-//
-//    	loadInput("hardCodedInput.txt"); //Carga la prueba que queremos predecir
-//
-//    	machine->addTrainingSet(dataSet);
-//
-//    	machine->train();
-//
-//    	machine->predict(input);
-//
-//    	//Y ahora qué?
-
-//		machine->clearTrainingSet();
     }
 }

@@ -4,7 +4,6 @@
 //Hay cosas hardcodeadas y tal
 LRMachine::LRMachine() {
 	C_nFeatures = 4;
-	C_classifySuccesses = 0;
 	//iterTrain y alphaTrain son parámetros que se hardcodean aqui
 	iterTrain = 1000;
 	alphaTrain = 0.01;
@@ -296,7 +295,6 @@ double LRMachine::predict(Sample input){
 //Correcto
 void LRMachine::clearTrainingSet() {
 	C_trainingSet.clear();
-	C_classifySuccesses = 0;
 }
 
 //bool LRMachine::isDoorOnFire(double input[]) {

@@ -44,7 +44,6 @@ private:
 	Sample C_input;
 
 	//Usados en el training
-	int C_classifySuccesses;
 	int C_nFeatures;
 	std::vector<std::vector<double> > C_X; //esto no es una matriz BIdimensional diría
 	std::vector<double> C_y; //Son doubles pero los valores son enteros, no?
