@@ -223,23 +223,23 @@ void LRMachine::test(){
 	for(unsigned int i = 0; i < C_testingSet.size(); i++){
 		double p = (double)predict(C_testingSet[i]);
 
-		if((p>0.5 && C_testingSet[i].getResult() > 0) || (p<=0.5 && C_testingSet[i].getResult() < 0)){
+		if((p>0.5 && C_actualY[i] > 0) || (p<=0.5 && C_actualY[i] < 0)){
 			if(p>0.5){
 				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
 			} else {
 				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
 			}
 
-			std::cout << "Ha clasificao de puta madre" << std::endl;
+			std::cout << "Ni Sandro Rey" << std::endl;
 
-		} else if((p>0.5 && C_testingSet[i].getResult() < 0) || (p<=0.5 && C_testingSet[i].getResult() > 0)){
+		} else if((p>0.5 && C_actualY[i] < 0) || (p<=0.5 && C_actualY[i] > 0)){
 			if(p>0.5){
-				std::cout << "Predigo que la siguiente puerta está encendida" << std::endl;
+				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
 			} else {
-				std::cout << "Predigo que la siguiente puerta está apagada" << std::endl;
+				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
 			}
 
-			std::cout << "Pinyico... volviendo a entrenar" << std::endl;
+			std::cout << "Pinyico..." << std::endl;
 		} else {
 			std::cout << "No se que carajo ha pasado" << std::endl;
 		}

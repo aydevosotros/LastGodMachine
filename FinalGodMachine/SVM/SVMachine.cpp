@@ -196,13 +196,68 @@ void SVMachine::train(){
 void SVMachine::test(){
 	std::cout << "I'm testing with the SVMachine" << std::endl;
 
-	//Aquí el classifysample, lo que es la llamada al predict y poco mas
+	fillActualY();
+
+	for(unsigned int i = 0; i < C_testingSet.size(); i++){
+		double p = (double)predict(C_testingSet[i]);
+
+		if((p>0.5 && C_actualY[i] > 0) || (p<=0.5 && C_actualY[i] < 0)){
+			if(p>0.5){
+				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
+			} else {
+				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
+			}
+
+			std::cout << "Ni Sandro Rey" << std::endl;
+
+		} else if((p>0.5 && C_actualY[i] < 0) || (p<=0.5 && C_actualY[i] > 0)){
+			if(p>0.5){
+				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
+			} else {
+				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
+			}
+
+			std::cout << "Pinyico..." << std::endl;
+		} else {
+			std::cout << "No se que carajo ha pasado" << std::endl;
+		}
+
+		C_predictedY.push_back(p);
+	}
+
+	//Al final, cuando tengamos lleno el C_predictedY, calculamos Precission y Recall
+
+	double tPositives = 0.0;
+	double fPositives = 0.0;
+	double tNegatives = 0.0;
+	double fNegatives = 0.0;
+
+	for(unsigned int i = 0; i < C_actualY.size(); i++){
+		if(C_actualY[i] > 0 && C_predictedY[i] > 0){
+			tPositives++;
+		} else if(C_actualY[i] > 0 && C_predictedY[i] < 0){
+			fNegatives++;
+		} else if(C_actualY[i] < 0 && C_predictedY[i] > 0){
+			fPositives++;
+		} else if(C_actualY[i] < 0 && C_predictedY[i] < 0){
+			tNegatives++;
+		}
+	}
+
+	double precission = tPositives / (tPositives + fPositives);
+	double recall = tPositives / (tPositives + fNegatives);
+	double fScore = 2 * ( (precission * recall) / (precission + recall) );
+
+	//Y escribirlos en el formato adecuado
+	std::cout << fScore << std::endl;
 }
 
 double SVMachine::predict(Sample input){
 	std::cout << "I'm predicting with the SVMachine" << std::endl;
 
 	//Aqui lo gordo del classifysample
+
+	return 0.0;
 }
 
 void SVMachine::clearTrainingSet(){
@@ -284,6 +339,7 @@ void SVMachine::clearTrainingSet(){
 //	return true;
 //}
 
+//Está un poco fuzzy, habrá que estructurarlo y tal, pero correcto
 void SVMachine::quadraticSolution() {
 	int n = C_trainingSet.size();
 	int m = 1; // Entiendo que es el numero de restricciones
@@ -368,3 +424,8 @@ void SVMachine::trainByQuadraticProgramming() {
 	quadraticSolution(); // Esto me da los Support Vectors
 }
 
+void SVMachine::fillActualY(){
+	for(unsigned int i=0; i<C_testingSet.size(); i++){
+		C_actualY.push_back((double)C_testingSet[i].getResult());
+	}
+}

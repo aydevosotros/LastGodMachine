@@ -65,13 +65,17 @@ private:
 	IKernel* C_kernel;
 
 	//Usados en el testing
-	//???
+	std::vector<double> C_actualY;
+	std::vector<double> C_predictedY; //Estos son los que calculamos nosotros. Precission y recall
 
 	//FUNCIONES
 
 	// Internal functions
 	void quadraticSolution();
 	void trainByQuadraticProgramming();
+
+	//Auxiliares
+	void fillActualY();
 };
 
 #endif /* SVMACHINE_H_ */
