@@ -2,6 +2,7 @@
 #define IMACHINE_H_
 
 #include "Sample.h"
+#include <string>
 
 class IMachine {
 public:
