@@ -42,7 +42,20 @@ public:
 	void clearTrainingSet();
 
 private:
+	//ATRIBUTOS
+
+	//Atributos pasados por parámetro
+	int C_executionMode;
+	std::string C_trainingFile;
+	std::string C_testingFile;
+	std::string C_inputFile;
+
+	//Atributos cargados desde archivo
 	VSample C_trainingSet;
+	VSample C_testingSet;
+	Sample C_input;
+
+	//Usados en el training
 	int C_nFeatures;
 	int C_m; // Un Suppor Vector
 	arma::mat C_y;
@@ -51,6 +64,12 @@ private:
 	ET C_b;
 	IKernel* C_kernel;
 
+	//Usados en el testing
+	//???
+
+	//FUNCIONES
+
+	// Internal functions
 	void quadraticSolution();
 	void trainByQuadraticProgramming();
 };
