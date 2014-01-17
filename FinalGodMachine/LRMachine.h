@@ -37,6 +37,8 @@ private:
 	std::string C_testingFile;
 	std::string C_inputFile;
 
+	std::string C_thetaFileName;
+
 	//Atributos cargados desde archivo
 	std::vector<Sample> C_trainingSet;
 	std::vector<Sample> C_testingSet;

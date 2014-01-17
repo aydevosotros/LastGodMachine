@@ -14,34 +14,34 @@ LRMachine::~LRMachine() {}
 
 //Falta lo que vaya detrás del lambda
 void LRMachine::setParameters(char *argv[]) {
-	std::cout << "I'm setting parameters with the LRMachine" << std::endl;
+//	std::cout << "I'm setting parameters with the LRMachine" << std::endl;
 
 	C_executionMode = atoi(argv[2]);
-	std::cout << "Execution mode set to " << C_executionMode << std::endl;
+//	std::cout << "Execution mode set to " << C_executionMode << std::endl;
 
 	if(C_executionMode == 0){
 		C_trainingFile = argv[3];
 		C_testingFile = argv[4];
 
-		std::cout	<< "Training with " << C_trainingFile
-					<< " and testing with " << C_testingFile << std::endl;
+//		std::cout	<< "Training with " << C_trainingFile
+//					<< " and testing with " << C_testingFile << std::endl;
 
 		C_lambda = atoi(argv[5]);
-		std::cout << "Lambda set to " << C_lambda << std::endl;
+//		std::cout << "Lambda set to " << C_lambda << std::endl;
 	} else 	if(C_executionMode == 1){
 		C_inputFile = argv[3];
 
-		std::cout	<< "Predicting " << C_inputFile << std::endl;
+//		std::cout	<< "Predicting " << C_inputFile << std::endl;
 
 		C_lambda = atof(argv[4]);
-		std::cout << "Lambda set to " << C_lambda << std::endl;
+//		std::cout << "Lambda set to " << C_lambda << std::endl;
 	}
 
 //	Algo más a partir de aquí
 }
 
 void LRMachine::loadTrainingSet(std::string filename) {
-	std::cout << "I'm loading training set with the LRMachine from " << filename << std::endl;
+//	std::cout << "I'm loading training set with the LRMachine from " << filename << std::endl;
 
 	std::string line;
 	std::ifstream trainingFile(filename.c_str());
@@ -66,7 +66,7 @@ void LRMachine::loadTrainingSet(std::string filename) {
 }
 
 void LRMachine::loadTestingSet(std::string filename) {
-	std::cout << "I'm loading testing set with the LRMachine from " << filename << std::endl;
+//	std::cout << "I'm loading testing set with the LRMachine from " << filename << std::endl;
 
 	std::string line;
 	std::ifstream testingFile(filename.c_str());
@@ -92,7 +92,7 @@ void LRMachine::loadTestingSet(std::string filename) {
 
 //Cargo el input, y el result lo pongo a 0
 void LRMachine::loadInput(std::string filename) {
-	std::cout << "I'm loading input with the LRMachine from " << filename << std::endl;
+//	std::cout << "I'm loading input with the LRMachine from " << filename << std::endl;
 
 	std::string line;
 	std::ifstream inputFile(filename.c_str());
@@ -111,7 +111,7 @@ void LRMachine::loadInput(std::string filename) {
 }
 
 void LRMachine::loadThetas(std::string filename) {
-	std::cout << "I'm loading Thetas with the LRMachine from " << filename << std::endl;
+//	std::cout << "I'm loading Thetas with the LRMachine from " << filename << std::endl;
 
 	std::string line;
 	std::ifstream thetasFile(filename.c_str());
@@ -128,10 +128,10 @@ void LRMachine::loadThetas(std::string filename) {
 }
 
 void LRMachine::run(){
-	std::cout << "I'm running the mode ";
+//	std::cout << "I'm running the mode ";
 
 	if(C_executionMode == 0){
-		std::cout << "Test" << std::endl;
+//		std::cout << "Test" << std::endl;
 
 		loadTrainingSet(C_trainingFile);
 		loadTestingSet(C_testingFile);
@@ -159,7 +159,7 @@ void LRMachine::run(){
 		train();
 		test();
 	} else if(C_executionMode == 1){
-		std::cout << "Predict" << std::endl;
+//		std::cout << "Predict" << std::endl;
 
 		loadThetas("LR_C_theta.txt");
 		loadInput(C_inputFile);
@@ -186,7 +186,7 @@ void LRMachine::run(){
 
 //Lleva dentro el isTrainingReady
 void LRMachine::train(){
-	std::cout << "I'm training with the LRMachine" << std::endl;
+//	std::cout << "I'm training with the LRMachine" << std::endl;
 
 	C_nFeatures=C_trainingSet[0].getNFeatures();
 
@@ -196,10 +196,49 @@ void LRMachine::train(){
 		trainByNormalEcuation();
 	}
 
+	//Ahora averiguaremos el nombre que debe tener el archivo de thetas
+
+	std::string command = "mkdir -p ";
+
+	std::vector<std::string> trainingFileParts(Utils::split(C_trainingFile,'-'));
+
+	std::string root = trainingFileParts[0].substr(0,10);
+
+	std::string machinefolder = "LR/";
+
+	std::string value = trainingFileParts[0].substr(10,trainingFileParts[0].length());
+
+	std::string route = "";
+
+	route.append(root);
+
+	route.append(machinefolder);
+
+	route.append(value);	route.append("/");
+
+	command.append(route);
+
+	system(command.c_str());
+
+//	std::cout << "El comando ha sido: "<< std::endl << command << std::endl;
+
+	std::string prefix = "";
+
+	prefix.append(root);
+	prefix.append(value);
+
+	std::string thetaName = C_trainingFile.substr(prefix.length()+1,C_trainingFile.length());
+
+	route.append(thetaName);
+
+	C_thetaFileName = route;
+
+//	std::cout << "EL archivo creado es: " << C_thetaFileName << std::endl;
+
 	//Y para terminar, escribimos las thetas en un archivo
 
 	std::string line;
-	std::ofstream thetasFile("LR_C_theta.txt");
+	std::ofstream thetasFile(C_thetaFileName.c_str());
 
 	if(thetasFile.is_open()){
 		thetasFile << C_theta[0];
@@ -216,30 +255,32 @@ void LRMachine::train(){
 
 //Llamada al predict y... ¿ya?
 void LRMachine::test(){
-	std::cout << "I'm testing with the LRMachine" << std::endl;
+	double treshold = 0.6;
+
+//	std::cout << "I'm testing with the LRMachine" << std::endl;
 
 	fillActualY();
 
 	for(unsigned int i = 0; i < C_testingSet.size(); i++){
 		double p = (double)predict(C_testingSet[i]);
 
-		if((p>0.5 && C_actualY[i] > 0) || (p<=0.5 && C_actualY[i] < 0)){
-			if(p>0.5){
-				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
+		if((p>treshold && C_actualY[i] > 0) || (p<=treshold && C_actualY[i] < 0)){
+			if(p>treshold){
+//				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
 			} else {
-				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
+//				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
 			}
 
-			std::cout << "Ni Sandro Rey" << std::endl;
+//			std::cout << "Ni Sandro Rey" << std::endl;
 
-		} else if((p>0.5 && C_actualY[i] < 0) || (p<=0.5 && C_actualY[i] > 0)){
-			if(p>0.5){
-				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
+		} else if((p>treshold && C_actualY[i] < 0) || (p<=treshold && C_actualY[i] > 0)){
+			if(p>treshold){
+//				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
 			} else {
-				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
+//				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
 			}
 
-			std::cout << "Pinyico..." << std::endl;
+//			std::cout << "Pinyico..." << std::endl;
 		} else {
 			std::cout << "No se que carajo ha pasado" << std::endl;
 		}
@@ -267,16 +308,21 @@ void LRMachine::test(){
 	}
 
 	double precission = tPositives / (tPositives + fPositives);
+
+	std::cout << "Precission = " << precission << std::endl;
+
 	double recall = tPositives / (tPositives + fNegatives);
+
+	std::cout << "Recall = " << recall << std::endl;
+
 	double fScore = 2 * ( (precission * recall) / (precission + recall) );
 
-	//Y escribirlos en el formato adecuado
-	std::cout << fScore << std::endl;
+	std::cout << "fScore = " << fScore << std::endl;
 }
 
 //Está copypasteado el classifySample
 double LRMachine::predict(Sample input){
-	std::cout << "I'm predicting this input with the LRMachine" << std::endl;
+//	std::cout << "I'm predicting this input with the LRMachine" << std::endl;
 
 	// Como tengo un sigmoide, con un threshold voy to cheto
 	double p = 0.0;
