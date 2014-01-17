@@ -5,7 +5,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include <lbfgs.h>
+//#include <lbfgs.h>
 #include "armadillo"
 
 #include "IMachine.h"
