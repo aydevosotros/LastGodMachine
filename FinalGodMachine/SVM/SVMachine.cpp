@@ -130,33 +130,33 @@ void SVMachine::loadInput(std::string filename){
 
 //copypaste de LR
 void SVMachine::run(){
-//	std::cout << "I'm running the mode ";
+	std::cout << "I'm running the mode ";
 
 	if(C_executionMode == 0){
-//		std::cout << "Test" << std::endl;
+		std::cout << "Test" << std::endl;
 
 		loadTrainingSet(C_trainingFile);
 		loadTestingSet(C_testingFile);
 
-//		//Comprobamos que se han cargado bien los dos archivos
-//
-//		for(unsigned int i = 0; i < C_trainingSet.size(); i++){
-//			for(unsigned int j = 0; j < C_trainingSet[i].getInput().size(); j++){
-//				std::cout << C_trainingSet[i].getInput()[j] << ' ';
-//			}
-//			std::cout << std::endl << C_trainingSet[i].getResult() << std::endl;
-//		}
-//
-//		std::cout << std::endl;
-//
-//		for(unsigned int i = 0; i < C_testingSet.size(); i++){
-//			for(unsigned int j = 0; j < C_testingSet[i].getInput().size(); j++){
-//				std::cout << C_testingSet[i].getInput()[j] << ' ';
-//			}
-//			std::cout << std::endl << C_testingSet[i].getResult() << std::endl;
-//		}
-//
-//		//Fin de la comprobacion
+		//Comprobamos que se han cargado bien los dos archivos
+
+		for(unsigned int i = 0; i < C_trainingSet.size(); i++){
+			for(unsigned int j = 0; j < C_trainingSet[i].getInput().size(); j++){
+				std::cout << C_trainingSet[i].getInput()[j] << ' ';
+			}
+			std::cout << std::endl << C_trainingSet[i].getResult() << std::endl;
+		}
+
+		std::cout << std::endl;
+
+		for(unsigned int i = 0; i < C_testingSet.size(); i++){
+			for(unsigned int j = 0; j < C_testingSet[i].getInput().size(); j++){
+				std::cout << C_testingSet[i].getInput()[j] << ' ';
+			}
+			std::cout << std::endl << C_testingSet[i].getResult() << std::endl;
+		}
+
+		//Fin de la comprobacion
 
 		train();
 		test();
@@ -200,7 +200,7 @@ void SVMachine::test(){
 	fillActualY();
 
 	for(unsigned int i = 0; i < C_testingSet.size(); i++){
-		double p = (double)predict(C_testingSet[i]);
+		double p = predict(C_testingSet[i]);
 
 		if((p>0.5 && C_actualY[i] > 0) || (p<=0.5 && C_actualY[i] < 0)){
 			if(p>0.5){
@@ -224,6 +224,18 @@ void SVMachine::test(){
 		}
 
 		C_predictedY.push_back(p);
+	}
+
+	std::cout << "PredictedY es:" << std::endl;
+
+	for(unsigned int i = 0; i < C_predictedY.size(); i++){
+		std::cout << C_predictedY[i] << std::endl;
+	}
+
+	std::cout << "ActualY es:" << std::endl;
+
+	for(unsigned int i = 0; i < C_actualY.size(); i++){
+		std::cout << C_actualY[i] << std::endl;
 	}
 
 	//Al final, cuando tengamos lleno el C_predictedY, calculamos Precission y Recall
@@ -261,9 +273,40 @@ void SVMachine::test(){
 double SVMachine::predict(Sample input){
 //	std::cout << "I'm predicting with the SVMachine" << std::endl;
 
-	//Aqui lo gordo del classifysample
+    ET aux(0.0);
+    // Hago esto provisional para escalar
+    std::vector<double> entradaScalada;
+    std::vector<Sample> sInput;
 
-	return 0.0;
+    sInput.push_back(input);
+//    Utils::scalation(sInput);
+
+    arma::Col<double> Input(input.getNFeatures());
+
+    for(int i=0; i<input.getNFeatures(); i++)
+        Input(i)=sInput[0].getInput()[i];
+
+    for(int i=0; i<C_trainingSet.size(); i++){
+        if(C_SupportVectors.at(i) > 0.0){
+        	std::cout << "X:" << std::endl;
+        	std::cout << C_X.row(i).t() << std::endl;
+        	std::cout << "input:" << std::endl;
+        	std::cout << Input << std::endl;
+
+            aux += ET(C_SupportVectors.at(i))*ET(C_y.at(i))*C_kernel->K(C_X.row(i).t(), Input);
+//            std::cout << "La suma auxiliar vale: " << aux+b << std::endl;
+        }
+    }
+
+    std::cout << std::endl << "He ejecutado hasta aqui" << std::endl;
+
+    double p = CGAL::to_double(aux + C_b);
+
+    if(p > 1){
+    	return 1.0;
+    } else if(p < -1){
+    	return -1.0;
+    }
 }
 
 void SVMachine::clearTrainingSet(){
@@ -352,8 +395,10 @@ void SVMachine::quadraticSolution() {
 	Program qp (CGAL::EQUAL);
 
 	// Obtengo la X
-	Utils::scalation(C_trainingSet); // Escalado de parámetros
+//	Utils::scalation(C_trainingSet); // Escalado de parámetros
 
+	std::cout << "n vale: " << n << std::endl;
+	std::cout << "nFeatures vale: " << C_nFeatures << std::endl;
 	C_X = arma::mat(n, C_nFeatures);
 
 	for(int i = 0; i < n; i++){
@@ -361,23 +406,24 @@ void SVMachine::quadraticSolution() {
 			C_X(i,j) = C_trainingSet[i].getInput()[j];
 		}
 	}
-//	std::cout << X;
+//	std::cout << C_X;
 
 	// Obtengo la Y
 	C_y = arma::mat(n, 1);
 
+	std::cout << "n vale: " << n << std::endl;
 	for(int i = 0; i < n; i++){
-		C_y = C_trainingSet[i].getResult();
+		C_y(i) = C_trainingSet[i].getResult();
 	}
 
-//	std::cout << y;
+	std::cout << C_y;
 	// Seteo la restriccion
 	for(int i = 0; i < n; i++){
 		qp.set_a(i,0,ET(C_y.at(i)));
 		qp.set_l(i,true,ET(0));
 		qp.set_u(i,false);
 		qp.set_c(i,ET(-1));
-		//std::cout << "y(" << i << "): " << y.at(i) << std::endl;
+//		std::cout << "y(" << i << "): " << y.at(i) << std::endl;
 	}
 
 	qp.set_b(0,ET(0));
@@ -388,11 +434,11 @@ void SVMachine::quadraticSolution() {
 	for(int i = 0; i < n; i++){
 		for(int j = 0; j<=i; j++){
 			ET ip = C_kernel->K(C_X.row(i).t(),C_X.row(j).t());
-//			std::cout << "El kernel para " << i << "," << j << " nos dice que el innerproduct es: " << ip << std::endl;
+			std::cout << "El kernel para " << i << "," << j << " nos dice que el innerproduct es: " << ip << std::endl;
 			ET daux = ip*ET(C_y.at(i))*ET(C_y.at(j));
-//			std::cout << "El producto de " << i << "," << j << ": " << daux << std::endl;
+			std::cout << "El producto de " << i << "," << j << ": " << daux << std::endl;
 			qp.set_d(i,j,daux);
-//			std::cout << "La matriz auxiliar vale:" <<  daux << std::endl;
+			std::cout << "La matriz auxiliar vale:" <<  daux << std::endl;
 		}
 	}
 

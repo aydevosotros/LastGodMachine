@@ -1,0 +1,938 @@
+I'm running the mode Test
+1.64004e+06 1.3271e+06 1.6083e+06 1.1664e+06 2.02529e+06 2.08837e+06 2.66759e+06 2.21148e+06 3.63317e+06 1.15843e+07 4.25662e+06 2.01179e+06 1.59478e+06 1.24367e+06 1.40891e+06 2.25893e+06 2.65312e+06 1.93878e+06 1.29402e+06 1.35845e+06 2.11921e+06 1.48913e+06 1.68521e+06 
+1
+1.71925e+06 1.25882e+06 1.26031e+06 1.65411e+06 1.48678e+06 1.74815e+06 4.34835e+06 1.5982e+06 1.93727e+06 1.26026e+06 1.34131e+06 1.32689e+06 1.09546e+06 1.61015e+06 1.28784e+06 1.22014e+06 1.56059e+06 1.2926e+06 2.04164e+06 2.04774e+06 
+1
+1.86155e+06 1.47849e+06 1.33032e+06 1.72799e+06 1.05618e+06 1.07709e+06 870491 1.7616e+06 1.23626e+06 1.81142e+06 1.67539e+06 1.87081e+06 2.08323e+06 1.42046e+06 1.37735e+06 1.32376e+06 1.48804e+06 1.38038e+06 1.50648e+06 1.30992e+06 1.71776e+06 2.13831e+06 
+1
+2.17345e+06 1.75612e+06 1.89304e+06 1.77824e+06 3.00523e+06 2.08078e+06 2.04674e+06 2.90418e+06 7.3634e+06 3.63443e+06 1.50617e+06 1.98353e+06 1.96136e+06 2.56894e+06 2.58784e+06 1.71597e+06 1.97934e+06 1.97016e+06 1.70183e+06 1.04863e+06 1.89181e+06 1.72678e+06 
+-1
+2.35005e+06 1.92655e+06 1.83274e+06 2.55389e+06 3.02024e+06 3.98221e+06 3.37758e+06 2.91711e+06 2.16788e+06 2.1473e+06 2.24234e+06 2.07126e+06 2.20505e+06 1.75287e+06 2.33818e+06 2.67527e+06 2.5796e+06 2.10704e+06 1.86874e+06 2.477e+06 
+1
+1.96986e+06 2.12099e+06 2.01425e+06 2.25771e+06 2.29676e+06 2.27935e+06 2.55131e+06 1.98338e+06 2.27294e+06 2.79266e+06 3.21174e+06 3.99532e+06 1.5813e+06 1.44873e+06 1.90072e+06 2.20076e+06 2.4684e+06 1.96799e+06 2.14183e+06 2.51266e+06 2.01855e+06 1.45563e+06 
+1
+2.30684e+06 2.30197e+06 2.48824e+06 1.9923e+06 1.82915e+06 2.2999e+06 2.88341e+06 5.80432e+06 3.32878e+06 2.03736e+06 1.74237e+06 2.45477e+06 1.63683e+06 2.02877e+06 1.97886e+06 2.15793e+06 2.83272e+06 3.43399e+06 2.4481e+06 1.73875e+06 2.04171e+06 1.80758e+06 
+1
+2.28771e+06 2.1633e+06 1.19191e+06 1.71268e+06 1.49168e+06 1.47759e+06 1.46412e+06 2.09818e+06 1.83855e+06 3.09979e+06 1.65111e+06 1.64141e+06 2.00898e+06 1.59568e+06 2.91228e+06 2.05424e+06 2.874e+06 4.04503e+06 2.77618e+06 2.17542e+06 
+1
+2.26587e+06 2.02852e+06 2.20506e+06 2.30701e+06 2.05405e+06 3.51104e+06 2.76503e+06 2.93292e+06 2.72992e+06 1.73522e+06 1.19817e+06 1.85894e+06 2.16766e+06 3.02485e+06 2.84051e+06 2.07969e+06 1.87072e+06 3.04124e+06 3.74616e+06 
+-1
+1.63456e+06 1.73297e+06 1.74773e+06 1.62783e+06 2.22581e+06 3.3836e+06 5.91186e+06 3.79234e+06 3.2269e+06 2.21236e+06 2.02499e+06 3.92799e+06 2.86411e+06 1.28512e+06 1.83578e+06 2.02575e+06 1.67674e+06 1.65597e+06 2.76355e+06 2.31814e+06 2.54227e+06 
+1
+1.99773e+06 1.40393e+06 1.64739e+06 1.18257e+06 841931 3.52785e+06 1.65715e+06 1.9198e+06 3.00514e+06 3.03676e+06 2.1306e+06 3.44631e+06 2.4263e+06 2.68796e+06 1.36687e+06 1.91948e+06 1.46222e+06 1.86274e+06 1.9916e+06 2.19395e+06 
+1
+3.16444e+06 2.78054e+06 3.04194e+06 2.5096e+06 2.20553e+06 922477 2.11301e+06 2.08909e+06 2.36972e+06 3.4385e+06 1.84894e+06 1.66832e+06 1.59464e+06 1.40587e+06 3.11408e+06 2.59868e+06 2.23244e+06 1.58294e+06 1.63589e+06 2.32457e+06 2.05047e+06 
+1
+1.537e+06 1.95086e+06 2.4037e+06 2.49641e+06 2.91698e+06 4.05787e+06 1.14834e+07 1.24423e+07 2.29282e+06 2.05847e+06 3.0201e+06 2.40679e+06 2.38399e+06 2.0412e+06 3.00388e+06 1.95862e+06 2.73775e+06 2.4545e+06 2.20864e+06 2.79038e+06 3.16848e+06 
+1
+2.78409e+06 3.93227e+06 5.67433e+06 6.06103e+06 3.56584e+06 6.36038e+06 2.90785e+06 3.09878e+06 2.06725e+06 1.50831e+06 2.61887e+06 2.6593e+06 2.64226e+06 1.874e+06 2.56007e+06 3.23631e+06 3.04445e+06 1.70817e+06 1.88961e+06 
+-1
+2.12712e+06 1.6277e+06 2.99104e+06 2.05894e+06 2.61413e+06 1.42927e+06 1.78445e+06 1.90926e+06 2.2228e+06 1.75842e+06 2.1779e+06 1.71769e+06 2.4111e+06 3.66218e+06 3.26807e+06 1.43441e+06 1.07029e+06 1.32239e+06 1.9827e+06 1.78249e+06 1.89745e+06 1.97769e+06 1.84456e+06 
+1
+1.86589e+06 2.18672e+06 3.55017e+06 1.68748e+06 1.82297e+06 2.01219e+06 3.56182e+06 6.46375e+06 4.67464e+06 1.55095e+06 1.68157e+06 1.46286e+06 1.97656e+06 2.31009e+06 3.50095e+06 1.92302e+06 1.71502e+06 2.16233e+06 2.3459e+06 1.19052e+06 1.65556e+06 
+1
+2.52256e+06 1.92206e+06 1.69245e+06 1.35115e+06 1.58204e+06 2.22912e+06 2.01132e+06 2.3467e+06 2.07663e+06 2.49786e+06 3.00251e+06 2.34511e+06 1.95461e+06 3.22414e+06 2.66227e+06 1.41037e+06 1.75953e+06 2.09617e+06 2.34048e+06 2.43379e+06 3.05831e+06 
+1
+2.96946e+06 1.90663e+06 2.60665e+06 3.58247e+06 1.89218e+06 3.17802e+06 3.05275e+06 3.07583e+06 5.97613e+06 3.35452e+06 4.83742e+06 2.10234e+06 1.82473e+06 2.09973e+06 1.53588e+06 2.32955e+06 2.67848e+06 1.99452e+06 2.20736e+06 1.86819e+06 1.61143e+06 2.00242e+06 
+1
+2.40721e+06 1.6364e+06 2.09373e+06 1.82104e+06 1.9333e+06 2.19793e+06 3.05896e+06 3.29579e+06 2.67038e+06 3.02441e+06 5.69346e+06 8.16301e+06 5.75658e+06 2.20027e+06 2.48508e+06 2.18354e+06 2.31971e+06 1.62827e+06 2.04486e+06 2.28434e+06 
+-1
+2.31224e+06 1.92432e+06 2.53881e+06 2.0088e+06 1.82147e+06 1.94034e+06 2.41032e+06 2.46964e+06 1.54078e+06 2.17297e+06 3.05046e+06 2.43534e+06 2.93686e+06 2.24735e+06 1.66938e+06 2.67152e+06 1.34543e+06 1.26489e+06 3.17522e+06 1.59325e+06 1.57321e+06 2.23801e+06 
+-1
+3.13684e+06 2.8478e+06 1.81462e+06 1.93707e+06 2.05503e+06 1.96786e+06 2.48111e+06 2.44923e+06 2.53086e+06 2.42696e+06 1.80385e+06 1.81655e+06 2.32544e+06 2.26543e+06 1.83696e+06 2.09204e+06 3.67976e+06 3.16926e+06 2.41467e+06 2.32095e+06 
+1
+2.14272e+06 2.33097e+06 3.61882e+06 3.228e+06 4.9882e+06 3.05639e+06 3.41304e+06 1.05768e+07 6.30527e+06 2.76319e+06 1.90939e+06 2.30734e+06 1.87585e+06 2.40058e+06 4.39562e+06 5.82572e+06 1.43812e+06 3.28328e+06 2.86436e+06 3.67785e+06 
+1
+
+1.78286e+06 1.5756e+06 2.12713e+06 1.60905e+06 1.45372e+06 1.82416e+06 2.49815e+06 2.38818e+06 2.14419e+06 4.45978e+06 2.40978e+06 3.90488e+06 4.02864e+06 2.18523e+06 2.7685e+06 2.4144e+06 2.25798e+06 2.32652e+06 3.19803e+06 4.08596e+06 3.62129e+06 
+-1
+3.39728e+06 1.83262e+06 2.82897e+06 1.56234e+06 2.32599e+06 2.40558e+06 3.00167e+06 3.28762e+06 3.49347e+06 2.61028e+06 2.67596e+06 3.18893e+06 3.97732e+06 2.8686e+06 3.71106e+06 3.02938e+06 3.35887e+06 2.83538e+06 2.66974e+06 2.1219e+06 3.1252e+06 
+1
+2.55774e+06 2.50815e+06 3.78072e+06 2.87369e+06 2.54044e+06 3.42755e+06 3.39423e+06 3.37907e+06 2.9318e+06 3.80249e+06 4.0083e+06 8.53224e+06 5.68751e+06 3.17804e+06 2.85378e+06 2.3229e+06 2.85605e+06 3.42462e+06 4.53475e+06 4.15913e+06 4.47386e+06 
+1
+2.72491e+06 2.90738e+06 2.2634e+06 3.01092e+06 2.63423e+06 2.77887e+06 4.40059e+06 2.51614e+06 2.77908e+06 2.47119e+06 3.53478e+06 2.96197e+06 2.69474e+06 2.35415e+06 2.67047e+06 3.26907e+06 2.38102e+06 2.75854e+06 2.71598e+06 2.40202e+06 2.41561e+06 
+1
+2.69339e+06 2.99018e+06 2.33811e+06 3.59731e+06 3.2973e+06 3.59826e+06 4.34782e+06 4.90718e+06 5.41159e+06 6.29137e+06 4.0791e+06 6.9405e+06 7.14502e+06 3.15538e+06 4.83212e+06 5.3737e+06 6.47048e+06 7.4977e+06 5.93078e+06 4.91643e+06 3.82591e+06 4.99414e+06 3.96831e+06 
+-1
+4.1381e+06 3.10912e+06 3.93489e+06 2.34337e+06 3.13195e+06 3.53162e+06 3.46985e+06 2.22902e+06 2.96782e+06 4.46922e+06 1.3736e+07 6.64941e+06 2.79077e+06 2.84153e+06 2.84e+06 4.77017e+06 3.93566e+06 2.69568e+06 3.84735e+06 3.63664e+06 
+-1
+2.42851e+06 2.34292e+06 2.71736e+06 3.44463e+06 3.80659e+06 4.8023e+06 2.40797e+06 2.76536e+06 3.02864e+06 5.25155e+06 2.75722e+06 2.0733e+06 2.34146e+06 2.42721e+06 2.44048e+06 1.68909e+06 1.6541e+06 1.90751e+06 1.94209e+06 1.74846e+06 2.20442e+06 2.95717e+06 
+1
+2.68786e+06 1.7463e+06 2.11898e+06 1.30157e+06 1.88854e+06 2.25264e+06 2.31887e+06 2.47114e+06 1.95429e+06 3.30487e+06 2.95655e+06 2.10764e+06 1.4482e+06 2.33888e+06 2.04136e+06 1.94742e+06 2.05619e+06 1.99705e+06 2.11696e+06 2.08157e+06 2.13397e+06 
+-1
+4.22847e+06 2.03738e+06 2.29784e+06 3.53059e+06 1.62993e+06 2.47106e+06 3.05916e+06 2.6854e+06 5.04109e+06 1.405e+07 5.45629e+06 2.07165e+06 2.08577e+06 1.85838e+06 1.90258e+06 2.53198e+06 2.66838e+06 6.04819e+06 2.05482e+06 2.61327e+06 
+-1
+2.03138e+06 1.42248e+06 1.60514e+06 2.21891e+06 2.8595e+06 2.09798e+06 1.81616e+06 1.88718e+06 3.02217e+06 3.30285e+06 2.89973e+06 3.80071e+06 4.00638e+06 2.81397e+06 3.0294e+06 3.12721e+06 2.15099e+06 2.28777e+06 3.46174e+06 3.01154e+06 1.94934e+06 2.02693e+06 3.32358e+06 
+-1
+2.28434e+06 1.93585e+06 2.71296e+06 2.89188e+06 3.64221e+06 3.21782e+06 1.47918e+06 1.68696e+06 2.09261e+06 2.13187e+06 2.59339e+06 2.33612e+06 1.84339e+06 1.69645e+06 1.80202e+06 1.5525e+06 1.49747e+06 1.76076e+06 2.74586e+06 
+-1
+2.81007e+06 4.23396e+06 2.01943e+06 2.04175e+06 3.64764e+06 4.605e+06 8.90436e+06 5.48573e+06 3.41257e+06 3.62006e+06 2.37033e+06 1.33395e+06 1.6327e+06 1.44099e+06 1.58107e+06 2.10127e+06 2.05818e+06 2.53222e+06 1.8255e+06 2.36629e+06 
+-1
+1.54146e+06 989479 1.01982e+06 1.06475e+06 1.20813e+06 1.11119e+06 1.20793e+06 1.88169e+06 1.97377e+06 3.08933e+06 1.59682e+06 2.16813e+06 1.64325e+06 2.40344e+06 1.70512e+06 1.86897e+06 1.75713e+06 3.04788e+06 2.09552e+06 2.63313e+06 2.55057e+06 3.75761e+06 
+-1
+7.11738e+06 2.85995e+06 1.31104e+06 2.40086e+06 2.16695e+06 2.18651e+06 2.29898e+06 2.59088e+06 2.44241e+06 3.30866e+06 3.48012e+06 3.39521e+06 2.26202e+06 2.49983e+06 2.24029e+06 2.10226e+06 1.76655e+06 3.57117e+06 3.38218e+06 1.99977e+06 3.08842e+06 
+1
+2.28128e+06 2.1874e+06 2.24241e+06 2.51363e+06 3.1587e+06 2.2566e+06 2.92363e+06 3.52698e+06 4.59118e+06 7.10931e+06 1.48247e+07 6.63402e+06 3.06084e+06 3.75718e+06 2.63131e+06 2.86347e+06 2.39891e+06 2.76669e+06 3.5073e+06 1.94049e+06 2.22611e+06 
+-1
+n vale: 22
+nFeatures vale: 23
+n vale: 22
+   1.0000
+   1.0000
+   1.0000
+  -1.0000
+   1.0000
+   1.0000
+   1.0000
+   1.0000
+  -1.0000
+   1.0000
+   1.0000
+   1.0000
+   1.0000
+  -1.0000
+   1.0000
+   1.0000
+   1.0000
+   1.0000
+  -1.0000
+  -1.0000
+   1.0000
+   1.0000
+El kernel para 0,0 nos dice que el innerproduct es: 2.33473e+14
+El producto de 0,0: 2.33473e+14
+La matriz auxiliar vale:2.33473e+14
+El kernel para 1,0 nos dice que el innerproduct es: 8.06492e+13
+El producto de 1,0: 8.06492e+13
+La matriz auxiliar vale:8.06492e+13
+El kernel para 1,1 nos dice que el innerproduct es: 6.39025e+13
+El producto de 1,1: 6.39025e+13
+La matriz auxiliar vale:6.39025e+13
+El kernel para 2,0 nos dice que el innerproduct es: 8.33446e+13
+El producto de 2,0: 8.33446e+13
+La matriz auxiliar vale:8.33446e+13
+El kernel para 2,1 nos dice que el innerproduct es: 4.68806e+13
+El producto de 2,1: 4.68806e+13
+La matriz auxiliar vale:4.68806e+13
+El kernel para 2,2 nos dice que el innerproduct es: 5.32953e+13
+El producto de 2,2: 5.32953e+13
+La matriz auxiliar vale:5.32953e+13
+El kernel para 3,0 nos dice que el innerproduct es: 1.45708e+14
+El producto de 3,0: -1.45708e+14
+La matriz auxiliar vale:-1.45708e+14
+El kernel para 3,1 nos dice que el innerproduct es: 7.93878e+13
+El producto de 3,1: -7.93878e+13
+La matriz auxiliar vale:-7.93878e+13
+El kernel para 3,2 nos dice que el innerproduct es: 7.65826e+13
+El producto de 3,2: -7.65826e+13
+La matriz auxiliar vale:-7.65826e+13
+El kernel para 3,3 nos dice que el innerproduct es: 1.52613e+14
+El producto de 3,3: 1.52613e+14
+La matriz auxiliar vale:1.52613e+14
+El kernel para 4,0 nos dice que el innerproduct es: 1.25925e+14
+El producto de 4,0: 1.25925e+14
+La matriz auxiliar vale:1.25925e+14
+El kernel para 4,1 nos dice que el innerproduct es: 8.36128e+13
+El producto de 4,1: 8.36128e+13
+La matriz auxiliar vale:8.36128e+13
+El kernel para 4,2 nos dice que el innerproduct es: 7.49316e+13
+El producto de 4,2: 7.49316e+13
+La matriz auxiliar vale:7.49316e+13
+El kernel para 4,3 nos dice que el innerproduct es: 1.19902e+14
+El producto de 4,3: -1.19902e+14
+La matriz auxiliar vale:-1.19902e+14
+El kernel para 4,4 nos dice que el innerproduct es: 1.30619e+14
+El producto de 4,4: 1.30619e+14
+La matriz auxiliar vale:1.30619e+14
+El kernel para 5,0 nos dice que el innerproduct es: 1.34651e+14
+El producto de 5,0: 1.34651e+14
+La matriz auxiliar vale:1.34651e+14
+El kernel para 5,1 nos dice que el innerproduct es: 7.66371e+13
+El producto de 5,1: 7.66371e+13
+La matriz auxiliar vale:7.66371e+13
+El kernel para 5,2 nos dice que el innerproduct es: 7.50745e+13
+El producto de 5,2: 7.50745e+13
+La matriz auxiliar vale:7.50745e+13
+El kernel para 5,3 nos dice que el innerproduct es: 1.15003e+14
+El producto de 5,3: -1.15003e+14
+La matriz auxiliar vale:-1.15003e+14
+El kernel para 5,4 nos dice que el innerproduct es: 1.17313e+14
+El producto de 5,4: 1.17313e+14
+La matriz auxiliar vale:1.17313e+14
+El kernel para 5,5 nos dice que el innerproduct es: 1.26066e+14
+El producto de 5,5: 1.26066e+14
+La matriz auxiliar vale:1.26066e+14
+El kernel para 6,0 nos dice que el innerproduct es: 1.33157e+14
+El producto de 6,0: 1.33157e+14
+La matriz auxiliar vale:1.33157e+14
+El kernel para 6,1 nos dice que el innerproduct es: 8.41197e+13
+El producto de 6,1: 8.41197e+13
+La matriz auxiliar vale:8.41197e+13
+El kernel para 6,2 nos dice que el innerproduct es: 8.10791e+13
+El producto de 6,2: 8.10791e+13
+La matriz auxiliar vale:8.10791e+13
+El kernel para 6,3 nos dice que el innerproduct es: 1.32351e+14
+El producto de 6,3: -1.32351e+14
+La matriz auxiliar vale:-1.32351e+14
+El kernel para 6,4 nos dice que el innerproduct es: 1.27715e+14
+El producto de 6,4: 1.27715e+14
+La matriz auxiliar vale:1.27715e+14
+El kernel para 6,5 nos dice que el innerproduct es: 1.25841e+14
+El producto de 6,5: 1.25841e+14
+La matriz auxiliar vale:1.25841e+14
+El kernel para 6,6 nos dice que el innerproduct es: 1.51396e+14
+El producto de 6,6: 1.51396e+14
+La matriz auxiliar vale:1.51396e+14
+El kernel para 7,0 nos dice que el innerproduct es: 1.14056e+14
+El producto de 7,0: 1.14056e+14
+La matriz auxiliar vale:1.14056e+14
+El kernel para 7,1 nos dice que el innerproduct es: 6.82366e+13
+El producto de 7,1: 6.82366e+13
+La matriz auxiliar vale:6.82366e+13
+El kernel para 7,2 nos dice que el innerproduct es: 6.39394e+13
+El producto de 7,2: 6.39394e+13
+La matriz auxiliar vale:6.39394e+13
+El kernel para 7,3 nos dice que el innerproduct es: 1.01032e+14
+El producto de 7,3: -1.01032e+14
+La matriz auxiliar vale:-1.01032e+14
+El kernel para 7,4 nos dice que el innerproduct es: 1.01347e+14
+El producto de 7,4: 1.01347e+14
+La matriz auxiliar vale:1.01347e+14
+El kernel para 7,5 nos dice que el innerproduct es: 9.67615e+13
+El producto de 7,5: 9.67615e+13
+La matriz auxiliar vale:9.67615e+13
+El kernel para 7,6 nos dice que el innerproduct es: 1.07836e+14
+El producto de 7,6: 1.07836e+14
+La matriz auxiliar vale:1.07836e+14
+El kernel para 7,7 nos dice que el innerproduct es: 9.99765e+13
+El producto de 7,7: 9.99765e+13
+La matriz auxiliar vale:9.99765e+13
+El kernel para 8,0 nos dice que el innerproduct es: 1.17475e+14
+El producto de 8,0: -1.17475e+14
+La matriz auxiliar vale:-1.17475e+14
+El kernel para 8,1 nos dice que el innerproduct es: 7.84354e+13
+El producto de 8,1: -7.84354e+13
+La matriz auxiliar vale:-7.84354e+13
+El kernel para 8,2 nos dice que el innerproduct es: 7.42816e+13
+El producto de 8,2: -7.42816e+13
+La matriz auxiliar vale:-7.42816e+13
+El kernel para 8,3 nos dice que el innerproduct es: 1.21416e+14
+El producto de 8,3: 1.21416e+14
+La matriz auxiliar vale:1.21416e+14
+El kernel para 8,4 nos dice que el innerproduct es: 1.18179e+14
+El producto de 8,4: -1.18179e+14
+La matriz auxiliar vale:-1.18179e+14
+El kernel para 8,5 nos dice que el innerproduct es: 1.13591e+14
+El producto de 8,5: -1.13591e+14
+La matriz auxiliar vale:-1.13591e+14
+El kernel para 8,6 nos dice que el innerproduct es: 1.30774e+14
+El producto de 8,6: -1.30774e+14
+La matriz auxiliar vale:-1.30774e+14
+El kernel para 8,7 nos dice que el innerproduct es: 9.98373e+13
+El producto de 8,7: -9.98373e+13
+La matriz auxiliar vale:-9.98373e+13
+El kernel para 8,8 nos dice que el innerproduct es: 1.29336e+14
+El producto de 8,8: 1.29336e+14
+La matriz auxiliar vale:1.29336e+14
+El kernel para 9,0 nos dice que el innerproduct es: 1.35762e+14
+El producto de 9,0: 1.35762e+14
+La matriz auxiliar vale:1.35762e+14
+El kernel para 9,1 nos dice que el innerproduct es: 9.30357e+13
+El producto de 9,1: 9.30357e+13
+La matriz auxiliar vale:9.30357e+13
+El kernel para 9,2 nos dice que el innerproduct es: 7.66529e+13
+El producto de 9,2: 7.66529e+13
+La matriz auxiliar vale:7.66529e+13
+El kernel para 9,3 nos dice que el innerproduct es: 1.27956e+14
+El producto de 9,3: -1.27956e+14
+La matriz auxiliar vale:-1.27956e+14
+El kernel para 9,4 nos dice que el innerproduct es: 1.3377e+14
+El producto de 9,4: 1.3377e+14
+La matriz auxiliar vale:1.3377e+14
+El kernel para 9,5 nos dice que el innerproduct es: 1.29583e+14
+El producto de 9,5: 1.29583e+14
+La matriz auxiliar vale:1.29583e+14
+El kernel para 9,6 nos dice que el innerproduct es: 1.40423e+14
+El producto de 9,6: 1.40423e+14
+La matriz auxiliar vale:1.40423e+14
+El kernel para 9,7 nos dice que el innerproduct es: 1.01418e+14
+El producto de 9,7: 1.01418e+14
+La matriz auxiliar vale:1.01418e+14
+El kernel para 9,8 nos dice que el innerproduct es: 1.26821e+14
+El producto de 9,8: -1.26821e+14
+La matriz auxiliar vale:-1.26821e+14
+El kernel para 9,9 nos dice que el innerproduct es: 1.58299e+14
+El producto de 9,9: 1.58299e+14
+La matriz auxiliar vale:1.58299e+14
+El kernel para 10,0 nos dice que el innerproduct es: 1.20862e+14
+El producto de 10,0: 1.20862e+14
+La matriz auxiliar vale:1.20862e+14
+El kernel para 10,1 nos dice que el innerproduct es: 6.83435e+13
+El producto de 10,1: 6.83435e+13
+La matriz auxiliar vale:6.83435e+13
+El kernel para 10,2 nos dice que el innerproduct es: 6.26937e+13
+El producto de 10,2: 6.26937e+13
+La matriz auxiliar vale:6.26937e+13
+El kernel para 10,3 nos dice que el innerproduct es: 1.04826e+14
+El producto de 10,3: -1.04826e+14
+La matriz auxiliar vale:-1.04826e+14
+El kernel para 10,4 nos dice que el innerproduct es: 1.01425e+14
+El producto de 10,4: 1.01425e+14
+La matriz auxiliar vale:1.01425e+14
+El kernel para 10,5 nos dice que el innerproduct es: 1.07536e+14
+El producto de 10,5: 1.07536e+14
+La matriz auxiliar vale:1.07536e+14
+El kernel para 10,6 nos dice que el innerproduct es: 1.10098e+14
+El producto de 10,6: 1.10098e+14
+La matriz auxiliar vale:1.10098e+14
+El kernel para 10,7 nos dice que el innerproduct es: 8.77586e+13
+El producto de 10,7: 8.77586e+13
+La matriz auxiliar vale:8.77586e+13
+El kernel para 10,8 nos dice que el innerproduct es: 1.03153e+14
+El producto de 10,8: -1.03153e+14
+La matriz auxiliar vale:-1.03153e+14
+El kernel para 10,9 nos dice que el innerproduct es: 1.14907e+14
+El producto de 10,9: 1.14907e+14
+La matriz auxiliar vale:1.14907e+14
+El kernel para 10,10 nos dice que el innerproduct es: 1.07396e+14
+El producto de 10,10: 1.07396e+14
+La matriz auxiliar vale:1.07396e+14
+El kernel para 11,0 nos dice que el innerproduct es: 1.28769e+14
+El producto de 11,0: 1.28769e+14
+La matriz auxiliar vale:1.28769e+14
+El kernel para 11,1 nos dice que el innerproduct es: 7.27839e+13
+El producto de 11,1: 7.27839e+13
+La matriz auxiliar vale:7.27839e+13
+El kernel para 11,2 nos dice que el innerproduct es: 7.01915e+13
+El producto de 11,2: 7.01915e+13
+La matriz auxiliar vale:7.01915e+13
+El kernel para 11,3 nos dice que el innerproduct es: 1.12857e+14
+El producto de 11,3: -1.12857e+14
+La matriz auxiliar vale:-1.12857e+14
+El kernel para 11,4 nos dice que el innerproduct es: 1.11895e+14
+El producto de 11,4: 1.11895e+14
+La matriz auxiliar vale:1.11895e+14
+El kernel para 11,5 nos dice que el innerproduct es: 1.10942e+14
+El producto de 11,5: 1.10942e+14
+La matriz auxiliar vale:1.10942e+14
+El kernel para 11,6 nos dice que el innerproduct es: 1.17171e+14
+El producto de 11,6: 1.17171e+14
+La matriz auxiliar vale:1.17171e+14
+El kernel para 11,7 nos dice que el innerproduct es: 9.63868e+13
+El producto de 11,7: 9.63868e+13
+La matriz auxiliar vale:9.63868e+13
+El kernel para 11,8 nos dice que el innerproduct es: 1.05915e+14
+El producto de 11,8: -1.05915e+14
+La matriz auxiliar vale:-1.05915e+14
+El kernel para 11,9 nos dice que el innerproduct es: 1.15301e+14
+El producto de 11,9: 1.15301e+14
+La matriz auxiliar vale:1.15301e+14
+El kernel para 11,10 nos dice que el innerproduct es: 9.44073e+13
+El producto de 11,10: 9.44073e+13
+La matriz auxiliar vale:9.44073e+13
+El kernel para 11,11 nos dice que el innerproduct es: 1.14588e+14
+El producto de 11,11: 1.14588e+14
+La matriz auxiliar vale:1.14588e+14
+El kernel para 12,0 nos dice que el innerproduct es: 1.79366e+14
+El producto de 12,0: 1.79366e+14
+La matriz auxiliar vale:1.79366e+14
+El kernel para 12,1 nos dice que el innerproduct es: 1.37612e+14
+El producto de 12,1: 1.37612e+14
+La matriz auxiliar vale:1.37612e+14
+El kernel para 12,2 nos dice que el innerproduct es: 1.03232e+14
+El producto de 12,2: 1.03232e+14
+La matriz auxiliar vale:1.03232e+14
+El kernel para 12,3 nos dice que el innerproduct es: 1.70279e+14
+El producto de 12,3: -1.70279e+14
+La matriz auxiliar vale:-1.70279e+14
+El kernel para 12,4 nos dice que el innerproduct es: 1.91921e+14
+El producto de 12,4: 1.91921e+14
+La matriz auxiliar vale:1.91921e+14
+El kernel para 12,5 nos dice que el innerproduct es: 1.72318e+14
+El producto de 12,5: 1.72318e+14
+La matriz auxiliar vale:1.72318e+14
+El kernel para 12,6 nos dice que el innerproduct es: 2.18712e+14
+El producto de 12,6: 2.18712e+14
+La matriz auxiliar vale:2.18712e+14
+El kernel para 12,7 nos dice que el innerproduct es: 1.38494e+14
+El producto de 12,7: 1.38494e+14
+La matriz auxiliar vale:1.38494e+14
+El kernel para 12,8 nos dice que el innerproduct es: 1.7976e+14
+El producto de 12,8: -1.7976e+14
+La matriz auxiliar vale:-1.7976e+14
+El kernel para 12,9 nos dice que el innerproduct es: 2.30755e+14
+El producto de 12,9: 2.30755e+14
+La matriz auxiliar vale:2.30755e+14
+El kernel para 12,10 nos dice que el innerproduct es: 1.47322e+14
+El producto de 12,10: 1.47322e+14
+La matriz auxiliar vale:1.47322e+14
+El kernel para 12,11 nos dice que el innerproduct es: 1.58398e+14
+El producto de 12,11: 1.58398e+14
+La matriz auxiliar vale:1.58398e+14
+El kernel para 12,12 nos dice que el innerproduct es: 4.20926e+14
+El producto de 12,12: 4.20926e+14
+La matriz auxiliar vale:4.20926e+14
+El kernel para 13,0 nos dice que el innerproduct es: 1.45844e+14
+El producto de 13,0: -1.45844e+14
+La matriz auxiliar vale:-1.45844e+14
+El kernel para 13,1 nos dice que el innerproduct es: 9.78526e+13
+El producto de 13,1: -9.78526e+13
+La matriz auxiliar vale:-9.78526e+13
+El kernel para 13,2 nos dice que el innerproduct es: 9.5122e+13
+El producto de 13,2: -9.5122e+13
+La matriz auxiliar vale:-9.5122e+13
+El kernel para 13,3 nos dice que el innerproduct es: 1.44918e+14
+El producto de 13,3: 1.44918e+14
+La matriz auxiliar vale:1.44918e+14
+El kernel para 13,4 nos dice que el innerproduct es: 1.58301e+14
+El producto de 13,4: -1.58301e+14
+La matriz auxiliar vale:-1.58301e+14
+El kernel para 13,5 nos dice que el innerproduct es: 1.52202e+14
+El producto de 13,5: -1.52202e+14
+La matriz auxiliar vale:-1.52202e+14
+El kernel para 13,6 nos dice que el innerproduct es: 1.62829e+14
+El producto de 13,6: -1.62829e+14
+La matriz auxiliar vale:-1.62829e+14
+El kernel para 13,7 nos dice que el innerproduct es: 1.17969e+14
+El producto de 13,7: -1.17969e+14
+La matriz auxiliar vale:-1.17969e+14
+El kernel para 13,8 nos dice que el innerproduct es: 1.588e+14
+El producto de 13,8: 1.588e+14
+La matriz auxiliar vale:1.588e+14
+El kernel para 13,9 nos dice que el innerproduct es: 1.61076e+14
+El producto de 13,9: -1.61076e+14
+La matriz auxiliar vale:-1.61076e+14
+El kernel para 13,10 nos dice que el innerproduct es: 1.31365e+14
+El producto de 13,10: -1.31365e+14
+La matriz auxiliar vale:-1.31365e+14
+El kernel para 13,11 nos dice que el innerproduct es: 1.4271e+14
+El producto de 13,11: -1.4271e+14
+La matriz auxiliar vale:-1.4271e+14
+El kernel para 13,12 nos dice que el innerproduct es: 2.26956e+14
+El producto de 13,12: -2.26956e+14
+La matriz auxiliar vale:-2.26956e+14
+El kernel para 13,13 nos dice que el innerproduct es: 2.43253e+14
+El producto de 13,13: 2.43253e+14
+La matriz auxiliar vale:2.43253e+14
+El kernel para 14,0 nos dice que el innerproduct es: 1.08004e+14
+El producto de 14,0: 1.08004e+14
+La matriz auxiliar vale:1.08004e+14
+El kernel para 14,1 nos dice que el innerproduct es: 6.73745e+13
+El producto de 14,1: 6.73745e+13
+La matriz auxiliar vale:6.73745e+13
+El kernel para 14,2 nos dice que el innerproduct es: 6.87689e+13
+El producto de 14,2: 6.87689e+13
+La matriz auxiliar vale:6.87689e+13
+El kernel para 14,3 nos dice que el innerproduct es: 1.08305e+14
+El producto de 14,3: -1.08305e+14
+La matriz auxiliar vale:-1.08305e+14
+El kernel para 14,4 nos dice que el innerproduct es: 1.02887e+14
+El producto de 14,4: 1.02887e+14
+La matriz auxiliar vale:1.02887e+14
+El kernel para 14,5 nos dice que el innerproduct es: 1.04204e+14
+El producto de 14,5: 1.04204e+14
+La matriz auxiliar vale:1.04204e+14
+El kernel para 14,6 nos dice que el innerproduct es: 1.11111e+14
+El producto de 14,6: 1.11111e+14
+La matriz auxiliar vale:1.11111e+14
+El kernel para 14,7 nos dice que el innerproduct es: 8.50204e+13
+El producto de 14,7: 8.50204e+13
+La matriz auxiliar vale:8.50204e+13
+El kernel para 14,8 nos dice que el innerproduct es: 1.07085e+14
+El producto de 14,8: -1.07085e+14
+La matriz auxiliar vale:-1.07085e+14
+El kernel para 14,9 nos dice que el innerproduct es: 1.08163e+14
+El producto de 14,9: 1.08163e+14
+La matriz auxiliar vale:1.08163e+14
+El kernel para 14,10 nos dice que el innerproduct es: 9.0981e+13
+El producto de 14,10: 9.0981e+13
+La matriz auxiliar vale:9.0981e+13
+El kernel para 14,11 nos dice que el innerproduct es: 1.00065e+14
+El producto de 14,11: 1.00065e+14
+La matriz auxiliar vale:1.00065e+14
+El kernel para 14,12 nos dice que el innerproduct es: 1.484e+14
+El producto de 14,12: 1.484e+14
+La matriz auxiliar vale:1.484e+14
+El kernel para 14,13 nos dice que el innerproduct es: 1.37089e+14
+El producto de 14,13: -1.37089e+14
+La matriz auxiliar vale:-1.37089e+14
+El kernel para 14,14 nos dice que el innerproduct es: 1.04672e+14
+El producto de 14,14: 1.04672e+14
+La matriz auxiliar vale:1.04672e+14
+El kernel para 15,0 nos dice que el innerproduct es: 1.22587e+14
+El producto de 15,0: 1.22587e+14
+La matriz auxiliar vale:1.22587e+14
+El kernel para 15,1 nos dice que el innerproduct es: 8.59184e+13
+El producto de 15,1: 8.59184e+13
+La matriz auxiliar vale:8.59184e+13
+El kernel para 15,2 nos dice que el innerproduct es: 7.53085e+13
+El producto de 15,2: 7.53085e+13
+La matriz auxiliar vale:7.53085e+13
+El kernel para 15,3 nos dice que el innerproduct es: 1.37035e+14
+El producto de 15,3: -1.37035e+14
+La matriz auxiliar vale:-1.37035e+14
+El kernel para 15,4 nos dice que el innerproduct es: 1.26419e+14
+El producto de 15,4: 1.26419e+14
+La matriz auxiliar vale:1.26419e+14
+El kernel para 15,5 nos dice que el innerproduct es: 1.13362e+14
+El producto de 15,5: 1.13362e+14
+La matriz auxiliar vale:1.13362e+14
+El kernel para 15,6 nos dice que el innerproduct es: 1.45002e+14
+El producto de 15,6: 1.45002e+14
+La matriz auxiliar vale:1.45002e+14
+El kernel para 15,7 nos dice que el innerproduct es: 1.03751e+14
+El producto de 15,7: 1.03751e+14
+La matriz auxiliar vale:1.03751e+14
+El kernel para 15,8 nos dice que el innerproduct es: 1.26682e+14
+El producto de 15,8: -1.26682e+14
+La matriz auxiliar vale:-1.26682e+14
+El kernel para 15,9 nos dice que el innerproduct es: 1.38754e+14
+El producto de 15,9: 1.38754e+14
+La matriz auxiliar vale:1.38754e+14
+El kernel para 15,10 nos dice que el innerproduct es: 1.0227e+14
+El producto de 15,10: 1.0227e+14
+La matriz auxiliar vale:1.0227e+14
+El kernel para 15,11 nos dice que el innerproduct es: 1.15436e+14
+El producto de 15,11: 1.15436e+14
+La matriz auxiliar vale:1.15436e+14
+El kernel para 15,12 nos dice que el innerproduct es: 2.24661e+14
+El producto de 15,12: 2.24661e+14
+La matriz auxiliar vale:2.24661e+14
+El kernel para 15,13 nos dice que el innerproduct es: 1.55756e+14
+El producto de 15,13: -1.55756e+14
+La matriz auxiliar vale:-1.55756e+14
+El kernel para 15,14 nos dice que el innerproduct es: 1.09288e+14
+El producto de 15,14: 1.09288e+14
+La matriz auxiliar vale:1.09288e+14
+El kernel para 15,15 nos dice que el innerproduct es: 1.57255e+14
+El producto de 15,15: 1.57255e+14
+La matriz auxiliar vale:1.57255e+14
+El kernel para 16,0 nos dice que el innerproduct es: 1.18991e+14
+El producto de 16,0: 1.18991e+14
+La matriz auxiliar vale:1.18991e+14
+El kernel para 16,1 nos dice que el innerproduct es: 7.18793e+13
+El producto de 16,1: 7.18793e+13
+La matriz auxiliar vale:7.18793e+13
+El kernel para 16,2 nos dice que el innerproduct es: 7.02549e+13
+El producto de 16,2: 7.02549e+13
+La matriz auxiliar vale:7.02549e+13
+El kernel para 16,3 nos dice que el innerproduct es: 1.09692e+14
+El producto de 16,3: -1.09692e+14
+La matriz auxiliar vale:-1.09692e+14
+El kernel para 16,4 nos dice que el innerproduct es: 1.12165e+14
+El producto de 16,4: 1.12165e+14
+La matriz auxiliar vale:1.12165e+14
+El kernel para 16,5 nos dice que el innerproduct es: 1.0641e+14
+El producto de 16,5: 1.0641e+14
+La matriz auxiliar vale:1.0641e+14
+El kernel para 16,6 nos dice que el innerproduct es: 1.14018e+14
+El producto de 16,6: 1.14018e+14
+La matriz auxiliar vale:1.14018e+14
+El kernel para 16,7 nos dice que el innerproduct es: 9.32001e+13
+El producto de 16,7: 9.32001e+13
+La matriz auxiliar vale:9.32001e+13
+El kernel para 16,8 nos dice que el innerproduct es: 1.05862e+14
+El producto de 16,8: -1.05862e+14
+La matriz auxiliar vale:-1.05862e+14
+El kernel para 16,9 nos dice que el innerproduct es: 1.15777e+14
+El producto de 16,9: 1.15777e+14
+La matriz auxiliar vale:1.15777e+14
+El kernel para 16,10 nos dice que el innerproduct es: 9.36964e+13
+El producto de 16,10: 9.36964e+13
+La matriz auxiliar vale:9.36964e+13
+El kernel para 16,11 nos dice que el innerproduct es: 1.02146e+14
+El producto de 16,11: 1.02146e+14
+La matriz auxiliar vale:1.02146e+14
+El kernel para 16,12 nos dice que el innerproduct es: 1.59252e+14
+El producto de 16,12: 1.59252e+14
+La matriz auxiliar vale:1.59252e+14
+El kernel para 16,13 nos dice que el innerproduct es: 1.29926e+14
+El producto de 16,13: -1.29926e+14
+La matriz auxiliar vale:-1.29926e+14
+El kernel para 16,14 nos dice que el innerproduct es: 9.79857e+13
+El producto de 16,14: 9.79857e+13
+La matriz auxiliar vale:9.79857e+13
+El kernel para 16,15 nos dice que el innerproduct es: 1.13307e+14
+El producto de 16,15: 1.13307e+14
+La matriz auxiliar vale:1.13307e+14
+El kernel para 16,16 nos dice que el innerproduct es: 1.08375e+14
+El producto de 16,16: 1.08375e+14
+La matriz auxiliar vale:1.08375e+14
+El kernel para 17,0 nos dice que el innerproduct es: 1.63709e+14
+El producto de 17,0: 1.63709e+14
+La matriz auxiliar vale:1.63709e+14
+El kernel para 17,1 nos dice que el innerproduct es: 9.36489e+13
+El producto de 17,1: 9.36489e+13
+La matriz auxiliar vale:9.36489e+13
+El kernel para 17,2 nos dice que el innerproduct es: 8.85487e+13
+El producto de 17,2: 8.85487e+13
+La matriz auxiliar vale:8.85487e+13
+El kernel para 17,3 nos dice que el innerproduct es: 1.54638e+14
+El producto de 17,3: -1.54638e+14
+La matriz auxiliar vale:-1.54638e+14
+El kernel para 17,4 nos dice que el innerproduct es: 1.39154e+14
+El producto de 17,4: 1.39154e+14
+La matriz auxiliar vale:1.39154e+14
+El kernel para 17,5 nos dice que el innerproduct es: 1.38118e+14
+El producto de 17,5: 1.38118e+14
+La matriz auxiliar vale:1.38118e+14
+El kernel para 17,6 nos dice que el innerproduct es: 1.4961e+14
+El producto de 17,6: 1.4961e+14
+La matriz auxiliar vale:1.4961e+14
+El kernel para 17,7 nos dice que el innerproduct es: 1.13658e+14
+El producto de 17,7: 1.13658e+14
+La matriz auxiliar vale:1.13658e+14
+El kernel para 17,8 nos dice que el innerproduct es: 1.3539e+14
+El producto de 17,8: -1.3539e+14
+La matriz auxiliar vale:-1.3539e+14
+El kernel para 17,9 nos dice que el innerproduct es: 1.47448e+14
+El producto de 17,9: 1.47448e+14
+La matriz auxiliar vale:1.47448e+14
+El kernel para 17,10 nos dice que el innerproduct es: 1.22039e+14
+El producto de 17,10: 1.22039e+14
+La matriz auxiliar vale:1.22039e+14
+El kernel para 17,11 nos dice que el innerproduct es: 1.28134e+14
+El producto de 17,11: 1.28134e+14
+La matriz auxiliar vale:1.28134e+14
+El kernel para 17,12 nos dice que el innerproduct es: 2.0309e+14
+El producto de 17,12: 2.0309e+14
+La matriz auxiliar vale:2.0309e+14
+El kernel para 17,13 nos dice que el innerproduct es: 1.78476e+14
+El producto de 17,13: -1.78476e+14
+La matriz auxiliar vale:-1.78476e+14
+El kernel para 17,14 nos dice que el innerproduct es: 1.20962e+14
+El producto de 17,14: 1.20962e+14
+La matriz auxiliar vale:1.20962e+14
+El kernel para 17,15 nos dice que el innerproduct es: 1.47248e+14
+El producto de 17,15: 1.47248e+14
+La matriz auxiliar vale:1.47248e+14
+El kernel para 17,16 nos dice que el innerproduct es: 1.25333e+14
+El producto de 17,16: 1.25333e+14
+La matriz auxiliar vale:1.25333e+14
+El kernel para 17,17 nos dice que el innerproduct es: 1.81684e+14
+El producto de 17,17: 1.81684e+14
+La matriz auxiliar vale:1.81684e+14
+El kernel para 18,0 nos dice que el innerproduct es: 1.60268e+14
+El producto de 18,0: -1.60268e+14
+La matriz auxiliar vale:-1.60268e+14
+El kernel para 18,1 nos dice que el innerproduct es: 9.48787e+13
+El producto de 18,1: -9.48787e+13
+La matriz auxiliar vale:-9.48787e+13
+El kernel para 18,2 nos dice que el innerproduct es: 9.25039e+13
+El producto de 18,2: -9.25039e+13
+La matriz auxiliar vale:-9.25039e+13
+El kernel para 18,3 nos dice que el innerproduct es: 1.37741e+14
+El producto de 18,3: 1.37741e+14
+La matriz auxiliar vale:1.37741e+14
+El kernel para 18,4 nos dice que el innerproduct es: 1.4089e+14
+El producto de 18,4: -1.4089e+14
+La matriz auxiliar vale:-1.4089e+14
+El kernel para 18,5 nos dice que el innerproduct es: 1.53263e+14
+El producto de 18,5: -1.53263e+14
+La matriz auxiliar vale:-1.53263e+14
+El kernel para 18,6 nos dice que el innerproduct es: 1.49015e+14
+El producto de 18,6: -1.49015e+14
+La matriz auxiliar vale:-1.49015e+14
+El kernel para 18,7 nos dice que el innerproduct es: 1.19969e+14
+El producto de 18,7: -1.19969e+14
+La matriz auxiliar vale:-1.19969e+14
+El kernel para 18,8 nos dice que el innerproduct es: 1.33665e+14
+El producto de 18,8: 1.33665e+14
+La matriz auxiliar vale:1.33665e+14
+El kernel para 18,9 nos dice que el innerproduct es: 1.65071e+14
+El producto de 18,9: -1.65071e+14
+La matriz auxiliar vale:-1.65071e+14
+El kernel para 18,10 nos dice que el innerproduct es: 1.41255e+14
+El producto de 18,10: -1.41255e+14
+La matriz auxiliar vale:-1.41255e+14
+El kernel para 18,11 nos dice que el innerproduct es: 1.29271e+14
+El producto de 18,11: -1.29271e+14
+La matriz auxiliar vale:-1.29271e+14
+El kernel para 18,12 nos dice que el innerproduct es: 2.13986e+14
+El producto de 18,12: -2.13986e+14
+La matriz auxiliar vale:-2.13986e+14
+El kernel para 18,13 nos dice que el innerproduct es: 1.76122e+14
+El producto de 18,13: 1.76122e+14
+La matriz auxiliar vale:1.76122e+14
+El kernel para 18,14 nos dice que el innerproduct es: 1.25636e+14
+El producto de 18,14: -1.25636e+14
+La matriz auxiliar vale:-1.25636e+14
+El kernel para 18,15 nos dice que el innerproduct es: 1.41787e+14
+El producto de 18,15: -1.41787e+14
+La matriz auxiliar vale:-1.41787e+14
+El kernel para 18,16 nos dice que el innerproduct es: 1.32286e+14
+El producto de 18,16: -1.32286e+14
+La matriz auxiliar vale:-1.32286e+14
+El kernel para 18,17 nos dice que el innerproduct es: 1.67392e+14
+El producto de 18,17: -1.67392e+14
+La matriz auxiliar vale:-1.67392e+14
+El kernel para 18,18 nos dice que el innerproduct es: 2.3199e+14
+El producto de 18,18: 2.3199e+14
+La matriz auxiliar vale:2.3199e+14
+El kernel para 19,0 nos dice que el innerproduct es: 1.15886e+14
+El producto de 19,0: -1.15886e+14
+La matriz auxiliar vale:-1.15886e+14
+El kernel para 19,1 nos dice que el innerproduct es: 7.22198e+13
+El producto de 19,1: -7.22198e+13
+La matriz auxiliar vale:-7.22198e+13
+El kernel para 19,2 nos dice que el innerproduct es: 7.32209e+13
+El producto de 19,2: -7.32209e+13
+La matriz auxiliar vale:-7.32209e+13
+El kernel para 19,3 nos dice que el innerproduct es: 1.06576e+14
+El producto de 19,3: 1.06576e+14
+La matriz auxiliar vale:1.06576e+14
+El kernel para 19,4 nos dice que el innerproduct es: 1.08941e+14
+El producto de 19,4: -1.08941e+14
+La matriz auxiliar vale:-1.08941e+14
+El kernel para 19,5 nos dice que el innerproduct es: 1.07037e+14
+El producto de 19,5: -1.07037e+14
+La matriz auxiliar vale:-1.07037e+14
+El kernel para 19,6 nos dice que el innerproduct es: 1.14402e+14
+El producto de 19,6: -1.14402e+14
+La matriz auxiliar vale:-1.14402e+14
+El kernel para 19,7 nos dice que el innerproduct es: 8.99165e+13
+El producto de 19,7: -8.99165e+13
+La matriz auxiliar vale:-8.99165e+13
+El kernel para 19,8 nos dice que el innerproduct es: 1.08166e+14
+El producto de 19,8: 1.08166e+14
+La matriz auxiliar vale:1.08166e+14
+El kernel para 19,9 nos dice que el innerproduct es: 1.15173e+14
+El producto de 19,9: -1.15173e+14
+La matriz auxiliar vale:-1.15173e+14
+El kernel para 19,10 nos dice que el innerproduct es: 9.18333e+13
+El producto de 19,10: -9.18333e+13
+La matriz auxiliar vale:-9.18333e+13
+El kernel para 19,11 nos dice que el innerproduct es: 9.94306e+13
+El producto de 19,11: -9.94306e+13
+La matriz auxiliar vale:-9.94306e+13
+El kernel para 19,12 nos dice que el innerproduct es: 1.58166e+14
+El producto de 19,12: -1.58166e+14
+La matriz auxiliar vale:-1.58166e+14
+El kernel para 19,13 nos dice que el innerproduct es: 1.39149e+14
+El producto de 19,13: 1.39149e+14
+La matriz auxiliar vale:1.39149e+14
+El kernel para 19,14 nos dice que el innerproduct es: 9.86623e+13
+El producto de 19,14: -9.86623e+13
+La matriz auxiliar vale:-9.86623e+13
+El kernel para 19,15 nos dice que el innerproduct es: 1.10934e+14
+El producto de 19,15: -1.10934e+14
+La matriz auxiliar vale:-1.10934e+14
+El kernel para 19,16 nos dice que el innerproduct es: 1.00228e+14
+El producto de 19,16: -1.00228e+14
+La matriz auxiliar vale:-1.00228e+14
+El kernel para 19,17 nos dice que el innerproduct es: 1.27284e+14
+El producto de 19,17: -1.27284e+14
+La matriz auxiliar vale:-1.27284e+14
+El kernel para 19,18 nos dice que el innerproduct es: 1.36067e+14
+El producto de 19,18: 1.36067e+14
+La matriz auxiliar vale:1.36067e+14
+El kernel para 19,19 nos dice que el innerproduct es: 1.07968e+14
+El producto de 19,19: 1.07968e+14
+La matriz auxiliar vale:1.07968e+14
+El kernel para 20,0 nos dice que el innerproduct es: 1.22686e+14
+El producto de 20,0: 1.22686e+14
+La matriz auxiliar vale:1.22686e+14
+El kernel para 20,1 nos dice que el innerproduct es: 7.90942e+13
+El producto de 20,1: 7.90942e+13
+La matriz auxiliar vale:7.90942e+13
+El kernel para 20,2 nos dice que el innerproduct es: 7.04114e+13
+El producto de 20,2: 7.04114e+13
+La matriz auxiliar vale:7.04114e+13
+El kernel para 20,3 nos dice que el innerproduct es: 1.13732e+14
+El producto de 20,3: -1.13732e+14
+La matriz auxiliar vale:-1.13732e+14
+El kernel para 20,4 nos dice que el innerproduct es: 1.14626e+14
+El producto de 20,4: 1.14626e+14
+La matriz auxiliar vale:1.14626e+14
+El kernel para 20,5 nos dice que el innerproduct es: 1.13759e+14
+El producto de 20,5: 1.13759e+14
+La matriz auxiliar vale:1.13759e+14
+El kernel para 20,6 nos dice que el innerproduct es: 1.24908e+14
+El producto de 20,6: 1.24908e+14
+La matriz auxiliar vale:1.24908e+14
+El kernel para 20,7 nos dice que el innerproduct es: 1.0478e+14
+El producto de 20,7: 1.0478e+14
+La matriz auxiliar vale:1.0478e+14
+El kernel para 20,8 nos dice que el innerproduct es: 1.13962e+14
+El producto de 20,8: -1.13962e+14
+La matriz auxiliar vale:-1.13962e+14
+El kernel para 20,9 nos dice que el innerproduct es: 1.20834e+14
+El producto de 20,9: 1.20834e+14
+La matriz auxiliar vale:1.20834e+14
+El kernel para 20,10 nos dice que el innerproduct es: 1.04334e+14
+El producto de 20,10: 1.04334e+14
+La matriz auxiliar vale:1.04334e+14
+El kernel para 20,11 nos dice que el innerproduct es: 1.09562e+14
+El producto de 20,11: 1.09562e+14
+La matriz auxiliar vale:1.09562e+14
+El kernel para 20,12 nos dice que el innerproduct es: 1.6855e+14
+El producto de 20,12: 1.6855e+14
+La matriz auxiliar vale:1.6855e+14
+El kernel para 20,13 nos dice que el innerproduct es: 1.44516e+14
+El producto de 20,13: -1.44516e+14
+La matriz auxiliar vale:-1.44516e+14
+El kernel para 20,14 nos dice que el innerproduct es: 9.8868e+13
+El producto de 20,14: 9.8868e+13
+La matriz auxiliar vale:9.8868e+13
+El kernel para 20,15 nos dice que el innerproduct es: 1.17327e+14
+El producto de 20,15: 1.17327e+14
+La matriz auxiliar vale:1.17327e+14
+El kernel para 20,16 nos dice que el innerproduct es: 1.02553e+14
+El producto de 20,16: 1.02553e+14
+La matriz auxiliar vale:1.02553e+14
+El kernel para 20,17 nos dice que el innerproduct es: 1.31817e+14
+El producto de 20,17: 1.31817e+14
+La matriz auxiliar vale:1.31817e+14
+El kernel para 20,18 nos dice que el innerproduct es: 1.3909e+14
+El producto de 20,18: -1.3909e+14
+La matriz auxiliar vale:-1.3909e+14
+El kernel para 20,19 nos dice que el innerproduct es: 1.00822e+14
+El producto de 20,19: -1.00822e+14
+La matriz auxiliar vale:-1.00822e+14
+El kernel para 20,20 nos dice que el innerproduct es: 1.21779e+14
+El producto de 20,20: 1.21779e+14
+La matriz auxiliar vale:1.21779e+14
+El kernel para 21,0 nos dice que el innerproduct es: 1.77074e+14
+El producto de 21,0: 1.77074e+14
+La matriz auxiliar vale:1.77074e+14
+El kernel para 21,1 nos dice que el innerproduct es: 1.209e+14
+El producto de 21,1: 1.209e+14
+La matriz auxiliar vale:1.209e+14
+El kernel para 21,2 nos dice que el innerproduct es: 1.05195e+14
+El producto de 21,2: 1.05195e+14
+La matriz auxiliar vale:1.05195e+14
+El kernel para 21,3 nos dice que el innerproduct es: 1.93582e+14
+El producto de 21,3: -1.93582e+14
+La matriz auxiliar vale:-1.93582e+14
+El kernel para 21,4 nos dice que el innerproduct es: 1.81982e+14
+El producto de 21,4: 1.81982e+14
+La matriz auxiliar vale:1.81982e+14
+El kernel para 21,5 nos dice que el innerproduct es: 1.62257e+14
+El producto de 21,5: 1.62257e+14
+La matriz auxiliar vale:1.62257e+14
+El kernel para 21,6 nos dice que el innerproduct es: 2.06705e+14
+El producto de 21,6: 2.06705e+14
+La matriz auxiliar vale:2.06705e+14
+El kernel para 21,7 nos dice que el innerproduct es: 1.51765e+14
+El producto de 21,7: 1.51765e+14
+La matriz auxiliar vale:1.51765e+14
+El kernel para 21,8 nos dice que el innerproduct es: 1.74365e+14
+El producto de 21,8: -1.74365e+14
+La matriz auxiliar vale:-1.74365e+14
+El kernel para 21,9 nos dice que el innerproduct es: 1.92862e+14
+El producto de 21,9: 1.92862e+14
+La matriz auxiliar vale:1.92862e+14
+El kernel para 21,10 nos dice que el innerproduct es: 1.47822e+14
+El producto de 21,10: 1.47822e+14
+La matriz auxiliar vale:1.47822e+14
+El kernel para 21,11 nos dice que el innerproduct es: 1.64159e+14
+El producto de 21,11: 1.64159e+14
+La matriz auxiliar vale:1.64159e+14
+El kernel para 21,12 nos dice que el innerproduct es: 3.1638e+14
+El producto de 21,12: 3.1638e+14
+La matriz auxiliar vale:3.1638e+14
+El kernel para 21,13 nos dice que el innerproduct es: 2.18458e+14
+El producto de 21,13: -2.18458e+14
+La matriz auxiliar vale:-2.18458e+14
+El kernel para 21,14 nos dice que el innerproduct es: 1.50662e+14
+El producto de 21,14: 1.50662e+14
+La matriz auxiliar vale:1.50662e+14
+El kernel para 21,15 nos dice que el innerproduct es: 2.20011e+14
+El producto de 21,15: 2.20011e+14
+La matriz auxiliar vale:2.20011e+14
+El kernel para 21,16 nos dice que el innerproduct es: 1.54294e+14
+El producto de 21,16: 1.54294e+14
+La matriz auxiliar vale:1.54294e+14
+El kernel para 21,17 nos dice que el innerproduct es: 2.07325e+14
+El producto de 21,17: 2.07325e+14
+La matriz auxiliar vale:2.07325e+14
+El kernel para 21,18 nos dice que el innerproduct es: 2.01654e+14
+El producto de 21,18: -2.01654e+14
+La matriz auxiliar vale:-2.01654e+14
+El kernel para 21,19 nos dice que el innerproduct es: 1.56487e+14
+El producto de 21,19: -1.56487e+14
+La matriz auxiliar vale:-1.56487e+14
+El kernel para 21,20 nos dice que el innerproduct es: 1.6833e+14
+El producto de 21,20: 1.6833e+14
+La matriz auxiliar vale:1.6833e+14
+El kernel para 21,21 nos dice que el innerproduct es: 3.44764e+14
+El producto de 21,21: 3.44764e+14
+La matriz auxiliar vale:3.44764e+14
+Y la solución es: status:          OPTIMAL
+objective value: -3.68355e+135/3.70508e+147
+variable values:
+  0: 1.31158e+133/9.26271e+146
+  1: 0/1
+  2: 2.47095e+134/9.26271e+146
+  3: 1.02005e+134/3.08757e+146
+  4: 5.10811e+132/3.08757e+146
+  5: 0/1
+  6: 0/1
+  7: 0/1
+  8: 1.20294e+133/3.08757e+146
+  9: 2.86515e+133/3.08757e+146
+  10: 0/1
+  11: 0/1
+  12: 0/1
+  13: 6.81273e+133/9.26271e+146
+  14: 3.25761e+133/1.32324e+146
+  15: 0/1
+  16: 0/1
+  17: 7.25542e+132/2.50344e+145
+  18: 1.25798e+133/3.08757e+146
+  19: 4.72916e+134/9.26271e+146
+  20: 0/1
+  21: 2.09715e+133/3.08757e+146
+
+Y el valor de b es: 3.85564
+X:
+   1.6400e+06
+   1.3271e+06
+   1.6083e+06
+   1.1664e+06
+   2.0253e+06
+   2.0884e+06
+   2.6676e+06
+   2.2115e+06
+   3.6332e+06
+   1.1584e+07
+   4.2566e+06
+   2.0118e+06
+   1.5948e+06
+   1.2437e+06
+   1.4089e+06
+   2.2589e+06
+   2.6531e+06
+   1.9388e+06
+   1.2940e+06
+   1.3585e+06
+   2.1192e+06
+   1.4891e+06
+   1.6852e+06
+
+input:
+   1.7829e+06
+   1.5756e+06
+   2.1271e+06
+   1.6091e+06
+   1.4537e+06
+   1.8242e+06
+   2.4982e+06
+   2.3882e+06
+   2.1442e+06
+   4.4598e+06
+   2.4098e+06
+   3.9049e+06
+   4.0286e+06
+   2.1852e+06
+   2.7685e+06
+   2.4144e+06
+   2.2580e+06
+   2.3265e+06
+   3.1980e+06
+   4.0860e+06
+   3.6213e+06
+
+
+error: as_scalar(): incompatible dimensions
+
