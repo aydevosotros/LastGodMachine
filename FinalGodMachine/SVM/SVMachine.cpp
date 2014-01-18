@@ -28,36 +28,37 @@ SVMachine::SVMachine(KernelType t) {
 SVMachine::~SVMachine() {}
 
 void SVMachine::setParameters(char *argv[]){
-	std::cout << "I'm setting parameters with the SVMachine" << std::endl;
+//	std::cout << "I'm setting parameters with the SVMachine" << std::endl;
 
 	//esta variable luego se sustituirá por la variable de clase
-	int margin = atoi(argv[2]);
 
-	if(margin == 0){
-		std::cout << "The margin is soft" << std::endl;
-	} else if(margin == 1){
-		std::cout << "The margin is hard" << std::endl;
-	}
-
-	C_executionMode = atoi(argv[3]);
-	std::cout << "Execution mode set to " << C_executionMode << std::endl;
+	C_executionMode = atoi(argv[2]);
+//	std::cout << "Execution mode set to " << C_executionMode << std::endl;
 
 	if(C_executionMode == 0){
-		C_trainingFile = argv[4];
-		C_testingFile = argv[5];
+		C_trainingFile = argv[3];
+		C_testingFile = argv[4];
 
-		std::cout	<< "Training with " << C_trainingFile
-					<< " and testing with " << C_testingFile << std::endl;
+//		std::cout	<< "Training with " << C_trainingFile
+//					<< " and testing with " << C_testingFile << std::endl;
 	} else 	if(C_executionMode == 1){
-		C_inputFile = argv[4];
+		C_inputFile = argv[3];
 
-		std::cout	<< "Predicting " << C_inputFile << std::endl;
+//		std::cout	<< "Predicting " << C_inputFile << std::endl;
+	}
+
+	int margin = atoi(argv[4]);
+
+	if(margin == 0){
+//		std::cout << "The margin is soft" << std::endl;
+	} else if(margin == 1){
+//		std::cout << "The margin is hard" << std::endl;
 	}
 }
 
 //copypasteao tal cual de la LR
 void SVMachine::loadTrainingSet(std::string filename){
-	std::cout << "I'm loading training set with the SVMachine" << std::endl;
+//	std::cout << "I'm loading training set with the SVMachine" << std::endl;
 
 	std::string line;
 	std::ifstream trainingFile(filename.c_str());
@@ -83,7 +84,7 @@ void SVMachine::loadTrainingSet(std::string filename){
 
 //copypasteao tal cual de la LR
 void SVMachine::loadTestingSet(std::string filename){
-	std::cout << "I'm loading testing set with the SVMachine" << std::endl;
+//	std::cout << "I'm loading testing set with the SVMachine" << std::endl;
 
 	std::string line;
 	std::ifstream testingFile(filename.c_str());
@@ -109,7 +110,7 @@ void SVMachine::loadTestingSet(std::string filename){
 
 //copypasteao tal cual de la LR
 void SVMachine::loadInput(std::string filename){
-	std::cout << "I'm loading input with the SVMachine" << std::endl;
+//	std::cout << "I'm loading input with the SVMachine" << std::endl;
 
 	std::string line;
 	std::ifstream inputFile(filename.c_str());
@@ -129,10 +130,10 @@ void SVMachine::loadInput(std::string filename){
 
 //copypaste de LR
 void SVMachine::run(){
-	std::cout << "I'm running the mode ";
+//	std::cout << "I'm running the mode ";
 
 	if(C_executionMode == 0){
-		std::cout << "Test" << std::endl;
+//		std::cout << "Test" << std::endl;
 
 		loadTrainingSet(C_trainingFile);
 		loadTestingSet(C_testingFile);
@@ -160,7 +161,7 @@ void SVMachine::run(){
 		train();
 		test();
 	} else if(C_executionMode == 1){
-		std::cout << "Predict" << std::endl;
+//		std::cout << "Predict" << std::endl;
 
 		loadInput(C_inputFile);
 
@@ -186,7 +187,7 @@ void SVMachine::run(){
 
 //lleva dentro el istrainingReady
 void SVMachine::train(){
-	std::cout << "I'm training with the SVMachine" << std::endl;
+//	std::cout << "I'm training with the SVMachine" << std::endl;
 
 	C_nFeatures=C_trainingSet[0].getNFeatures();
 
@@ -194,7 +195,7 @@ void SVMachine::train(){
 }
 
 void SVMachine::test(){
-	std::cout << "I'm testing with the SVMachine" << std::endl;
+//	std::cout << "I'm testing with the SVMachine" << std::endl;
 
 	fillActualY();
 
@@ -203,21 +204,21 @@ void SVMachine::test(){
 
 		if((p>0.5 && C_actualY[i] > 0) || (p<=0.5 && C_actualY[i] < 0)){
 			if(p>0.5){
-				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
+//				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
 			} else {
-				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
+//				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
 			}
 
-			std::cout << "Ni Sandro Rey" << std::endl;
+//			std::cout << "Ni Sandro Rey" << std::endl;
 
 		} else if((p>0.5 && C_actualY[i] < 0) || (p<=0.5 && C_actualY[i] > 0)){
 			if(p>0.5){
-				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
+//				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
 			} else {
-				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
+//				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
 			}
 
-			std::cout << "Pinyico..." << std::endl;
+//			std::cout << "Pinyico..." << std::endl;
 		} else {
 			std::cout << "No se que carajo ha pasado" << std::endl;
 		}
@@ -245,15 +246,20 @@ void SVMachine::test(){
 	}
 
 	double precission = tPositives / (tPositives + fPositives);
+
+	std::cout << "Precission = " << precission << std::endl;
+
 	double recall = tPositives / (tPositives + fNegatives);
+
+	std::cout << "Recall = " << recall << std::endl;
+
 	double fScore = 2 * ( (precission * recall) / (precission + recall) );
 
-	//Y escribirlos en el formato adecuado
-	std::cout << fScore << std::endl;
+	std::cout << "fScore = " << fScore << std::endl;
 }
 
 double SVMachine::predict(Sample input){
-	std::cout << "I'm predicting with the SVMachine" << std::endl;
+//	std::cout << "I'm predicting with the SVMachine" << std::endl;
 
 	//Aqui lo gordo del classifysample
 
