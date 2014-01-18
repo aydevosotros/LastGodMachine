@@ -26,7 +26,7 @@ public:
 				C_machine = new LRMachine();
 				break;
 			case SVM:
-				C_machine = new SVMachine(Linear);
+				C_machine = new SVMachine(RBF);
 				break;
 			//Faltan por añadir la NN
 		}

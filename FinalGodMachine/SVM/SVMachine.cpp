@@ -130,10 +130,10 @@ void SVMachine::loadInput(std::string filename){
 
 //copypaste de LR
 void SVMachine::run(){
-	std::cout << "I'm running the mode ";
+//	std::cout << "I'm running the mode ";
 
 	if(C_executionMode == 0){
-		std::cout << "Test" << std::endl;
+//		std::cout << "Test" << std::endl;
 
 		loadTrainingSet(C_trainingFile);
 		loadTestingSet(C_testingFile);
@@ -226,17 +226,17 @@ void SVMachine::test(){
 		C_predictedY.push_back(p);
 	}
 
-	std::cout << "PredictedY es:" << std::endl;
-
-	for(unsigned int i = 0; i < C_predictedY.size(); i++){
-		std::cout << C_predictedY[i] << std::endl;
-	}
-
-	std::cout << "ActualY es:" << std::endl;
-
-	for(unsigned int i = 0; i < C_actualY.size(); i++){
-		std::cout << C_actualY[i] << std::endl;
-	}
+//	std::cout << "PredictedY es:" << std::endl;
+//
+//	for(unsigned int i = 0; i < C_predictedY.size(); i++){
+//		std::cout << C_predictedY[i] << std::endl;
+//	}
+//
+//	std::cout << "ActualY es:" << std::endl;
+//
+//	for(unsigned int i = 0; i < C_actualY.size(); i++){
+//		std::cout << C_actualY[i] << std::endl;
+//	}
 
 	//Al final, cuando tengamos lleno el C_predictedY, calculamos Precission y Recall
 
@@ -288,23 +288,16 @@ double SVMachine::predict(Sample input){
 
     for(int i=0; i<C_trainingSet.size(); i++){
         if(C_SupportVectors.at(i) > 0.0){
-        	std::cout << "X:" << std::endl;
-        	std::cout << C_X.row(i).t() << std::endl;
-        	std::cout << "input:" << std::endl;
-        	std::cout << Input << std::endl;
-
             aux += ET(C_SupportVectors.at(i))*ET(C_y.at(i))*C_kernel->K(C_X.row(i).t(), Input);
 //            std::cout << "La suma auxiliar vale: " << aux+b << std::endl;
         }
     }
 
-    std::cout << std::endl << "He ejecutado hasta aqui" << std::endl;
-
     double p = CGAL::to_double(aux + C_b);
 
-    if(p > 1){
+    if(p > 0){
     	return 1.0;
-    } else if(p < -1){
+    } else if(p <= 0){
     	return -1.0;
     }
 }
