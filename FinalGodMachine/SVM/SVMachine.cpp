@@ -71,7 +71,11 @@ void SVMachine::loadTrainingSet(std::string filename){
 
 			std::getline(trainingFile,line);
 
-			tmp.setResult(atoi(line.c_str()));
+			std::vector<int> res;
+
+			res.push_back(atoi(line.c_str()));
+
+			tmp.setResult(res);
 
 			C_trainingSet.push_back(tmp);
 		}
@@ -97,7 +101,11 @@ void SVMachine::loadTestingSet(std::string filename){
 
 			std::getline(testingFile,line);
 
-			tmp.setResult(atoi(line.c_str()));
+			std::vector<int> res;
+
+			res.push_back(atoi(line.c_str()));
+
+			tmp.setResult(res);
 
 			C_testingSet.push_back(tmp);
 		}
@@ -120,7 +128,11 @@ void SVMachine::loadInput(std::string filename){
 
 		C_input.setInput(Utils::vStovD(Utils::split(line,';')));
 
-		C_input.setResult(0);
+		std::vector<int> res;
+
+		res.push_back(0);
+
+		C_input.setResult(res);
 
 		inputFile.close();
 	} else{
@@ -144,7 +156,7 @@ void SVMachine::run(){
 			for(unsigned int j = 0; j < C_trainingSet[i].getInput().size(); j++){
 				std::cout << C_trainingSet[i].getInput()[j] << ' ';
 			}
-			std::cout << std::endl << C_trainingSet[i].getResult() << std::endl;
+			std::cout << std::endl << C_trainingSet[i].getResult()[0] << std::endl;
 		}
 
 		std::cout << std::endl;
@@ -153,7 +165,7 @@ void SVMachine::run(){
 			for(unsigned int j = 0; j < C_testingSet[i].getInput().size(); j++){
 				std::cout << C_testingSet[i].getInput()[j] << ' ';
 			}
-			std::cout << std::endl << C_testingSet[i].getResult() << std::endl;
+			std::cout << std::endl << C_testingSet[i].getResult()[0] << std::endl;
 		}
 
 		//Fin de la comprobacion
@@ -196,14 +208,15 @@ void SVMachine::train(){
 
 void SVMachine::test(){
 //	std::cout << "I'm testing with the SVMachine" << std::endl;
+	double treshold = 0.3;
 
 	fillActualY();
 
 	for(unsigned int i = 0; i < C_testingSet.size(); i++){
 		double p = predict(C_testingSet[i]);
 
-		if((p>0.5 && C_actualY[i] > 0) || (p<=0.5 && C_actualY[i] < 0)){
-			if(p>0.5){
+		if((p>treshold && C_actualY[i] > 0) || (p<=treshold && C_actualY[i] < 0)){
+			if(p>treshold){
 //				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
 			} else {
 //				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
@@ -211,8 +224,8 @@ void SVMachine::test(){
 
 //			std::cout << "Ni Sandro Rey" << std::endl;
 
-		} else if((p>0.5 && C_actualY[i] < 0) || (p<=0.5 && C_actualY[i] > 0)){
-			if(p>0.5){
+		} else if((p>treshold && C_actualY[i] < 0) || (p<=treshold && C_actualY[i] > 0)){
+			if(p>treshold){
 //				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
 			} else {
 //				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
@@ -295,9 +308,13 @@ double SVMachine::predict(Sample input){
 
     double p = CGAL::to_double(aux + C_b);
 
-    if(p > 0){
+    std::cout << "Predigo p=" << p << std::endl;
+
+    double treshold = 0.0;
+
+    if(p > treshold){
     	return 1.0;
-    } else if(p <= 0){
+    } else if(p <= treshold){
     	return -1.0;
     }
 }
@@ -406,7 +423,7 @@ void SVMachine::quadraticSolution() {
 
 	std::cout << "n vale: " << n << std::endl;
 	for(int i = 0; i < n; i++){
-		C_y(i) = C_trainingSet[i].getResult();
+		C_y(i) = C_trainingSet[i].getResult()[0];
 	}
 
 	std::cout << C_y;
@@ -471,6 +488,6 @@ void SVMachine::trainByQuadraticProgramming() {
 
 void SVMachine::fillActualY(){
 	for(unsigned int i=0; i<C_testingSet.size(); i++){
-		C_actualY.push_back((double)C_testingSet[i].getResult());
+		C_actualY.push_back((double)C_testingSet[i].getResult()[0]);
 	}
 }

@@ -40,6 +40,8 @@ void LRMachine::setParameters(char *argv[]) {
 //	Algo más a partir de aquí
 }
 
+//Los loads llevan todos un apaño enlas Ys
+
 void LRMachine::loadTrainingSet(std::string filename) {
 //	std::cout << "I'm loading training set with the LRMachine from " << filename << std::endl;
 
@@ -54,7 +56,11 @@ void LRMachine::loadTrainingSet(std::string filename) {
 
 			std::getline(trainingFile,line);
 
-			tmp.setResult(atoi(line.c_str()));
+			std::vector<int> res;
+
+			res.push_back(atoi(line.c_str()));
+
+			tmp.setResult(res);
 
 			C_trainingSet.push_back(tmp);
 		}
@@ -79,7 +85,11 @@ void LRMachine::loadTestingSet(std::string filename) {
 
 			std::getline(testingFile,line);
 
-			tmp.setResult(atoi(line.c_str()));
+			std::vector<int> res;
+
+			res.push_back(atoi(line.c_str()));
+
+			tmp.setResult(res);
 
 			C_testingSet.push_back(tmp);
 		}
@@ -102,7 +112,11 @@ void LRMachine::loadInput(std::string filename) {
 
 		C_input.setInput(Utils::vStovD(Utils::split(line,';')));
 
-		C_input.setResult(0);
+		std::vector<int> res;
+
+		res.push_back(0);
+
+		C_input.setResult(res);
 
 		inputFile.close();
 	} else{
@@ -253,7 +267,7 @@ void LRMachine::train(){
 	}
 }
 
-//Llamada al predict y... ¿ya?
+//Ys provisionales
 void LRMachine::test(){
 	double treshold = 0.6;
 
@@ -261,10 +275,12 @@ void LRMachine::test(){
 
 	fillActualY();
 
+	std::vector<double> auxY;
+
 	for(unsigned int i = 0; i < C_testingSet.size(); i++){
 		double p = (double)predict(C_testingSet[i]);
 
-		if((p>treshold && C_actualY[i] > 0) || (p<=treshold && C_actualY[i] < 0)){
+		if((p>treshold && C_actualY[0][i] > 0) || (p<=treshold && C_actualY[0][i] < 0)){
 			if(p>treshold){
 //				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
 			} else {
@@ -273,7 +289,7 @@ void LRMachine::test(){
 
 //			std::cout << "Ni Sandro Rey" << std::endl;
 
-		} else if((p>treshold && C_actualY[i] < 0) || (p<=treshold && C_actualY[i] > 0)){
+		} else if((p>treshold && C_actualY[0][i] < 0) || (p<=treshold && C_actualY[0][i] > 0)){
 			if(p>treshold){
 //				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
 			} else {
@@ -285,8 +301,10 @@ void LRMachine::test(){
 			std::cout << "No se que carajo ha pasado" << std::endl;
 		}
 
-		C_predictedY.push_back(p);
+		auxY.push_back(p);
 	}
+
+	C_predictedY.push_back(auxY);
 
 	//Al final, cuando tengamos lleno el C_predictedY, calculamos Precission y Recall
 
@@ -296,13 +314,13 @@ void LRMachine::test(){
 	double fNegatives = 0.0;
 
 	for(unsigned int i = 0; i < C_actualY.size(); i++){
-		if(C_actualY[i] > 0 && C_predictedY[i] > 0){
+		if(C_actualY[0][i] > 0 && C_predictedY[0][i] > 0){
 			tPositives++;
-		} else if(C_actualY[i] > 0 && C_predictedY[i] < 0){
+		} else if(C_actualY[0][i] > 0 && C_predictedY[0][i] < 0){
 			fNegatives++;
-		} else if(C_actualY[i] < 0 && C_predictedY[i] > 0){
+		} else if(C_actualY[0][i] < 0 && C_predictedY[0][i] > 0){
 			fPositives++;
-		} else if(C_actualY[i] < 0 && C_predictedY[i] < 0){
+		} else if(C_actualY[0][i] < 0 && C_predictedY[0][i] < 0){
 			tNegatives++;
 		}
 	}
@@ -365,7 +383,7 @@ double LRMachine::sigmoid(double z) {
 	return 1/(1+pow(e,-z));
 }
 
-//Presuntamente correcto
+//Presuntamente correcto, y las Ys?
 double LRMachine::cost(std::vector<double> theta, std::vector<std::vector<double> > X, std::vector<double> y) {
 	double J = 0.0;
 	for(unsigned int i=0; i<y.size(); i++){
@@ -381,7 +399,7 @@ double LRMachine::cost(std::vector<double> theta, std::vector<std::vector<double
 	return J/y.size();
 }
 
-//Presuntamente correcto
+//Presuntamente correcto, y las Ys? No se le llama O.O
 void LRMachine::grad(std::vector<double> tetha, std::vector<std::vector<double> > X, std::vector<double> y, std::vector<double> grad) {
 	for(unsigned int j=0; j<C_theta.size(); j++){
 		double parcial = 0.0;
@@ -431,7 +449,7 @@ void LRMachine::trainByGradientAdvanced(int iter, double alpha) {
 //	lbfgs_free(theta);
 }
 
-//Aun no esta repasado
+//Ys provisionales, y más cosas
 void LRMachine::trainByGradient(int iter, double alpha) {
 	double vari = 0.01;
 	double pCoste = 0.0;
@@ -442,10 +460,10 @@ void LRMachine::trainByGradient(int iter, double alpha) {
 
 	for(int k=0; k<iter; k++){
 		// Calculo el coste
-		double coste = cost(C_theta, C_X, C_y);
+		double coste = cost(C_theta, C_X, C_y[0]);
 		std::cout << "Para la iteración " << k << " el coste es: " << coste << std::endl;
 		// Recalculo theta para la siguiente iteracion
-		grad(C_theta, C_X, C_y, gradiente);
+		grad(C_theta, C_X, C_y[0], gradiente);
 //		std::cout << "El nuevo theta para la it " << k << " es: ";
 		for(unsigned int i=0; i<C_theta.size(); i++){
 			C_theta[i]=C_theta[i]-alpha*gradiente[i];
@@ -464,7 +482,7 @@ void LRMachine::trainByGradient(int iter, double alpha) {
 	}
 
 }
-
+//Ys provisionales
 void LRMachine::trainByNormalEcuation() {
 	// Actualizo aqui el número de características
 	int nFeaturesCuad = 2*C_nFeatures;
@@ -490,10 +508,12 @@ void LRMachine::trainByNormalEcuation() {
 	}
 
 	// Obtengo la Y
-	arma::mat y = arma::mat(C_trainingSet.size(), 1);
+	arma::mat y = arma::mat(C_trainingSet.size(), C_trainingSet[0].getResult().size());
 
 	for(unsigned int i=0; i<C_trainingSet.size(); i++){
-		y(i) = C_trainingSet[i].getResult();
+		for(unsigned int j=0; j<C_trainingSet[0].getResult().size(); j++){
+			y(i,j) = C_trainingSet[i].getResult()[j];
+		}
 	}
 
 	// Calculo la matriz de alpha
@@ -533,15 +553,31 @@ void LRMachine::fillTheta() {
 		C_theta.push_back(0.5);
 	}
 }
-
+//Ys adaptadas
 void LRMachine::fillY() {
+	std::vector<double> aux;
+
 	for(unsigned int i=0; i<C_trainingSet.size(); i++){
-		C_y.push_back((double)C_trainingSet[i].getResult());
+		aux.clear();
+
+		for(unsigned int j=0; j<C_trainingSet[0].getResult().size(); j++){
+			aux.push_back((double)C_trainingSet[i].getResult()[j]);
+		}
+
+		C_y.push_back(aux);
 	}
 }
-
+//Ys adaptadas
 void LRMachine::fillActualY(){
-	for(unsigned int i=0; i<C_testingSet.size(); i++){
-		C_actualY.push_back((double)C_testingSet[i].getResult());
+	std::vector<double> aux;
+
+	for(unsigned int i=0; i<C_trainingSet.size(); i++){
+		aux.clear();
+
+		for(unsigned int j=0; j<C_trainingSet[0].getResult().size(); j++){
+			aux.push_back((double)C_trainingSet[i].getResult()[j]);
+		}
+
+		C_actualY.push_back(aux);
 	}
 }
