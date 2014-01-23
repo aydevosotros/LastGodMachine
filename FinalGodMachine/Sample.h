@@ -30,10 +30,19 @@ public:
 	void setResult(std::vector<int> result) {
 		this->result = result;
 	}
+
+	double getRResult() const {
+		return rResult;
+	}
+
+	void setRResult(double rResult) {
+		this->rResult = rResult;
+	}
 	
 private:
 	std::vector<double> input;
 	std::vector<int> result;
+	double rResult;
 };
 
 #endif /* SAMPLE_H_ */
