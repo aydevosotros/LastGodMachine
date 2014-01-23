@@ -23,17 +23,17 @@ public:
 		this->input = input;
 	}
 
-	int getResult() const {
+	std::vector<int> getResult() const {
 		return result;
 	}
 
-	void setResult(int result) {
+	void setResult(std::vector<int> result) {
 		this->result = result;
 	}
 	
 private:
 	std::vector<double> input;
-	int result;
+	std::vector<int> result;
 };
 
 #endif /* SAMPLE_H_ */

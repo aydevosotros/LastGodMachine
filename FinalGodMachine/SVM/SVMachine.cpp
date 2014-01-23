@@ -28,36 +28,37 @@ SVMachine::SVMachine(KernelType t) {
 SVMachine::~SVMachine() {}
 
 void SVMachine::setParameters(char *argv[]){
-	std::cout << "I'm setting parameters with the SVMachine" << std::endl;
+//	std::cout << "I'm setting parameters with the SVMachine" << std::endl;
 
 	//esta variable luego se sustituirá por la variable de clase
-	int margin = atoi(argv[2]);
 
-	if(margin == 0){
-		std::cout << "The margin is soft" << std::endl;
-	} else if(margin == 1){
-		std::cout << "The margin is hard" << std::endl;
-	}
-
-	C_executionMode = atoi(argv[3]);
-	std::cout << "Execution mode set to " << C_executionMode << std::endl;
+	C_executionMode = atoi(argv[2]);
+//	std::cout << "Execution mode set to " << C_executionMode << std::endl;
 
 	if(C_executionMode == 0){
-		C_trainingFile = argv[4];
-		C_testingFile = argv[5];
+		C_trainingFile = argv[3];
+		C_testingFile = argv[4];
 
-		std::cout	<< "Training with " << C_trainingFile
-					<< " and testing with " << C_testingFile << std::endl;
+//		std::cout	<< "Training with " << C_trainingFile
+//					<< " and testing with " << C_testingFile << std::endl;
 	} else 	if(C_executionMode == 1){
-		C_inputFile = argv[4];
+		C_inputFile = argv[3];
 
-		std::cout	<< "Predicting " << C_inputFile << std::endl;
+//		std::cout	<< "Predicting " << C_inputFile << std::endl;
+	}
+
+	int margin = atoi(argv[4]);
+
+	if(margin == 0){
+//		std::cout << "The margin is soft" << std::endl;
+	} else if(margin == 1){
+//		std::cout << "The margin is hard" << std::endl;
 	}
 }
 
 //copypasteao tal cual de la LR
 void SVMachine::loadTrainingSet(std::string filename){
-	std::cout << "I'm loading training set with the SVMachine" << std::endl;
+//	std::cout << "I'm loading training set with the SVMachine" << std::endl;
 
 	std::string line;
 	std::ifstream trainingFile(filename.c_str());
@@ -70,7 +71,11 @@ void SVMachine::loadTrainingSet(std::string filename){
 
 			std::getline(trainingFile,line);
 
-			tmp.setResult(atoi(line.c_str()));
+			std::vector<int> res;
+
+			res.push_back(atoi(line.c_str()));
+
+			tmp.setResult(res);
 
 			C_trainingSet.push_back(tmp);
 		}
@@ -83,7 +88,7 @@ void SVMachine::loadTrainingSet(std::string filename){
 
 //copypasteao tal cual de la LR
 void SVMachine::loadTestingSet(std::string filename){
-	std::cout << "I'm loading testing set with the SVMachine" << std::endl;
+//	std::cout << "I'm loading testing set with the SVMachine" << std::endl;
 
 	std::string line;
 	std::ifstream testingFile(filename.c_str());
@@ -96,7 +101,11 @@ void SVMachine::loadTestingSet(std::string filename){
 
 			std::getline(testingFile,line);
 
-			tmp.setResult(atoi(line.c_str()));
+			std::vector<int> res;
+
+			res.push_back(atoi(line.c_str()));
+
+			tmp.setResult(res);
 
 			C_testingSet.push_back(tmp);
 		}
@@ -109,7 +118,7 @@ void SVMachine::loadTestingSet(std::string filename){
 
 //copypasteao tal cual de la LR
 void SVMachine::loadInput(std::string filename){
-	std::cout << "I'm loading input with the SVMachine" << std::endl;
+//	std::cout << "I'm loading input with the SVMachine" << std::endl;
 
 	std::string line;
 	std::ifstream inputFile(filename.c_str());
@@ -119,7 +128,11 @@ void SVMachine::loadInput(std::string filename){
 
 		C_input.setInput(Utils::vStovD(Utils::split(line,';')));
 
-		C_input.setResult(0);
+		std::vector<int> res;
+
+		res.push_back(0);
+
+		C_input.setResult(res);
 
 		inputFile.close();
 	} else{
@@ -129,38 +142,38 @@ void SVMachine::loadInput(std::string filename){
 
 //copypaste de LR
 void SVMachine::run(){
-	std::cout << "I'm running the mode ";
+//	std::cout << "I'm running the mode ";
 
 	if(C_executionMode == 0){
-		std::cout << "Test" << std::endl;
+//		std::cout << "Test" << std::endl;
 
 		loadTrainingSet(C_trainingFile);
 		loadTestingSet(C_testingFile);
 
-//		//Comprobamos que se han cargado bien los dos archivos
-//
-//		for(unsigned int i = 0; i < C_trainingSet.size(); i++){
-//			for(unsigned int j = 0; j < C_trainingSet[i].getInput().size(); j++){
-//				std::cout << C_trainingSet[i].getInput()[j] << ' ';
-//			}
-//			std::cout << std::endl << C_trainingSet[i].getResult() << std::endl;
-//		}
-//
-//		std::cout << std::endl;
-//
-//		for(unsigned int i = 0; i < C_testingSet.size(); i++){
-//			for(unsigned int j = 0; j < C_testingSet[i].getInput().size(); j++){
-//				std::cout << C_testingSet[i].getInput()[j] << ' ';
-//			}
-//			std::cout << std::endl << C_testingSet[i].getResult() << std::endl;
-//		}
-//
-//		//Fin de la comprobacion
+		//Comprobamos que se han cargado bien los dos archivos
+
+		for(unsigned int i = 0; i < C_trainingSet.size(); i++){
+			for(unsigned int j = 0; j < C_trainingSet[i].getInput().size(); j++){
+				std::cout << C_trainingSet[i].getInput()[j] << ' ';
+			}
+			std::cout << std::endl << C_trainingSet[i].getResult()[0] << std::endl;
+		}
+
+		std::cout << std::endl;
+
+		for(unsigned int i = 0; i < C_testingSet.size(); i++){
+			for(unsigned int j = 0; j < C_testingSet[i].getInput().size(); j++){
+				std::cout << C_testingSet[i].getInput()[j] << ' ';
+			}
+			std::cout << std::endl << C_testingSet[i].getResult()[0] << std::endl;
+		}
+
+		//Fin de la comprobacion
 
 		train();
 		test();
 	} else if(C_executionMode == 1){
-		std::cout << "Predict" << std::endl;
+//		std::cout << "Predict" << std::endl;
 
 		loadInput(C_inputFile);
 
@@ -186,7 +199,7 @@ void SVMachine::run(){
 
 //lleva dentro el istrainingReady
 void SVMachine::train(){
-	std::cout << "I'm training with the SVMachine" << std::endl;
+//	std::cout << "I'm training with the SVMachine" << std::endl;
 
 	C_nFeatures=C_trainingSet[0].getNFeatures();
 
@@ -194,36 +207,49 @@ void SVMachine::train(){
 }
 
 void SVMachine::test(){
-	std::cout << "I'm testing with the SVMachine" << std::endl;
+//	std::cout << "I'm testing with the SVMachine" << std::endl;
+	double treshold = 0.3;
 
 	fillActualY();
 
 	for(unsigned int i = 0; i < C_testingSet.size(); i++){
-		double p = (double)predict(C_testingSet[i]);
+		double p = predict(C_testingSet[i]);
 
-		if((p>0.5 && C_actualY[i] > 0) || (p<=0.5 && C_actualY[i] < 0)){
-			if(p>0.5){
-				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
+		if((p>treshold && C_actualY[i] > 0) || (p<=treshold && C_actualY[i] < 0)){
+			if(p>treshold){
+//				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
 			} else {
-				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
+//				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
 			}
 
-			std::cout << "Ni Sandro Rey" << std::endl;
+//			std::cout << "Ni Sandro Rey" << std::endl;
 
-		} else if((p>0.5 && C_actualY[i] < 0) || (p<=0.5 && C_actualY[i] > 0)){
-			if(p>0.5){
-				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
+		} else if((p>treshold && C_actualY[i] < 0) || (p<=treshold && C_actualY[i] > 0)){
+			if(p>treshold){
+//				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
 			} else {
-				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
+//				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
 			}
 
-			std::cout << "Pinyico..." << std::endl;
+//			std::cout << "Pinyico..." << std::endl;
 		} else {
 			std::cout << "No se que carajo ha pasado" << std::endl;
 		}
 
 		C_predictedY.push_back(p);
 	}
+
+//	std::cout << "PredictedY es:" << std::endl;
+//
+//	for(unsigned int i = 0; i < C_predictedY.size(); i++){
+//		std::cout << C_predictedY[i] << std::endl;
+//	}
+//
+//	std::cout << "ActualY es:" << std::endl;
+//
+//	for(unsigned int i = 0; i < C_actualY.size(); i++){
+//		std::cout << C_actualY[i] << std::endl;
+//	}
 
 	//Al final, cuando tengamos lleno el C_predictedY, calculamos Precission y Recall
 
@@ -245,19 +271,52 @@ void SVMachine::test(){
 	}
 
 	double precission = tPositives / (tPositives + fPositives);
+
+	std::cout << "Precission = " << precission << std::endl;
+
 	double recall = tPositives / (tPositives + fNegatives);
+
+	std::cout << "Recall = " << recall << std::endl;
+
 	double fScore = 2 * ( (precission * recall) / (precission + recall) );
 
-	//Y escribirlos en el formato adecuado
-	std::cout << fScore << std::endl;
+	std::cout << "fScore = " << fScore << std::endl;
 }
 
 double SVMachine::predict(Sample input){
-	std::cout << "I'm predicting with the SVMachine" << std::endl;
+//	std::cout << "I'm predicting with the SVMachine" << std::endl;
 
-	//Aqui lo gordo del classifysample
+    ET aux(0.0);
+    // Hago esto provisional para escalar
+    std::vector<double> entradaScalada;
+    std::vector<Sample> sInput;
 
-	return 0.0;
+    sInput.push_back(input);
+//    Utils::scalation(sInput);
+
+    arma::Col<double> Input(input.getNFeatures());
+
+    for(int i=0; i<input.getNFeatures(); i++)
+        Input(i)=sInput[0].getInput()[i];
+
+    for(int i=0; i<C_trainingSet.size(); i++){
+        if(C_SupportVectors.at(i) > 0.0){
+            aux += ET(C_SupportVectors.at(i))*ET(C_y.at(i))*C_kernel->K(C_X.row(i).t(), Input);
+//            std::cout << "La suma auxiliar vale: " << aux+b << std::endl;
+        }
+    }
+
+    double p = CGAL::to_double(aux + C_b);
+
+    std::cout << "Predigo p=" << p << std::endl;
+
+    double treshold = 0.0;
+
+    if(p > treshold){
+    	return 1.0;
+    } else if(p <= treshold){
+    	return -1.0;
+    }
 }
 
 void SVMachine::clearTrainingSet(){
@@ -346,8 +405,10 @@ void SVMachine::quadraticSolution() {
 	Program qp (CGAL::EQUAL);
 
 	// Obtengo la X
-	Utils::scalation(C_trainingSet); // Escalado de parámetros
+//	Utils::scalation(C_trainingSet); // Escalado de parámetros
 
+	std::cout << "n vale: " << n << std::endl;
+	std::cout << "nFeatures vale: " << C_nFeatures << std::endl;
 	C_X = arma::mat(n, C_nFeatures);
 
 	for(int i = 0; i < n; i++){
@@ -355,23 +416,24 @@ void SVMachine::quadraticSolution() {
 			C_X(i,j) = C_trainingSet[i].getInput()[j];
 		}
 	}
-//	std::cout << X;
+//	std::cout << C_X;
 
 	// Obtengo la Y
 	C_y = arma::mat(n, 1);
 
+	std::cout << "n vale: " << n << std::endl;
 	for(int i = 0; i < n; i++){
-		C_y = C_trainingSet[i].getResult();
+		C_y(i) = C_trainingSet[i].getResult()[0];
 	}
 
-//	std::cout << y;
+	std::cout << C_y;
 	// Seteo la restriccion
 	for(int i = 0; i < n; i++){
 		qp.set_a(i,0,ET(C_y.at(i)));
 		qp.set_l(i,true,ET(0));
 		qp.set_u(i,false);
 		qp.set_c(i,ET(-1));
-		//std::cout << "y(" << i << "): " << y.at(i) << std::endl;
+//		std::cout << "y(" << i << "): " << y.at(i) << std::endl;
 	}
 
 	qp.set_b(0,ET(0));
@@ -382,11 +444,11 @@ void SVMachine::quadraticSolution() {
 	for(int i = 0; i < n; i++){
 		for(int j = 0; j<=i; j++){
 			ET ip = C_kernel->K(C_X.row(i).t(),C_X.row(j).t());
-//			std::cout << "El kernel para " << i << "," << j << " nos dice que el innerproduct es: " << ip << std::endl;
+			std::cout << "El kernel para " << i << "," << j << " nos dice que el innerproduct es: " << ip << std::endl;
 			ET daux = ip*ET(C_y.at(i))*ET(C_y.at(j));
-//			std::cout << "El producto de " << i << "," << j << ": " << daux << std::endl;
+			std::cout << "El producto de " << i << "," << j << ": " << daux << std::endl;
 			qp.set_d(i,j,daux);
-//			std::cout << "La matriz auxiliar vale:" <<  daux << std::endl;
+			std::cout << "La matriz auxiliar vale:" <<  daux << std::endl;
 		}
 	}
 
@@ -426,6 +488,6 @@ void SVMachine::trainByQuadraticProgramming() {
 
 void SVMachine::fillActualY(){
 	for(unsigned int i=0; i<C_testingSet.size(); i++){
-		C_actualY.push_back((double)C_testingSet[i].getResult());
+		C_actualY.push_back((double)C_testingSet[i].getResult()[0]);
 	}
 }

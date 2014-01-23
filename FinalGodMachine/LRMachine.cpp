@@ -14,34 +14,36 @@ LRMachine::~LRMachine() {}
 
 //Falta lo que vaya detrás del lambda
 void LRMachine::setParameters(char *argv[]) {
-	std::cout << "I'm setting parameters with the LRMachine" << std::endl;
+//	std::cout << "I'm setting parameters with the LRMachine" << std::endl;
 
 	C_executionMode = atoi(argv[2]);
-	std::cout << "Execution mode set to " << C_executionMode << std::endl;
+//	std::cout << "Execution mode set to " << C_executionMode << std::endl;
 
 	if(C_executionMode == 0){
 		C_trainingFile = argv[3];
 		C_testingFile = argv[4];
 
-		std::cout	<< "Training with " << C_trainingFile
-					<< " and testing with " << C_testingFile << std::endl;
+//		std::cout	<< "Training with " << C_trainingFile
+//					<< " and testing with " << C_testingFile << std::endl;
 
 		C_lambda = atoi(argv[5]);
-		std::cout << "Lambda set to " << C_lambda << std::endl;
+//		std::cout << "Lambda set to " << C_lambda << std::endl;
 	} else 	if(C_executionMode == 1){
 		C_inputFile = argv[3];
 
-		std::cout	<< "Predicting " << C_inputFile << std::endl;
+//		std::cout	<< "Predicting " << C_inputFile << std::endl;
 
 		C_lambda = atof(argv[4]);
-		std::cout << "Lambda set to " << C_lambda << std::endl;
+//		std::cout << "Lambda set to " << C_lambda << std::endl;
 	}
 
 //	Algo más a partir de aquí
 }
 
+//Los loads llevan todos un apaño enlas Ys
+
 void LRMachine::loadTrainingSet(std::string filename) {
-	std::cout << "I'm loading training set with the LRMachine from " << filename << std::endl;
+//	std::cout << "I'm loading training set with the LRMachine from " << filename << std::endl;
 
 	std::string line;
 	std::ifstream trainingFile(filename.c_str());
@@ -54,7 +56,11 @@ void LRMachine::loadTrainingSet(std::string filename) {
 
 			std::getline(trainingFile,line);
 
-			tmp.setResult(atoi(line.c_str()));
+			std::vector<int> res;
+
+			res.push_back(atoi(line.c_str()));
+
+			tmp.setResult(res);
 
 			C_trainingSet.push_back(tmp);
 		}
@@ -66,7 +72,7 @@ void LRMachine::loadTrainingSet(std::string filename) {
 }
 
 void LRMachine::loadTestingSet(std::string filename) {
-	std::cout << "I'm loading testing set with the LRMachine from " << filename << std::endl;
+//	std::cout << "I'm loading testing set with the LRMachine from " << filename << std::endl;
 
 	std::string line;
 	std::ifstream testingFile(filename.c_str());
@@ -79,7 +85,11 @@ void LRMachine::loadTestingSet(std::string filename) {
 
 			std::getline(testingFile,line);
 
-			tmp.setResult(atoi(line.c_str()));
+			std::vector<int> res;
+
+			res.push_back(atoi(line.c_str()));
+
+			tmp.setResult(res);
 
 			C_testingSet.push_back(tmp);
 		}
@@ -92,7 +102,7 @@ void LRMachine::loadTestingSet(std::string filename) {
 
 //Cargo el input, y el result lo pongo a 0
 void LRMachine::loadInput(std::string filename) {
-	std::cout << "I'm loading input with the LRMachine from " << filename << std::endl;
+//	std::cout << "I'm loading input with the LRMachine from " << filename << std::endl;
 
 	std::string line;
 	std::ifstream inputFile(filename.c_str());
@@ -102,7 +112,11 @@ void LRMachine::loadInput(std::string filename) {
 
 		C_input.setInput(Utils::vStovD(Utils::split(line,';')));
 
-		C_input.setResult(0);
+		std::vector<int> res;
+
+		res.push_back(0);
+
+		C_input.setResult(res);
 
 		inputFile.close();
 	} else{
@@ -111,7 +125,7 @@ void LRMachine::loadInput(std::string filename) {
 }
 
 void LRMachine::loadThetas(std::string filename) {
-	std::cout << "I'm loading Thetas with the LRMachine from " << filename << std::endl;
+//	std::cout << "I'm loading Thetas with the LRMachine from " << filename << std::endl;
 
 	std::string line;
 	std::ifstream thetasFile(filename.c_str());
@@ -128,10 +142,10 @@ void LRMachine::loadThetas(std::string filename) {
 }
 
 void LRMachine::run(){
-	std::cout << "I'm running the mode ";
+//	std::cout << "I'm running the mode ";
 
 	if(C_executionMode == 0){
-		std::cout << "Test" << std::endl;
+//		std::cout << "Test" << std::endl;
 
 		loadTrainingSet(C_trainingFile);
 		loadTestingSet(C_testingFile);
@@ -159,7 +173,7 @@ void LRMachine::run(){
 		train();
 		test();
 	} else if(C_executionMode == 1){
-		std::cout << "Predict" << std::endl;
+//		std::cout << "Predict" << std::endl;
 
 		loadThetas("LR_C_theta.txt");
 		loadInput(C_inputFile);
@@ -186,7 +200,7 @@ void LRMachine::run(){
 
 //Lleva dentro el isTrainingReady
 void LRMachine::train(){
-	std::cout << "I'm training with the LRMachine" << std::endl;
+//	std::cout << "I'm training with the LRMachine" << std::endl;
 
 	C_nFeatures=C_trainingSet[0].getNFeatures();
 
@@ -196,10 +210,49 @@ void LRMachine::train(){
 		trainByNormalEcuation();
 	}
 
+	//Ahora averiguaremos el nombre que debe tener el archivo de thetas
+
+	std::string command = "mkdir -p ";
+
+	std::vector<std::string> trainingFileParts(Utils::split(C_trainingFile,'-'));
+
+	std::string root = trainingFileParts[0].substr(0,10);
+
+	std::string machinefolder = "LR/";
+
+	std::string value = trainingFileParts[0].substr(10,trainingFileParts[0].length());
+
+	std::string route = "";
+
+	route.append(root);
+
+	route.append(machinefolder);
+
+	route.append(value);	route.append("/");
+
+	command.append(route);
+
+	system(command.c_str());
+
+//	std::cout << "El comando ha sido: "<< std::endl << command << std::endl;
+
+	std::string prefix = "";
+
+	prefix.append(root);
+	prefix.append(value);
+
+	std::string thetaName = C_trainingFile.substr(prefix.length()+1,C_trainingFile.length());
+
+	route.append(thetaName);
+
+	C_thetaFileName = route;
+
+//	std::cout << "EL archivo creado es: " << C_thetaFileName << std::endl;
+
 	//Y para terminar, escribimos las thetas en un archivo
 
 	std::string line;
-	std::ofstream thetasFile("LR_C_theta.txt");
+	std::ofstream thetasFile(C_thetaFileName.c_str());
 
 	if(thetasFile.is_open()){
 		thetasFile << C_theta[0];
@@ -214,38 +267,44 @@ void LRMachine::train(){
 	}
 }
 
-//Llamada al predict y... ¿ya?
+//Ys provisionales
 void LRMachine::test(){
-	std::cout << "I'm testing with the LRMachine" << std::endl;
+	double treshold = 0.6;
+
+//	std::cout << "I'm testing with the LRMachine" << std::endl;
 
 	fillActualY();
+
+	std::vector<double> auxY;
 
 	for(unsigned int i = 0; i < C_testingSet.size(); i++){
 		double p = (double)predict(C_testingSet[i]);
 
-		if((p>0.5 && C_actualY[i] > 0) || (p<=0.5 && C_actualY[i] < 0)){
-			if(p>0.5){
-				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
+		if((p>treshold && C_actualY[0][i] > 0) || (p<=treshold && C_actualY[0][i] < 0)){
+			if(p>treshold){
+//				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
 			} else {
-				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
+//				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
 			}
 
-			std::cout << "Ni Sandro Rey" << std::endl;
+//			std::cout << "Ni Sandro Rey" << std::endl;
 
-		} else if((p>0.5 && C_actualY[i] < 0) || (p<=0.5 && C_actualY[i] > 0)){
-			if(p>0.5){
-				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
+		} else if((p>treshold && C_actualY[0][i] < 0) || (p<=treshold && C_actualY[0][i] > 0)){
+			if(p>treshold){
+//				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
 			} else {
-				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
+//				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
 			}
 
-			std::cout << "Pinyico..." << std::endl;
+//			std::cout << "Pinyico..." << std::endl;
 		} else {
 			std::cout << "No se que carajo ha pasado" << std::endl;
 		}
 
-		C_predictedY.push_back(p);
+		auxY.push_back(p);
 	}
+
+	C_predictedY.push_back(auxY);
 
 	//Al final, cuando tengamos lleno el C_predictedY, calculamos Precission y Recall
 
@@ -255,28 +314,33 @@ void LRMachine::test(){
 	double fNegatives = 0.0;
 
 	for(unsigned int i = 0; i < C_actualY.size(); i++){
-		if(C_actualY[i] > 0 && C_predictedY[i] > 0){
+		if(C_actualY[0][i] > 0 && C_predictedY[0][i] > 0){
 			tPositives++;
-		} else if(C_actualY[i] > 0 && C_predictedY[i] < 0){
+		} else if(C_actualY[0][i] > 0 && C_predictedY[0][i] < 0){
 			fNegatives++;
-		} else if(C_actualY[i] < 0 && C_predictedY[i] > 0){
+		} else if(C_actualY[0][i] < 0 && C_predictedY[0][i] > 0){
 			fPositives++;
-		} else if(C_actualY[i] < 0 && C_predictedY[i] < 0){
+		} else if(C_actualY[0][i] < 0 && C_predictedY[0][i] < 0){
 			tNegatives++;
 		}
 	}
 
 	double precission = tPositives / (tPositives + fPositives);
+
+	std::cout << "Precission = " << precission << std::endl;
+
 	double recall = tPositives / (tPositives + fNegatives);
+
+	std::cout << "Recall = " << recall << std::endl;
+
 	double fScore = 2 * ( (precission * recall) / (precission + recall) );
 
-	//Y escribirlos en el formato adecuado
-	std::cout << fScore << std::endl;
+	std::cout << "fScore = " << fScore << std::endl;
 }
 
 //Está copypasteado el classifySample
 double LRMachine::predict(Sample input){
-	std::cout << "I'm predicting this input with the LRMachine" << std::endl;
+//	std::cout << "I'm predicting this input with the LRMachine" << std::endl;
 
 	// Como tengo un sigmoide, con un threshold voy to cheto
 	double p = 0.0;
@@ -319,7 +383,7 @@ double LRMachine::sigmoid(double z) {
 	return 1/(1+pow(e,-z));
 }
 
-//Presuntamente correcto
+//Presuntamente correcto, y las Ys?
 double LRMachine::cost(std::vector<double> theta, std::vector<std::vector<double> > X, std::vector<double> y) {
 	double J = 0.0;
 	for(unsigned int i=0; i<y.size(); i++){
@@ -335,7 +399,7 @@ double LRMachine::cost(std::vector<double> theta, std::vector<std::vector<double
 	return J/y.size();
 }
 
-//Presuntamente correcto
+//Presuntamente correcto, y las Ys? No se le llama O.O
 void LRMachine::grad(std::vector<double> tetha, std::vector<std::vector<double> > X, std::vector<double> y, std::vector<double> grad) {
 	for(unsigned int j=0; j<C_theta.size(); j++){
 		double parcial = 0.0;
@@ -385,7 +449,7 @@ void LRMachine::trainByGradientAdvanced(int iter, double alpha) {
 //	lbfgs_free(theta);
 }
 
-//Aun no esta repasado
+//Ys provisionales, y más cosas
 void LRMachine::trainByGradient(int iter, double alpha) {
 	double vari = 0.01;
 	double pCoste = 0.0;
@@ -396,10 +460,10 @@ void LRMachine::trainByGradient(int iter, double alpha) {
 
 	for(int k=0; k<iter; k++){
 		// Calculo el coste
-		double coste = cost(C_theta, C_X, C_y);
+		double coste = cost(C_theta, C_X, C_y[0]);
 		std::cout << "Para la iteración " << k << " el coste es: " << coste << std::endl;
 		// Recalculo theta para la siguiente iteracion
-		grad(C_theta, C_X, C_y, gradiente);
+		grad(C_theta, C_X, C_y[0], gradiente);
 //		std::cout << "El nuevo theta para la it " << k << " es: ";
 		for(unsigned int i=0; i<C_theta.size(); i++){
 			C_theta[i]=C_theta[i]-alpha*gradiente[i];
@@ -418,7 +482,7 @@ void LRMachine::trainByGradient(int iter, double alpha) {
 	}
 
 }
-
+//Ys provisionales
 void LRMachine::trainByNormalEcuation() {
 	// Actualizo aqui el número de características
 	int nFeaturesCuad = 2*C_nFeatures;
@@ -444,10 +508,12 @@ void LRMachine::trainByNormalEcuation() {
 	}
 
 	// Obtengo la Y
-	arma::mat y = arma::mat(C_trainingSet.size(), 1);
+	arma::mat y = arma::mat(C_trainingSet.size(), C_trainingSet[0].getResult().size());
 
 	for(unsigned int i=0; i<C_trainingSet.size(); i++){
-		y(i) = C_trainingSet[i].getResult();
+		for(unsigned int j=0; j<C_trainingSet[0].getResult().size(); j++){
+			y(i,j) = C_trainingSet[i].getResult()[j];
+		}
 	}
 
 	// Calculo la matriz de alpha
@@ -487,15 +553,31 @@ void LRMachine::fillTheta() {
 		C_theta.push_back(0.5);
 	}
 }
-
+//Ys adaptadas
 void LRMachine::fillY() {
+	std::vector<double> aux;
+
 	for(unsigned int i=0; i<C_trainingSet.size(); i++){
-		C_y.push_back((double)C_trainingSet[i].getResult());
+		aux.clear();
+
+		for(unsigned int j=0; j<C_trainingSet[0].getResult().size(); j++){
+			aux.push_back((double)C_trainingSet[i].getResult()[j]);
+		}
+
+		C_y.push_back(aux);
 	}
 }
-
+//Ys adaptadas
 void LRMachine::fillActualY(){
-	for(unsigned int i=0; i<C_testingSet.size(); i++){
-		C_actualY.push_back((double)C_testingSet[i].getResult());
+	std::vector<double> aux;
+
+	for(unsigned int i=0; i<C_trainingSet.size(); i++){
+		aux.clear();
+
+		for(unsigned int j=0; j<C_trainingSet[0].getResult().size(); j++){
+			aux.push_back((double)C_trainingSet[i].getResult()[j]);
+		}
+
+		C_actualY.push_back(aux);
 	}
 }

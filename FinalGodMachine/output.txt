@@ -1,0 +1,1833 @@
+I'm running the mode Test
+37.67 37.96 37.24 35.79 35.59 35.67 35.66 35.53 35.63 35.61 35.88 33.82 34.35 35.02 
+1
+34.98 34.82 34.45 34.6 34.67 33.9 33.68 33.31 33.07 33.31 33.6 33.69 33.88 33.36 
+1
+33.35 33 32.88 32.64 32.49 32.87 32.54 33.41 33.48 32.99 33.42 33.38 32.77 32.72 
+1
+32.57 31.9 31.22 31.31 31.1 31.39 31.75 33.37 32.93 33.39 33.52 34.4 35.17 32.18 
+1
+31.61 31.44 31.76 31.79 32 32.14 32.51 32.46 32.77 32.24 31.54 31.55 31.9 31.69 
+1
+32.06 31.97 31.78 31.47 31.26 31.62 32.04 31.91 31.7 32.4 35.72 36.34 36.01 35.66 
+-1
+35.58 35 34.34 34.58 34.35 34.09 33.66 34.41 34.75 34.38 34.52 34.12 34.08 32.94 
+-1
+33.66 34.26 34.96 34.97 34.69 34.55 34.99 35.14 35.05 35.51 35.25 34.84 34.6 35.62 
+1
+34.92 34.82 34.85 34.74 34.42 33.92 34.23 34.79 35.1 34.73 34.13 33.64 33.45 32.86 
+-1
+32.61 32.67 32.85 33.07 33.65 33.42 33.23 32.63 32.93 32.56 31.8 31.9 31.71 30.62 
+1
+30.7 30.3 29.62 28.95 28.85 28.9 28.65 28.85 29.1 29.57 28.73 28.73 28.22 28.39 
+1
+28.75 28.59 28.64 28.32 28.14 28.24 28.3 28.19 28.11 28.34 28.12 27.88 28.03 28 
+1
+27.87 27.84 27.94 28.25 28.11 28.21 28.29 27.85 27.72 27.88 27.42 27.38 27.97 27.68 
+1
+27.74 28.13 27.88 28.04 27.92 27.93 27.88 27.65 27.35 27.35 27.38 27.62 27.87 27.67 
+1
+27.79 28.01 27.82 28.01 27.58 27.7 27.2 27.3 27.1 27.19 27.15 26.83 26.9 26.49 
+-1
+26.65 26.72 26.75 26.77 27.27 27.63 27.25 26.59 26.71 26.89 27.03 27.2 27.45 27.36 
+1
+27.69 27.25 26.79 27.11 27.32 27.53 27.05 26.56 26.82 26.81 26.38 26.5 26.78 27.05 
+-1
+27.11 27.01 27.36 27.54 27.23 26.71 26.76 26.8 26.67 26.88 27.24 27.02 28.94 28.88 
+1
+29.12 29.53 29.82 29.62 29.59 28.84 28.55 27.86 28.19 28.16 27.76 28.73 29.05 29.65 
+-1
+29.3 29.45 29.37 28.97 29.22 29.15 29.68 29.64 30.23 29.97 29.75 29.68 29.81 30.18 
+-1
+30.17 30.28 30.95 30.98 31.43 30.95 31.09 31.1 31.19 31.01 30.89 30.94 30.69 30.83 
+-1
+31.04 30.5 30.22 30.45 30.6 30.53 30.65 30.7 30.93 30.25 30.39 30.59 30.76 30.82 
+-1
+30.92 30.36 30.11 30.3 30.35 30.5 30.39 30.21 30.07 30 29.53 29.21 29.59 29.48 
+1
+29.75 29.48 29.23 29.24 29.24 29.57 31 30.51 29.6 29.64 29.48 28.76 29.15 29.71 
+1
+30.08 30.12 30.61 30.59 30.23 30.62 30.45 29.98 30.19 30 30.3 30.3 30.96 30.93 
+1
+30.19 29.99 29.59 29.33 29.22 29.1 29.73 29.21 29.64 28.88 28.51 28.62 28.76 29.3 
+-1
+29.35 29.38 29.2 29.16 29.35 29.69 29.1 29.79 29.99 30.31 30.64 30.82 30.69 30.86 
+1
+30.19 30.48 30.7 31.45 31.88 31.85 32.05 31.98 32.12 32.12 31.92 32.21 32.31 32.15 
+-1
+31.13 31.28 31.27 30.99 30.89 30.48 30.43 31.06 31.22 31.15 31.66 32.16 32.22 32.4 
+-1
+32.06 32.52 32.65 32.19 32.1 31.81 31.96 32.1 32.54 32.91 32.79 32.53 32.24 31.97 
+-1
+32.1 32.04 31.67 31.54 32.01 32.31 31.93 31.88 31.41 31.24 31.48 31.2 31.45 31.18 
+1
+31.2 30.31 30.33 30.33 30.63 30.64 30.68 30.26 30.15 30.04 30.14 29.9 29.79 29.66 
+1
+28.97 29.45 29.61 29.07 29.47 29.55 28.82 28.16 28.31 28.4 27.93 27.87 27.43 27.93 
+1
+
+28.05 27.53 27.38 26.82 26.55 26 25.95 26.11 25.96 25.91 25.82 26.01 25.86 26.02 
+1
+25.67 25.72 25.72 25.75 25.41 25.52 25.48 25.67 25.81 25.78 25.59 25.56 25.37 24.82 
+1
+24.94 24.38 24.61 24.89 25.24 25.48 26.01 26.47 26.56 26.88 26.58 26.47 26.59 27.01 
+1
+26.21 26.38 26.24 26.1 26.19 26.76 27.14 27.13 27.03 27.08 27.06 27.15 27.26 27.37 
+-1
+26.94 27.11 27.31 26.76 27.18 26.86 26.58 26.34 25.9 25.42 24.3 24.72 25.2 25.98 
+-1
+25.93 25.66 25.19 24.9 25.3 27.05 27.31 26.8 27.05 26.73 26.17 25.92 25.44 26 
+1
+26 25.69 25.2 25.78 26.46 26.29 25.73 25.53 24.51 25.08 24.65 24.03 24.42 24.41 
+1
+24.57 25.25 25.22 25.24 25.13 24.5 24.95 24.71 25.02 25.97 26.53 26.64 26.98 27.51 
+1
+27.52 27.29 27.88 27.82 27.26 26.86 27.04 27.28 26.81 26.63 26.47 26.62 26.6 26.55 
+-1
+26.62 26.54 26.49 25.97 26.1 25.93 25.74 25.71 25.3 24.23 24.51 24.44 24.6 24.52 
+1
+24.17 24.22 23.75 24 24.3 23.79 24.02 24.01 23.9 24.09 23.9 24.05 24.49 24.99 
+1
+24.96 24.68 24.35 24.17 24.2 24.21 24.72 24.85 24.53 24.4 24.96 25.28 25.35 25.65 
+-1
+25.38 25.8 26.07 26.05 25.85 25.6 25.94 26.55 26.46 26.3 25.74 25.56 25.79 25.54 
+-1
+25 25.1 25.46 25.42 25.65 25.83 26.19 26.17 26.19 25.98 25.82 25.45 25.53 25.6 
+-1
+25.6 25.34 25.66 25.93 25.6 25.23 25.3 25.18 25.06 25.06 25.22 25.08 25.49 25.41 
+-1
+25.62 25.81 25.77 26.13 26.22 26.26 26.11 26.6 26.69 26.91 26.64 26.53 26.78 27.13 
+-1
+26.97 27.05 27.04 27.2 27.76 27.93 28.19 28.1 27.8 27.7 27.96 27.93 27.8 27.77 
+-1
+28.9 28.75 28.51 28.14 28.02 28.4 28.5 28.46 28.16 28.08 28.33 28.12 28.2 28.26 
+-1
+28.64 28.04 27.9 27.94 28.05 27.8 27.92 27.94 27.97 28.12 27.97 28.01 27.85 27.95 
+1
+27.92 27.76 27.53 27.31 27.27 27.19 27.28 26.83 27.08 26.93 26.81 26.24 25.57 25.05 
+1
+25.19 25.21 25.2 25.57 25.65 25.8 25.71 25.9 26.04 26.33 26.47 26.68 27.01 26.81 
+1
+26.68 27.17 27.41 27.46 27.06 26.88 27.15 26.21 25.79 25.12 25.24 25.52 25.4 25.26 
+-1
+25.27 25.59 25.36 25.29 25.02 24.65 24.74 24.62 24.62 24.32 24.06 23.96 24.77 0 
+1
+n vale: 33
+nFeatures vale: 14
+n vale: 33
+   1.0000
+   1.0000
+   1.0000
+   1.0000
+   1.0000
+  -1.0000
+  -1.0000
+   1.0000
+  -1.0000
+   1.0000
+   1.0000
+   1.0000
+   1.0000
+   1.0000
+  -1.0000
+   1.0000
+  -1.0000
+   1.0000
+  -1.0000
+  -1.0000
+  -1.0000
+  -1.0000
+   1.0000
+   1.0000
+   1.0000
+  -1.0000
+   1.0000
+  -1.0000
+  -1.0000
+  -1.0000
+   1.0000
+   1.0000
+   1.0000
+El kernel para 0,0 nos dice que el innerproduct es: 1
+El producto de 0,0: 1
+La matriz auxiliar vale:1
+El kernel para 1,0 nos dice que el innerproduct es: 1.42462e-13
+El producto de 1,0: 1.42462e-13
+La matriz auxiliar vale:1.42462e-13
+El kernel para 1,1 nos dice que el innerproduct es: 1
+El producto de 1,1: 1
+La matriz auxiliar vale:1
+El kernel para 2,0 nos dice que el innerproduct es: 7.99061e-29
+El producto de 2,0: 7.99061e-29
+La matriz auxiliar vale:7.99061e-29
+El kernel para 2,1 nos dice que el innerproduct es: 2.21051e-05
+El producto de 2,1: 2.21051e-05
+La matriz auxiliar vale:2.21051e-05
+El kernel para 2,2 nos dice que el innerproduct es: 1
+El producto de 2,2: 1
+La matriz auxiliar vale:1
+El kernel para 3,0 nos dice que el innerproduct es: 4.24962e-45
+El producto de 3,0: 4.24962e-45
+La matriz auxiliar vale:4.24962e-45
+El kernel para 3,1 nos dice que el innerproduct es: 3.51553e-14
+El producto de 3,1: 3.51553e-14
+La matriz auxiliar vale:3.51553e-14
+El kernel para 3,2 nos dice que el innerproduct es: 8.89176e-05
+El producto de 3,2: 8.89176e-05
+La matriz auxiliar vale:8.89176e-05
+El kernel para 3,3 nos dice que el innerproduct es: 1
+El producto de 3,3: 1
+La matriz auxiliar vale:1
+El kernel para 4,0 nos dice que el innerproduct es: 8.52702e-51
+El producto de 4,0: 8.52702e-51
+La matriz auxiliar vale:8.52702e-51
+El kernel para 4,1 nos dice que el innerproduct es: 2.82745e-15
+El producto de 4,1: 2.82745e-15
+La matriz auxiliar vale:2.82745e-15
+El kernel para 4,2 nos dice que el innerproduct es: 7.9393e-05
+El producto de 4,2: 7.9393e-05
+La matriz auxiliar vale:7.9393e-05
+El kernel para 4,3 nos dice que el innerproduct es: 5.6939e-07
+El producto de 4,3: 5.6939e-07
+La matriz auxiliar vale:5.6939e-07
+El kernel para 4,4 nos dice que el innerproduct es: 1
+El producto de 4,4: 1
+La matriz auxiliar vale:1
+El kernel para 5,0 nos dice que el innerproduct es: 7.26595e-47
+El producto de 5,0: -7.26595e-47
+La matriz auxiliar vale:-7.26595e-47
+El kernel para 5,1 nos dice que el innerproduct es: 6.66408e-18
+El producto de 5,1: -6.66408e-18
+La matriz auxiliar vale:-6.66408e-18
+El kernel para 5,2 nos dice que el innerproduct es: 4.63732e-11
+El producto de 5,2: -4.63732e-11
+La matriz auxiliar vale:-4.63732e-11
+El kernel para 5,3 nos dice que el innerproduct es: 1.50683e-06
+El producto de 5,3: -1.50683e-06
+La matriz auxiliar vale:-1.50683e-06
+El kernel para 5,4 nos dice que el innerproduct es: 2.88679e-17
+El producto de 5,4: -2.88679e-17
+La matriz auxiliar vale:-2.88679e-17
+El kernel para 5,5 nos dice que el innerproduct es: 1
+El producto de 5,5: 1
+La matriz auxiliar vale:1
+El kernel para 6,0 nos dice que el innerproduct es: 1.30221e-09
+El producto de 6,0: -1.30221e-09
+La matriz auxiliar vale:-1.30221e-09
+El kernel para 6,1 nos dice que el innerproduct es: 0.0306722
+El producto de 6,1: -0.0306722
+La matriz auxiliar vale:-0.0306722
+El kernel para 6,2 nos dice que el innerproduct es: 4.70815e-07
+El producto de 6,2: -4.70815e-07
+La matriz auxiliar vale:-4.70815e-07
+El kernel para 6,3 nos dice que el innerproduct es: 1.1396e-15
+El producto de 6,3: -1.1396e-15
+La matriz auxiliar vale:-1.1396e-15
+El kernel para 6,4 nos dice que el innerproduct es: 9.3849e-20
+El producto de 6,4: -9.3849e-20
+La matriz auxiliar vale:-9.3849e-20
+El kernel para 6,5 nos dice que el innerproduct es: 6.27634e-21
+El producto de 6,5: 6.27634e-21
+La matriz auxiliar vale:6.27634e-21
+El kernel para 6,6 nos dice que el innerproduct es: 1
+El producto de 6,6: 1
+La matriz auxiliar vale:1
+El kernel para 7,0 nos dice que el innerproduct es: 1.59523e-09
+El producto de 7,0: 1.59523e-09
+La matriz auxiliar vale:1.59523e-09
+El kernel para 7,1 nos dice que el innerproduct es: 1.87641e-06
+El producto de 7,1: 1.87641e-06
+La matriz auxiliar vale:1.87641e-06
+El kernel para 7,2 nos dice que el innerproduct es: 1.74241e-12
+El producto de 7,2: 1.74241e-12
+La matriz auxiliar vale:1.74241e-12
+El kernel para 7,3 nos dice que el innerproduct es: 2.37462e-21
+El producto de 7,3: 2.37462e-21
+La matriz auxiliar vale:2.37462e-21
+El kernel para 7,4 nos dice que el innerproduct es: 3.06623e-27
+El producto de 7,4: 3.06623e-27
+La matriz auxiliar vale:3.06623e-27
+El kernel para 7,5 nos dice que el innerproduct es: 2.34161e-21
+El producto de 7,5: -2.34161e-21
+La matriz auxiliar vale:-2.34161e-21
+El kernel para 7,6 nos dice que el innerproduct es: 0.000177729
+El producto de 7,6: -0.000177729
+La matriz auxiliar vale:-0.000177729
+El kernel para 7,7 nos dice que el innerproduct es: 1
+El producto de 7,7: 1
+La matriz auxiliar vale:1
+El kernel para 8,0 nos dice que el innerproduct es: 1.32322e-09
+El producto de 8,0: -1.32322e-09
+La matriz auxiliar vale:-1.32322e-09
+El kernel para 8,1 nos dice que el innerproduct es: 0.008252
+El producto de 8,1: -0.008252
+La matriz auxiliar vale:-0.008252
+El kernel para 8,2 nos dice que el innerproduct es: 2.55281e-07
+El producto de 8,2: -2.55281e-07
+La matriz auxiliar vale:-2.55281e-07
+El kernel para 8,3 nos dice que el innerproduct es: 4.1208e-17
+El producto de 8,3: -4.1208e-17
+La matriz auxiliar vale:-4.1208e-17
+El kernel para 8,4 nos dice que el innerproduct es: 4.43362e-19
+El producto de 8,4: -4.43362e-19
+La matriz auxiliar vale:-4.43362e-19
+El kernel para 8,5 nos dice que el innerproduct es: 9.66723e-24
+El producto de 8,5: 9.66723e-24
+La matriz auxiliar vale:9.66723e-24
+El kernel para 8,6 nos dice que el innerproduct es: 0.318606
+El producto de 8,6: 0.318606
+La matriz auxiliar vale:0.318606
+El kernel para 8,7 nos dice que el innerproduct es: 0.000457035
+El producto de 8,7: -0.000457035
+La matriz auxiliar vale:-0.000457035
+El kernel para 8,8 nos dice que el innerproduct es: 1
+El producto de 8,8: 1
+La matriz auxiliar vale:1
+El kernel para 9,0 nos dice que el innerproduct es: 6.47921e-37
+El producto de 9,0: 6.47921e-37
+La matriz auxiliar vale:6.47921e-37
+El kernel para 9,1 nos dice que el innerproduct es: 1.29866e-08
+El producto de 9,1: 1.29866e-08
+La matriz auxiliar vale:1.29866e-08
+El kernel para 9,2 nos dice que el innerproduct es: 0.000742602
+El producto de 9,2: 0.000742602
+La matriz auxiliar vale:0.000742602
+El kernel para 9,3 nos dice que el innerproduct es: 2.77153e-10
+El producto de 9,3: 2.77153e-10
+La matriz auxiliar vale:2.77153e-10
+El kernel para 9,4 nos dice que el innerproduct es: 0.00281343
+El producto de 9,4: 0.00281343
+La matriz auxiliar vale:0.00281343
+El kernel para 9,5 nos dice que el innerproduct es: 1.50266e-21
+El producto de 9,5: -1.50266e-21
+La matriz auxiliar vale:-1.50266e-21
+El kernel para 9,6 nos dice que el innerproduct es: 3.10953e-12
+El producto de 9,6: -3.10953e-12
+La matriz auxiliar vale:-3.10953e-12
+El kernel para 9,7 nos dice que el innerproduct es: 2.18082e-20
+El producto de 9,7: 2.18082e-20
+La matriz auxiliar vale:2.18082e-20
+El kernel para 9,8 nos dice que el innerproduct es: 2.09737e-11
+El producto de 9,8: -2.09737e-11
+La matriz auxiliar vale:-2.09737e-11
+El kernel para 9,9 nos dice que el innerproduct es: 1
+El producto de 9,9: 1
+La matriz auxiliar vale:1
+El kernel para 10,0 nos dice que el innerproduct es: 1.417e-138
+El producto de 10,0: 1.417e-138
+La matriz auxiliar vale:1.417e-138
+El kernel para 10,1 nos dice que el innerproduct es: 5.23e-73
+El producto de 10,1: 5.23e-73
+La matriz auxiliar vale:5.23e-73
+El kernel para 10,2 nos dice que el innerproduct es: 6.0647e-48
+El producto de 10,2: 6.0647e-48
+La matriz auxiliar vale:6.0647e-48
+El kernel para 10,3 nos dice que el innerproduct es: 1.06029e-44
+El producto de 10,3: 1.06029e-44
+La matriz auxiliar vale:1.06029e-44
+El kernel para 10,4 nos dice que el innerproduct es: 1.18305e-27
+El producto de 10,4: 1.18305e-27
+La matriz auxiliar vale:1.18305e-27
+El kernel para 10,5 nos dice que el innerproduct es: 1.43746e-62
+El producto de 10,5: -1.43746e-62
+La matriz auxiliar vale:-1.43746e-62
+El kernel para 10,6 nos dice que el innerproduct es: 1.7142e-84
+El producto de 10,6: -1.7142e-84
+La matriz auxiliar vale:-1.7142e-84
+El kernel para 10,7 nos dice que el innerproduct es: 1.24907e-104
+El producto de 10,7: 1.24907e-104
+La matriz auxiliar vale:1.24907e-104
+El kernel para 10,8 nos dice que el innerproduct es: 2.51645e-84
+El producto de 10,8: -2.51645e-84
+La matriz auxiliar vale:-2.51645e-84
+El kernel para 10,9 nos dice que el innerproduct es: 7.23672e-39
+El producto de 10,9: 7.23672e-39
+La matriz auxiliar vale:7.23672e-39
+El kernel para 10,10 nos dice que el innerproduct es: 1
+El producto de 10,10: 1
+La matriz auxiliar vale:1
+El kernel para 11,0 nos dice que el innerproduct es: 1.28779e-176
+El producto de 11,0: 1.28779e-176
+La matriz auxiliar vale:1.28779e-176
+El kernel para 11,1 nos dice que el innerproduct es: 6.75416e-100
+El producto de 11,1: 6.75416e-100
+La matriz auxiliar vale:6.75416e-100
+El kernel para 11,2 nos dice que el innerproduct es: 1.99157e-69
+El producto de 11,2: 1.99157e-69
+La matriz auxiliar vale:1.99157e-69
+El kernel para 11,3 nos dice que el innerproduct es: 3.86596e-63
+El producto de 11,3: 3.86596e-63
+La matriz auxiliar vale:3.86596e-63
+El kernel para 11,4 nos dice que el innerproduct es: 4.93923e-43
+El producto de 11,4: 4.93923e-43
+La matriz auxiliar vale:4.93923e-43
+El kernel para 11,5 nos dice que el innerproduct es: 1.50087e-81
+El producto de 11,5: -1.50087e-81
+La matriz auxiliar vale:-1.50087e-81
+El kernel para 11,6 nos dice que el innerproduct es: 7.01219e-114
+El producto de 11,6: -7.01219e-114
+La matriz auxiliar vale:-7.01219e-114
+El kernel para 11,7 nos dice que el innerproduct es: 1.50186e-134
+El producto de 11,7: 1.50186e-134
+La matriz auxiliar vale:1.50186e-134
+El kernel para 11,8 nos dice que el innerproduct es: 1.92546e-113
+El producto de 11,8: -1.92546e-113
+La matriz auxiliar vale:-1.92546e-113
+El kernel para 11,9 nos dice que el innerproduct es: 4.27565e-58
+El producto de 11,9: 4.27565e-58
+La matriz auxiliar vale:4.27565e-58
+El kernel para 11,10 nos dice que el innerproduct es: 0.00125735
+El producto de 11,10: 0.00125735
+La matriz auxiliar vale:0.00125735
+El kernel para 11,11 nos dice que el innerproduct es: 1
+El producto de 11,11: 1
+La matriz auxiliar vale:1
+El kernel para 12,0 nos dice que el innerproduct es: 1.97851e-195
+El producto de 12,0: 1.97851e-195
+La matriz auxiliar vale:1.97851e-195
+El kernel para 12,1 nos dice que el innerproduct es: 1.51386e-113
+El producto de 12,1: 1.51386e-113
+La matriz auxiliar vale:1.51386e-113
+El kernel para 12,2 nos dice que el innerproduct es: 4.66386e-81
+El producto de 12,2: 4.66386e-81
+La matriz auxiliar vale:4.66386e-81
+El kernel para 12,3 nos dice que el innerproduct es: 9.52526e-74
+El producto de 12,3: 9.52526e-74
+La matriz auxiliar vale:9.52526e-74
+El kernel para 12,4 nos dice que el innerproduct es: 1.45804e-51
+El producto de 12,4: 1.45804e-51
+La matriz auxiliar vale:1.45804e-51
+El kernel para 12,5 nos dice que el innerproduct es: 3.84342e-93
+El producto de 12,5: -3.84342e-93
+La matriz auxiliar vale:-3.84342e-93
+El kernel para 12,6 nos dice que el innerproduct es: 9.19654e-129
+El producto de 12,6: -9.19654e-129
+La matriz auxiliar vale:-9.19654e-129
+El kernel para 12,7 nos dice que el innerproduct es: 8.0178e-150
+El producto de 12,7: 8.0178e-150
+La matriz auxiliar vale:8.0178e-150
+El kernel para 12,8 nos dice que el innerproduct es: 4.14102e-128
+El producto de 12,8: -4.14102e-128
+La matriz auxiliar vale:-4.14102e-128
+El kernel para 12,9 nos dice que el innerproduct es: 6.15452e-68
+El producto de 12,9: 6.15452e-68
+La matriz auxiliar vale:6.15452e-68
+El kernel para 12,10 nos dice que el innerproduct es: 6.83561e-07
+El producto de 12,10: 6.83561e-07
+La matriz auxiliar vale:6.83561e-07
+El kernel para 12,11 nos dice que el innerproduct es: 0.206078
+El producto de 12,11: 0.206078
+La matriz auxiliar vale:0.206078
+El kernel para 12,12 nos dice que el innerproduct es: 1
+El producto de 12,12: 1
+La matriz auxiliar vale:1
+El kernel para 13,0 nos dice que el innerproduct es: 3.47342e-202
+El producto de 13,0: 3.47342e-202
+La matriz auxiliar vale:3.47342e-202
+El kernel para 13,1 nos dice que el innerproduct es: 1.56001e-118
+El producto de 13,1: 1.56001e-118
+La matriz auxiliar vale:1.56001e-118
+El kernel para 13,2 nos dice que el innerproduct es: 1.96459e-85
+El producto de 13,2: 1.96459e-85
+La matriz auxiliar vale:1.96459e-85
+El kernel para 13,3 nos dice que el innerproduct es: 1.29201e-77
+El producto de 13,3: 1.29201e-77
+La matriz auxiliar vale:1.29201e-77
+El kernel para 13,4 nos dice que el innerproduct es: 1.5301e-55
+El producto de 13,4: 1.5301e-55
+La matriz auxiliar vale:1.5301e-55
+El kernel para 13,5 nos dice que el innerproduct es: 1.98361e-96
+El producto de 13,5: -1.98361e-96
+La matriz auxiliar vale:-1.98361e-96
+El kernel para 13,6 nos dice que el innerproduct es: 2.43891e-134
+El producto de 13,6: -2.43891e-134
+La matriz auxiliar vale:-2.43891e-134
+El kernel para 13,7 nos dice que el innerproduct es: 4.23369e-156
+El producto de 13,7: 4.23369e-156
+La matriz auxiliar vale:4.23369e-156
+El kernel para 13,8 nos dice que el innerproduct es: 5.69422e-134
+El producto de 13,8: -5.69422e-134
+La matriz auxiliar vale:-5.69422e-134
+El kernel para 13,9 nos dice que el innerproduct es: 1.8801e-72
+El producto de 13,9: 1.8801e-72
+La matriz auxiliar vale:1.8801e-72
+El kernel para 13,10 nos dice que el innerproduct es: 7.35243e-08
+El producto de 13,10: 7.35243e-08
+La matriz auxiliar vale:7.35243e-08
+El kernel para 13,11 nos dice que el innerproduct es: 0.0903739
+El producto de 13,11: 0.0903739
+La matriz auxiliar vale:0.0903739
+El kernel para 13,12 nos dice que el innerproduct es: 0.619279
+El producto de 13,12: 0.619279
+La matriz auxiliar vale:0.619279
+El kernel para 13,13 nos dice que el innerproduct es: 1
+El producto de 13,13: 1
+La matriz auxiliar vale:1
+El kernel para 14,0 nos dice que el innerproduct es: 5.14626e-220
+El producto de 14,0: -5.14626e-220
+La matriz auxiliar vale:-5.14626e-220
+El kernel para 14,1 nos dice que el innerproduct es: 3.55575e-133
+El producto de 14,1: -3.55575e-133
+La matriz auxiliar vale:-3.55575e-133
+El kernel para 14,2 nos dice que el innerproduct es: 2.63554e-98
+El producto de 14,2: -2.63554e-98
+La matriz auxiliar vale:-2.63554e-98
+El kernel para 14,3 nos dice que el innerproduct es: 7.41269e-91
+El producto de 14,3: -7.41269e-91
+La matriz auxiliar vale:-7.41269e-91
+El kernel para 14,4 nos dice que el innerproduct es: 3.41838e-66
+El producto de 14,4: -3.41838e-66
+La matriz auxiliar vale:-3.41838e-66
+El kernel para 14,5 nos dice que el innerproduct es: 1.96871e-112
+El producto de 14,5: 1.96871e-112
+La matriz auxiliar vale:1.96871e-112
+El kernel para 14,6 nos dice que el innerproduct es: 1.79289e-149
+El producto de 14,6: 1.79289e-149
+La matriz auxiliar vale:1.79289e-149
+El kernel para 14,7 nos dice que el innerproduct es: 7.00347e-174
+El producto de 14,7: -7.00347e-174
+La matriz auxiliar vale:-7.00347e-174
+El kernel para 14,8 nos dice que el innerproduct es: 6.75666e-149
+El producto de 14,8: 6.75666e-149
+La matriz auxiliar vale:6.75666e-149
+El kernel para 14,9 nos dice que el innerproduct es: 2.33652e-83
+El producto de 14,9: -2.33652e-83
+La matriz auxiliar vale:-2.33652e-83
+El kernel para 14,10 nos dice que el innerproduct es: 7.92471e-11
+El producto de 14,10: -7.92471e-11
+La matriz auxiliar vale:-7.92471e-11
+El kernel para 14,11 nos dice que el innerproduct es: 0.00185773
+El producto de 14,11: -0.00185773
+La matriz auxiliar vale:-0.00185773
+El kernel para 14,12 nos dice que el innerproduct es: 0.0514112
+El producto de 14,12: -0.0514112
+La matriz auxiliar vale:-0.0514112
+El kernel para 14,13 nos dice que el innerproduct es: 0.144193
+El producto de 14,13: -0.144193
+La matriz auxiliar vale:-0.144193
+El kernel para 14,14 nos dice que el innerproduct es: 1
+El producto de 14,14: 1
+La matriz auxiliar vale:1
+El kernel para 15,0 nos dice que el innerproduct es: 2.87847e-241
+El producto de 15,0: 2.87847e-241
+La matriz auxiliar vale:2.87847e-241
+El kernel para 15,1 nos dice que el innerproduct es: 1.72917e-148
+El producto de 15,1: 1.72917e-148
+La matriz auxiliar vale:1.72917e-148
+El kernel para 15,2 nos dice que el innerproduct es: 2.59169e-110
+El producto de 15,2: 2.59169e-110
+La matriz auxiliar vale:2.59169e-110
+El kernel para 15,3 nos dice que el innerproduct es: 1.40941e-99
+El producto de 15,3: 1.40941e-99
+La matriz auxiliar vale:1.40941e-99
+El kernel para 15,4 nos dice que el innerproduct es: 1.11052e-75
+El producto de 15,4: 1.11052e-75
+La matriz auxiliar vale:1.11052e-75
+El kernel para 15,5 nos dice que el innerproduct es: 8.27945e-119
+El producto de 15,5: -8.27945e-119
+La matriz auxiliar vale:-8.27945e-119
+El kernel para 15,6 nos dice que el innerproduct es: 6.14338e-166
+El producto de 15,6: -6.14338e-166
+La matriz auxiliar vale:-6.14338e-166
+El kernel para 15,7 nos dice que el innerproduct es: 1.01775e-188
+El producto de 15,7: 1.01775e-188
+La matriz auxiliar vale:1.01775e-188
+El kernel para 15,8 nos dice que el innerproduct es: 1.04132e-165
+El producto de 15,8: -1.04132e-165
+La matriz auxiliar vale:-1.04132e-165
+El kernel para 15,9 nos dice que el innerproduct es: 5.32903e-96
+El producto de 15,9: 5.32903e-96
+La matriz auxiliar vale:5.32903e-96
+El kernel para 15,10 nos dice que el innerproduct es: 1.29591e-16
+El producto de 15,10: 1.29591e-16
+La matriz auxiliar vale:1.29591e-16
+El kernel para 15,11 nos dice que el innerproduct es: 3.48864e-06
+El producto de 15,11: 3.48864e-06
+La matriz auxiliar vale:3.48864e-06
+El kernel para 15,12 nos dice que el innerproduct es: 0.00181985
+El producto de 15,12: 0.00181985
+La matriz auxiliar vale:0.00181985
+El kernel para 15,13 nos dice que el innerproduct es: 0.00960185
+El producto de 15,13: 0.00960185
+La matriz auxiliar vale:0.00960185
+El kernel para 15,14 nos dice que el innerproduct es: 0.0212096
+El producto de 15,14: -0.0212096
+La matriz auxiliar vale:-0.0212096
+El kernel para 15,15 nos dice que el innerproduct es: 1
+El producto de 15,15: 1
+La matriz auxiliar vale:1
+El kernel para 16,0 nos dice que el innerproduct es: 2.76878e-241
+El producto de 16,0: -2.76878e-241
+La matriz auxiliar vale:-2.76878e-241
+El kernel para 16,1 nos dice que el innerproduct es: 2.07898e-149
+El producto de 16,1: -2.07898e-149
+La matriz auxiliar vale:-2.07898e-149
+El kernel para 16,2 nos dice que el innerproduct es: 5.03257e-112
+El producto de 16,2: -5.03257e-112
+La matriz auxiliar vale:-5.03257e-112
+El kernel para 16,3 nos dice que el innerproduct es: 5.07722e-103
+El producto de 16,3: -5.07722e-103
+La matriz auxiliar vale:-5.07722e-103
+El kernel para 16,4 nos dice que el innerproduct es: 3.55499e-77
+El producto de 16,4: -3.55499e-77
+La matriz auxiliar vale:-3.55499e-77
+El kernel para 16,5 nos dice que el innerproduct es: 2.15233e-124
+El producto de 16,5: 2.15233e-124
+La matriz auxiliar vale:2.15233e-124
+El kernel para 16,6 nos dice que el innerproduct es: 6.29786e-167
+El producto de 16,6: 6.29786e-167
+La matriz auxiliar vale:6.29786e-167
+El kernel para 16,7 nos dice que el innerproduct es: 8.90478e-192
+El producto de 16,7: -8.90478e-192
+La matriz auxiliar vale:-8.90478e-192
+El kernel para 16,8 nos dice que el innerproduct es: 1.3503e-166
+El producto de 16,8: 1.3503e-166
+La matriz auxiliar vale:1.3503e-166
+El kernel para 16,9 nos dice que el innerproduct es: 1.27713e-96
+El producto de 16,9: -1.27713e-96
+La matriz auxiliar vale:-1.27713e-96
+El kernel para 16,10 nos dice que el innerproduct es: 1.06075e-15
+El producto de 16,10: -1.06075e-15
+La matriz auxiliar vale:-1.06075e-15
+El kernel para 16,11 nos dice que el innerproduct es: 4.54333e-06
+El producto de 16,11: -4.54333e-06
+La matriz auxiliar vale:-4.54333e-06
+El kernel para 16,12 nos dice que el innerproduct es: 0.00156895
+El producto de 16,12: -0.00156895
+La matriz auxiliar vale:-0.00156895
+El kernel para 16,13 nos dice que el innerproduct es: 0.00812223
+El producto de 16,13: -0.00812223
+La matriz auxiliar vale:-0.00812223
+El kernel para 16,14 nos dice que el innerproduct es: 0.112046
+El producto de 16,14: 0.112046
+La matriz auxiliar vale:0.112046
+El kernel para 16,15 nos dice que el innerproduct es: 0.222117
+El producto de 16,15: -0.222117
+La matriz auxiliar vale:-0.222117
+El kernel para 16,16 nos dice que el innerproduct es: 1
+El producto de 16,16: 1
+La matriz auxiliar vale:1
+El kernel para 17,0 nos dice que el innerproduct es: 4.34902e-228
+El producto de 17,0: 4.34902e-228
+La matriz auxiliar vale:4.34902e-228
+El kernel para 17,1 nos dice que el innerproduct es: 5.5711e-138
+El producto de 17,1: 5.5711e-138
+La matriz auxiliar vale:5.5711e-138
+El kernel para 17,2 nos dice que el innerproduct es: 7.20972e-102
+El producto de 17,2: 7.20972e-102
+La matriz auxiliar vale:7.20972e-102
+El kernel para 17,3 nos dice que el innerproduct es: 2.12912e-90
+El producto de 17,3: 2.12912e-90
+La matriz auxiliar vale:2.12912e-90
+El kernel para 17,4 nos dice que el innerproduct es: 2.1332e-69
+El producto de 17,4: 2.1332e-69
+La matriz auxiliar vale:2.1332e-69
+El kernel para 17,5 nos dice que el innerproduct es: 6.79003e-107
+El producto de 17,5: -6.79003e-107
+La matriz auxiliar vale:-6.79003e-107
+El kernel para 17,6 nos dice que el innerproduct es: 2.02332e-155
+El producto de 17,6: -2.02332e-155
+La matriz auxiliar vale:-2.02332e-155
+El kernel para 17,7 nos dice que el innerproduct es: 1.10371e-176
+El producto de 17,7: 1.10371e-176
+La matriz auxiliar vale:1.10371e-176
+El kernel para 17,8 nos dice que el innerproduct es: 1.21135e-155
+El producto de 17,8: -1.21135e-155
+La matriz auxiliar vale:-1.21135e-155
+El kernel para 17,9 nos dice que el innerproduct es: 3.68754e-90
+El producto de 17,9: 3.68754e-90
+La matriz auxiliar vale:3.68754e-90
+El kernel para 17,10 nos dice que el innerproduct es: 7.50393e-15
+El producto de 17,10: 7.50393e-15
+La matriz auxiliar vale:7.50393e-15
+El kernel para 17,11 nos dice que el innerproduct es: 1.49082e-05
+El producto de 17,11: 1.49082e-05
+La matriz auxiliar vale:1.49082e-05
+El kernel para 17,12 nos dice que el innerproduct es: 0.0013467
+El producto de 17,12: 0.0013467
+La matriz auxiliar vale:0.0013467
+El kernel para 17,13 nos dice que el innerproduct es: 0.00750264
+El producto de 17,13: 0.00750264
+La matriz auxiliar vale:0.00750264
+El kernel para 17,14 nos dice que el innerproduct es: 0.00109172
+El producto de 17,14: -0.00109172
+La matriz auxiliar vale:-0.00109172
+El kernel para 17,15 nos dice que el innerproduct es: 0.0301732
+El producto de 17,15: 0.0301732
+La matriz auxiliar vale:0.0301732
+El kernel para 17,16 nos dice que el innerproduct es: 0.00456677
+El producto de 17,16: -0.00456677
+La matriz auxiliar vale:-0.00456677
+El kernel para 17,17 nos dice que el innerproduct es: 1
+El producto de 17,17: 1
+La matriz auxiliar vale:1
+El kernel para 18,0 nos dice que el innerproduct es: 2.49357e-150
+El producto de 18,0: -2.49357e-150
+La matriz auxiliar vale:-2.49357e-150
+El kernel para 18,1 nos dice que el innerproduct es: 2.31746e-79
+El producto de 18,1: -2.31746e-79
+La matriz auxiliar vale:-2.31746e-79
+El kernel para 18,2 nos dice que el innerproduct es: 1.38645e-54
+El producto de 18,2: -1.38645e-54
+La matriz auxiliar vale:-1.38645e-54
+El kernel para 18,3 nos dice que el innerproduct es: 7.93743e-51
+El producto de 18,3: -7.93743e-51
+La matriz auxiliar vale:-7.93743e-51
+El kernel para 18,4 nos dice que el innerproduct es: 5.35844e-32
+El producto de 18,4: -5.35844e-32
+La matriz auxiliar vale:-5.35844e-32
+El kernel para 18,5 nos dice que el innerproduct es: 3.06756e-65
+El producto de 18,5: 3.06756e-65
+La matriz auxiliar vale:3.06756e-65
+El kernel para 18,6 nos dice que el innerproduct es: 8.89108e-94
+El producto de 18,6: 8.89108e-94
+La matriz auxiliar vale:8.89108e-94
+El kernel para 18,7 nos dice que el innerproduct es: 6.38742e-112
+El producto de 18,7: -6.38742e-112
+La matriz auxiliar vale:-6.38742e-112
+El kernel para 18,8 nos dice que el innerproduct es: 1.25654e-93
+El producto de 18,8: 1.25654e-93
+La matriz auxiliar vale:1.25654e-93
+El kernel para 18,9 nos dice que el innerproduct es: 1.79902e-44
+El producto de 18,9: -1.79902e-44
+La matriz auxiliar vale:-1.79902e-44
+El kernel para 18,10 nos dice que el innerproduct es: 0.0037856
+El producto de 18,10: -0.0037856
+La matriz auxiliar vale:-0.0037856
+El kernel para 18,11 nos dice que el innerproduct es: 0.00336173
+El producto de 18,11: -0.00336173
+La matriz auxiliar vale:-0.00336173
+El kernel para 18,12 nos dice que el innerproduct es: 5.09432e-05
+El producto de 18,12: -5.09432e-05
+La matriz auxiliar vale:-5.09432e-05
+El kernel para 18,13 nos dice que el innerproduct es: 1.44806e-05
+El producto de 18,13: -1.44806e-05
+La matriz auxiliar vale:-1.44806e-05
+El kernel para 18,14 nos dice que el innerproduct es: 3.63303e-09
+El producto de 18,14: 3.63303e-09
+La matriz auxiliar vale:3.63303e-09
+El kernel para 18,15 nos dice que el innerproduct es: 6.3351e-13
+El producto de 18,15: -6.3351e-13
+La matriz auxiliar vale:-6.3351e-13
+El kernel para 18,16 nos dice que el innerproduct es: 6.83568e-13
+El producto de 18,16: 6.83568e-13
+La matriz auxiliar vale:6.83568e-13
+El kernel para 18,17 nos dice que el innerproduct es: 4.71312e-10
+El producto de 18,17: -4.71312e-10
+La matriz auxiliar vale:-4.71312e-10
+El kernel para 18,18 nos dice que el innerproduct es: 1
+El producto de 18,18: 1
+La matriz auxiliar vale:1
+El kernel para 19,0 nos dice que el innerproduct es: 3.07488e-123
+El producto de 19,0: -3.07488e-123
+La matriz auxiliar vale:-3.07488e-123
+El kernel para 19,1 nos dice que el innerproduct es: 6.61203e-61
+El producto de 19,1: -6.61203e-61
+La matriz auxiliar vale:-6.61203e-61
+El kernel para 19,2 nos dice que el innerproduct es: 2.73646e-36
+El producto de 19,2: -2.73646e-36
+La matriz auxiliar vale:-2.73646e-36
+El kernel para 19,3 nos dice que el innerproduct es: 3.01874e-31
+El producto de 19,3: -3.01874e-31
+La matriz auxiliar vale:-3.01874e-31
+El kernel para 19,4 nos dice que el innerproduct es: 3.2363e-18
+El producto de 19,4: -3.2363e-18
+La matriz auxiliar vale:-3.2363e-18
+El kernel para 19,5 nos dice que el innerproduct es: 6.32449e-45
+El producto de 19,5: 6.32449e-45
+La matriz auxiliar vale:6.32449e-45
+El kernel para 19,6 nos dice que el innerproduct es: 4.58111e-71
+El producto de 19,6: 4.58111e-71
+La matriz auxiliar vale:4.58111e-71
+El kernel para 19,7 nos dice que el innerproduct es: 1.80522e-85
+El producto de 19,7: -1.80522e-85
+La matriz auxiliar vale:-1.80522e-85
+El kernel para 19,8 nos dice que el innerproduct es: 9.64116e-71
+El producto de 19,8: 9.64116e-71
+La matriz auxiliar vale:9.64116e-71
+El kernel para 19,9 nos dice que el innerproduct es: 2.20032e-30
+El producto de 19,9: -2.20032e-30
+La matriz auxiliar vale:-2.20032e-30
+El kernel para 19,10 nos dice que el innerproduct es: 0.00103754
+El producto de 19,10: -0.00103754
+La matriz auxiliar vale:-0.00103754
+El kernel para 19,11 nos dice que el innerproduct es: 5.12508e-07
+El producto de 19,11: -5.12508e-07
+La matriz auxiliar vale:-5.12508e-07
+El kernel para 19,12 nos dice que el innerproduct es: 1.33429e-10
+El producto de 19,12: -1.33429e-10
+La matriz auxiliar vale:-1.33429e-10
+El kernel para 19,13 nos dice que el innerproduct es: 3.56004e-12
+El producto de 19,13: -3.56004e-12
+La matriz auxiliar vale:-3.56004e-12
+El kernel para 19,14 nos dice que el innerproduct es: 8.60705e-18
+El producto de 19,14: 8.60705e-18
+La matriz auxiliar vale:8.60705e-18
+El kernel para 19,15 nos dice que el innerproduct es: 1.13933e-21
+El producto de 19,15: -1.13933e-21
+La matriz auxiliar vale:-1.13933e-21
+El kernel para 19,16 nos dice que el innerproduct es: 6.27239e-23
+El producto de 19,16: 6.27239e-23
+La matriz auxiliar vale:6.27239e-23
+El kernel para 19,17 nos dice que el innerproduct es: 2.12587e-18
+El producto de 19,17: -2.12587e-18
+La matriz auxiliar vale:-2.12587e-18
+El kernel para 19,18 nos dice que el innerproduct es: 9.60684e-05
+El producto de 19,18: 9.60684e-05
+La matriz auxiliar vale:9.60684e-05
+El kernel para 19,19 nos dice que el innerproduct es: 1
+El producto de 19,19: 1
+La matriz auxiliar vale:1
+El kernel para 20,0 nos dice que el innerproduct es: 1.46393e-79
+El producto de 20,0: -1.46393e-79
+La matriz auxiliar vale:-1.46393e-79
+El kernel para 20,1 nos dice que el innerproduct es: 3.59282e-31
+El producto de 20,1: -3.59282e-31
+La matriz auxiliar vale:-3.59282e-31
+El kernel para 20,2 nos dice que el innerproduct es: 5.52938e-15
+El producto de 20,2: -5.52938e-15
+La matriz auxiliar vale:-5.52938e-15
+El kernel para 20,3 nos dice que el innerproduct es: 1.31113e-14
+El producto de 20,3: -1.31113e-14
+La matriz auxiliar vale:-1.31113e-14
+El kernel para 20,4 nos dice que el innerproduct es: 0.000171145
+El producto de 20,4: -0.000171145
+La matriz auxiliar vale:-0.000171145
+El kernel para 20,5 nos dice que el innerproduct es: 7.49482e-26
+El producto de 20,5: 7.49482e-26
+La matriz auxiliar vale:7.49482e-26
+El kernel para 20,6 nos dice que el innerproduct es: 8.98915e-39
+El producto de 20,6: 8.98915e-39
+La matriz auxiliar vale:8.98915e-39
+El kernel para 20,7 nos dice que el innerproduct es: 4.28885e-49
+El producto de 20,7: -4.28885e-49
+La matriz auxiliar vale:-4.28885e-49
+El kernel para 20,8 nos dice que el innerproduct es: 3.64273e-38
+El producto de 20,8: 3.64273e-38
+La matriz auxiliar vale:3.64273e-38
+El kernel para 20,9 nos dice que el innerproduct es: 1.10175e-10
+El producto de 20,9: -1.10175e-10
+La matriz auxiliar vale:-1.10175e-10
+El kernel para 20,10 nos dice que el innerproduct es: 6.60354e-13
+El producto de 20,10: -6.60354e-13
+La matriz auxiliar vale:-6.60354e-13
+El kernel para 20,11 nos dice que el innerproduct es: 1.54716e-22
+El producto de 20,11: -1.54716e-22
+La matriz auxiliar vale:-1.54716e-22
+El kernel para 20,12 nos dice que el innerproduct es: 1.21074e-28
+El producto de 20,12: -1.21074e-28
+La matriz auxiliar vale:-1.21074e-28
+El kernel para 20,13 nos dice que el innerproduct es: 1.72942e-31
+El producto de 20,13: -1.72942e-31
+La matriz auxiliar vale:-1.72942e-31
+El kernel para 20,14 nos dice que el innerproduct es: 9.09163e-40
+El producto de 20,14: 9.09163e-40
+La matriz auxiliar vale:9.09163e-40
+El kernel para 20,15 nos dice que el innerproduct es: 7.88805e-47
+El producto de 20,15: -7.88805e-47
+La matriz auxiliar vale:-7.88805e-47
+El kernel para 20,16 nos dice que el innerproduct es: 2.16579e-48
+El producto de 20,16: 2.16579e-48
+La matriz auxiliar vale:2.16579e-48
+El kernel para 20,17 nos dice que el innerproduct es: 3.93781e-42
+El producto de 20,17: -3.93781e-42
+La matriz auxiliar vale:-3.93781e-42
+El kernel para 20,18 nos dice que el innerproduct es: 6.09109e-15
+El producto de 20,18: 6.09109e-15
+La matriz auxiliar vale:6.09109e-15
+El kernel para 20,19 nos dice que el innerproduct es: 1.93249e-06
+El producto de 20,19: 1.93249e-06
+La matriz auxiliar vale:1.93249e-06
+El kernel para 20,20 nos dice que el innerproduct es: 1
+El producto de 20,20: 1
+La matriz auxiliar vale:1
+El kernel para 21,0 nos dice que el innerproduct es: 2.19889e-87
+El producto de 21,0: -2.19889e-87
+La matriz auxiliar vale:-2.19889e-87
+El kernel para 21,1 nos dice que el innerproduct es: 3.53712e-36
+El producto de 21,1: -3.53712e-36
+La matriz auxiliar vale:-3.53712e-36
+El kernel para 21,2 nos dice que el innerproduct es: 1.52666e-18
+El producto de 21,2: -1.52666e-18
+La matriz auxiliar vale:-1.52666e-18
+El kernel para 21,3 nos dice que el innerproduct es: 5.60857e-17
+El producto de 21,3: -5.60857e-17
+La matriz auxiliar vale:-5.60857e-17
+El kernel para 21,4 nos dice que el innerproduct es: 7.78692e-07
+El producto de 21,4: -7.78692e-07
+La matriz auxiliar vale:-7.78692e-07
+El kernel para 21,5 nos dice que el innerproduct es: 8.08425e-29
+El producto de 21,5: 8.08425e-29
+La matriz auxiliar vale:8.08425e-29
+El kernel para 21,6 nos dice que el innerproduct es: 2.10685e-44
+El producto de 21,6: 2.10685e-44
+La matriz auxiliar vale:2.10685e-44
+El kernel para 21,7 nos dice que el innerproduct es: 4.58895e-57
+El producto de 21,7: -4.58895e-57
+La matriz auxiliar vale:-4.58895e-57
+El kernel para 21,8 nos dice que el innerproduct es: 1.90941e-44
+El producto de 21,8: 1.90941e-44
+La matriz auxiliar vale:1.90941e-44
+El kernel para 21,9 nos dice que el innerproduct es: 2.1155e-14
+El producto de 21,9: -2.1155e-14
+La matriz auxiliar vale:-2.1155e-14
+El kernel para 21,10 nos dice que el innerproduct es: 4.84533e-09
+El producto de 21,10: -4.84533e-09
+La matriz auxiliar vale:-4.84533e-09
+El kernel para 21,11 nos dice que el innerproduct es: 8.78663e-18
+El producto de 21,11: -8.78663e-18
+La matriz auxiliar vale:-8.78663e-18
+El kernel para 21,12 nos dice que el innerproduct es: 1.48566e-23
+El producto de 21,12: -1.48566e-23
+La matriz auxiliar vale:-1.48566e-23
+El kernel para 21,13 nos dice que el innerproduct es: 6.18429e-26
+El producto de 21,13: -6.18429e-26
+La matriz auxiliar vale:-6.18429e-26
+El kernel para 21,14 nos dice que el innerproduct es: 1.34072e-33
+El producto de 21,14: 1.34072e-33
+La matriz auxiliar vale:1.34072e-33
+El kernel para 21,15 nos dice que el innerproduct es: 3.16548e-40
+El producto de 21,15: -3.16548e-40
+La matriz auxiliar vale:-3.16548e-40
+El kernel para 21,16 nos dice que el innerproduct es: 3.78346e-41
+El producto de 21,16: 3.78346e-41
+La matriz auxiliar vale:3.78346e-41
+El kernel para 21,17 nos dice que el innerproduct es: 1.98274e-35
+El producto de 21,17: -1.98274e-35
+La matriz auxiliar vale:-1.98274e-35
+El kernel para 21,18 nos dice que el innerproduct es: 3.13251e-11
+El producto de 21,18: 3.13251e-11
+La matriz auxiliar vale:3.13251e-11
+El kernel para 21,19 nos dice que el innerproduct es: 0.000329726
+El producto de 21,19: 0.000329726
+La matriz auxiliar vale:0.000329726
+El kernel para 21,20 nos dice que el innerproduct es: 0.145097
+El producto de 21,20: 0.145097
+La matriz auxiliar vale:0.145097
+El kernel para 21,21 nos dice que el innerproduct es: 1
+El producto de 21,21: 1
+La matriz auxiliar vale:1
+El kernel para 22,0 nos dice que el innerproduct es: 3.42419e-103
+El producto de 22,0: 3.42419e-103
+La matriz auxiliar vale:3.42419e-103
+El kernel para 22,1 nos dice que el innerproduct es: 2.76738e-47
+El producto de 22,1: 2.76738e-47
+La matriz auxiliar vale:2.76738e-47
+El kernel para 22,2 nos dice que el innerproduct es: 8.01875e-28
+El producto de 22,2: 8.01875e-28
+La matriz auxiliar vale:8.01875e-28
+El kernel para 22,3 nos dice que el innerproduct es: 4.15618e-27
+El producto de 22,3: 4.15618e-27
+La matriz auxiliar vale:4.15618e-27
+El kernel para 22,4 nos dice que el innerproduct es: 2.29842e-12
+El producto de 22,4: 2.29842e-12
+La matriz auxiliar vale:2.29842e-12
+El kernel para 22,5 nos dice que el innerproduct es: 1.41478e-42
+El producto de 22,5: -1.41478e-42
+La matriz auxiliar vale:-1.41478e-42
+El kernel para 22,6 nos dice que el innerproduct es: 6.02098e-57
+El producto de 22,6: -6.02098e-57
+La matriz auxiliar vale:-6.02098e-57
+El kernel para 22,7 nos dice que el innerproduct es: 1.24904e-72
+El producto de 22,7: 1.24904e-72
+La matriz auxiliar vale:1.24904e-72
+El kernel para 22,8 nos dice que el innerproduct es: 1.69108e-56
+El producto de 22,8: -1.69108e-56
+La matriz auxiliar vale:-1.69108e-56
+El kernel para 22,9 nos dice que el innerproduct es: 3.44889e-20
+El producto de 22,9: 3.44889e-20
+La matriz auxiliar vale:3.44889e-20
+El kernel para 22,10 nos dice que el innerproduct es: 0.000217894
+El producto de 22,10: 0.000217894
+La matriz auxiliar vale:0.000217894
+El kernel para 22,11 nos dice que el innerproduct es: 5.24715e-11
+El producto de 22,11: 5.24715e-11
+La matriz auxiliar vale:5.24715e-11
+El kernel para 22,12 nos dice que el innerproduct es: 1.34289e-15
+El producto de 22,12: 1.34289e-15
+La matriz auxiliar vale:1.34289e-15
+El kernel para 22,13 nos dice que el innerproduct es: 9.76575e-18
+El producto de 22,13: 9.76575e-18
+La matriz auxiliar vale:9.76575e-18
+El kernel para 22,14 nos dice que el innerproduct es: 2.37764e-23
+El producto de 22,14: -2.37764e-23
+La matriz auxiliar vale:-2.37764e-23
+El kernel para 22,15 nos dice que el innerproduct es: 2.59738e-30
+El producto de 22,15: 2.59738e-30
+La matriz auxiliar vale:2.59738e-30
+El kernel para 22,16 nos dice que el innerproduct es: 3.60655e-30
+El producto de 22,16: -3.60655e-30
+La matriz auxiliar vale:-3.60655e-30
+El kernel para 22,17 nos dice que el innerproduct es: 3.32061e-27
+El producto de 22,17: 3.32061e-27
+La matriz auxiliar vale:3.32061e-27
+El kernel para 22,18 nos dice que el innerproduct es: 1.16796e-06
+El producto de 22,18: -1.16796e-06
+La matriz auxiliar vale:-1.16796e-06
+El kernel para 22,19 nos dice que el innerproduct es: 0.00516526
+El producto de 22,19: -0.00516526
+La matriz auxiliar vale:-0.00516526
+El kernel para 22,20 nos dice que el innerproduct es: 0.000697018
+El producto de 22,20: -0.000697018
+La matriz auxiliar vale:-0.000697018
+El kernel para 22,21 nos dice que el innerproduct es: 0.0294474
+El producto de 22,21: -0.0294474
+La matriz auxiliar vale:-0.0294474
+El kernel para 22,22 nos dice que el innerproduct es: 1
+El producto de 22,22: 1
+La matriz auxiliar vale:1
+El kernel para 23,0 nos dice que el innerproduct es: 2.56173e-122
+El producto de 23,0: 2.56173e-122
+La matriz auxiliar vale:2.56173e-122
+El kernel para 23,1 nos dice que el innerproduct es: 5.28087e-61
+El producto de 23,1: 5.28087e-61
+La matriz auxiliar vale:5.28087e-61
+El kernel para 23,2 nos dice que el innerproduct es: 3.69673e-37
+El producto de 23,2: 3.69673e-37
+La matriz auxiliar vale:3.69673e-37
+El kernel para 23,3 nos dice que el innerproduct es: 5.43029e-34
+El producto de 23,3: 5.43029e-34
+La matriz auxiliar vale:5.43029e-34
+El kernel para 23,4 nos dice que el innerproduct es: 2.80648e-18
+El producto de 23,4: 2.80648e-18
+La matriz auxiliar vale:2.80648e-18
+El kernel para 23,5 nos dice que el innerproduct es: 1.24206e-49
+El producto de 23,5: -1.24206e-49
+La matriz auxiliar vale:-1.24206e-49
+El kernel para 23,6 nos dice que el innerproduct es: 1.81565e-71
+El producto de 23,6: -1.81565e-71
+La matriz auxiliar vale:-1.81565e-71
+El kernel para 23,7 nos dice que el innerproduct es: 1.94754e-86
+El producto de 23,7: 1.94754e-86
+La matriz auxiliar vale:1.94754e-86
+El kernel para 23,8 nos dice que el innerproduct es: 1.46911e-70
+El producto de 23,8: -1.46911e-70
+La matriz auxiliar vale:-1.46911e-70
+El kernel para 23,9 nos dice que el innerproduct es: 2.05858e-29
+El producto de 23,9: 2.05858e-29
+La matriz auxiliar vale:2.05858e-29
+El kernel para 23,10 nos dice que el innerproduct es: 0.000860583
+El producto de 23,10: 0.000860583
+La matriz auxiliar vale:0.000860583
+El kernel para 23,11 nos dice que el innerproduct es: 4.23272e-07
+El producto de 23,11: 4.23272e-07
+La matriz auxiliar vale:4.23272e-07
+El kernel para 23,12 nos dice que el innerproduct es: 1.95815e-10
+El producto de 23,12: 1.95815e-10
+La matriz auxiliar vale:1.95815e-10
+El kernel para 23,13 nos dice que el innerproduct es: 2.68417e-12
+El producto de 23,13: 2.68417e-12
+La matriz auxiliar vale:2.68417e-12
+El kernel para 23,14 nos dice que el innerproduct es: 1.60849e-17
+El producto de 23,14: -1.60849e-17
+La matriz auxiliar vale:-1.60849e-17
+El kernel para 23,15 nos dice que el innerproduct es: 2.7159e-22
+El producto de 23,15: 2.7159e-22
+La matriz auxiliar vale:2.7159e-22
+El kernel para 23,16 nos dice que el innerproduct es: 7.43172e-23
+El producto de 23,16: -7.43172e-23
+La matriz auxiliar vale:-7.43172e-23
+El kernel para 23,17 nos dice que el innerproduct es: 6.37225e-20
+El producto de 23,17: 6.37225e-20
+La matriz auxiliar vale:6.37225e-20
+El kernel para 23,18 nos dice que el innerproduct es: 1.9176e-05
+El producto de 23,18: -1.9176e-05
+La matriz auxiliar vale:-1.9176e-05
+El kernel para 23,19 nos dice que el innerproduct es: 0.0799143
+El producto de 23,19: -0.0799143
+La matriz auxiliar vale:-0.0799143
+El kernel para 23,20 nos dice que el innerproduct es: 6.06658e-07
+El producto de 23,20: -6.06658e-07
+La matriz auxiliar vale:-6.06658e-07
+El kernel para 23,21 nos dice que el innerproduct es: 0.000110516
+El producto de 23,21: -0.000110516
+La matriz auxiliar vale:-0.000110516
+El kernel para 23,22 nos dice que el innerproduct es: 0.0246939
+El producto de 23,22: 0.0246939
+La matriz auxiliar vale:0.0246939
+El kernel para 23,23 nos dice que el innerproduct es: 1
+El producto de 23,23: 1
+La matriz auxiliar vale:1
+El kernel para 24,0 nos dice que el innerproduct es: 3.36889e-95
+El producto de 24,0: 3.36889e-95
+La matriz auxiliar vale:3.36889e-95
+El kernel para 24,1 nos dice que el innerproduct es: 6.78211e-41
+El producto de 24,1: 6.78211e-41
+La matriz auxiliar vale:6.78211e-41
+El kernel para 24,2 nos dice que el innerproduct es: 1.82462e-22
+El producto de 24,2: 1.82462e-22
+La matriz auxiliar vale:1.82462e-22
+El kernel para 24,3 nos dice que el innerproduct es: 2.5191e-20
+El producto de 24,3: 2.5191e-20
+La matriz auxiliar vale:2.5191e-20
+El kernel para 24,4 nos dice que el innerproduct es: 3.53978e-09
+El producto de 24,4: 3.53978e-09
+La matriz auxiliar vale:3.53978e-09
+El kernel para 24,5 nos dice que el innerproduct es: 4.92014e-31
+El producto de 24,5: -4.92014e-31
+La matriz auxiliar vale:-4.92014e-31
+El kernel para 24,6 nos dice que el innerproduct es: 1.88091e-50
+El producto de 24,6: -1.88091e-50
+La matriz auxiliar vale:-1.88091e-50
+El kernel para 24,7 nos dice que el innerproduct es: 1.31288e-62
+El producto de 24,7: 1.31288e-62
+La matriz auxiliar vale:1.31288e-62
+El kernel para 24,8 nos dice que el innerproduct es: 2.05619e-50
+El producto de 24,8: -2.05619e-50
+La matriz auxiliar vale:-2.05619e-50
+El kernel para 24,9 nos dice que el innerproduct es: 1.22103e-17
+El producto de 24,9: 1.22103e-17
+La matriz auxiliar vale:1.22103e-17
+El kernel para 24,10 nos dice que el innerproduct es: 4.74258e-08
+El producto de 24,10: 4.74258e-08
+La matriz auxiliar vale:4.74258e-08
+El kernel para 24,11 nos dice que el innerproduct es: 4.98846e-15
+El producto de 24,11: 4.98846e-15
+La matriz auxiliar vale:4.98846e-15
+El kernel para 24,12 nos dice que el innerproduct es: 4.46537e-20
+El producto de 24,12: 4.46537e-20
+La matriz auxiliar vale:4.46537e-20
+El kernel para 24,13 nos dice que el innerproduct es: 3.22851e-22
+El producto de 24,13: 3.22851e-22
+La matriz auxiliar vale:3.22851e-22
+El kernel para 24,14 nos dice que el innerproduct es: 1.29346e-29
+El producto de 24,14: -1.29346e-29
+La matriz auxiliar vale:-1.29346e-29
+El kernel para 24,15 nos dice que el innerproduct es: 2.43495e-35
+El producto de 24,15: 2.43495e-35
+La matriz auxiliar vale:2.43495e-35
+El kernel para 24,16 nos dice que el innerproduct es: 9.97766e-37
+El producto de 24,16: -9.97766e-37
+La matriz auxiliar vale:-9.97766e-37
+El kernel para 24,17 nos dice que el innerproduct es: 1.869e-30
+El producto de 24,17: 1.869e-30
+La matriz auxiliar vale:1.869e-30
+El kernel para 24,18 nos dice que el innerproduct es: 1.4446e-08
+El producto de 24,18: -1.4446e-08
+La matriz auxiliar vale:-1.4446e-08
+El kernel para 24,19 nos dice que el innerproduct es: 0.00290419
+El producto de 24,19: -0.00290419
+La matriz auxiliar vale:-0.00290419
+El kernel para 24,20 nos dice que el innerproduct es: 0.0412749
+El producto de 24,20: -0.0412749
+La matriz auxiliar vale:-0.0412749
+El kernel para 24,21 nos dice que el innerproduct es: 0.259824
+El producto de 24,21: -0.259824
+La matriz auxiliar vale:-0.259824
+El kernel para 24,22 nos dice que el innerproduct es: 0.0308475
+El producto de 24,22: 0.0308475
+La matriz auxiliar vale:0.0308475
+El kernel para 24,23 nos dice que el innerproduct es: 0.000501052
+El producto de 24,23: 0.000501052
+La matriz auxiliar vale:0.000501052
+El kernel para 24,24 nos dice que el innerproduct es: 1
+El producto de 24,24: 1
+La matriz auxiliar vale:1
+El kernel para 25,0 nos dice que el innerproduct es: 4.07872e-132
+El producto de 25,0: -4.07872e-132
+La matriz auxiliar vale:-4.07872e-132
+El kernel para 25,1 nos dice que el innerproduct es: 1.01263e-67
+El producto de 25,1: -1.01263e-67
+La matriz auxiliar vale:-1.01263e-67
+El kernel para 25,2 nos dice que el innerproduct es: 1.33284e-43
+El producto de 25,2: -1.33284e-43
+La matriz auxiliar vale:-1.33284e-43
+El kernel para 25,3 nos dice que el innerproduct es: 6.3677e-41
+El producto de 25,3: -6.3677e-41
+La matriz auxiliar vale:-6.3677e-41
+El kernel para 25,4 nos dice que el innerproduct es: 1.96857e-23
+El producto de 25,4: -1.96857e-23
+La matriz auxiliar vale:-1.96857e-23
+El kernel para 25,5 nos dice que el innerproduct es: 1.94936e-57
+El producto de 25,5: 1.94936e-57
+La matriz auxiliar vale:1.94936e-57
+El kernel para 25,6 nos dice que el innerproduct es: 2.16533e-79
+El producto de 25,6: 2.16533e-79
+La matriz auxiliar vale:2.16533e-79
+El kernel para 25,7 nos dice que el innerproduct es: 2.63308e-97
+El producto de 25,7: -2.63308e-97
+La matriz auxiliar vale:-2.63308e-97
+El kernel para 25,8 nos dice que el innerproduct es: 7.47656e-79
+El producto de 25,8: 7.47656e-79
+La matriz auxiliar vale:7.47656e-79
+El kernel para 25,9 nos dice que el innerproduct es: 1.15846e-34
+El producto de 25,9: -1.15846e-34
+La matriz auxiliar vale:-1.15846e-34
+El kernel para 25,10 nos dice que el innerproduct es: 0.140697
+El producto de 25,10: -0.140697
+La matriz auxiliar vale:-0.140697
+El kernel para 25,11 nos dice que el innerproduct es: 0.000260919
+El producto de 25,11: -0.000260919
+La matriz auxiliar vale:-0.000260919
+El kernel para 25,12 nos dice que el innerproduct es: 2.38023e-07
+El producto de 25,12: -2.38023e-07
+La matriz auxiliar vale:-2.38023e-07
+El kernel para 25,13 nos dice que el innerproduct es: 1.32655e-08
+El producto de 25,13: -1.32655e-08
+La matriz auxiliar vale:-1.32655e-08
+El kernel para 25,14 nos dice que el innerproduct es: 1.15641e-12
+El producto de 25,14: 1.15641e-12
+La matriz auxiliar vale:1.15641e-12
+El kernel para 25,15 nos dice que el innerproduct es: 6.81981e-18
+El producto de 25,15: -6.81981e-18
+La matriz auxiliar vale:-6.81981e-18
+El kernel para 25,16 nos dice que el innerproduct es: 1.85021e-17
+El producto de 25,16: 1.85021e-17
+La matriz auxiliar vale:1.85021e-17
+El kernel para 25,17 nos dice que el innerproduct es: 1.6736e-15
+El producto de 25,17: -1.6736e-15
+La matriz auxiliar vale:-1.6736e-15
+El kernel para 25,18 nos dice que el innerproduct es: 0.0156466
+El producto de 25,18: 0.0156466
+La matriz auxiliar vale:0.0156466
+El kernel para 25,19 nos dice que el innerproduct es: 0.0232152
+El producto de 25,19: 0.0232152
+La matriz auxiliar vale:0.0232152
+El kernel para 25,20 nos dice que el innerproduct es: 6.09459e-10
+El producto de 25,20: 6.09459e-10
+La matriz auxiliar vale:6.09459e-10
+El kernel para 25,21 nos dice que el innerproduct es: 1.42948e-06
+El producto de 25,21: 1.42948e-06
+La matriz auxiliar vale:1.42948e-06
+El kernel para 25,22 nos dice que el innerproduct es: 0.00640069
+El producto de 25,22: -0.00640069
+La matriz auxiliar vale:-0.00640069
+El kernel para 25,23 nos dice que el innerproduct es: 0.0504007
+El producto de 25,23: -0.0504007
+La matriz auxiliar vale:-0.0504007
+El kernel para 25,24 nos dice que el innerproduct es: 1.52711e-05
+El producto de 25,24: -1.52711e-05
+La matriz auxiliar vale:-1.52711e-05
+El kernel para 25,25 nos dice que el innerproduct es: 1
+El producto de 25,25: 1
+La matriz auxiliar vale:1
+El kernel para 26,0 nos dice que el innerproduct es: 1.23348e-115
+El producto de 26,0: 1.23348e-115
+La matriz auxiliar vale:1.23348e-115
+El kernel para 26,1 nos dice que el innerproduct es: 5.85169e-55
+El producto de 26,1: 5.85169e-55
+La matriz auxiliar vale:5.85169e-55
+El kernel para 26,2 nos dice que el innerproduct es: 2.29627e-31
+El producto de 26,2: 2.29627e-31
+La matriz auxiliar vale:2.29627e-31
+El kernel para 26,3 nos dice que el innerproduct es: 4.18404e-25
+El producto de 26,3: 4.18404e-25
+La matriz auxiliar vale:4.18404e-25
+El kernel para 26,4 nos dice que el innerproduct es: 7.8846e-16
+El producto de 26,4: 7.8846e-16
+La matriz auxiliar vale:7.8846e-16
+El kernel para 26,5 nos dice que el innerproduct es: 8.66692e-36
+El producto de 26,5: -8.66692e-36
+La matriz auxiliar vale:-8.66692e-36
+El kernel para 26,6 nos dice que el innerproduct es: 1.69401e-64
+El producto de 26,6: -1.69401e-64
+La matriz auxiliar vale:-1.69401e-64
+El kernel para 26,7 nos dice que el innerproduct es: 2.48719e-77
+El producto de 26,7: 2.48719e-77
+La matriz auxiliar vale:2.48719e-77
+El kernel para 26,8 nos dice que el innerproduct es: 5.32643e-65
+El producto de 26,8: -5.32643e-65
+La matriz auxiliar vale:-5.32643e-65
+El kernel para 26,9 nos dice que el innerproduct es: 7.54196e-28
+El producto de 26,9: 7.54196e-28
+La matriz auxiliar vale:7.54196e-28
+El kernel para 26,10 nos dice que el innerproduct es: 1.84386e-06
+El producto de 26,10: 1.84386e-06
+La matriz auxiliar vale:1.84386e-06
+El kernel para 26,11 nos dice que el innerproduct es: 8.25844e-11
+El producto de 26,11: 8.25844e-11
+La matriz auxiliar vale:8.25844e-11
+El kernel para 26,12 nos dice que el innerproduct es: 4.90756e-15
+El producto de 26,12: 4.90756e-15
+La matriz auxiliar vale:4.90756e-15
+El kernel para 26,13 nos dice que el innerproduct es: 1.34549e-16
+El producto de 26,13: 1.34549e-16
+La matriz auxiliar vale:1.34549e-16
+El kernel para 26,14 nos dice que el innerproduct es: 2.49767e-23
+El producto de 26,14: -2.49767e-23
+La matriz auxiliar vale:-2.49767e-23
+El kernel para 26,15 nos dice que el innerproduct es: 1.04228e-26
+El producto de 26,15: 1.04228e-26
+La matriz auxiliar vale:1.04228e-26
+El kernel para 26,16 nos dice que el innerproduct es: 7.0704e-29
+El producto de 26,16: -7.0704e-29
+La matriz auxiliar vale:-7.0704e-29
+El kernel para 26,17 nos dice que el innerproduct es: 1.74067e-22
+El producto de 26,17: 1.74067e-22
+La matriz auxiliar vale:1.74067e-22
+El kernel para 26,18 nos dice que el innerproduct es: 2.82722e-07
+El producto de 26,18: -2.82722e-07
+La matriz auxiliar vale:-2.82722e-07
+El kernel para 26,19 nos dice que el innerproduct es: 0.119942
+El producto de 26,19: -0.119942
+La matriz auxiliar vale:-0.119942
+El kernel para 26,20 nos dice que el innerproduct es: 2.19301e-05
+El producto de 26,20: -2.19301e-05
+La matriz auxiliar vale:-2.19301e-05
+El kernel para 26,21 nos dice que el innerproduct es: 0.00127935
+El producto de 26,21: -0.00127935
+La matriz auxiliar vale:-0.00127935
+El kernel para 26,22 nos dice que el innerproduct es: 0.000320589
+El producto de 26,22: 0.000320589
+La matriz auxiliar vale:0.000320589
+El kernel para 26,23 nos dice que el innerproduct es: 0.000818326
+El producto de 26,23: 0.000818326
+La matriz auxiliar vale:0.000818326
+El kernel para 26,24 nos dice que el innerproduct es: 0.0099952
+El producto de 26,24: 0.0099952
+La matriz auxiliar vale:0.0099952
+El kernel para 26,25 nos dice que el innerproduct es: 4.40626e-05
+El producto de 26,25: -4.40626e-05
+La matriz auxiliar vale:-4.40626e-05
+El kernel para 26,26 nos dice que el innerproduct es: 1
+El producto de 26,26: 1
+La matriz auxiliar vale:1
+El kernel para 27,0 nos dice que el innerproduct es: 4.15589e-62
+El producto de 27,0: -4.15589e-62
+La matriz auxiliar vale:-4.15589e-62
+El kernel para 27,1 nos dice que el innerproduct es: 5.13221e-21
+El producto de 27,1: -5.13221e-21
+La matriz auxiliar vale:-5.13221e-21
+El kernel para 27,2 nos dice que el innerproduct es: 6.94992e-08
+El producto de 27,2: -6.94992e-08
+La matriz auxiliar vale:-6.94992e-08
+El kernel para 27,3 nos dice que el innerproduct es: 6.1034e-07
+El producto de 27,3: -6.1034e-07
+La matriz auxiliar vale:-6.1034e-07
+El kernel para 27,4 nos dice que el innerproduct es: 0.0470215
+El producto de 27,4: -0.0470215
+La matriz auxiliar vale:-0.0470215
+El kernel para 27,5 nos dice que el innerproduct es: 7.35093e-15
+El producto de 27,5: 7.35093e-15
+La matriz auxiliar vale:7.35093e-15
+El kernel para 27,6 nos dice que el innerproduct es: 2.01408e-26
+El producto de 27,6: 2.01408e-26
+La matriz auxiliar vale:2.01408e-26
+El kernel para 27,7 nos dice que el innerproduct es: 1.93001e-32
+El producto de 27,7: -1.93001e-32
+La matriz auxiliar vale:-1.93001e-32
+El kernel para 27,8 nos dice que el innerproduct es: 3.79833e-26
+El producto de 27,8: 3.79833e-26
+La matriz auxiliar vale:3.79833e-26
+El kernel para 27,9 nos dice que el innerproduct es: 5.11151e-07
+El producto de 27,9: -5.11151e-07
+La matriz auxiliar vale:-5.11151e-07
+El kernel para 27,10 nos dice que el innerproduct es: 7.42656e-26
+El producto de 27,10: -7.42656e-26
+La matriz auxiliar vale:-7.42656e-26
+El kernel para 27,11 nos dice que el innerproduct es: 1.46643e-38
+El producto de 27,11: -1.46643e-38
+La matriz auxiliar vale:-1.46643e-38
+El kernel para 27,12 nos dice que el innerproduct es: 5.04862e-46
+El producto de 27,12: -5.04862e-46
+La matriz auxiliar vale:-5.04862e-46
+El kernel para 27,13 nos dice que el innerproduct es: 1.21685e-49
+El producto de 27,13: -1.21685e-49
+La matriz auxiliar vale:-1.21685e-49
+El kernel para 27,14 nos dice que el innerproduct es: 1.40327e-60
+El producto de 27,14: 1.40327e-60
+La matriz auxiliar vale:1.40327e-60
+El kernel para 27,15 nos dice que el innerproduct es: 1.66763e-67
+El producto de 27,15: -1.66763e-67
+La matriz auxiliar vale:-1.66763e-67
+El kernel para 27,16 nos dice que el innerproduct es: 2.17082e-70
+El producto de 27,16: 2.17082e-70
+La matriz auxiliar vale:2.17082e-70
+El kernel para 27,17 nos dice que el innerproduct es: 2.76957e-61
+El producto de 27,17: -2.76957e-61
+La matriz auxiliar vale:-2.76957e-61
+El kernel para 27,18 nos dice que el innerproduct es: 2.491e-28
+El producto de 27,18: 2.491e-28
+La matriz auxiliar vale:2.491e-28
+El kernel para 27,19 nos dice que el innerproduct es: 9.07866e-15
+El producto de 27,19: 9.07866e-15
+La matriz auxiliar vale:9.07866e-15
+El kernel para 27,20 nos dice que el innerproduct es: 0.00227688
+El producto de 27,20: 0.00227688
+La matriz auxiliar vale:0.00227688
+El kernel para 27,21 nos dice que el innerproduct es: 1.02207e-05
+El producto de 27,21: 1.02207e-05
+La matriz auxiliar vale:1.02207e-05
+El kernel para 27,22 nos dice que el innerproduct es: 1.25281e-11
+El producto de 27,22: -1.25281e-11
+La matriz auxiliar vale:-1.25281e-11
+El kernel para 27,23 nos dice que el innerproduct es: 6.4129e-16
+El producto de 27,23: -6.4129e-16
+La matriz auxiliar vale:-6.4129e-16
+El kernel para 27,24 nos dice que el innerproduct es: 3.95249e-07
+El producto de 27,24: -3.95249e-07
+La matriz auxiliar vale:-3.95249e-07
+El kernel para 27,25 nos dice que el innerproduct es: 1.78548e-21
+El producto de 27,25: 1.78548e-21
+La matriz auxiliar vale:1.78548e-21
+El kernel para 27,26 nos dice que el innerproduct es: 1.65705e-11
+El producto de 27,26: -1.65705e-11
+La matriz auxiliar vale:-1.65705e-11
+El kernel para 27,27 nos dice que el innerproduct es: 1
+El producto de 27,27: 1
+La matriz auxiliar vale:1
+El kernel para 28,0 nos dice que el innerproduct es: 7.45192e-69
+El producto de 28,0: -7.45192e-69
+La matriz auxiliar vale:-7.45192e-69
+El kernel para 28,1 nos dice que el innerproduct es: 1.31382e-24
+El producto de 28,1: -1.31382e-24
+La matriz auxiliar vale:-1.31382e-24
+El kernel para 28,2 nos dice que el innerproduct es: 1.75024e-10
+El producto de 28,2: -1.75024e-10
+La matriz auxiliar vale:-1.75024e-10
+El kernel para 28,3 nos dice que el innerproduct es: 1.78422e-08
+El producto de 28,3: -1.78422e-08
+La matriz auxiliar vale:-1.78422e-08
+El kernel para 28,4 nos dice que el innerproduct es: 0.000336504
+El producto de 28,4: -0.000336504
+La matriz auxiliar vale:-0.000336504
+El kernel para 28,5 nos dice que el innerproduct es: 2.4041e-15
+El producto de 28,5: 2.4041e-15
+La matriz auxiliar vale:2.4041e-15
+El kernel para 28,6 nos dice que el innerproduct es: 2.09706e-31
+El producto de 28,6: 2.09706e-31
+La matriz auxiliar vale:2.09706e-31
+El kernel para 28,7 nos dice que el innerproduct es: 1.86107e-40
+El producto de 28,7: -1.86107e-40
+La matriz auxiliar vale:-1.86107e-40
+El kernel para 28,8 nos dice que el innerproduct es: 4.6109e-32
+El producto de 28,8: 4.6109e-32
+La matriz auxiliar vale:4.6109e-32
+El kernel para 28,9 nos dice que el innerproduct es: 1.05781e-10
+El producto de 28,9: -1.05781e-10
+La matriz auxiliar vale:-1.05781e-10
+El kernel para 28,10 nos dice que el innerproduct es: 1.44229e-18
+El producto de 28,10: -1.44229e-18
+La matriz auxiliar vale:-1.44229e-18
+El kernel para 28,11 nos dice que el innerproduct es: 1.29732e-30
+El producto de 28,11: -1.29732e-30
+La matriz auxiliar vale:-1.29732e-30
+El kernel para 28,12 nos dice que el innerproduct es: 2.80663e-38
+El producto de 28,12: -2.80663e-38
+La matriz auxiliar vale:-2.80663e-38
+El kernel para 28,13 nos dice que el innerproduct es: 7.7931e-41
+El producto de 28,13: -7.7931e-41
+La matriz auxiliar vale:-7.7931e-41
+El kernel para 28,14 nos dice que el innerproduct es: 8.76608e-51
+El producto de 28,14: 8.76608e-51
+La matriz auxiliar vale:8.76608e-51
+El kernel para 28,15 nos dice que el innerproduct es: 7.37492e-58
+El producto de 28,15: -7.37492e-58
+La matriz auxiliar vale:-7.37492e-58
+El kernel para 28,16 nos dice que el innerproduct es: 6.24453e-60
+El producto de 28,16: 6.24453e-60
+La matriz auxiliar vale:6.24453e-60
+El kernel para 28,17 nos dice que el innerproduct es: 2.02325e-50
+El producto de 28,17: -2.02325e-50
+La matriz auxiliar vale:-2.02325e-50
+El kernel para 28,18 nos dice que el innerproduct es: 1.08334e-20
+El producto de 28,18: 1.08334e-20
+La matriz auxiliar vale:1.08334e-20
+El kernel para 28,19 nos dice que el innerproduct es: 2.24712e-10
+El producto de 28,19: 2.24712e-10
+La matriz auxiliar vale:2.24712e-10
+El kernel para 28,20 nos dice que el innerproduct es: 0.00714959
+El producto de 28,20: 0.00714959
+La matriz auxiliar vale:0.00714959
+El kernel para 28,21 nos dice que el innerproduct es: 0.00263849
+El producto de 28,21: 0.00263849
+La matriz auxiliar vale:0.00263849
+El kernel para 28,22 nos dice que el innerproduct es: 2.44167e-08
+El producto de 28,22: -2.44167e-08
+La matriz auxiliar vale:-2.44167e-08
+El kernel para 28,23 nos dice que el innerproduct es: 1.52017e-12
+El producto de 28,23: -1.52017e-12
+La matriz auxiliar vale:-1.52017e-12
+El kernel para 28,24 nos dice que el innerproduct es: 0.000318019
+El producto de 28,24: -0.000318019
+La matriz auxiliar vale:-0.000318019
+El kernel para 28,25 nos dice que el innerproduct es: 1.3917e-15
+El producto de 28,25: 1.3917e-15
+La matriz auxiliar vale:1.3917e-15
+El kernel para 28,26 nos dice que el innerproduct es: 2.31578e-07
+El producto de 28,26: -2.31578e-07
+La matriz auxiliar vale:-2.31578e-07
+El kernel para 28,27 nos dice que el innerproduct es: 0.00585915
+El producto de 28,27: 0.00585915
+La matriz auxiliar vale:0.00585915
+El kernel para 28,28 nos dice que el innerproduct es: 1
+El producto de 28,28: 1
+La matriz auxiliar vale:1
+El kernel para 29,0 nos dice que el innerproduct es: 7.32962e-42
+El producto de 29,0: -7.32962e-42
+La matriz auxiliar vale:-7.32962e-42
+El kernel para 29,1 nos dice que el innerproduct es: 1.43864e-10
+El producto de 29,1: -1.43864e-10
+La matriz auxiliar vale:-1.43864e-10
+El kernel para 29,2 nos dice que el innerproduct es: 0.0155227
+El producto de 29,2: -0.0155227
+La matriz auxiliar vale:-0.0155227
+El kernel para 29,3 nos dice que el innerproduct es: 6.31972e-05
+El producto de 29,3: -6.31972e-05
+La matriz auxiliar vale:-6.31972e-05
+El kernel para 29,4 nos dice que el innerproduct es: 0.0475797
+El producto de 29,4: -0.0475797
+La matriz auxiliar vale:-0.0475797
+El kernel para 29,5 nos dice que el innerproduct es: 1.6523e-12
+El producto de 29,5: 1.6523e-12
+La matriz auxiliar vale:1.6523e-12
+El kernel para 29,6 nos dice que el innerproduct es: 2.69646e-14
+El producto de 29,6: 2.69646e-14
+La matriz auxiliar vale:2.69646e-14
+El kernel para 29,7 nos dice que el innerproduct es: 2.82692e-21
+El producto de 29,7: -2.82692e-21
+La matriz auxiliar vale:-2.82692e-21
+El kernel para 29,8 nos dice que el innerproduct es: 3.13755e-14
+El producto de 29,8: 3.13755e-14
+La matriz auxiliar vale:3.13755e-14
+El kernel para 29,9 nos dice que el innerproduct es: 0.00276311
+El producto de 29,9: -0.00276311
+La matriz auxiliar vale:-0.00276311
+El kernel para 29,10 nos dice que el innerproduct es: 2.8226e-33
+El producto de 29,10: -2.8226e-33
+La matriz auxiliar vale:-2.8226e-33
+El kernel para 29,11 nos dice que el innerproduct es: 4.19813e-51
+El producto de 29,11: -4.19813e-51
+La matriz auxiliar vale:-4.19813e-51
+El kernel para 29,12 nos dice que el innerproduct es: 4.07142e-61
+El producto de 29,12: -4.07142e-61
+La matriz auxiliar vale:-4.07142e-61
+El kernel para 29,13 nos dice que el innerproduct es: 6.16465e-65
+El producto de 29,13: -6.16465e-65
+La matriz auxiliar vale:-6.16465e-65
+El kernel para 29,14 nos dice que el innerproduct es: 3.38877e-76
+El producto de 29,14: 3.38877e-76
+La matriz auxiliar vale:3.38877e-76
+El kernel para 29,15 nos dice que el innerproduct es: 8.15722e-87
+El producto de 29,15: -8.15722e-87
+La matriz auxiliar vale:-8.15722e-87
+El kernel para 29,16 nos dice que el innerproduct es: 1.55059e-88
+El producto de 29,16: 1.55059e-88
+La matriz auxiliar vale:1.55059e-88
+El kernel para 29,17 nos dice que el innerproduct es: 2.80646e-79
+El producto de 29,17: -2.80646e-79
+La matriz auxiliar vale:-2.80646e-79
+El kernel para 29,18 nos dice que el innerproduct es: 1.90396e-38
+El producto de 29,18: 1.90396e-38
+La matriz auxiliar vale:1.90396e-38
+El kernel para 29,19 nos dice que el innerproduct es: 1.40271e-23
+El producto de 29,19: 1.40271e-23
+La matriz auxiliar vale:1.40271e-23
+El kernel para 29,20 nos dice que el innerproduct es: 1.71112e-07
+El producto de 29,20: 1.71112e-07
+La matriz auxiliar vale:1.71112e-07
+El kernel para 29,21 nos dice que el innerproduct es: 2.37465e-10
+El producto de 29,21: 2.37465e-10
+La matriz auxiliar vale:2.37465e-10
+El kernel para 29,22 nos dice que el innerproduct es: 2.77568e-17
+El producto de 29,22: -2.77568e-17
+La matriz auxiliar vale:-2.77568e-17
+El kernel para 29,23 nos dice que el innerproduct es: 8.77825e-25
+El producto de 29,23: -8.77825e-25
+La matriz auxiliar vale:-8.77825e-25
+El kernel para 29,24 nos dice que el innerproduct es: 7.00803e-13
+El producto de 29,24: -7.00803e-13
+La matriz auxiliar vale:-7.00803e-13
+El kernel para 29,25 nos dice que el innerproduct es: 8.38926e-30
+El producto de 29,25: 8.38926e-30
+La matriz auxiliar vale:8.38926e-30
+El kernel para 29,26 nos dice que el innerproduct es: 6.68591e-20
+El producto de 29,26: -6.68591e-20
+La matriz auxiliar vale:-6.68591e-20
+El kernel para 29,27 nos dice que el innerproduct es: 0.00101883
+El producto de 29,27: 0.00101883
+La matriz auxiliar vale:0.00101883
+El kernel para 29,28 nos dice que el innerproduct es: 8.10252e-05
+El producto de 29,28: 8.10252e-05
+La matriz auxiliar vale:8.10252e-05
+El kernel para 29,29 nos dice que el innerproduct es: 1
+El producto de 29,29: 1
+La matriz auxiliar vale:1
+El kernel para 30,0 nos dice que el innerproduct es: 1.28336e-55
+El producto de 30,0: 1.28336e-55
+La matriz auxiliar vale:1.28336e-55
+El kernel para 30,1 nos dice que el innerproduct es: 2.81467e-17
+El producto de 30,1: 2.81467e-17
+La matriz auxiliar vale:2.81467e-17
+El kernel para 30,2 nos dice que el innerproduct es: 6.83322e-07
+El producto de 30,2: 6.83322e-07
+La matriz auxiliar vale:6.83322e-07
+El kernel para 30,3 nos dice que el innerproduct es: 1.53015e-09
+El producto de 30,3: 1.53015e-09
+La matriz auxiliar vale:1.53015e-09
+El kernel para 30,4 nos dice que el innerproduct es: 0.0902294
+El producto de 30,4: 0.0902294
+La matriz auxiliar vale:0.0902294
+El kernel para 30,5 nos dice que el innerproduct es: 8.74692e-20
+El producto de 30,5: -8.74692e-20
+La matriz auxiliar vale:-8.74692e-20
+El kernel para 30,6 nos dice que el innerproduct es: 2.51044e-23
+El producto de 30,6: -2.51044e-23
+La matriz auxiliar vale:-2.51044e-23
+El kernel para 30,7 nos dice que el innerproduct es: 1.86574e-33
+El producto de 30,7: 1.86574e-33
+La matriz auxiliar vale:1.86574e-33
+El kernel para 30,8 nos dice que el innerproduct es: 2.90478e-23
+El producto de 30,8: -2.90478e-23
+La matriz auxiliar vale:-2.90478e-23
+El kernel para 30,9 nos dice que el innerproduct es: 0.000411604
+El producto de 30,9: 0.000411604
+La matriz auxiliar vale:0.000411604
+El kernel para 30,10 nos dice que el innerproduct es: 6.87968e-22
+El producto de 30,10: 6.87968e-22
+La matriz auxiliar vale:6.87968e-22
+El kernel para 30,11 nos dice que el innerproduct es: 1.97016e-36
+El producto de 30,11: 1.97016e-36
+La matriz auxiliar vale:1.97016e-36
+El kernel para 30,12 nos dice que el innerproduct es: 1.28723e-44
+El producto de 30,12: 1.28723e-44
+La matriz auxiliar vale:1.28723e-44
+El kernel para 30,13 nos dice que el innerproduct es: 5.89989e-48
+El producto de 30,13: 5.89989e-48
+La matriz auxiliar vale:5.89989e-48
+El kernel para 30,14 nos dice que el innerproduct es: 1.38058e-57
+El producto de 30,14: -1.38058e-57
+La matriz auxiliar vale:-1.38058e-57
+El kernel para 30,15 nos dice que el innerproduct es: 2.60948e-67
+El producto de 30,15: 2.60948e-67
+La matriz auxiliar vale:2.60948e-67
+El kernel para 30,16 nos dice que el innerproduct es: 3.85737e-68
+El producto de 30,16: -3.85737e-68
+La matriz auxiliar vale:-3.85737e-68
+El kernel para 30,17 nos dice que el innerproduct es: 1.5506e-61
+El producto de 30,17: 1.5506e-61
+La matriz auxiliar vale:1.5506e-61
+El kernel para 30,18 nos dice que el innerproduct es: 7.64432e-26
+El producto de 30,18: -7.64432e-26
+La matriz auxiliar vale:-7.64432e-26
+El kernel para 30,19 nos dice que el innerproduct es: 4.02803e-15
+El producto de 30,19: -4.02803e-15
+La matriz auxiliar vale:-4.02803e-15
+El kernel para 30,20 nos dice que el innerproduct es: 0.00205845
+El producto de 30,20: -0.00205845
+La matriz auxiliar vale:-0.00205845
+El kernel para 30,21 nos dice que el innerproduct es: 0.000103623
+El producto de 30,21: -0.000103623
+La matriz auxiliar vale:-0.000103623
+El kernel para 30,22 nos dice que el innerproduct es: 1.00892e-08
+El producto de 30,22: 1.00892e-08
+La matriz auxiliar vale:1.00892e-08
+El kernel para 30,23 nos dice que el innerproduct es: 9.94904e-15
+El producto de 30,23: 9.94904e-15
+La matriz auxiliar vale:9.94904e-15
+El kernel para 30,24 nos dice que el innerproduct es: 1.27266e-06
+El producto de 30,24: 1.27266e-06
+La matriz auxiliar vale:1.27266e-06
+El kernel para 30,25 nos dice que el innerproduct es: 1.51026e-18
+El producto de 30,25: -1.51026e-18
+La matriz auxiliar vale:-1.51026e-18
+El kernel para 30,26 nos dice que el innerproduct es: 3.92653e-13
+El producto de 30,26: 3.92653e-13
+La matriz auxiliar vale:3.92653e-13
+El kernel para 30,27 nos dice que el innerproduct es: 0.00325309
+El producto de 30,27: -0.00325309
+La matriz auxiliar vale:-0.00325309
+El kernel para 30,28 nos dice que el innerproduct es: 0.00184902
+El producto de 30,28: -0.00184902
+La matriz auxiliar vale:-0.00184902
+El kernel para 30,29 nos dice que el innerproduct es: 0.00469785
+El producto de 30,29: -0.00469785
+La matriz auxiliar vale:-0.00469785
+El kernel para 30,30 nos dice que el innerproduct es: 1
+El producto de 30,30: 1
+La matriz auxiliar vale:1
+El kernel para 31,0 nos dice que el innerproduct es: 4.02477e-96
+El producto de 31,0: 4.02477e-96
+La matriz auxiliar vale:4.02477e-96
+El kernel para 31,1 nos dice que el innerproduct es: 3.24876e-42
+El producto de 31,1: 3.24876e-42
+La matriz auxiliar vale:3.24876e-42
+El kernel para 31,2 nos dice que el innerproduct es: 7.79936e-24
+El producto de 31,2: 7.79936e-24
+La matriz auxiliar vale:7.79936e-24
+El kernel para 31,3 nos dice que el innerproduct es: 3.06626e-23
+El producto de 31,3: 3.06626e-23
+La matriz auxiliar vale:3.06626e-23
+El kernel para 31,4 nos dice que el innerproduct es: 4.84163e-10
+El producto de 31,4: 4.84163e-10
+La matriz auxiliar vale:4.84163e-10
+El kernel para 31,5 nos dice que el innerproduct es: 3.14889e-37
+El producto de 31,5: -3.14889e-37
+La matriz auxiliar vale:-3.14889e-37
+El kernel para 31,6 nos dice que el innerproduct es: 2.16612e-51
+El producto de 31,6: -2.16612e-51
+La matriz auxiliar vale:-2.16612e-51
+El kernel para 31,7 nos dice que el innerproduct es: 2.79286e-66
+El producto de 31,7: 2.79286e-66
+La matriz auxiliar vale:2.79286e-66
+El kernel para 31,8 nos dice que el innerproduct es: 3.52345e-51
+El producto de 31,8: -3.52345e-51
+La matriz auxiliar vale:-3.52345e-51
+El kernel para 31,9 nos dice que el innerproduct es: 3.42396e-17
+El producto de 31,9: 3.42396e-17
+La matriz auxiliar vale:3.42396e-17
+El kernel para 31,10 nos dice que el innerproduct es: 7.06117e-06
+El producto de 31,10: 7.06117e-06
+La matriz auxiliar vale:7.06117e-06
+El kernel para 31,11 nos dice que el innerproduct es: 1.67792e-13
+El producto de 31,11: 1.67792e-13
+La matriz auxiliar vale:1.67792e-13
+El kernel para 31,12 nos dice que el innerproduct es: 1.18362e-18
+El producto de 31,12: 1.18362e-18
+La matriz auxiliar vale:1.18362e-18
+El kernel para 31,13 nos dice que el innerproduct es: 6.88632e-21
+El producto de 31,13: 6.88632e-21
+La matriz auxiliar vale:6.88632e-21
+El kernel para 31,14 nos dice que el innerproduct es: 3.91552e-27
+El producto de 31,14: -3.91552e-27
+La matriz auxiliar vale:-3.91552e-27
+El kernel para 31,15 nos dice que el innerproduct es: 3.36673e-34
+El producto de 31,15: 3.36673e-34
+La matriz auxiliar vale:3.36673e-34
+El kernel para 31,16 nos dice que el innerproduct es: 2.01918e-34
+El producto de 31,16: -2.01918e-34
+La matriz auxiliar vale:-2.01918e-34
+El kernel para 31,17 nos dice que el innerproduct es: 7.62542e-31
+El producto de 31,17: 7.62542e-31
+La matriz auxiliar vale:7.62542e-31
+El kernel para 31,18 nos dice que el innerproduct es: 2.18897e-08
+El producto de 31,18: -2.18897e-08
+La matriz auxiliar vale:-2.18897e-08
+El kernel para 31,19 nos dice que el innerproduct es: 0.00136309
+El producto de 31,19: -0.00136309
+La matriz auxiliar vale:-0.00136309
+El kernel para 31,20 nos dice que el innerproduct es: 0.00944755
+El producto de 31,20: -0.00944755
+La matriz auxiliar vale:-0.00944755
+El kernel para 31,21 nos dice que el innerproduct es: 0.151579
+El producto de 31,21: -0.151579
+La matriz auxiliar vale:-0.151579
+El kernel para 31,22 nos dice que el innerproduct es: 0.537031
+El producto de 31,22: 0.537031
+La matriz auxiliar vale:0.537031
+El kernel para 31,23 nos dice que el innerproduct es: 0.00400345
+El producto de 31,23: 0.00400345
+La matriz auxiliar vale:0.00400345
+El kernel para 31,24 nos dice que el innerproduct es: 0.0863454
+El producto de 31,24: 0.0863454
+La matriz auxiliar vale:0.0863454
+El kernel para 31,25 nos dice que el innerproduct es: 0.000314933
+El producto de 31,25: -0.000314933
+La matriz auxiliar vale:-0.000314933
+El kernel para 31,26 nos dice que el innerproduct es: 0.000402365
+El producto de 31,26: 0.000402365
+La matriz auxiliar vale:0.000402365
+El kernel para 31,27 nos dice que el innerproduct es: 2.56258e-09
+El producto de 31,27: -2.56258e-09
+La matriz auxiliar vale:-2.56258e-09
+El kernel para 31,28 nos dice que el innerproduct es: 1.97666e-06
+El producto de 31,28: -1.97666e-06
+La matriz auxiliar vale:-1.97666e-06
+El kernel para 31,29 nos dice que el innerproduct es: 3.0433e-14
+El producto de 31,29: -3.0433e-14
+La matriz auxiliar vale:-3.0433e-14
+El kernel para 31,30 nos dice que el innerproduct es: 1.05602e-06
+El producto de 31,30: 1.05602e-06
+La matriz auxiliar vale:1.05602e-06
+El kernel para 31,31 nos dice que el innerproduct es: 1
+El producto de 31,31: 1
+La matriz auxiliar vale:1
+El kernel para 32,0 nos dice que el innerproduct es: 3.31905e-159
+El producto de 32,0: 3.31905e-159
+La matriz auxiliar vale:3.31905e-159
+El kernel para 32,1 nos dice que el innerproduct es: 2.34821e-87
+El producto de 32,1: 2.34821e-87
+La matriz auxiliar vale:2.34821e-87
+El kernel para 32,2 nos dice que el innerproduct es: 8.98037e-61
+El producto de 32,2: 8.98037e-61
+La matriz auxiliar vale:8.98037e-61
+El kernel para 32,3 nos dice que el innerproduct es: 1.38581e-58
+El producto de 32,3: 1.38581e-58
+La matriz auxiliar vale:1.38581e-58
+El kernel para 32,4 nos dice que el innerproduct es: 3.1428e-36
+El producto de 32,4: 3.1428e-36
+La matriz auxiliar vale:3.1428e-36
+El kernel para 32,5 nos dice que el innerproduct es: 4.53671e-77
+El producto de 32,5: -4.53671e-77
+La matriz auxiliar vale:-4.53671e-77
+El kernel para 32,6 nos dice que el innerproduct es: 2.62911e-101
+El producto de 32,6: -2.62911e-101
+La matriz auxiliar vale:-2.62911e-101
+El kernel para 32,7 nos dice que el innerproduct es: 1.59615e-121
+El producto de 32,7: 1.59615e-121
+La matriz auxiliar vale:1.59615e-121
+El kernel para 32,8 nos dice que el innerproduct es: 2.00925e-100
+El producto de 32,8: -2.00925e-100
+La matriz auxiliar vale:-2.00925e-100
+El kernel para 32,9 nos dice que el innerproduct es: 6.14712e-48
+El producto de 32,9: 6.14712e-48
+La matriz auxiliar vale:6.14712e-48
+El kernel para 32,10 nos dice que el innerproduct es: 0.00980316
+El producto de 32,10: 0.00980316
+La matriz auxiliar vale:0.00980316
+El kernel para 32,11 nos dice que el innerproduct es: 0.0389218
+El producto de 32,11: 0.0389218
+La matriz auxiliar vale:0.0389218
+El kernel para 32,12 nos dice que el innerproduct es: 0.00169648
+El producto de 32,12: 0.00169648
+La matriz auxiliar vale:0.00169648
+El kernel para 32,13 nos dice que el innerproduct es: 0.000314351
+El producto de 32,13: 0.000314351
+La matriz auxiliar vale:0.000314351
+El kernel para 32,14 nos dice que el innerproduct es: 3.50087e-06
+El producto de 32,14: -3.50087e-06
+La matriz auxiliar vale:-3.50087e-06
+El kernel para 32,15 nos dice que el innerproduct es: 9.35336e-11
+El producto de 32,15: 9.35336e-11
+La matriz auxiliar vale:9.35336e-11
+El kernel para 32,16 nos dice que el innerproduct es: 4.85253e-10
+El producto de 32,16: -4.85253e-10
+La matriz auxiliar vale:-4.85253e-10
+El kernel para 32,17 nos dice que el innerproduct es: 1.40319e-10
+El producto de 32,17: 1.40319e-10
+La matriz auxiliar vale:1.40319e-10
+El kernel para 32,18 nos dice que el innerproduct es: 0.0237517
+El producto de 32,18: -0.0237517
+La matriz auxiliar vale:-0.0237517
+El kernel para 32,19 nos dice que el innerproduct es: 1.51841e-06
+El producto de 32,19: -1.51841e-06
+La matriz auxiliar vale:-1.51841e-06
+El kernel para 32,20 nos dice que el innerproduct es: 5.45145e-18
+El producto de 32,20: -5.45145e-18
+La matriz auxiliar vale:-5.45145e-18
+El kernel para 32,21 nos dice que el innerproduct es: 2.21752e-14
+El producto de 32,21: -2.21752e-14
+La matriz auxiliar vale:-2.21752e-14
+El kernel para 32,22 nos dice que el innerproduct es: 1.23189e-07
+El producto de 32,22: 1.23189e-07
+La matriz auxiliar vale:1.23189e-07
+El kernel para 32,23 nos dice que el innerproduct es: 7.37843e-06
+El producto de 32,23: 7.37843e-06
+La matriz auxiliar vale:7.37843e-06
+El kernel para 32,24 nos dice que el innerproduct es: 5.75962e-12
+El producto de 32,24: 5.75962e-12
+La matriz auxiliar vale:5.75962e-12
+El kernel para 32,25 nos dice que el innerproduct es: 0.00502264
+El producto de 32,25: -0.00502264
+La matriz auxiliar vale:-0.00502264
+El kernel para 32,26 nos dice que el innerproduct es: 1.84716e-10
+El producto de 32,26: 1.84716e-10
+La matriz auxiliar vale:1.84716e-10
+El kernel para 32,27 nos dice que el innerproduct es: 2.35422e-33
+El producto de 32,27: -2.35422e-33
+La matriz auxiliar vale:-2.35422e-33
+El kernel para 32,28 nos dice que el innerproduct es: 1.06286e-26
+El producto de 32,28: -1.06286e-26
+La matriz auxiliar vale:-1.06286e-26
+El kernel para 32,29 nos dice que el innerproduct es: 8.35152e-44
+El producto de 32,29: -8.35152e-44
+La matriz auxiliar vale:-8.35152e-44
+El kernel para 32,30 nos dice que el innerproduct es: 1.67434e-29
+El producto de 32,30: 1.67434e-29
+La matriz auxiliar vale:1.67434e-29
+El kernel para 32,31 nos dice que el innerproduct es: 8.11408e-10
+El producto de 32,31: 8.11408e-10
+La matriz auxiliar vale:8.11408e-10
+El kernel para 32,32 nos dice que el innerproduct es: 1
+El producto de 32,32: 1
+La matriz auxiliar vale:1
