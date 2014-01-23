@@ -60,11 +60,12 @@ private:
 
 	// Internal functions
 //	double sigmoid(double z);
-//	double cost(std::vector<double> theta, std::vector<std::vector<double> > X, std::vector<double> y);
+	double cost(std::vector<double> theta);
 //	void grad(std::vector<double> tetha, std::vector<std::vector<double> > X, std::vector<double> y, std::vector<double> grad);
-//	void trainByGradient(int iter, double alpha);
+	void trainByGradient(int iter, double alpha);
 //	void trainByGradientAdvanced(int iter, double alpha);
 	void trainByNormal();
+	double h(std::vector<double> x);
 
 	// Auxiliar functions
 	void fillX();

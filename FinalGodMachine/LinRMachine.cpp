@@ -5,7 +5,7 @@
 LinRMachine::LinRMachine() {
 	//iterTrain y alphaTrain son parámetros que se hardcodean aqui
 	C_iterations = 1000;
-	C_alpha = 0.01;
+	C_alpha = 0.001;
 	C_trainingType = 2; //1 normal, 2 gradiente
 }
 
@@ -30,9 +30,9 @@ void LinRMachine::setParameters(char *argv[]) {
 		std::cout	<< "Training type " << C_trainingType << std::endl;
 
 		if(C_trainingType == 2){
-			C_alpha = atoi(argv[6]);
+			C_alpha = atof(argv[6]);
 
-			std::cout	<< "Alpha " << C_trainingType << std::endl;
+			std::cout	<< "Alpha " << C_alpha << std::endl;
 		}
 	} else 	if(C_executionMode == 1){
 		C_inputFile = argv[3];
@@ -195,10 +195,12 @@ void LinRMachine::run(){
 void LinRMachine::train(){
 	std::cout << "I'm training with the LinRMachine" << std::endl;
 
-	C_nFeatures=C_trainingSet[0].getNFeatures();
+	C_nFeatures = C_trainingSet[0].getNFeatures();
+
+	std::cout << "nFeatures es " << C_nFeatures << std::endl;
 
 	if(C_trainingType == 2){
-//		trainByGradient(iterTrain, alphaTrain);
+		trainByGradient(C_iterations, C_alpha);
 	} else{
 		trainByNormal();
 	}
@@ -335,18 +337,7 @@ void LinRMachine::test(){
 double LinRMachine::predict(Sample input){
 //	std::cout << "I'm predicting this input with the LinRMachine" << std::endl;
 
-	// Como tengo un sigmoide, con un threshold voy to cheto
-	double p = 0.0;
-
-	for(int i=0; i<C_nFeatures+1; i++){
-		if(i==0) {
-			p = C_theta[i];
-		} else {
-			p += C_theta[i]*input.getInput()[i-1];
-		}
-	}
-
-	return p;
+	return h(input.getInput());
 }
 
 //Correcto
@@ -359,21 +350,23 @@ void LinRMachine::clearTrainingSet() {
 //	return 1/(1+pow(e,-z));
 //}
 
-////Presuntamente correcto, y las Ys?
-//double LinRMachine::cost(std::vector<double> theta, std::vector<std::vector<double> > X, std::vector<double> y) {
-//	double J = 0.0;
-//	for(unsigned int i=0; i<y.size(); i++){
-//		// Calculo el valor de la hipótises para la theta dada
-//		double h = 0.0;
-//		for(unsigned int j=0; j<theta.size(); j++){
-//			h += theta[j]*X[i][j];
-//		}
-//		h = sigmoid(h);
-//		// Calculo el valor del coste para la theta dada
-//		J+=(-y[i]*std::log(h))-((1-y[i])*std::log(1-h));
-//	}
-//	return J/y.size();
-//}
+//Presuntamente correcto, y las Ys?
+double LinRMachine::cost(std::vector<double> theta) {
+	std::cout << "Calculo el coste" << std::endl;
+
+	double J = 0.0;
+
+	for(unsigned int i = 0; i < C_y.size(); i++){
+
+		// Calculo el valor de la hipótises para la theta dada
+		double hipotesis = h(C_X[i]);
+
+		// Calculo el valor del coste para la theta dada
+		J += pow((hipotesis-C_y[i]),2.0);
+	}
+
+	return J/(2*C_y.size());
+}
 
 ////Presuntamente correcto, y las Ys? No se le llama O.O
 //void LinRMachine::grad(std::vector<double> tetha, std::vector<std::vector<double> > X, std::vector<double> y, std::vector<double> grad) {
@@ -425,45 +418,61 @@ void LinRMachine::clearTrainingSet() {
 ////	lbfgs_free(theta);
 //}
 
-////Ys provisionales, y más cosas
-//void LinRMachine::trainByGradient(int iter, double alpha) {
-//	double vari = 0.01;
-//	double pCoste = 0.0;
-//	std::vector<double> gradiente;
-//	fillX();
-//	fillTheta();
-//	fillY();
-//
-//	for(int k=0; k<iter; k++){
-//		// Calculo el coste
-//		double coste = cost(C_theta, C_X, C_y[0]);
-//		std::cout << "Para la iteración " << k << " el coste es: " << coste << std::endl;
-//		// Recalculo theta para la siguiente iteracion
-//		grad(C_theta, C_X, C_y[0], gradiente);
-////		std::cout << "El nuevo theta para la it " << k << " es: ";
-//		for(unsigned int i=0; i<C_theta.size(); i++){
-//			C_theta[i]=C_theta[i]-alpha*gradiente[i];
-////			std::cout << theta[i]-alpha*gradiente[i] << " (" << alpha*gradiente[i] << ") ";
-//		}
-////		std::cout << std::endl;
-//		vari = std::abs(coste-pCoste);
-//		std::cout << "La variación en el coste para la iteración "<< k <<" es de: " << vari << std::endl;
-//		if(vari < 0.0001 && !std::isnan(vari)){ // Truquillo porque a veces es nan
-//			std::cout << "Estoy suficientemente entrenado!!!!!!\n";
-//			break;
-//		} else if (std::isnan(vari)){
-//			std::cout << "Tengo un NaN!!!!\n";
-//		}
-//		pCoste = coste;
-//	}
-//}
+double LinRMachine::h(std::vector<double> x){
+	double p = 0.0;
 
-//Ys provisionales
+	for(int i = 0; i < C_nFeatures+1; i++){
+		if(i == 0) {
+			p = C_theta[i];
+		} else {
+			p += C_theta[i]*x[i-1];
+		}
+	}
+
+	return p;
+}
+
+void LinRMachine::trainByGradient(int iter, double alpha) {
+	double variacion = 0.01;
+	double costePrevio = 0.0;
+
+	fillX();
+	fillY();
+	fillTheta();
+
+	//Para tantas iteraciones como queramos
+	for(int i = 0; i < iter; i++){
+		//Calculamos el coste, para ver si mejora o no
+		double coste = cost(C_theta);
+		std::cout << "Para la iteracion " << i << " el coste es " << coste << std::endl;
+
+		//Calculamos el gradiente
+		for(int j = 0; j < C_nFeatures+1; j++){
+			double sum = 0.0;
+
+			for(unsigned int k = 0; k < C_y.size(); k++){
+				sum += (h(C_X[k])-C_y[k])*C_X[k][j];
+			}
+
+			C_theta[j] = C_theta[j] - (C_alpha*(sum/C_y.size()));
+		}
+
+		//Analizamos la variación
+		variacion = std::abs(coste-costePrevio);
+		std::cout << "La variación en el coste para la iteracion "<< i <<" es de: " << variacion << std::endl;
+
+		if(variacion < 0.0001 && !std::isnan(variacion)){ // Truquillo porque a veces es nan
+			std::cout << "Estoy suficientemente entrenado!!!!!!\n";
+			break;
+		}else if(std::isnan(variacion)){
+			std::cout << "Tengo un NaN!!!!\n";
+		}
+
+		costePrevio = coste;
+	}
+}
+
 void LinRMachine::trainByNormal() {
-	C_nFeatures = C_trainingSet[0].getInput().size();
-
-	std::cout << "nFeatures es " << C_nFeatures << std::endl;
-
 	// Obtengo la X
 	arma::mat X = arma::mat(C_trainingSet.size(), C_nFeatures+1);
 
@@ -477,7 +486,7 @@ void LinRMachine::trainByNormal() {
 		}
 	}
 
-	std::cout << "X es " << X << std::endl;
+//	std::cout << "X es " << std::endl << X << std::endl;
 
 	// Obtengo la Y
 	arma::mat y = arma::mat(C_trainingSet.size(), 1);
@@ -486,7 +495,7 @@ void LinRMachine::trainByNormal() {
 		y(i) = (double)C_trainingSet[i].getRResult();
 	}
 
-	std::cout << "y es " << y << std::endl;
+//	std::cout << "y es " << std::endl << y << std::endl;
 
 	// Inicializo theta
 	arma::mat theta = arma::mat(C_nFeatures+1, 1);
@@ -494,7 +503,9 @@ void LinRMachine::trainByNormal() {
 	// Calculo vectorialmente
 	theta = arma::pinv(X.t()*X)*X.t()*y;
 
-//	std::cout << theta;
+//	std::cout << "theta es " << std::endl << theta << std::endl;
+
+	//Me guardo las nuevas thetas
 	C_theta.clear();
 
 	for(int i = 0; i < C_nFeatures+1; i++){
@@ -502,21 +513,29 @@ void LinRMachine::trainByNormal() {
 	}
 }
 
+//Prescindibles?
 void LinRMachine::fillX() {
-	for(unsigned int i=0; i<C_trainingSet.size(); i++){
-		for(int j=0; j<C_nFeatures+1; j++){
-			if(j==0)
-				C_X[i][j] = 1.0;
-			else C_X[i][j] = C_trainingSet[i].getInput()[j-1];
+	for(unsigned int i = 0; i < C_trainingSet.size(); i++){
+		std::vector<double> aux;
+
+		for(int j = 0; j < C_nFeatures+1; j++){
+			if(j == 0){
+				aux.push_back(1.0);
+			} else {
+				aux.push_back(C_trainingSet[i].getInput()[j-1]);
+			}
 		}
+
+		C_X.push_back(aux);
 	}
 }
 
 void LinRMachine::fillTheta() {
-	for(int i=0; i<C_nFeatures+1; i++) {
-		C_theta.push_back(0.5);
+	for(int i = 0; i < C_nFeatures+1; i++) {
+		C_theta.push_back(0.0);
 	}
 }
+
 //Ys adaptadas
 void LinRMachine::fillY() {
 	std::vector<double> aux;
