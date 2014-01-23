@@ -6,7 +6,7 @@ MAINFILE=main
 OBJFILE=lgm
 LIBS= -lboost_random -larmadillo -lCGAL
 SVMKernels= SVM/LinearKernel.cpp SVM/PolynomialKernel.cpp SVM/RBFKernel.cpp
-MORE_INCLUDES= LRMachine.cpp SVM/SVMachine.cpp
+MORE_INCLUDES= LRMachine.cpp SVM/SVMachine.cpp LinRMachine.cpp
 
 all: $(MAINFILE) 
 

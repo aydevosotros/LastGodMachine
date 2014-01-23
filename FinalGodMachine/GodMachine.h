@@ -8,9 +8,10 @@
 
 #include "IMachine.h"
 #include "LRMachine.h"
+#include "LinRMachine.h"
 #include "SVM/SVMachine.h"
 
-enum Machine {LogisticRegression, NeuralNetwork, SVM};
+enum Machine {LinearRegression, LogisticRegression, NeuralNetwork, SVM};
 
 //Falta
 class GodMachine {
@@ -22,13 +23,16 @@ public:
 	//Falta
 	GodMachine(Machine m){
 		switch(m){
-			case LogisticRegression:
-				C_machine = new LRMachine();
-				break;
-			case SVM:
-				C_machine = new SVMachine(RBF);
-				break;
-			//Faltan por añadir la NN
+		case LinearRegression:
+			C_machine = new LinRMachine();
+			break;
+		case LogisticRegression:
+			C_machine = new LRMachine();
+			break;
+		case SVM:
+			C_machine = new SVMachine(RBF);
+			break;
+		//Faltan por añadir la NN
 		}
 	}
 
