@@ -7,6 +7,8 @@
 #include <boost/random/uniform_int_distribution.hpp>
 #include <boost/random/uniform_real_distribution.hpp>
 
+namespace FireDoorEscaper {
+
 ///(((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((
 /// \brief Singleton class that generates random numbers on demand
 ///(((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((
@@ -65,5 +67,7 @@ CRandomGenerator::uniformRandomDouble(double min, double max) {
 
 // Define for easiness of use
 #define CRNDGEN CRandomGenerator::get()
+
+} // Namespace
 
 #endif // CRANDOMGENERATOR_H

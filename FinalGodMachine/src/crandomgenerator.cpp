@@ -1,5 +1,7 @@
 #include "crandomgenerator.h"
 
+namespace FireDoorEscaper {
+
 /////////////////////////////////////////////////////////////////////////
 /// \brief Constructs a RandomGenerator
 /////////////////////////////////////////////////////////////////////////
@@ -21,3 +23,5 @@ CRandomGenerator::uniformRandomDoubleVector(TVecDoubles &vec, unsigned n, double
     vec.push_back( uniformRandomDouble(min, max) );
   }
 }
+
+} // Namespace

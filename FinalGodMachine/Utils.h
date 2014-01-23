@@ -5,6 +5,11 @@
 #include <iostream>
 #include <fstream>
 #include "float.h"
+#include "Sample.h"
+#include <boost/noncopyable.hpp>
+#include <boost/random/random_device.hpp>
+#include <boost/random/uniform_int_distribution.hpp>
+#include <boost/random/uniform_real_distribution.hpp>
 
 //Sin novedad
 class Utils{
@@ -108,6 +113,12 @@ public:
 		for(unsigned int i = 0; i < trainingSet.size(); i++){
 			trainingSet[i].scalate(absolMax);
 		}
+	}
+
+	static double uniformRandomDouble(double min, double max) {
+		boost::random::random_device m_generator;
+		boost::random::uniform_real_distribution<> dist(min, max);
+		return dist(m_generator);
 	}
 };
 
