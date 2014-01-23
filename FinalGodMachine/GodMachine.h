@@ -10,6 +10,7 @@
 #include "LRMachine.h"
 #include "LinRMachine.h"
 #include "SVM/SVMachine.h"
+#include "NNMachine.h"
 
 enum Machine {LinearRegression, LogisticRegression, NeuralNetwork, SVM};
 
@@ -32,7 +33,9 @@ public:
 		case SVM:
 			C_machine = new SVMachine(RBF);
 			break;
-		//Faltan por añadir la NN
+		case NeuralNetwork:
+			C_machine = new NNMachine();
+			break;
 		}
 	}
 
