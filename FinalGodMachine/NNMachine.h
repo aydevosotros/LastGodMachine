@@ -50,7 +50,7 @@ private:
 	void forwardPropagate(Sample s);
 	void backPropagate(Sample s);
 
-	void trainByGradient();
+	void trainByGradient(int iter, double alpha);
 
 	void initTraining();
 	void initTrainingXNOR();

@@ -13,8 +13,7 @@ NNMachine::NNMachine() {
 	s_l.push_back(2);
 	s_l.push_back(1);
 	L = s_l.size();
-	std::cout << "Voy tirando cosicas a ver que tal..." << std::endl;
-	this->gradChecking();
+	train();
 }
 
 NNMachine::~NNMachine() {
@@ -25,17 +24,80 @@ void NNMachine::setParameters(char* argv[]) {
 }
 
 void NNMachine::loadTrainingSet(std::string filename) {
+	//	std::cout << "I'm loading training set with the LinRMachine from " << filename << std::endl;
+
+	std::string line;
+	std::ifstream trainingFile(filename.c_str());
+
+	if(trainingFile.is_open()){
+		while(std::getline(trainingFile,line)) {
+			Sample tmp;
+
+			tmp.setInput(Utils::vStovD(Utils::split(line,';')));
+
+			std::getline(trainingFile,line);
+
+			double res = atof(line.c_str());
+
+			tmp.setRResult(res);
+
+			C_trainingSet.push_back(tmp);
+		}
+
+		trainingFile.close();
+	} else{
+		std::cout << "Unable to open file" << std::endl;
+	}
 }
 
 void NNMachine::loadTestingSet(std::string filename) {
+	//	std::cout << "I'm loading testing set with the LinRMachine from " << filename << std::endl;
+
+	std::string line;
+	std::ifstream testingFile(filename.c_str());
+
+	if(testingFile.is_open()){
+		while(std::getline(testingFile,line)) {
+			Sample tmp;
+
+			tmp.setInput(Utils::vStovD(Utils::split(line,';')));
+
+			std::getline(testingFile,line);
+
+			double res = atof(line.c_str());
+
+			tmp.setRResult(res);
+
+			C_testingSet.push_back(tmp);
+		}
+
+		testingFile.close();
+	} else{
+		std::cout << "Unable to open file" << std::endl;
+	}
 }
 
 void NNMachine::loadInput(std::string filename) {
+//	std::cout << "I'm loading input with the LinRMachine from " << filename << std::endl;
 
+	std::string line;
+	std::ifstream inputFile(filename.c_str());
+
+	if(inputFile.is_open()){
+		std::getline(inputFile,line);
+
+		C_input.setInput(Utils::vStovD(Utils::split(line,';')));
+
+		C_input.setRResult(atof(line.c_str()));
+
+		inputFile.close();
+	} else{
+		std::cout << "Unable to open file" << std::endl;
+	}
 }
 
 void NNMachine::clearTrainingSet(){
-
+	this->trainingSet.clear();
 }
 
 void NNMachine::train(){
@@ -44,7 +106,8 @@ void NNMachine::train(){
 		Sample s = this->trainingSet[i];
 		forwardPropagate(s);
 		backPropagate(s);
-
+		gradChecking();
+		trainByGradient(1000, 0.01);
 	}
 }
 
@@ -55,7 +118,6 @@ void NNMachine::test() {
 }
 
 double NNMachine::predict(Sample input) {
-
 
 }
 
@@ -200,21 +262,21 @@ double NNMachine::sigmoid(double z) {
 }
 
 void NNMachine::gradChecking() {
-	// Unas cosas previas pa tener que probar
-	Sample s;
-	std::vector<double> input;
-	input.push_back(0);
-	input.push_back(1);
-	s.setInput(input);
-	std::vector<int> result;
-	result.push_back(1);
-	s.setResult(result);
-	this->trainingSet.push_back(s);
-
-	// Con esto hago una thetas y fp and bp
-	this->initTrainingXNOR();
-	this->forwardPropagate(s);
-	this->backPropagate(s);
+//	// Unas cosas previas pa tener que probar
+//	Sample s;
+//	std::vector<double> input;
+//	input.push_back(0);
+//	input.push_back(1);
+//	s.setInput(input);
+//	std::vector<int> result;
+//	result.push_back(1);
+//	s.setResult(result);
+//	this->trainingSet.push_back(s);
+//
+//	// Con esto hago una thetas y fp and bp
+//	this->initTrainingXNOR();
+//	this->forwardPropagate(s);
+//	this->backPropagate(s);
 
 	std::vector<arma::mat> cThetasPlus;
 	std::vector<arma::mat> cThetasMinus;
@@ -276,5 +338,27 @@ double NNMachine::cost(){
 	return J+aux;
 }
 
-void NNMachine::trainByGradient() {
+void NNMachine::trainByGradient(int iter, double alpha) {
+	double pCoste = 0.0;
+	for(int k=0; k<iter; k++){
+		// Calculo el coste
+		double coste = cost();
+		std::cout << "Para la iteración " << k << " el coste es: " << coste << std::endl;
+		// Recalculo theta para la siguiente iteracion
+//		std::cout << "El nuevo theta para la it " << k << " es: ";
+		for(int l=1; l<L; l++)
+			for(int i=0; i<s_l[l+1]; i++)
+				for(int j=0; j<s_l[l]+1; j++)
+					this->thetas[l](i,j)+=alpha*this->D[l](i)(j);
+		}
+		vari = std::abs(cost()-pCoste);
+		std::cout << "La variación en el coste para la iteración "<< k <<" es de: " << vari << std::endl;
+		if(vari < 0.0001 && !std::isnan(vari)){ // Truquillo porque a veces es nan
+			std::cout << "Estoy suficientemente entrenado!!!!!!\n";
+			break;
+		} else if (std::isnan(vari)){
+			std::cout << "Tengo un NaN!!!!\n";
+		}
+		pCoste = coste;
+	}
 }
