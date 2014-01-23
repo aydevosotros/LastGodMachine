@@ -13,26 +13,26 @@ LinRMachine::~LinRMachine() {}
 
 //Falta lo que vaya detrás del lambda
 void LinRMachine::setParameters(char *argv[]) {
-	std::cout << "I'm setting parameters with the LinRMachine" << std::endl;
+//	std::cout << "I'm setting parameters with the LinRMachine" << std::endl;
 
 	C_executionMode = atoi(argv[2]);
-	std::cout << "Execution mode set to " << C_executionMode << std::endl;
+//	std::cout << "Execution mode set to " << C_executionMode << std::endl;
 
 	if(C_executionMode == 0){
 		C_trainingFile = argv[3];
 		C_testingFile = argv[4];
 
-		std::cout	<< "Training with " << C_trainingFile
-					<< " and testing with " << C_testingFile << std::endl;
+//		std::cout << "Training with " << C_trainingFile << std::endl;
+//		std::cout << "Testing with " << C_testingFile << std::endl;
 
 		C_trainingType = atoi(argv[5]);
 
-		std::cout	<< "Training type " << C_trainingType << std::endl;
+//		std::cout << "Training type " << C_trainingType << std::endl;
 
 		if(C_trainingType == 2){
 			C_alpha = atof(argv[6]);
 
-			std::cout	<< "Alpha " << C_alpha << std::endl;
+//			std::cout << "Alpha " << C_alpha << std::endl;
 		}
 	} else 	if(C_executionMode == 1){
 		C_inputFile = argv[3];
@@ -44,7 +44,7 @@ void LinRMachine::setParameters(char *argv[]) {
 //Los loads llevan todos un apaño enlas Ys
 
 void LinRMachine::loadTrainingSet(std::string filename) {
-	std::cout << "I'm loading training set with the LinRMachine from " << filename << std::endl;
+//	std::cout << "I'm loading training set with the LinRMachine from " << filename << std::endl;
 
 	std::string line;
 	std::ifstream trainingFile(filename.c_str());
@@ -71,7 +71,7 @@ void LinRMachine::loadTrainingSet(std::string filename) {
 }
 
 void LinRMachine::loadTestingSet(std::string filename) {
-	std::cout << "I'm loading testing set with the LinRMachine from " << filename << std::endl;
+//	std::cout << "I'm loading testing set with the LinRMachine from " << filename << std::endl;
 
 	std::string line;
 	std::ifstream testingFile(filename.c_str());
@@ -135,10 +135,10 @@ void LinRMachine::loadThetas(std::string filename) {
 }
 
 void LinRMachine::run(){
-	std::cout << "I'm running the mode ";
+//	std::cout << "I'm running the mode ";
 
 	if(C_executionMode == 0){
-		std::cout << "Test" << std::endl;
+//		std::cout << "Test" << std::endl;
 
 		loadTrainingSet(C_trainingFile);
 		loadTestingSet(C_testingFile);
@@ -185,7 +185,7 @@ void LinRMachine::run(){
 //
 //		//Fin de la comprobacion
 
-		predict(C_input);
+		std::cout << predict(C_input) << std::endl;
 
 		//Escribir lo que devuelve input en algun lado?
 	}
@@ -193,11 +193,11 @@ void LinRMachine::run(){
 
 //Lleva dentro el isTrainingReady
 void LinRMachine::train(){
-	std::cout << "I'm training with the LinRMachine" << std::endl;
+//	std::cout << "I'm training with the LinRMachine" << std::endl;
 
 	C_nFeatures = C_trainingSet[0].getNFeatures();
 
-	std::cout << "nFeatures es " << C_nFeatures << std::endl;
+//	std::cout << "nFeatures es " << C_nFeatures << std::endl;
 
 	if(C_trainingType == 2){
 		trainByGradient(C_iterations, C_alpha);
@@ -262,7 +262,7 @@ void LinRMachine::train(){
 	}
 }
 
-//Ys provisionales
+//Hay que revisar
 void LinRMachine::test(){
 	double treshold = 0.0;
 
@@ -275,25 +275,25 @@ void LinRMachine::test(){
 	for(unsigned int i = 0; i < C_testingSet.size(); i++){
 		double p = (double)predict(C_testingSet[i]);
 
-		std::cout << p << std::endl;
+//		std::cout << p << std::endl;
 
 		if((p>treshold && C_actualY[i] > 0) || (p<=treshold && C_actualY[i] < 0)){
 			if(p>treshold){
-				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
+//				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
 			} else {
-				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
+//				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
 			}
 
-			std::cout << "Ni Sandro Rey" << std::endl;
+//			std::cout << "Ni Sandro Rey" << std::endl;
 
 		} else if((p>treshold && C_actualY[i] < 0) || (p<=treshold && C_actualY[i] > 0)){
 			if(p>treshold){
-				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
+//				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
 			} else {
-				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
+//				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
 			}
 
-			std::cout << "Pinyico..." << std::endl;
+//			std::cout << "Pinyico..." << std::endl;
 		} else {
 			std::cout << "No se que carajo ha pasado" << std::endl;
 		}
@@ -333,27 +333,17 @@ void LinRMachine::test(){
 	std::cout << "fScore = " << fScore << std::endl;
 }
 
-//Este es el moreno, no hay que tocar?
 double LinRMachine::predict(Sample input){
-//	std::cout << "I'm predicting this input with the LinRMachine" << std::endl;
+//	std::cout << "I'm predicting with the LinRMachine" << std::endl;
 
 	return h(input.getInput());
 }
 
-//Correcto
 void LinRMachine::clearTrainingSet() {
 	C_trainingSet.clear();
 }
 
-//double LinRMachine::sigmoid(double z) {
-//	double e = 2.71828182845904523536;
-//	return 1/(1+pow(e,-z));
-//}
-
-//Presuntamente correcto, y las Ys?
 double LinRMachine::cost(std::vector<double> theta) {
-	std::cout << "Calculo el coste" << std::endl;
-
 	double J = 0.0;
 
 	for(unsigned int i = 0; i < C_y.size(); i++){
@@ -367,56 +357,6 @@ double LinRMachine::cost(std::vector<double> theta) {
 
 	return J/(2*C_y.size());
 }
-
-////Presuntamente correcto, y las Ys? No se le llama O.O
-//void LinRMachine::grad(std::vector<double> tetha, std::vector<std::vector<double> > X, std::vector<double> y, std::vector<double> grad) {
-//	for(unsigned int j=0; j<C_theta.size(); j++){
-//		double parcial = 0.0;
-//		for(unsigned int i=0; i<y.size(); i++){
-//			// Calculo el valor de la hipótises para la theta dada
-//			double h = 0.0;
-//			for(unsigned int k=0; k<C_theta.size(); k++){
-//				h += C_theta[k]*X[i][k];
-//			}
-//			h = sigmoid(h);
-//			parcial += (h-y[i])*X[i][j];
-//		}
-//		grad[j] = parcial/C_theta.size();
-//	}
-//}
-
-////Todito comentadito estaba
-//void LinRMachine::trainByGradientAdvanced(int iter, double alpha) {
-////	int i, ret = 0;
-////	lbfgsfloatval_t fx;
-////	lbfgsfloatval_t *theta = lbfgs_malloc(X.size());
-////	lbfgs_parameter_t param;
-////
-////	if (theta == NULL) {
-////		printf("ERROR: Failed to allocate a memory block for variables.\n");
-////	}
-////
-////	/* Initialize the variables. */
-////	for (i = 0;i < X.size();i += 2) {
-////		theta[i] = this->theta[i];
-////	}
-////
-////	/* Initialize the parameters for the L-BFGS optimization. */
-////	lbfgs_parameter_init(&param);
-////	/*param.linesearch = LBFGS_LINESEARCH_BACKTRACKING;*/
-////
-////	/*
-////		Start the L-BFGS optimization; this will invoke the callback functions
-////		evaluate() and progress() when necessary.
-////	 */
-////	ret = lbfgs(X.size(), theta, NULL, evaluateLR, progressLR, NULL, &param);
-////
-////	/* Report the result. */
-////	printf("L-BFGS optimization terminated with status code = %d\n", ret);
-////	printf("  fx = %f, x[0] = %f, x[1] = %f\n", fx, theta[0], theta[1]);
-////
-////	lbfgs_free(theta);
-//}
 
 double LinRMachine::h(std::vector<double> x){
 	double p = 0.0;
@@ -433,18 +373,18 @@ double LinRMachine::h(std::vector<double> x){
 }
 
 void LinRMachine::trainByGradient(int iter, double alpha) {
-	double variacion = 0.01;
-	double costePrevio = 0.0;
-
 	fillX();
 	fillY();
 	fillTheta();
+
+	double variacion = 0.01;
+	double costePrevio = 0.0;
 
 	//Para tantas iteraciones como queramos
 	for(int i = 0; i < iter; i++){
 		//Calculamos el coste, para ver si mejora o no
 		double coste = cost(C_theta);
-		std::cout << "Para la iteracion " << i << " el coste es " << coste << std::endl;
+//		std::cout << "Para la iteracion " << i << " el coste es " << coste << std::endl;
 
 		//Calculamos el gradiente
 		for(int j = 0; j < C_nFeatures+1; j++){
@@ -459,13 +399,13 @@ void LinRMachine::trainByGradient(int iter, double alpha) {
 
 		//Analizamos la variación
 		variacion = std::abs(coste-costePrevio);
-		std::cout << "La variación en el coste para la iteracion "<< i <<" es de: " << variacion << std::endl;
+//		std::cout << "La variación en el coste para la iteracion "<< i <<" es de: " << variacion << std::endl;
 
 		if(variacion < 0.0001 && !std::isnan(variacion)){ // Truquillo porque a veces es nan
-			std::cout << "Estoy suficientemente entrenado!!!!!!\n";
+//			std::cout << "Estoy suficientemente entrenado!!!!!!\n";
 			break;
 		}else if(std::isnan(variacion)){
-			std::cout << "Tengo un NaN!!!!\n";
+//			std::cout << "Tengo un NaN!!!!\n";
 		}
 
 		costePrevio = coste;
@@ -513,7 +453,7 @@ void LinRMachine::trainByNormal() {
 	}
 }
 
-//Prescindibles?
+//Funciones rellenadoras
 void LinRMachine::fillX() {
 	for(unsigned int i = 0; i < C_trainingSet.size(); i++){
 		std::vector<double> aux;
@@ -536,19 +476,14 @@ void LinRMachine::fillTheta() {
 	}
 }
 
-//Ys adaptadas
 void LinRMachine::fillY() {
-	std::vector<double> aux;
-
 	for(unsigned int i=0; i<C_trainingSet.size(); i++){
-		C_y.push_back((double)C_trainingSet[i].getRResult());
+		C_y.push_back(C_trainingSet[i].getRResult());
 	}
 }
-//Ys adaptadas
-void LinRMachine::fillActualY(){
-	std::vector<double> aux;
 
+void LinRMachine::fillActualY(){
 	for(unsigned int i=0; i<C_trainingSet.size(); i++){
-		C_actualY.push_back((double)C_trainingSet[i].getRResult());
+		C_actualY.push_back(C_trainingSet[i].getRResult());
 	}
 }
