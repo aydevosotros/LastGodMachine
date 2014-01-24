@@ -8,11 +8,6 @@
 #include "NNMachine.h"
 
 NNMachine::NNMachine() {
-
-	s_l.push_back(2);
-	s_l.push_back(2);
-	s_l.push_back(1);
-	L = s_l.size();
 	train();
 }
 
@@ -41,7 +36,7 @@ void NNMachine::loadTrainingSet(std::string filename) {
 
 			tmp.setRResult(res);
 
-			C_trainingSet.push_back(tmp);
+			this->trainingSet.push_back(tmp);
 		}
 
 		trainingFile.close();
@@ -53,47 +48,47 @@ void NNMachine::loadTrainingSet(std::string filename) {
 void NNMachine::loadTestingSet(std::string filename) {
 	//	std::cout << "I'm loading testing set with the LinRMachine from " << filename << std::endl;
 
-	std::string line;
-	std::ifstream testingFile(filename.c_str());
-
-	if(testingFile.is_open()){
-		while(std::getline(testingFile,line)) {
-			Sample tmp;
-
-			tmp.setInput(Utils::vStovD(Utils::split(line,';')));
-
-			std::getline(testingFile,line);
-
-			double res = atof(line.c_str());
-
-			tmp.setRResult(res);
-
-			C_testingSet.push_back(tmp);
-		}
-
-		testingFile.close();
-	} else{
-		std::cout << "Unable to open file" << std::endl;
-	}
+//	std::string line;
+//	std::ifstream testingFile(filename.c_str());
+//
+//	if(testingFile.is_open()){
+//		while(std::getline(testingFile,line)) {
+//			Sample tmp;
+//
+//			tmp.setInput(Utils::vStovD(Utils::split(line,';')));
+//
+//			std::getline(testingFile,line);
+//
+//			double res = atof(line.c_str());
+//
+//			tmp.setRResult(res);
+//
+//			this->testingSet.push_back(tmp);
+//		}
+//
+//		testingFile.close();
+//	} else{
+//		std::cout << "Unable to open file" << std::endl;
+//	}
 }
 
 void NNMachine::loadInput(std::string filename) {
 //	std::cout << "I'm loading input with the LinRMachine from " << filename << std::endl;
 
-	std::string line;
-	std::ifstream inputFile(filename.c_str());
-
-	if(inputFile.is_open()){
-		std::getline(inputFile,line);
-
-		C_input.setInput(Utils::vStovD(Utils::split(line,';')));
-
-		C_input.setRResult(atof(line.c_str()));
-
-		inputFile.close();
-	} else{
-		std::cout << "Unable to open file" << std::endl;
-	}
+//	std::string line;
+//	std::ifstream inputFile(filename.c_str());
+//
+//	if(inputFile.is_open()){
+//		std::getline(inputFile,line);
+//
+//		C_input.setInput(Utils::vStovD(Utils::split(line,';')));
+//
+//		C_input.setRResult(atof(line.c_str()));
+//
+//		inputFile.close();
+//	} else{
+//		std::cout << "Unable to open file" << std::endl;
+//	}
 }
 
 void NNMachine::clearTrainingSet(){
@@ -101,9 +96,15 @@ void NNMachine::clearTrainingSet(){
 }
 
 void NNMachine::train(){
-	initTraining();
+	loadTrainingSet("trainingFireDoorEscaper.txt");
+	s_l.push_back(this->trainingSet[0].getNFeatures());
+	s_l.push_back(3);
+	s_l.push_back(1);
+	L = s_l.size();
 	for(int i=0; i<this->trainingSet.size(); i++){
 		Sample s = this->trainingSet[i];
+		std::cout << "Llego hasta aquí" << std::endl;
+		this->initTraining();
 		forwardPropagate(s);
 		backPropagate(s);
 		gradChecking();
@@ -199,17 +200,24 @@ void NNMachine::backPropagate(Sample s) {
 void NNMachine::initTraining() {
 	// Init thetas and a
 	this->thetas.clear();
+	this->upperDelta.clear();
+	this->D.clear();
+	this->a.clear();
 	for(int l=0; l<L; l++){
 		if(l>0){
+			std::cout << "Inicializo theta en la capa " << l << std::endl;
 			arma::mat thetaL(s_l[l+1], s_l[l]+1);
 			// Random init
 			for(int i=0; i<s_l[l+1]; i++)
 				for(int j=0; j<s_l[l]+1; j++)
 					thetaL(i,j) = Utils::uniformRandomDouble(-999.0,999.0);
 			this->thetas.push_back(thetaL);
+			std::cout << "Inicializo upperDelta para esta capa " << l << std::endl;
 			this->upperDelta.push_back(arma::mat(s_l[l+1], s_l[l]+1));
+			std::cout << "Inicializo D para esta capa " << l << std::endl;
 			this->D.push_back(arma::mat(s_l[l+1], s_l[l]+1));
 		}
+		std::cout << "Inicializo a para esta capa " << l << std::endl;
 		if(l==L-1)
 			this->a.push_back(arma::Col<double>(s_l[l]));
 		else this->a.push_back(arma::Col<double>(s_l[l]+1));
@@ -340,19 +348,19 @@ double NNMachine::cost(){
 
 void NNMachine::trainByGradient(int iter, double alpha) {
 	double pCoste = 0.0;
-	for(int k=0; k<iter; k++){
+	for(int it=0; it<iter; it++){
 		// Calculo el coste
 		double coste = cost();
-		std::cout << "Para la iteración " << k << " el coste es: " << coste << std::endl;
+		std::cout << "Para la iteración " << it << " el coste es: " << coste << std::endl;
 		// Recalculo theta para la siguiente iteracion
 //		std::cout << "El nuevo theta para la it " << k << " es: ";
-		for(int l=1; l<L; l++)
+		for(int l=0; l<L; l++){
 			for(int i=0; i<s_l[l+1]; i++)
 				for(int j=0; j<s_l[l]+1; j++)
-					this->thetas[l](i,j)+=alpha*this->D[l](i)(j);
+					this->thetas[l](i,j)+=alpha*this->D[l](i,j);
 		}
-		vari = std::abs(cost()-pCoste);
-		std::cout << "La variación en el coste para la iteración "<< k <<" es de: " << vari << std::endl;
+		double vari = std::abs(cost()-pCoste);
+		std::cout << "La variación en el coste para la iteración "<< it <<" es de: " << vari << std::endl;
 		if(vari < 0.0001 && !std::isnan(vari)){ // Truquillo porque a veces es nan
 			std::cout << "Estoy suficientemente entrenado!!!!!!\n";
 			break;
