@@ -98,7 +98,7 @@ void NNMachine::clearTrainingSet(){
 void NNMachine::train(){
 	loadTrainingSet("trainingFireDoorEscaper.txt");
 	s_l.push_back(this->trainingSet[0].getNFeatures());
-	s_l.push_back(3);
+	s_l.push_back(2);
 	s_l.push_back(1);
 	L = s_l.size();
 	for(int i=0; i<this->trainingSet.size(); i++){
@@ -127,26 +127,26 @@ void NNMachine::forwardPropagate(Sample s) {
 	//Seteo el input en la primera capa
 	for(int i=0; i<s_l[0]+1; i++){
 		if(i==0)
-			this->a[0](i) = 1.0; // Seteo el bias
-		else this->a[0](i) = s.getInput()[i-1];
+			this->a[0]->at(i) = 1.0; // Seteo el bias
+		else this->a[0]->at(i) = s.getInput()[i-1];
 	}
 
 	// Forwarding
 	for(int l=1; l<L; l++){
 //		std::cout << "Propago por la capa: " << l << std::endl;
 		// Calculo z para la capa
-		arma::mat zL = this->thetas[l-1]*this->a[l-1];
+		arma::mat zL = (*this->thetas[l-1])*(*this->a[l-1]);
 //		std::cout << "El valor de z es: " << std::endl << zL << std::endl;
 		// Y calculo la activación para la capa
 		if(l<L-1){
 			for(int i=0; i<s_l[l]+1; i++){
 				if(i==0)
-					this->a[l](i)=1.0;
-				else this->a[l](i)=sigmoid(zL(i-1));
+					this->a[l]->at(i)=1.0;
+				else this->a[l]->at(i)=sigmoid(zL(i-1));
 			}
 		} else {
 			for(int i=0; i<s_l[l]; i++)
-				this->a[l](i)=sigmoid(zL(i));
+				this->a[l]->at(i)=sigmoid(zL(i));
 		}
 //		std::cout << "El valor de la activación es: " << std::endl << a[l] << std::endl;
 	}
@@ -163,23 +163,21 @@ void NNMachine::backPropagate(Sample s) {
 	for(int l=L-1; l>0; l--){
 
 		if(l==L-1){
-			lowerDelta[l](0) = a[l](0)-s.getResult()[0]; // esto es lo que tengo que generalizar para muchas salidas
+			lowerDelta[l](0) = a[l]->at(0)-s.getResult()[0]; // esto es lo que tengo que generalizar para muchas salidas
 		} else {
 			arma::Col<double> lowerDeltaL(s_l[l]+1);
-			arma::mat gP = this->a[l]%(1-a[l]);
-			arma::Col<double> aux = thetas[l].t()*lowerDelta[l+1];
+			arma::mat gP = (*this->a[l])%(1-(*a[l]));
+			arma::Col<double> aux = thetas[l]->t()*lowerDelta[l+1];
 			lowerDelta[l] = aux%gP;
 		}
-
 		std::cout << "Para la capa " << l << " he obtenido un lowerDelta de: " << std::endl << lowerDelta[l] << std::endl;
-
 	}
 	for(int l=0; l<L-1; l++){
 		std::cout << "Calculo upperDelta para la capa: " << l << std::endl;
 		if(l+1!=L-1){
-			this->upperDelta[l] = this->upperDelta[l] + (lowerDelta[l+1].rows(1,s_l[l])*this->a[l].t());
+			this->upperDelta[l] = new arma::mat((*this->upperDelta[l]) + (lowerDelta[l+1].rows(1,s_l[l])*this->a[l]->t()));
 		} else {
-			this->upperDelta[l] = this->upperDelta[l] + (lowerDelta[l+1]*this->a[l].t());
+			this->upperDelta[l] = new arma::mat((*this->upperDelta[l]) + (lowerDelta[l+1]*this->a[l]->t()));
 		}
 		std::cout << "El valor de upperDelta es: " << std::endl << upperDelta[l] << "para un theta: " << std::endl << thetas[l] << std::endl;
 	}
@@ -188,10 +186,10 @@ void NNMachine::backPropagate(Sample s) {
 		for(int i=0; i<s_l[l+1]; i++){
 			for(int j=0; j<s_l[l]+1; j++){
 				if(j==0)
-					this->D[l](i,j) = (1.0/this->trainingSet.size())*this->upperDelta[l](i,j);
+					this->D[l]->at(i,j) = (1.0/this->trainingSet.size())*this->upperDelta[l]->at(i,j);
 				else
-					this->D[l](i,j) = (1.0/this->trainingSet.size())*this->upperDelta[l](i,j)+(lambda*this->thetas[l](i,j));
-				std::cout << "El valor de D para (" << l << "," << i << "," << j << ",) es : " << D[l](i,j) << std::endl;
+					this->D[l]->at(i,j) = (1.0/this->trainingSet.size())*this->upperDelta[l]->at(i,j)+(lambda*this->thetas[l]->at(i,j));
+				std::cout << "El valor de D para (" << l << "," << i << "," << j << ",) es : " << D[l]->at(i,j) << std::endl;
 			}
 		}
 	}
@@ -206,31 +204,33 @@ void NNMachine::initTraining() {
 	for(int l=0; l<L; l++){
 		if(l>0){
 			std::cout << "Inicializo theta en la capa " << l << std::endl;
-			arma::mat thetaL(s_l[l+1], s_l[l]+1);
+			arma::mat* thetaL;
+			thetaL = new arma::mat(s_l[l+1], s_l[l]+1);
 			// Random init
 			for(int i=0; i<s_l[l+1]; i++)
 				for(int j=0; j<s_l[l]+1; j++)
-					thetaL(i,j) = Utils::uniformRandomDouble(-999.0,999.0);
+					thetaL->at(i,j) = Utils::uniformRandomDouble(-999.0,999.0);
 			this->thetas.push_back(thetaL);
 			std::cout << "Inicializo upperDelta para esta capa " << l << std::endl;
-			this->upperDelta.push_back(arma::mat(s_l[l+1], s_l[l]+1));
+			this->upperDelta.push_back(new arma::mat(s_l[l+1], s_l[l]+1));
 			std::cout << "Inicializo D para esta capa " << l << std::endl;
-			this->D.push_back(arma::mat(s_l[l+1], s_l[l]+1));
+			this->D.push_back(new arma::mat(s_l[l+1], s_l[l]+1));
 		}
 		std::cout << "Inicializo a para esta capa " << l << std::endl;
 		if(l==L-1)
-			this->a.push_back(arma::Col<double>(s_l[l]));
-		else this->a.push_back(arma::Col<double>(s_l[l]+1));
+			this->a.push_back(new arma::Col<double>(s_l[l]));
+		else this->a.push_back(new arma::Col<double>(s_l[l]+1));
 	}
 }
 
 void NNMachine::initRandomThetas() {
 	this->thetas.clear();
 	for(int l=1; l<L; l++){
-		arma::mat thetaL(s_l[l+1], s_l[l]+1);
+		arma::mat* thetaL;
+		thetaL = new arma::mat(s_l[l+1], s_l[l]+1);
 		for(int i=0; i<s_l[l+1]; i++)
 			for(int j=0; j<s_l[l]+1; j++)
-				thetaL(i,j) = Utils::uniformRandomDouble(-999.0,999.0);
+				thetaL->at(i,j) = Utils::uniformRandomDouble(-999.0,999.0);
 		this->thetas.push_back(thetaL);
 	}
 }
@@ -238,28 +238,30 @@ void NNMachine::initRandomThetas() {
 void NNMachine::initTrainingXNOR() {
 	// Init thetas and a
 	this->thetas.clear();
-	arma::mat thetaL1(2,3);
-	thetaL1(0,0)=-30.0;
-	thetaL1(0,1)=20.0;
-	thetaL1(0,2)=20.0;
-	thetaL1(1,0)=10.0;
-	thetaL1(1,1)=-20.0;
-	thetaL1(1,2)=-10.0;
+	arma::mat* thetaL1;
+	thetaL1 = new arma::mat(2,3);
+	thetaL1->at(0,0)=-30.0;
+	thetaL1->at(0,1)=20.0;
+	thetaL1->at(0,2)=20.0;
+	thetaL1->at(1,0)=10.0;
+	thetaL1->at(1,1)=-20.0;
+	thetaL1->at(1,2)=-10.0;
 	this->thetas.push_back(thetaL1);
-	arma::mat thetaL2(1,3);
-	thetaL2(0,0) = -10.0;
-	thetaL2(0,1) = 20.0;
-	thetaL2(0,2) = 20.0;
+	arma::mat* thetaL2;
+	thetaL2 = new arma::mat(1,3);
+	thetaL2->at(0,0) = -10.0;
+	thetaL2->at(0,1) = 20.0;
+	thetaL2->at(0,2) = 20.0;
 	this->thetas.push_back(thetaL2);
 	// Inicializo los a
 	for(int l=0; l<L; l++){
 		if(l==L-1)
-			this->a.push_back(arma::Col<double>(s_l[l]));
+			this->a.push_back(new arma::Col<double>(s_l[l]));
 		else{
-			this->a.push_back(arma::Col<double>(s_l[l]+1));
-			this->D.push_back(arma::mat(s_l[l+1], s_l[l]+1));
+			this->a.push_back(new arma::Col<double>(s_l[l]+1));
+			this->D.push_back(new arma::mat(s_l[l+1], s_l[l]+1));
 		}
-		this->upperDelta.push_back(arma::mat(s_l[l+1], s_l[l]+1));
+		this->upperDelta.push_back(new arma::mat(s_l[l+1], s_l[l]+1));
 
 	}
 }
@@ -300,11 +302,11 @@ void NNMachine::gradChecking() {
 		for(int i=0; i<s_l[l+1]; i++){
 			for(int j=0; j<s_l[l]+1; j++){
 				std::cout << "Voy por aquí " << l << "," << i << "," << j << std::endl;
-				this->thetas[l](i,j) += epsilon;
+				this->thetas[l]->at(i,j) += epsilon;
 				cTPL(i,j) = cost();
-				this->thetas[l](i,j) -= 2*epsilon;
+				this->thetas[l]->at(i,j) -= 2*epsilon;
 				cTML(i,j) = cost();
-				this->thetas[l](i,j) += epsilon;
+				this->thetas[l]->at(i,j) += epsilon;
 			}
 		}
 		cThetasPlus.push_back(cTPL);
@@ -320,7 +322,7 @@ void NNMachine::gradChecking() {
 				gradAprox[l](i,j) = (cThetasPlus[l](i,j)-cThetasMinus[l](i,j))/(2*epsilon);
 				std::cout << "Aquí empiezo a comprobar la maraña" << std::endl;
 				std::cout << "Para la capa " << l << " desde el nodo " << i << " al nodo " << j <<
-						" tengo un aproximado de: " << gradAprox[l](i,j) << " y una DX " << this->D[l](i,j) << std::endl;
+						" tengo un aproximado de: " << gradAprox[l](i,j) << " y una DX " << this->D[l]->at(i,j) << std::endl;
 			}
 		}
 	}
@@ -331,7 +333,7 @@ double NNMachine::cost(){
 	for(int i=0; i<this->trainingSet.size(); i++){
 		this->forwardPropagate(trainingSet[i]);
 		for(int k=0; k<s_l[L-1]; k++){
-			J += trainingSet[i].getResult()[k] * std::log(a[L-1](k)) + (1-trainingSet[i].getResult()[k])*std::log(1-a[L-1](k));
+			J += trainingSet[i].getResult()[k] * std::log(a[L-1]->at(k)) + (1-trainingSet[i].getResult()[k])*std::log(1-a[L-1]->at(k));
 		}
 	}
 	J /= trainingSet.size()*(-1.0);
@@ -340,7 +342,7 @@ double NNMachine::cost(){
 	for(int l=1; l<L; l++)
 		for(int i=0; i<s_l[l+1]; i++)
 			for(int j=0; j<s_l[l]+1; j++)
-				aux+=std::pow(this->thetas[l](i,j),2);
+				aux+=std::pow(this->thetas[l]->at(i,j),2);
 	aux*=this->lambda;
 	aux/=2*this->trainingSet.size();
 	return J+aux;
@@ -357,7 +359,7 @@ void NNMachine::trainByGradient(int iter, double alpha) {
 		for(int l=0; l<L; l++){
 			for(int i=0; i<s_l[l+1]; i++)
 				for(int j=0; j<s_l[l]+1; j++)
-					this->thetas[l](i,j)+=alpha*this->D[l](i,j);
+					this->thetas[l]->at(i,j)+=alpha*this->D[l]->at(i,j);
 		}
 		double vari = std::abs(cost()-pCoste);
 		std::cout << "La variación en el coste para la iteración "<< it <<" es de: " << vari << std::endl;

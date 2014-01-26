@@ -41,10 +41,10 @@ private:
 	double lambda;
 	std::vector<int> s_l; //número de nodos por capa
 	std::vector<Sample> trainingSet; //Conjunto de samples para el entrenamiento
-	std::vector<arma::mat> thetas; //L-1 matrices
-	std::vector<arma::Col<double> > a;
-	std::vector<arma::mat> upperDelta;
-	std::vector<arma::mat> D;
+	std::vector<arma::mat*> thetas; //L-1 matrices
+	std::vector<arma::Col<double>* > a;
+	std::vector<arma::mat*> upperDelta;
+	std::vector<arma::mat*> D;
 	std::vector<double> y;
 
 	void forwardPropagate(Sample s);
