@@ -210,6 +210,7 @@ void NNMachine::initTraining() {
 			for(int i=0; i<s_l[l+1]; i++)
 				for(int j=0; j<s_l[l]+1; j++)
 					thetaL->at(i,j) = Utils::uniformRandomDouble(-999.0,999.0);
+			std::cout << "Meto las theta en la capa " << l << std::endl;
 			this->thetas.push_back(thetaL);
 			std::cout << "Inicializo upperDelta para esta capa " << l << std::endl;
 			this->upperDelta.push_back(new arma::mat(s_l[l+1], s_l[l]+1));
