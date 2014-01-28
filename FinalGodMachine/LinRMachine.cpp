@@ -483,7 +483,7 @@ void LinRMachine::fillY() {
 }
 
 void LinRMachine::fillActualY(){
-	for(unsigned int i=0; i<C_trainingSet.size(); i++){
-		C_actualY.push_back(C_trainingSet[i].getRResult());
+	for(unsigned int i=0; i<C_testingSet.size(); i++){
+		C_actualY.push_back(C_testingSet[i].getRResult());
 	}
 }

@@ -36,11 +36,19 @@ public:
 	void clearTrainingSet();
 
 private:
+	int executionMode;
+	std::string trainingFile;
+	std::string testFile;
 	int L; //Número de capas
 	int nFeatures;
 	double lambda;
+	double alpha;
+	int iteraciones;
+	std::vector<int> actualY;
+	std::vector<int> predictedY;
 	std::vector<int> s_l; //número de nodos por capa
 	std::vector<Sample> trainingSet; //Conjunto de samples para el entrenamiento
+	std::vector<Sample> testingSet;
 	std::vector<arma::mat> thetas; //L-1 matrices
 	std::vector<arma::Col<double> > a;
 	std::vector<arma::mat> upperDelta;
@@ -48,7 +56,7 @@ private:
 	std::vector<double> y;
 
 	void forwardPropagate(Sample s);
-	void backPropagate(Sample s);
+	void backPropagate();
 
 	void trainByGradient(int iter, double alpha);
 
@@ -58,6 +66,12 @@ private:
 	double sigmoid(double z);
 	void gradChecking();
 	double cost();
+
+	//Metodos de pruebas
+	void pruebaXorBasica();
+
+	//Para los tests
+	void fillTestingY();
 };
 
 #endif /* NNMACHINE_H_ */

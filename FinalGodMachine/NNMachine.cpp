@@ -8,7 +8,8 @@
 #include "NNMachine.h"
 
 NNMachine::NNMachine() {
-	train();
+//	train();
+//	this->pruebaXorBasica();
 }
 
 NNMachine::~NNMachine() {
@@ -16,13 +17,21 @@ NNMachine::~NNMachine() {
 }
 
 void NNMachine::setParameters(char* argv[]) {
+	this->executionMode = atoi(argv[2]);
+	if(executionMode == 0){
+		this->trainingFile = argv[3];
+		this->testFile = argv[4];
+	}
+	this->lambda = atof(argv[5]);
+	this->alpha = atof(argv[6]);
+	this->iteraciones = atoi(argv[7]);
 }
 
 void NNMachine::loadTrainingSet(std::string filename) {
 	//	std::cout << "I'm loading training set with the LinRMachine from " << filename << std::endl;
 
 	std::string line;
-	std::ifstream trainingFile(filename.c_str());
+	std::ifstream trainingFile(this->trainingFile.c_str());
 
 	if(trainingFile.is_open()){
 		while(std::getline(trainingFile,line)) {
@@ -30,7 +39,9 @@ void NNMachine::loadTrainingSet(std::string filename) {
 			tmp.setInput(Utils::vStovD(Utils::split(line,';')));
 			std::getline(trainingFile,line);
 			double res = atof(line.c_str());
-			tmp.setRResult(res);
+			std::vector<int> result;
+			result.push_back(res);
+			tmp.setResult(result);
 			this->trainingSet.push_back(tmp);
 		}
 		trainingFile.close();
@@ -42,28 +53,25 @@ void NNMachine::loadTrainingSet(std::string filename) {
 void NNMachine::loadTestingSet(std::string filename) {
 	//	std::cout << "I'm loading testing set with the LinRMachine from " << filename << std::endl;
 
-//	std::string line;
-//	std::ifstream testingFile(filename.c_str());
-//
-//	if(testingFile.is_open()){
-//		while(std::getline(testingFile,line)) {
-//			Sample tmp;
-//
-//			tmp.setInput(Utils::vStovD(Utils::split(line,';')));
-//
-//			std::getline(testingFile,line);
-//
-//			double res = atof(line.c_str());
-//
-//			tmp.setRResult(res);
-//
-//			this->testingSet.push_back(tmp);
-//		}
-//
-//		testingFile.close();
-//	} else{
-//		std::cout << "Unable to open file" << std::endl;
-//	}
+	std::string line;
+	std::ifstream testingFile(this->testFile.c_str());
+
+	if(testingFile.is_open()){
+		while(std::getline(testingFile,line)) {
+			Sample tmp;
+			tmp.setInput(Utils::vStovD(Utils::split(line,';')));
+			std::getline(testingFile,line);
+			double res = atof(line.c_str());
+			std::vector<int> result;
+			result.push_back(res);
+			tmp.setResult(result);
+			this->testingSet.push_back(tmp);
+		}
+
+		testingFile.close();
+	} else{
+		std::cout << "Unable to open file" << std::endl;
+	}
 }
 
 void NNMachine::loadInput(std::string filename) {
@@ -89,36 +97,106 @@ void NNMachine::clearTrainingSet(){
 	this->trainingSet.clear();
 }
 
-void NNMachine::train(){
-	loadTrainingSet("trainingFireDoorEscaper.txt");
-	std::cout << "Inicializo co los tamaños (" << this->trainingSet[0].getNFeatures() << ")" << std::endl;
-	s_l.clear();
-	s_l.push_back(this->trainingSet[0].getNFeatures());
-	s_l.push_back(3);
-	s_l.push_back(1);
-	L = s_l.size();
-	for(int i=0; i<this->trainingSet.size(); i++){
-		Sample s = this->trainingSet[i];
-		std::cout << "Inicializo" << std::endl;
-		this->initTraining();
-		std::cout << "Hago el fp" << std::endl;
-		forwardPropagate(s);
-		std::cout << "Hago el bp" << std::endl;
-		backPropagate(s);
-		std::cout << "Checkeo el gradiente" << std::endl;
-		gradChecking();
-		trainByGradient(1000, 0.01);
+void NNMachine::run() {
+	if(this->executionMode == 0){
+		std::cout << "Cargando el training set..." << std::endl;
+		loadTrainingSet("na");
+		std::cout << "Cargando el testing set..." << std::endl;
+		loadTestingSet("na");
+		std::cout << "Entrenando..." << std::endl;
+		train();
+		test();
 	}
 }
 
-void NNMachine::run() {
-}
-
 void NNMachine::test() {
+	double treshold = 0.5;
+
+//	std::cout << "I'm testing with the LinRMachine" << std::endl;
+
+	this->fillTestingY();
+
+	std::vector<int> auxY;
+
+	for(unsigned int i = 0; i < this->testingSet.size(); i++){
+		double p = (double)predict(this->testingSet[i]);
+
+		std::cout << "Obtengo una predicción de: " << p << std::endl;
+
+		if((p>treshold && this->actualY[i] == 1) || (p<=treshold && this->actualY[i] == 0)){
+			if(p>treshold){
+				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
+			} else {
+				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
+			}
+
+			std::cout << "Ni Sandro Rey" << std::endl;
+
+		} else if((p>treshold && this->actualY[i] == 0) || (p<=treshold && this->actualY[i] == 1)){
+			if(p>treshold){
+				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
+			} else {
+				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
+			}
+
+			std::cout << "Pinyico..." << std::endl;
+		} else {
+			std::cout << "No se que carajo ha pasado" << std::endl;
+		}
+		if(p>treshold)
+			this->predictedY.push_back(1);
+		else this->predictedY.push_back(0);
+	}
+
+	//Al final, cuando tengamos lleno el C_predictedY, calculamos Precission y Recall
+
+	double tPositives = 0.0;
+	double fPositives = 0.0;
+	double tNegatives = 0.0;
+	double fNegatives = 0.0;
+
+	for(unsigned int i = 0; i < this->actualY.size(); i++){
+		if(this->actualY[i] > 0 && this->predictedY[i] > 0){
+			tPositives++;
+		} else if(this->actualY[i] > 0 && this->predictedY[i] == 0){
+			fNegatives++;
+		} else if(this->actualY[i] == 0 && this->predictedY[i] > 0){
+			fPositives++;
+		} else if(this->actualY[i] == 0 && this->predictedY[i] == 0){
+			tNegatives++;
+		}
+	}
+
+	double precission = tPositives / (tPositives + fPositives);
+
+	std::cout << "Precission = " << precission << std::endl;
+
+	double recall = tPositives / (tPositives + fNegatives);
+
+	std::cout << "Recall = " << recall << std::endl;
+
+	double fScore = 2 * ( (precission * recall) / (precission + recall) );
+
+	std::cout << "fScore = " << fScore << std::endl;
 }
 
 double NNMachine::predict(Sample input) {
+	forwardPropagate(input);
+	return this->a[L-1](0);
+}
 
+void NNMachine::train(){
+//	loadTrainingSet("trainingFireDoorEscaper.txt");
+	s_l.clear();
+	s_l.push_back(this->trainingSet[0].getNFeatures());
+	s_l.push_back(this->trainingSet[0].getNFeatures()*2);
+	s_l.push_back(this->trainingSet[0].getNFeatures()*2);
+	s_l.push_back(this->trainingSet[0].getNFeatures()*2);
+	s_l.push_back(1);
+	L = s_l.size();
+	this->initRandomThetas();
+	this->initTraining();
+	trainByGradient(this->iteraciones, this->alpha);
 }
 
 void NNMachine::forwardPropagate(Sample s) {
@@ -129,15 +207,15 @@ void NNMachine::forwardPropagate(Sample s) {
 			this->a[0](i) = 1.0; // Seteo el bias
 		else this->a[0](i) = s.getInput()[i-1];
 	}
-
 	// Forwarding
 	for(int l=1; l<L; l++){
 //		std::cout << "Propago por la capa: " << l << std::endl;
 		// Calculo z para la capa
 		arma::mat zL = this->thetas[l-1]*this->a[l-1];
-//		std::cout << "El valor de z es: " << std::endl << zL << std::endl;
+//		std::cout << "Prepara lo capa " << l << " con la z:" << std::endl << zL << std::endl;
 		// Y calculo la activación para la capa
 		if(l<L-1){
+
 			for(int i=0; i<s_l[l]+1; i++){
 				if(i==0)
 					this->a[l](i)=1.0;
@@ -151,47 +229,56 @@ void NNMachine::forwardPropagate(Sample s) {
 	}
 }
 
-void NNMachine::backPropagate(Sample s) {
-	std::vector<arma::Col<double> > lowerDelta;
-	// Inicializo los lowerDelta porque como empiezo al revés al hacer pushback y los índices y los petes...
-	for(int l=0; l<L; l++){
-		if(l==L-1)
-			lowerDelta.push_back(arma::Col<double>(s_l[l]));
-		else lowerDelta.push_back(arma::Col<double>(s_l[l]+1));
-	}
-	for(int l=L-1; l>0; l--){
-		if(l==L-1){
-			std::cout << "La activación para la última capa es: " << a[l] << "y el resultado es: " << s.getRResult() << std::endl;
-			lowerDelta[l](0) = a[l](0)-s.getRResult(); // esto es lo que tengo que generalizar para muchas salidas
-		} else {
-			arma::Col<double> lowerDeltaL(s_l[l]+1);
-			arma::mat gP = this->a[l]%(1-a[l]);
-			std::cout << "Para la capa " << l << " tenemos una g': " << std::endl << gP;
-			arma::Col<double> aux = thetas[l].t()*lowerDelta[l+1];
-			std::cout << "Para la capa " << l << " tenemos un aux': " << std::endl << aux;
-			lowerDelta[l] = aux%gP;
+void NNMachine::backPropagate() {
+	for(int s=0; s<trainingSet.size(); s++){
+		forwardPropagate(this->trainingSet[s]);
+		std::vector<arma::Col<double> > lowerDelta;
+		// Inicializo los lowerDelta porque como empiezo al revés al hacer pushback y los índices y los petes...
+		for(int l=0; l<L; l++){
+			if(l==L-1)
+				lowerDelta.push_back(arma::Col<double>(s_l[l]));
+			else lowerDelta.push_back(arma::Col<double>(s_l[l]+1));
 		}
-		std::cout << "Para la capa " << l << " he obtenido un lowerDelta de: " << std::endl << lowerDelta[l] << std::endl;
+		for(int l=L-1; l>0; l--){
+			if(l==L-1){
+//				std::cout << "La activación para la última capa es: " << a[l] << "y el resultado es: " << this->trainingSet[s].getResult()[0] << std::endl;
+				lowerDelta[l](0) = a[l](0)-this->trainingSet[s].getResult()[0]; // esto es lo que tengo que generalizar para muchas salidas
+			} else {
+				arma::Col<double> aux;
+				arma::mat gP = this->a[l]%(1-a[l]);
+//				std::cout << "Para la capa " << l << " tenemos una g': " << std::endl << gP;
+				if(l+1!=L-1){
+//					std::cout << "Para la capa " << l+1 << " tenemos una lower delta: " << std::endl << lowerDelta[l+1].rows(1,s_l[l+1]);
+					aux = thetas[l].t()*lowerDelta[l+1].rows(1,s_l[l+1]);
+				} else {
+//					std::cout << "Para la capa " << l+1 << " tenemos una lower delta: " << std::endl << lowerDelta[l+1];
+					aux = thetas[l].t()*lowerDelta[l+1];
+				}
+//				std::cout << "Para la capa " << l << " tenemos un aux': " << std::endl << aux;
+				lowerDelta[l] = aux%gP;
+			}
+//			std::cout << "Para la capa " << l << " he obtenido un lowerDelta de: " << std::endl << lowerDelta[l] << std::endl;
 
-	}
-	for(int l=0; l<L-1; l++){
-		std::cout << "Calculo upperDelta para la capa: " << l << " " << std::endl << lowerDelta[l+1] << " " << s_l[l+1] << std::endl;
-		if(l+1!=L-1){
-			this->upperDelta[l] = this->upperDelta[l] + (lowerDelta[l+1].rows(1,s_l[l+1])*this->a[l].t());
-		} else {
-			this->upperDelta[l] = this->upperDelta[l] + (lowerDelta[l+1]*this->a[l].t());
 		}
-		std::cout << "El valor de upperDelta es: " << std::endl << upperDelta[l] << "para un theta: " << std::endl << thetas[l] << std::endl;
+		for(int l=0; l<L-1; l++){
+//			std::cout << "Calculo upperDelta para la capa: " << l << " " << std::endl << lowerDelta[l+1] << " " << s_l[l+1] << std::endl;
+			if(l+1!=L-1){
+				this->upperDelta[l] = this->upperDelta[l] + (lowerDelta[l+1].rows(1,s_l[l+1])*this->a[l].t());
+			} else {
+				this->upperDelta[l] = this->upperDelta[l] + (lowerDelta[l+1]*this->a[l].t());
+			}
+//			std::cout << "El valor de upperDelta es: " << std::endl << upperDelta[l] << "para un theta: " << std::endl << thetas[l] << std::endl;
+		}
 	}
 	// Regularizo y obtengo la D
 	for(int l=0; l<L-1; l++){
 		for(int i=0; i<s_l[l+1]; i++){
 			for(int j=0; j<s_l[l]+1; j++){
 				if(j==0)
-					this->D[l](i,j) = (1.0/this->trainingSet.size())*this->upperDelta[l](i,j);
+					this->D[l](i,j) = (this->upperDelta[l](i,j)/this->trainingSet.size());
 				else
-					this->D[l](i,j) = (1.0/this->trainingSet.size())*this->upperDelta[l](i,j)+(lambda*this->thetas[l](i,j));
-				std::cout << "El valor de D para (" << l << "," << i << "," << j << ") es : " << D[l](i,j) << std::endl;
+					this->D[l](i,j) = (this->upperDelta[l](i,j)/this->trainingSet.size())+(lambda*this->thetas[l](i,j));
+//				std::cout << "El valor de D para (" << l << "," << i << "," << j << ") es : " << D[l](i,j) << std::endl;
 			}
 		}
 	}
@@ -199,26 +286,18 @@ void NNMachine::backPropagate(Sample s) {
 
 void NNMachine::initTraining() {
 	// Init thetas and a
-	this->thetas.clear();
 	this->upperDelta.clear();
 	this->D.clear();
 	this->a.clear();
 	for(int l=0; l<L; l++){
-		std::cout << "Inicializo a para esta capa " << l << std::endl;
+//		std::cout << "Inicializo a para esta capa " << l << std::endl;
 		if(l==L-1){
 			this->a.push_back(arma::Col<double>(s_l[l]));
 		} else {
 			this->a.push_back(arma::Col<double>(s_l[l]+1));
-			std::cout << "Inicializo theta en la capa " << l << std::endl;
-			arma::mat thetaL(s_l[l+1], s_l[l]+1);
-			// Random init
-			for(int i=0; i<s_l[l+1]; i++)
-				for(int j=0; j<s_l[l]+1; j++)
-					thetaL(i,j) = Utils::uniformRandomDouble(-999.0,999.0);
-			this->thetas.push_back(thetaL);
-			std::cout << "Inicializo upperDelta para esta capa " << l << std::endl;
+//			std::cout << "Inicializo upperDelta para esta capa " << l << std::endl;
 			this->upperDelta.push_back(arma::mat(s_l[l+1], s_l[l]+1));
-			std::cout << "Inicializo D para esta capa " << l << std::endl;
+//			std::cout << "Inicializo D para esta capa " << l << std::endl;
 			this->D.push_back(arma::mat(s_l[l+1], s_l[l]+1));
 		}
 	}
@@ -226,11 +305,11 @@ void NNMachine::initTraining() {
 
 void NNMachine::initRandomThetas() {
 	this->thetas.clear();
-	for(int l=1; l<L; l++){
+	for(int l=0; l<L-1; l++){
 		arma::mat thetaL(s_l[l+1], s_l[l]+1);
 		for(int i=0; i<s_l[l+1]; i++)
 			for(int j=0; j<s_l[l]+1; j++)
-				thetaL(i,j) = Utils::uniformRandomDouble(-999.0,999.0);
+				thetaL(i,j) = Utils::uniformRandomDouble(-9.0,9.0);
 		this->thetas.push_back(thetaL);
 	}
 }
@@ -269,22 +348,6 @@ double NNMachine::sigmoid(double z) {
 }
 
 void NNMachine::gradChecking() {
-//	// Unas cosas previas pa tener que probar
-//	Sample s;
-//	std::vector<double> input;
-//	input.push_back(0);
-//	input.push_back(1);
-//	s.setInput(input);
-//	std::vector<int> result;
-//	result.push_back(1);
-//	s.setResult(result);
-//	this->trainingSet.push_back(s);
-//
-//	// Con esto hago una thetas y fp and bp
-//	this->initTrainingXNOR();
-//	this->forwardPropagate(s);
-//	this->backPropagate(s);
-
 	std::vector<arma::mat> cThetasPlus;
 	std::vector<arma::mat> cThetasMinus;
 
@@ -298,13 +361,13 @@ void NNMachine::gradChecking() {
 		for(int i=0; i<s_l[l+1]; i++){
 			for(int j=0; j<s_l[l]+1; j++){
 				this->thetas[l](i,j) += epsilon;
-				std::cout << "Voy por: " << l << "," << i << "," << j << std::endl;
+//				std::cout << "Voy por: " << l << "," << i << "," << j << std::endl;
 				this->thetas[l](i,j) += epsilon;
-				std::cout << "Calculo el coste para plus" << std::endl;
 				cTPL(i,j) = cost();
+//				std::cout << "Calculo el coste para plus: " << cTPL(i,j) << std::endl;
 				this->thetas[l](i,j) -= 2*epsilon;
-				std::cout << "Calculo el coste para menos" << std::endl;
 				cTML(i,j) = cost();
+//				std::cout << "Calculo el coste para menos: " << cTML(i,j) << std::endl;
 				this->thetas[l](i,j) += epsilon;
 			}
 		}
@@ -312,7 +375,6 @@ void NNMachine::gradChecking() {
 		cThetasMinus.push_back(cTML);
 	}
 	// Calculo la aproximación
-	std::cout << "Voy por aquí " << std::endl;
 	std::vector<arma::mat> gradAprox;
 	for(int l=0; l<L-1; l++){
 		gradAprox.push_back(arma::mat(s_l[l+1], s_l[l]+1));
@@ -329,20 +391,20 @@ void NNMachine::gradChecking() {
 
 double NNMachine::cost(){
 	double J = 0.0;
+//	std::cout << "La dimensión de la última capa es: " << trainingSet.size() << std::endl;
 	for(int i=0; i<this->trainingSet.size(); i++){
-		double aux = 0.0;
+//		std::cout << "La dimensión de la última capa es: " << s_l[L-1] << std::endl;
 		this->forwardPropagate(trainingSet[i]);
-		aux = trainingSet[i].getRResult() * std::log(a[L-1](0)) + (1.0-trainingSet[i].getRResult())*std::log(1.0-a[L-1](0));
-//		for(int k=0; k<s_l[L-1]; k++){
-//			J += trainingSet[i].getRResult() * std::log(a[L-1](k)) + (1-trainingSet[i].getRResult())*std::log(1-a[L-1](k));
-//		}
-		std::cout << "Si a[L-1]: " << a[L-1](0) << " y y[i]: " << trainingSet[i].getRResult() <<
-				" Por qué carajo J(i) = " << aux << std::endl;
-		J+=aux;
+//		aux = trainingSet[i].getResult()[0] * std::log(a[L-1](0)) + (1.0-trainingSet[i].getResult()[0])*std::log(1.0-a[L-1](0));
+		for(int k=0; k<s_l[L-1]; k++){
+			J += trainingSet[i].getResult()[0] * std::log(a[L-1](k)) + (1-trainingSet[i].getResult()[0])*std::log(1-a[L-1](k));
+		}
+//		std::cout << "Si a[L-1]: " << a[L-1](0) << " y y[i]: " << trainingSet[i].getResult()[0] <<
+//				" Por qué carajo J(i) = " << J << std::endl;
 	}
-	std::cout << " el parcial vale " << J << " y tengo: " << trainingSet.size() << " elementos " << std::endl;
+//	std::cout << " el parcial vale " << J << " y tengo: " << trainingSet.size() << " elementos " << std::endl;
 	J /= trainingSet.size()*(-1.0);
-	std::cout << "LLego hasta aquí con un coste de: " << J << std::endl;
+//	std::cout << "LLego hasta aquí con un coste de: " << J << std::endl;
 	double aux = 0.0;
 	for(int l=0; l<L-1; l++)
 		for(int i=0; i<s_l[l+1]; i++)
@@ -357,23 +419,56 @@ void NNMachine::trainByGradient(int iter, double alpha) {
 	double pCoste = 0.0;
 	for(int it=0; it<iter; it++){
 		// Calculo el coste
+		backPropagate();
+//		gradChecking();
 		double coste = cost();
 		std::cout << "Para la iteración " << it << " el coste es: " << coste << std::endl;
 		// Recalculo theta para la siguiente iteracion
-//		std::cout << "El nuevo theta para la it " << k << " es: ";
-		for(int l=0; l<L; l++){
+		for(int l=0; l<L-1; l++){
+//			std::cout << std::endl << D.size() << " " << thetas.size() << std::endl;
 			for(int i=0; i<s_l[l+1]; i++)
 				for(int j=0; j<s_l[l]+1; j++)
-					this->thetas[l](i,j)+=alpha*this->D[l](i,j);
+					this->thetas[l](i,j)-=alpha*this->D[l](i,j);
 		}
-		double vari = std::abs(cost()-pCoste);
-		std::cout << "La variación en el coste para la iteración "<< it <<" es de: " << vari << std::endl;
-		if(vari < 0.0001 && !std::isnan(vari)){ // Truquillo porque a veces es nan
-			std::cout << "Estoy suficientemente entrenado!!!!!!\n";
-			break;
-		} else if (std::isnan(vari)){
-			std::cout << "Tengo un NaN!!!!\n";
+		double vari = std::abs(coste-pCoste);
+		if(it>0){
+			std::cout << "La variación en el coste para la iteración "<< it <<" es de: " << vari << std::endl;
+			if(coste < 0.001){
+				std::cout << "Estoy suficientemente entrenado!!!!!!\n";
+				break;
+			} else if (std::isnan(vari)){
+//				std::cout << "Tengo un NaN!!!!\n";
+			}
 		}
 		pCoste = coste;
 	}
+	std::cout << "Dejo el gradiente con un coste de: " << this->cost() << std::endl;
+}
+
+void NNMachine::pruebaXorBasica() {
+	// Unas cosas previas pa tener que probar
+	s_l.clear();
+	s_l.push_back(2);
+	s_l.push_back(2);
+	s_l.push_back(1);
+	L = s_l.size();
+	Sample s;
+	std::vector<double> input;
+	input.push_back(0);
+	input.push_back(1);
+	s.setInput(input);
+	std::vector<int> result;
+	result.push_back(1);
+	s.setResult(result);
+	this->trainingSet.push_back(s);
+	std::cout << "LLego hasta aquí" << std::endl;
+	// Con esto hago una thetas y fp and bp
+	this->initTrainingXNOR();
+	this->backPropagate();
+	this->gradChecking();
+}
+
+void NNMachine::fillTestingY() {
+	for(int i=0; i<this->testingSet.size(); i++)
+		this->actualY.push_back(this->testingSet[i].getResult()[0]);
 }
