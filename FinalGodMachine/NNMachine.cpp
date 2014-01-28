@@ -121,31 +121,31 @@ void NNMachine::test() {
 	for(unsigned int i = 0; i < this->testingSet.size(); i++){
 		double p = (double)predict(this->testingSet[i]);
 
-		std::cout << "Obtengo una predicción de: " << p << std::endl;
+//		std::cout << "Obtengo una predicción de: " << p << std::endl;
 
-		if((p>treshold && this->actualY[i] == 1) || (p<=treshold && this->actualY[i] == 0)){
-			if(p>treshold){
-				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
-			} else {
-				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
-			}
+		if((p>treshold && this->actualY[i] > 0) || (p<=treshold && this->actualY[i] < 0)){
+//			if(p>treshold){
+//				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
+//			} else {
+//				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
+//			}
+//
+//			std::cout << "Ni Sandro Rey" << std::endl;
 
-			std::cout << "Ni Sandro Rey" << std::endl;
-
-		} else if((p>treshold && this->actualY[i] == 0) || (p<=treshold && this->actualY[i] == 1)){
-			if(p>treshold){
-				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
-			} else {
-				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
-			}
-
-			std::cout << "Pinyico..." << std::endl;
+		} else if((p>treshold && this->actualY[i] < 0) || (p<=treshold && this->actualY[i] > 0)){
+//			if(p>treshold){
+//				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
+//			} else {
+//				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
+//			}
+//
+//			std::cout << "Pinyico..." << std::endl;
 		} else {
-			std::cout << "No se que carajo ha pasado" << std::endl;
+//			std::cout << "No se que carajo ha pasado" << std::endl;
 		}
 		if(p>treshold)
 			this->predictedY.push_back(1);
-		else this->predictedY.push_back(0);
+		else this->predictedY.push_back(-1);
 	}
 
 	//Al final, cuando tengamos lleno el C_predictedY, calculamos Precission y Recall
@@ -158,11 +158,11 @@ void NNMachine::test() {
 	for(unsigned int i = 0; i < this->actualY.size(); i++){
 		if(this->actualY[i] > 0 && this->predictedY[i] > 0){
 			tPositives++;
-		} else if(this->actualY[i] > 0 && this->predictedY[i] == 0){
+		} else if(this->actualY[i] > 0 && this->predictedY[i] < 0){
 			fNegatives++;
-		} else if(this->actualY[i] == 0 && this->predictedY[i] > 0){
+		} else if(this->actualY[i] < 0 && this->predictedY[i] > 0){
 			fPositives++;
-		} else if(this->actualY[i] == 0 && this->predictedY[i] == 0){
+		} else if(this->actualY[i] < 0 && this->predictedY[i] < 0){
 			tNegatives++;
 		}
 	}
@@ -190,12 +190,14 @@ void NNMachine::train(){
 	s_l.clear();
 	s_l.push_back(this->trainingSet[0].getNFeatures());
 	s_l.push_back(this->trainingSet[0].getNFeatures()*2);
+	s_l.push_back(this->trainingSet[0].getNFeatures()*3);
 	s_l.push_back(this->trainingSet[0].getNFeatures()*2);
-	s_l.push_back(this->trainingSet[0].getNFeatures()*2);
+	s_l.push_back(this->trainingSet[0].getNFeatures());
 	s_l.push_back(1);
 	L = s_l.size();
 	this->initRandomThetas();
 	this->initTraining();
+	std::cout << "Iniciando el descenso por gradiente..." << std::endl;
 	trainByGradient(this->iteraciones, this->alpha);
 }
 
@@ -430,12 +432,12 @@ void NNMachine::trainByGradient(int iter, double alpha) {
 				for(int j=0; j<s_l[l]+1; j++)
 					this->thetas[l](i,j)-=alpha*this->D[l](i,j);
 		}
-		double vari = std::abs(coste-pCoste);
+		double vari = pCoste-coste;
 		if(it>0){
 			std::cout << "La variación en el coste para la iteración "<< it <<" es de: " << vari << std::endl;
 			if(coste < 0.001){
 				std::cout << "Estoy suficientemente entrenado!!!!!!\n";
-				break;
+//				break;
 			} else if (std::isnan(vari)){
 //				std::cout << "Tengo un NaN!!!!\n";
 			}
