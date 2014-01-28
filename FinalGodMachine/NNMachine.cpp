@@ -1,10 +1,3 @@
-/*
- * NNMachine.cpp
- *
- *  Created on: Jan 16, 2014
- *      Author: antonio
- */
-
 #include "NNMachine.h"
 
 NNMachine::NNMachine() {
@@ -121,28 +114,6 @@ void NNMachine::test() {
 	for(unsigned int i = 0; i < this->testingSet.size(); i++){
 		double p = (double)predict(this->testingSet[i]);
 
-		std::cout << "Obtengo una predicción de: " << p << std::endl;
-
-		if((p>treshold && this->actualY[i] == 1) || (p<=treshold && this->actualY[i] == 0)){
-			if(p>treshold){
-				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
-			} else {
-				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
-			}
-
-			std::cout << "Ni Sandro Rey" << std::endl;
-
-		} else if((p>treshold && this->actualY[i] == 0) || (p<=treshold && this->actualY[i] == 1)){
-			if(p>treshold){
-				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
-			} else {
-				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
-			}
-
-			std::cout << "Pinyico..." << std::endl;
-		} else {
-			std::cout << "No se que carajo ha pasado" << std::endl;
-		}
 		if(p>treshold)
 			this->predictedY.push_back(1);
 		else this->predictedY.push_back(0);

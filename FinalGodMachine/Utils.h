@@ -4,6 +4,7 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
+#include <time.h>
 #include "float.h"
 #include "Sample.h"
 #include <boost/noncopyable.hpp>
@@ -14,6 +15,25 @@
 //Sin novedad
 class Utils{
 public:
+	static std::vector<double> parseInput(std::string input){
+		std::vector<std::string> tmp = split(input,' ');
+
+		std::vector<double> output;
+
+		//Se guarda los 5 valores, sin contar el tiempo unix ni la cabecera
+		for(unsigned int i = 2; i < tmp.size(); i++){
+			output.push_back(atof(tmp[i].c_str()));
+		}
+
+		return output;
+	}
+
+	static time_t getTime(int unixtime){
+		time_t t = unixtime;
+
+		return t;
+	}
+
 	static std::vector<std::string> &split(const std::string &s, char delim, std::vector<std::string> &elems) {
 	    std::stringstream ss(s);
 	    std::string item;

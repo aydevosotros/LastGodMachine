@@ -1,10 +1,3 @@
-/*
- * NNMachine.h
- *
- *  Created on: Jan 16, 2014
- *      Author: antonio
- */
-
 #ifndef NNMACHINE_H_
 #define NNMACHINE_H_
 
@@ -12,10 +5,10 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-//#include <lbfgs.h>
-#include "armadillo"
-#include "Utils.h"
 
+#include "armadillo"
+
+#include "Utils.h"
 #include "IMachine.h"
 
 typedef arma::mat M2;

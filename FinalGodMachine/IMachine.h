@@ -9,8 +9,8 @@ public:
 	virtual void loadTrainingSet(std::string filename)=0;
 	virtual void loadTestingSet(std::string filename)=0;
 	virtual void loadInput(std::string filename)=0;
-	virtual void train()=0;
 	virtual void run()=0;
+	virtual void train()=0;
 	virtual void test()=0;
 	virtual double predict(Sample input)=0;
 	virtual void clearTrainingSet()=0;
@@ -18,7 +18,3 @@ public:
 
 #endif
 
-//	virtual bool isTrainingReady()=0;
-//	virtual void classifySample(Sample sample)=0;
-//	virtual bool isReadyToCross()=0;
-//	virtual bool isDoorOnFire(double input[])=0;

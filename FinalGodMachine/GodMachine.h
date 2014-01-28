@@ -7,21 +7,19 @@
 #include <float.h>
 
 #include "IMachine.h"
-#include "LRMachine.h"
 #include "LinRMachine.h"
-#include "SVM/SVMachine.h"
+#include "LRMachine.h"
 #include "NNMachine.h"
+#include "SVM/SVMachine.h"
 
 enum Machine {LinearRegression, LogisticRegression, NeuralNetwork, SVM};
 
-//Falta
 class GodMachine {
 public:
 	GodMachine(){
 		C_machine = new LRMachine();
 	}
 
-	//Falta
 	GodMachine(Machine m){
 		switch(m){
 		case LinearRegression:
@@ -57,12 +55,12 @@ public:
 		C_machine->loadInput(filename);
 	}
 
-	void train(){
-		C_machine->train();
-	}
-
 	void run(){
 		C_machine->run();
+	}
+
+	void train(){
+		C_machine->train();
 	}
 
 	void test(){
@@ -75,6 +73,14 @@ public:
 
 	void clearTrainingSet(){
 		C_machine->clearTrainingSet();
+	}
+
+	void buy(double stockunits){
+		std::cout << "BUY " << stockunits << std::endl;
+	}
+
+	void sell(double stockunits){
+		std::cout << "SELL " << stockunits << std::endl;
 	}
 
 private:
