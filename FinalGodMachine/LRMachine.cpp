@@ -3,8 +3,6 @@
 
 //Hay cosas hardcodeadas y tal
 LRMachine::LRMachine() {
-	C_nFeatures = 4;
-	//iterTrain y alphaTrain son parámetros que se hardcodean aqui
 	iterTrain = 1000;
 	alphaTrain = 0.01;
 	trainType = 1; //1 normal, 2 gradiente
@@ -12,7 +10,6 @@ LRMachine::LRMachine() {
 
 LRMachine::~LRMachine() {}
 
-//Falta lo que vaya detrás del lambda
 void LRMachine::setParameters(char *argv[]) {
 //	std::cout << "I'm setting parameters with the LRMachine" << std::endl;
 
@@ -39,8 +36,6 @@ void LRMachine::setParameters(char *argv[]) {
 
 //	Algo más a partir de aquí
 }
-
-//Los loads llevan todos un apaño enlas Ys
 
 void LRMachine::loadTrainingSet(std::string filename) {
 //	std::cout << "I'm loading training set with the LRMachine from " << filename << std::endl;
@@ -198,7 +193,6 @@ void LRMachine::run(){
 	}
 }
 
-//Lleva dentro el isTrainingReady
 void LRMachine::train(){
 //	std::cout << "I'm training with the LRMachine" << std::endl;
 
@@ -267,7 +261,6 @@ void LRMachine::train(){
 	}
 }
 
-//Ys provisionales
 void LRMachine::test(){
 	double treshold = 0.6;
 
@@ -279,27 +272,6 @@ void LRMachine::test(){
 
 	for(unsigned int i = 0; i < C_testingSet.size(); i++){
 		double p = (double)predict(C_testingSet[i]);
-
-		if((p>treshold && C_actualY[0][i] > 0) || (p<=treshold && C_actualY[0][i] < 0)){
-			if(p>treshold){
-//				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
-			} else {
-//				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
-			}
-
-//			std::cout << "Ni Sandro Rey" << std::endl;
-
-		} else if((p>treshold && C_actualY[0][i] < 0) || (p<=treshold && C_actualY[0][i] > 0)){
-			if(p>treshold){
-//				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
-			} else {
-//				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
-			}
-
-//			std::cout << "Pinyico..." << std::endl;
-		} else {
-			std::cout << "No se que carajo ha pasado" << std::endl;
-		}
 
 		auxY.push_back(p);
 	}
@@ -338,7 +310,6 @@ void LRMachine::test(){
 	std::cout << "fScore = " << fScore << std::endl;
 }
 
-//Está copypasteado el classifySample
 double LRMachine::predict(Sample input){
 //	std::cout << "I'm predicting this input with the LRMachine" << std::endl;
 
@@ -356,27 +327,9 @@ double LRMachine::predict(Sample input){
 	return sigmoid(p);
 }
 
-//Correcto
 void LRMachine::clearTrainingSet() {
 	C_trainingSet.clear();
 }
-
-//bool LRMachine::isDoorOnFire(double input[]) {
-//	double p = 0.0;
-//	for(int i=0; i<nFeatures+1; i++){
-//		if(i==0)
-//			p = theta[i];
-//		else p += theta[i]*input[i-1];
-//	}
-//	p=sigmoid(p);
-//	std::cout << "La probabilidad de que la siguiente puerta esté caliente es: " << p << std::endl;
-////	if(p>0.4 && p <0.6)
-//	if(p>0.40)
-//		return true; // Esto es un truquillo para no jugarsela en un rango de más indecisión
-////	if(p>0.5)
-////		return true;
-//	else return false;
-//}
 
 double LRMachine::sigmoid(double z) {
 	double e = 2.71828182845904523536;
@@ -399,7 +352,6 @@ double LRMachine::cost(std::vector<double> theta, std::vector<std::vector<double
 	return J/y.size();
 }
 
-//Presuntamente correcto, y las Ys? No se le llama O.O
 void LRMachine::grad(std::vector<double> tetha, std::vector<std::vector<double> > X, std::vector<double> y, std::vector<double> grad) {
 	for(unsigned int j=0; j<C_theta.size(); j++){
 		double parcial = 0.0;
@@ -416,40 +368,6 @@ void LRMachine::grad(std::vector<double> tetha, std::vector<std::vector<double> 
 	}
 }
 
-//Todito comentadito estaba
-void LRMachine::trainByGradientAdvanced(int iter, double alpha) {
-//	int i, ret = 0;
-//	lbfgsfloatval_t fx;
-//	lbfgsfloatval_t *theta = lbfgs_malloc(X.size());
-//	lbfgs_parameter_t param;
-//
-//	if (theta == NULL) {
-//		printf("ERROR: Failed to allocate a memory block for variables.\n");
-//	}
-//
-//	/* Initialize the variables. */
-//	for (i = 0;i < X.size();i += 2) {
-//		theta[i] = this->theta[i];
-//	}
-//
-//	/* Initialize the parameters for the L-BFGS optimization. */
-//	lbfgs_parameter_init(&param);
-//	/*param.linesearch = LBFGS_LINESEARCH_BACKTRACKING;*/
-//
-//	/*
-//		Start the L-BFGS optimization; this will invoke the callback functions
-//		evaluate() and progress() when necessary.
-//	 */
-//	ret = lbfgs(X.size(), theta, NULL, evaluateLR, progressLR, NULL, &param);
-//
-//	/* Report the result. */
-//	printf("L-BFGS optimization terminated with status code = %d\n", ret);
-//	printf("  fx = %f, x[0] = %f, x[1] = %f\n", fx, theta[0], theta[1]);
-//
-//	lbfgs_free(theta);
-}
-
-//Ys provisionales, y más cosas
 void LRMachine::trainByGradient(int iter, double alpha) {
 	double vari = 0.01;
 	double pCoste = 0.0;
@@ -482,7 +400,7 @@ void LRMachine::trainByGradient(int iter, double alpha) {
 	}
 
 }
-//Ys provisionales
+
 void LRMachine::trainByNormalEcuation() {
 	// Actualizo aqui el número de características
 	int nFeaturesCuad = 2*C_nFeatures;
@@ -571,11 +489,11 @@ void LRMachine::fillY() {
 void LRMachine::fillActualY(){
 	std::vector<double> aux;
 
-	for(unsigned int i=0; i<C_trainingSet.size(); i++){
+	for(unsigned int i=0; i<C_testingSet.size(); i++){
 		aux.clear();
 
-		for(unsigned int j=0; j<C_trainingSet[0].getResult().size(); j++){
-			aux.push_back((double)C_trainingSet[i].getResult()[j]);
+		for(unsigned int j=0; j<C_testingSet[0].getResult().size(); j++){
+			aux.push_back((double)C_testingSet[i].getResult()[j]);
 		}
 
 		C_actualY.push_back(aux);

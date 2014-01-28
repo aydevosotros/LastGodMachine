@@ -1,9 +1,8 @@
 #include "LinRMachine.h"
 #include "Utils.h"
 
-//Hay cosas hardcodeadas y tal, igual que en la LR
 LinRMachine::LinRMachine() {
-	//iterTrain y alphaTrain son parámetros que se hardcodean aqui
+	//iterTrain y alphaTrain están hardcodeados aquí si no se inicializan.
 	C_iterations = 1000;
 	C_alpha = 0.001;
 	C_trainingType = 2; //1 normal, 2 gradiente
@@ -11,7 +10,6 @@ LinRMachine::LinRMachine() {
 
 LinRMachine::~LinRMachine() {}
 
-//Falta lo que vaya detrás del lambda
 void LinRMachine::setParameters(char *argv[]) {
 //	std::cout << "I'm setting parameters with the LinRMachine" << std::endl;
 
@@ -40,8 +38,6 @@ void LinRMachine::setParameters(char *argv[]) {
 //		std::cout	<< "Predicting " << C_inputFile << std::endl;
 	}
 }
-
-//Los loads llevan todos un apaño enlas Ys
 
 void LinRMachine::loadTrainingSet(std::string filename) {
 //	std::cout << "I'm loading training set with the LinRMachine from " << filename << std::endl;
@@ -191,7 +187,6 @@ void LinRMachine::run(){
 	}
 }
 
-//Lleva dentro el isTrainingReady
 void LinRMachine::train(){
 //	std::cout << "I'm training with the LinRMachine" << std::endl;
 
@@ -262,7 +257,7 @@ void LinRMachine::train(){
 	}
 }
 
-//Hay que revisar
+//Hay que repasar cuando los outputs sean buenos
 void LinRMachine::test(){
 	double treshold = 0.0;
 
@@ -276,27 +271,6 @@ void LinRMachine::test(){
 		double p = (double)predict(C_testingSet[i]);
 
 //		std::cout << p << std::endl;
-
-		if((p>treshold && C_actualY[i] > 0) || (p<=treshold && C_actualY[i] < 0)){
-			if(p>treshold){
-//				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
-			} else {
-//				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
-			}
-
-//			std::cout << "Ni Sandro Rey" << std::endl;
-
-		} else if((p>treshold && C_actualY[i] < 0) || (p<=treshold && C_actualY[i] > 0)){
-			if(p>treshold){
-//				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
-			} else {
-//				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
-			}
-
-//			std::cout << "Pinyico..." << std::endl;
-		} else {
-			std::cout << "No se que carajo ha pasado" << std::endl;
-		}
 
 		C_predictedY.push_back(p);
 	}

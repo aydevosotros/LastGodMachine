@@ -19,8 +19,8 @@ public:
 	void loadTrainingSet(std::string filename);
 	void loadTestingSet(std::string filename);
 	void loadInput(std::string filename);
-	void train();
 	void run();
+	void train();
 	void test();
 	double predict(Sample input);
 	void clearTrainingSet();
@@ -59,11 +59,8 @@ private:
 	//FUNCIONES
 
 	// Internal functions
-//	double sigmoid(double z);
 	double cost(std::vector<double> theta);
-//	void grad(std::vector<double> tetha, std::vector<std::vector<double> > X, std::vector<double> y, std::vector<double> grad);
 	void trainByGradient(int iter, double alpha);
-//	void trainByGradientAdvanced(int iter, double alpha);
 	void trainByNormal();
 	double h(std::vector<double> x);
 

@@ -5,12 +5,10 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-//#include <lbfgs.h>
+
 #include "armadillo"
 
 #include "IMachine.h"
-
-// Implementar Precision and Recall
 
 class LRMachine : public IMachine {
 public:
@@ -21,8 +19,8 @@ public:
 	void loadTrainingSet(std::string filename);
 	void loadTestingSet(std::string filename);
 	void loadInput(std::string filename);
-	void train();
 	void run();
+	void train();
 	void test();
 	double predict(Sample input);
 	void clearTrainingSet();
@@ -54,10 +52,10 @@ private:
 	std::vector<std::vector<double> > C_actualY;
 	std::vector<std::vector<double> > C_predictedY; //Estos son los que calculamos nosotros. Precission y recall
 
-	//Ni zorra
+	//Usados en los distintos tipos de entrenamiento
+	int trainType;
 	int iterTrain;
 	double alphaTrain;
-	int trainType;
 
 	//FUNCIONES
 

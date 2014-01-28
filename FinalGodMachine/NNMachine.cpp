@@ -1,10 +1,3 @@
-/*
- * NNMachine.cpp
- *
- *  Created on: Jan 16, 2014
- *      Author: antonio
- */
-
 #include "NNMachine.h"
 
 NNMachine::NNMachine() {
