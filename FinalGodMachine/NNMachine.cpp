@@ -183,9 +183,9 @@ void NNMachine::train(){
 	s_l.clear();
 	s_l.push_back(this->trainingSet[0].getNFeatures());
 	s_l.push_back(this->trainingSet[0].getNFeatures()*2);
-	s_l.push_back(this->trainingSet[0].getNFeatures()*3);
+//	s_l.push_back(this->trainingSet[0].getNFeatures()*3);
 	s_l.push_back(this->trainingSet[0].getNFeatures()*2);
-	s_l.push_back(this->trainingSet[0].getNFeatures());
+//	s_l.push_back(this->trainingSet[0].getNFeatures());
 	s_l.push_back(1);
 	L = s_l.size();
 	this->initRandomThetas();
@@ -225,6 +225,10 @@ void NNMachine::forwardPropagate(Sample s) {
 }
 
 void NNMachine::backPropagate() {
+	// Inicializo upperDelta a cero
+	this->upperDelta.clear();
+	for(int l=0; l<L-1; l++)
+		this->upperDelta.push_back(arma::zeros(s_l[l+1], s_l[l]+1));
 	for(int s=0; s<trainingSet.size(); s++){
 		forwardPropagate(this->trainingSet[s]);
 		std::vector<arma::Col<double> > lowerDelta;
@@ -242,26 +246,21 @@ void NNMachine::backPropagate() {
 				arma::Col<double> aux;
 				arma::mat gP = this->a[l]%(1-a[l]);
 //				std::cout << "Para la capa " << l << " tenemos una g': " << std::endl << gP;
-				if(l+1!=L-1){
-//					std::cout << "Para la capa " << l+1 << " tenemos una lower delta: " << std::endl << lowerDelta[l+1].rows(1,s_l[l+1]);
-					aux = thetas[l].t()*lowerDelta[l+1].rows(1,s_l[l+1]);
-				} else {
-//					std::cout << "Para la capa " << l+1 << " tenemos una lower delta: " << std::endl << lowerDelta[l+1];
+				if(l+1 == L-1)
 					aux = thetas[l].t()*lowerDelta[l+1];
-				}
+				else
+					aux = thetas[l].t()*lowerDelta[l+1].rows(1,s_l[l+1]);
 //				std::cout << "Para la capa " << l << " tenemos un aux': " << std::endl << aux;
 				lowerDelta[l] = aux%gP;
 			}
 //			std::cout << "Para la capa " << l << " he obtenido un lowerDelta de: " << std::endl << lowerDelta[l] << std::endl;
-
 		}
 		for(int l=0; l<L-1; l++){
 //			std::cout << "Calculo upperDelta para la capa: " << l << " " << std::endl << lowerDelta[l+1] << " " << s_l[l+1] << std::endl;
-			if(l+1!=L-1){
-				this->upperDelta[l] = this->upperDelta[l] + (lowerDelta[l+1].rows(1,s_l[l+1])*this->a[l].t());
-			} else {
-				this->upperDelta[l] = this->upperDelta[l] + (lowerDelta[l+1]*this->a[l].t());
-			}
+			if(l+1 == L-1)
+				this->upperDelta[l] += lowerDelta[l+1]*this->a[l].t();
+			else
+				this->upperDelta[l] += lowerDelta[l+1].rows(1,s_l[l+1])*this->a[l].t();
 //			std::cout << "El valor de upperDelta es: " << std::endl << upperDelta[l] << "para un theta: " << std::endl << thetas[l] << std::endl;
 		}
 	}
@@ -281,7 +280,6 @@ void NNMachine::backPropagate() {
 
 void NNMachine::initTraining() {
 	// Init thetas and a
-	this->upperDelta.clear();
 	this->D.clear();
 	this->a.clear();
 	for(int l=0; l<L; l++){
@@ -290,8 +288,6 @@ void NNMachine::initTraining() {
 			this->a.push_back(arma::Col<double>(s_l[l]));
 		} else {
 			this->a.push_back(arma::Col<double>(s_l[l]+1));
-//			std::cout << "Inicializo upperDelta para esta capa " << l << std::endl;
-			this->upperDelta.push_back(arma::mat(s_l[l+1], s_l[l]+1));
 //			std::cout << "Inicializo D para esta capa " << l << std::endl;
 			this->D.push_back(arma::mat(s_l[l+1], s_l[l]+1));
 		}
@@ -357,7 +353,6 @@ void NNMachine::gradChecking() {
 			for(int j=0; j<s_l[l]+1; j++){
 				this->thetas[l](i,j) += epsilon;
 //				std::cout << "Voy por: " << l << "," << i << "," << j << std::endl;
-				this->thetas[l](i,j) += epsilon;
 				cTPL(i,j) = cost();
 //				std::cout << "Calculo el coste para plus: " << cTPL(i,j) << std::endl;
 				this->thetas[l](i,j) -= 2*epsilon;
@@ -376,7 +371,6 @@ void NNMachine::gradChecking() {
 		for(int i=0; i<s_l[l+1]; i++){
 			for(int j=0; j<s_l[l]+1; j++){
 				gradAprox[l](i,j) = (cThetasPlus[l](i,j)-cThetasMinus[l](i,j))/(2*epsilon);
-				std::cout << "Aquí empiezo a comprobar la maraña" << std::endl;
 				std::cout << "Para la capa " << l << " desde el nodo " << i << " al nodo " << j <<
 						" tengo un aproximado de: " << gradAprox[l](i,j) << " y una DX " << this->D[l](i,j) << std::endl;
 			}
@@ -388,23 +382,19 @@ double NNMachine::cost(){
 	double J = 0.0;
 //	std::cout << "La dimensión de la última capa es: " << trainingSet.size() << std::endl;
 	for(int i=0; i<this->trainingSet.size(); i++){
-//		std::cout << "La dimensión de la última capa es: " << s_l[L-1] << std::endl;
 		this->forwardPropagate(trainingSet[i]);
-//		aux = trainingSet[i].getResult()[0] * std::log(a[L-1](0)) + (1.0-trainingSet[i].getResult()[0])*std::log(1.0-a[L-1](0));
 		for(int k=0; k<s_l[L-1]; k++){
 			J += trainingSet[i].getResult()[0] * std::log(a[L-1](k)) + (1-trainingSet[i].getResult()[0])*std::log(1-a[L-1](k));
 		}
-//		std::cout << "Si a[L-1]: " << a[L-1](0) << " y y[i]: " << trainingSet[i].getResult()[0] <<
-//				" Por qué carajo J(i) = " << J << std::endl;
 	}
 //	std::cout << " el parcial vale " << J << " y tengo: " << trainingSet.size() << " elementos " << std::endl;
 	J /= trainingSet.size()*(-1.0);
 //	std::cout << "LLego hasta aquí con un coste de: " << J << std::endl;
 	double aux = 0.0;
 	for(int l=0; l<L-1; l++)
-		for(int i=0; i<s_l[l+1]; i++)
-			for(int j=0; j<s_l[l]+1; j++)
-				aux+=std::pow(this->thetas[l](i,j),2);
+		for(int i=0; i<s_l[l]; i++)
+			for(int j=0; j<s_l[l+1]; j++)
+				aux+=std::pow(this->thetas[l](j,i),2);
 	aux*=this->lambda;
 	aux/=2*this->trainingSet.size();
 	return J+aux;
@@ -415,26 +405,30 @@ void NNMachine::trainByGradient(int iter, double alpha) {
 	for(int it=0; it<iter; it++){
 		// Calculo el coste
 		backPropagate();
+//		std::cout << "Un poco basto pero..." << std::endl;
+//		for(int l=0; l<L-1; l++)
+//			std::cout << "D para la capa " << l << " vale: " << std::endl << this->D[l];
 //		gradChecking();
 		double coste = cost();
 		std::cout << "Para la iteración " << it << " el coste es: " << coste << std::endl;
 		// Recalculo theta para la siguiente iteracion
 		for(int l=0; l<L-1; l++){
-//			std::cout << std::endl << D.size() << " " << thetas.size() << std::endl;
-			for(int i=0; i<s_l[l+1]; i++)
-				for(int j=0; j<s_l[l]+1; j++)
-					this->thetas[l](i,j)-=alpha*this->D[l](i,j);
+//			for(int i=0; i<s_l[l+1]; i++)
+//				for(int j=0; j<s_l[l]+1; j++)
+//					this->thetas[l](i,j)-=alpha*this->D[l](i,j);
+			this->thetas[l] = this->thetas[l] - (alpha*this->D[l]);
 		}
 		double vari = pCoste-coste;
 		if(it>0){
-			std::cout << "La variación en el coste para la iteración "<< it <<" es de: " << vari << std::endl;
-			if(coste < 0.001){
-				std::cout << "Estoy suficientemente entrenado!!!!!!\n";
+//			std::cout << "La variación en el coste para la iteración "<< it <<" es de: " << vari << std::endl;
+			if(vari <= 0.000001){
+//				std::cout << "Estoy suficientemente entrenado!!!!!!\n";
 //				break;
-			} else if (std::isnan(vari)){
-//				std::cout << "Tengo un NaN!!!!\n";
 			}
+//			if(std::isnan(coste))
+//				break;
 		}
+//		std::cout << it << "," << coste << std::endl;
 		pCoste = coste;
 	}
 	std::cout << "Dejo el gradiente con un coste de: " << this->cost() << std::endl;
