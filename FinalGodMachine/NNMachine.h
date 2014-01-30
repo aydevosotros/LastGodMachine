@@ -33,6 +33,12 @@ private:
 	int executionMode;
 	std::string trainingFile;
 	std::string testFile;
+
+	//Aguilañadidos
+	std::string inputFile;
+	std::string thetasFileName;
+	Sample input;
+
 	int L; //Número de capas
 	int nFeatures;
 	double lambda;
@@ -63,6 +69,10 @@ private:
 
 	//Metodos de pruebas
 	void pruebaXorBasica();
+	void loadThetas();
+	void saveThetas();
+	void showThetas();
+	void init();
 
 	//Para los tests
 	void fillTestingY();

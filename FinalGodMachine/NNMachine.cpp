@@ -1,23 +1,25 @@
 #include "NNMachine.h"
 
-NNMachine::NNMachine() {
-//	train();
-//	this->pruebaXorBasica();
-}
+NNMachine::NNMachine() {}
 
-NNMachine::~NNMachine() {
-	// TODO Auto-generated destructor stub
-}
+NNMachine::~NNMachine() {}
 
 void NNMachine::setParameters(char* argv[]) {
 	this->executionMode = atoi(argv[2]);
+
 	if(executionMode == 0){
 		this->trainingFile = argv[3];
 		this->testFile = argv[4];
+
+		this->lambda = atof(argv[5]);
+
+		this->alpha = atof(argv[6]);
+
+		this->iteraciones = atoi(argv[7]);
+	} else if(executionMode == 1){
+		this->inputFile = argv[3];
+		this->trainingFile = argv[3];
 	}
-	this->lambda = atof(argv[5]);
-	this->alpha = atof(argv[6]);
-	this->iteraciones = atoi(argv[7]);
 }
 
 void NNMachine::loadTrainingSet(std::string filename) {
@@ -29,14 +31,22 @@ void NNMachine::loadTrainingSet(std::string filename) {
 	if(trainingFile.is_open()){
 		while(std::getline(trainingFile,line)) {
 			Sample tmp;
+
 			tmp.setInput(Utils::vStovD(Utils::split(line,';')));
+
 			std::getline(trainingFile,line);
-			double res = atof(line.c_str());
+
+			int res = atoi(line.c_str());
+
 			std::vector<int> result;
+
 			result.push_back(res);
+
 			tmp.setResult(result);
+
 			this->trainingSet.push_back(tmp);
 		}
+
 		trainingFile.close();
 	} else{
 		std::cout << "Unable to open file" << std::endl;
@@ -52,12 +62,19 @@ void NNMachine::loadTestingSet(std::string filename) {
 	if(testingFile.is_open()){
 		while(std::getline(testingFile,line)) {
 			Sample tmp;
+
 			tmp.setInput(Utils::vStovD(Utils::split(line,';')));
+
 			std::getline(testingFile,line);
+
 			double res = atof(line.c_str());
+
 			std::vector<int> result;
+
 			result.push_back(res);
+
 			tmp.setResult(result);
+
 			this->testingSet.push_back(tmp);
 		}
 
@@ -67,23 +84,166 @@ void NNMachine::loadTestingSet(std::string filename) {
 	}
 }
 
+//Innecesario en el final
 void NNMachine::loadInput(std::string filename) {
-//	std::cout << "I'm loading input with the LinRMachine from " << filename << std::endl;
+	//	std::cout << "I'm loading input with the NNMachine from " << filename << std::endl;
 
-//	std::string line;
-//	std::ifstream inputFile(filename.c_str());
-//
-//	if(inputFile.is_open()){
-//		std::getline(inputFile,line);
-//
-//		C_input.setInput(Utils::vStovD(Utils::split(line,';')));
-//
-//		C_input.setRResult(atof(line.c_str()));
-//
-//		inputFile.close();
-//	} else{
-//		std::cout << "Unable to open file" << std::endl;
-//	}
+	std::string line;
+	std::ifstream inputFile(this->inputFile.c_str());
+
+	if(inputFile.is_open()){
+		std::getline(inputFile,line);
+
+		this->input.setInput(Utils::vStovD(Utils::split(line,';')));
+
+		inputFile.close();
+	} else{
+		std::cout << "Unable to open file" << std::endl;
+	}
+}
+
+void NNMachine::loadThetas(){
+	//	std::cout << "I'm loading Thetas with the NNMachine" << std::endl;
+
+	//Ahora averiguaremos el nombre que debe tener el archivo de thetas
+
+	std::vector<std::string> trainingFileParts(Utils::split(inputFile,'-'));
+
+	std::string root = trainingFileParts[0].substr(0,10);
+
+	std::string machinefolder = "NN/";
+
+	std::string value = trainingFileParts[0].substr(10,trainingFileParts[0].length());
+
+	std::string route = "";
+
+	route.append(root);
+
+	route.append(machinefolder);
+
+	route.append(value);	route.append("/");
+
+	std::string prefix = "";
+
+	prefix.append(root);
+	prefix.append(value);
+
+	std::string thetaName = inputFile.substr(prefix.length()+1,inputFile.length());
+
+	route.append(thetaName);
+
+	thetasFileName = route;
+
+//	std::cout << "EL archivo que vamos a leer es: " << thetasFileName << std::endl;
+
+	//Y para terminar, escribimos las thetas en un archivo
+
+	std::string line;
+	std::ifstream thetasFile(thetasFileName.c_str());
+
+	if(thetasFile.is_open()){
+		this->thetas.clear();
+
+		std::getline(thetasFile,line);
+
+		for(int l=0; l<L-1; l++){
+			arma::mat thetaL(s_l[l+1], s_l[l]+1);
+
+			for(int i=0; i<s_l[l+1]; i++){
+				std::vector<double> aux = Utils::vStovD(Utils::split(line,';'));
+
+				for(int j=0; j<s_l[l]+1; j++){
+					thetaL(i,j) = aux[j];
+				}
+
+				std::getline(thetasFile,line);
+			}
+
+			this->thetas.push_back(thetaL);
+		}
+
+		thetasFile.close();
+	} else{
+		std::cout << "Unable to open file" << std::endl;
+	}
+}
+
+void NNMachine::saveThetas(){
+	//Ahora averiguaremos el nombre que debe tener el archivo de thetas
+
+	std::string command = "mkdir -p ";
+
+	std::vector<std::string> trainingFileParts(Utils::split(trainingFile,'-'));
+
+	std::string root = trainingFileParts[0].substr(0,10);
+
+	std::string machinefolder = "NN/";
+
+	std::string value = trainingFileParts[0].substr(10,trainingFileParts[0].length());
+
+	std::string route = "";
+
+	route.append(root);
+
+	route.append(machinefolder);
+
+	route.append(value);	route.append("/");
+
+	command.append(route);
+
+	system(command.c_str());
+
+	std::cout << "El comando ha sido: "<< std::endl << command << std::endl;
+
+	std::string prefix = "";
+
+	prefix.append(root);
+	prefix.append(value);
+
+	std::string thetaName = trainingFile.substr(prefix.length()+1,trainingFile.length());
+
+	route.append(thetaName);
+
+	thetasFileName = route;
+
+	std::cout << "EL archivo creado es: " << thetasFileName << std::endl;
+
+	//Y para terminar, escribimos las thetas en un archivo
+
+	std::string line;
+	std::ofstream thetasFile(thetasFileName.c_str());
+
+	if(thetasFile.is_open()){
+		for(int l=0; l<L-1; l++){
+			for(int i=0; i<s_l[l+1]; i++){
+				thetasFile << thetas[l](i,0);
+
+				for(int j=1; j<s_l[l]+1; j++){
+					thetasFile << ";" << thetas[l](i,j);
+				}
+
+				thetasFile << std::endl;
+			}
+		}
+
+		thetasFile.close();
+	} else{
+		std::cout << "Unable to open file" << std::endl;
+	}
+}
+
+void NNMachine::showThetas(){
+	for(int l=0; l<L-1; l++){
+		for(int i=0; i<s_l[l+1]; i++){
+			std::cout << thetas[l](i,0);
+
+			for(int j=1; j<s_l[l]+1; j++){
+				std::cout << ";" << thetas[l](i,j);
+			}
+
+			std::cout << std::endl;
+		}
+	}
 }
 
 void NNMachine::clearTrainingSet(){
@@ -99,6 +259,16 @@ void NNMachine::run() {
 		std::cout << "Entrenando..." << std::endl;
 		train();
 		test();
+	} else if(this->executionMode == 1){
+		std::cout << "Cargando input" << std::endl;
+		loadInput(inputFile);
+
+		init();
+
+		std::cout << "Cargando thetas" << std::endl;
+		loadThetas();
+		std::cout << "Guardando thetas" << std::endl;
+//		showThetas();
 	}
 }
 
@@ -181,19 +351,30 @@ double NNMachine::predict(Sample input) {
 }
 
 void NNMachine::train(){
-//	loadTrainingSet("trainingFireDoorEscaper.txt");
-	s_l.clear();
-	s_l.push_back(this->trainingSet[0].getNFeatures());
-	s_l.push_back(this->trainingSet[0].getNFeatures()*2);
-//	s_l.push_back(this->trainingSet[0].getNFeatures()*3);
-	s_l.push_back(this->trainingSet[0].getNFeatures()*2);
-//	s_l.push_back(this->trainingSet[0].getNFeatures());
-	s_l.push_back(1);
-	L = s_l.size();
+	init();
 	this->initRandomThetas();
 	this->initTraining();
 	std::cout << "Iniciando el descenso por gradiente..." << std::endl;
 	trainByGradient(this->iteraciones, this->alpha);
+	saveThetas();
+}
+
+void NNMachine::init(){
+	if(executionMode == 0){
+		nFeatures = trainingSet[0].getNFeatures();
+	} else if (executionMode == 1){
+		nFeatures = input.getNFeatures();
+	}
+
+//	loadTrainingSet("trainingFireDoorEscaper.txt");
+	s_l.clear();
+	s_l.push_back(this->nFeatures);
+	s_l.push_back(this->nFeatures*2);
+//	s_l.push_back(this->trainingSet[0].getNFeatures()*3);
+	s_l.push_back(this->nFeatures*2);
+//	s_l.push_back(this->trainingSet[0].getNFeatures());
+	s_l.push_back(1);
+	L = s_l.size();
 }
 
 void NNMachine::forwardPropagate(Sample s) {
