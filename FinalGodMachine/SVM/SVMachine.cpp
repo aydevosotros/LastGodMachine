@@ -54,6 +54,16 @@ void SVMachine::setParameters(char *argv[]){
 	} else if(margin == 1){
 //		std::cout << "The margin is hard" << std::endl;
 	}
+
+	int ker = atoi(argv[5]);
+	switch(ker){
+	case 0: C_kernel = new LinearKernel();
+	break;
+	case 1: C_kernel = new PolynomialKernel();
+	break;
+	case 2: C_kernel = new RBFKernel();
+	break;
+	}
 }
 
 //copypasteao tal cual de la LR
@@ -416,7 +426,7 @@ void SVMachine::quadraticSolution() {
 			C_X(i,j) = C_trainingSet[i].getInput()[j];
 		}
 	}
-//	std::cout << C_X;
+	std::cout << "X vale: " << std::endl << C_X;
 
 	// Obtengo la Y
 	C_y = arma::mat(n, 1);
@@ -426,7 +436,7 @@ void SVMachine::quadraticSolution() {
 		C_y(i) = C_trainingSet[i].getResult()[0];
 	}
 
-	std::cout << C_y;
+	std::cout << "Y vale: " << std::endl << C_y;
 	// Seteo la restriccion
 	for(int i = 0; i < n; i++){
 		qp.set_a(i,0,ET(C_y.at(i)));

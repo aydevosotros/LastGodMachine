@@ -17,6 +17,7 @@ RBFKernel::~RBFKernel() {
 }
 
 CGAL::MP_Float RBFKernel::K(arma::vec X1, arma::vec X2) {
+//	std::cout << "X1:" << std::endl << X1 << std::endl << "X2: " << std::endl << X2;
 	CGAL::MP_Float value(std::exp(CGAL::to_double(computeGamma()*squaredEuclidean(X1, X2))));
 	return value;
 }
