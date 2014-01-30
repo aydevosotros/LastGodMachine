@@ -47,7 +47,7 @@ void SVMachine::setParameters(char *argv[]){
 //		std::cout	<< "Predicting " << C_inputFile << std::endl;
 	}
 
-	int margin = atoi(argv[4]);
+	int margin = atoi(argv[5]);
 
 	if(margin == 0){
 //		std::cout << "The margin is soft" << std::endl;
@@ -55,7 +55,7 @@ void SVMachine::setParameters(char *argv[]){
 //		std::cout << "The margin is hard" << std::endl;
 	}
 
-	int ker = atoi(argv[5]);
+	int ker = atoi(argv[6]);
 	switch(ker){
 	case 0: C_kernel = new LinearKernel();
 	break;
