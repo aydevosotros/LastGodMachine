@@ -29,7 +29,7 @@ public:
 			C_machine = new LRMachine();
 			break;
 		case SVM:
-			C_machine = new SVMachine(Polynomial);
+			C_machine = new SVMachine(Linear);
 			break;
 		case NeuralNetwork:
 			C_machine = new NNMachine();

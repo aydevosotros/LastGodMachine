@@ -50,6 +50,8 @@ private:
 	std::string C_testingFile;
 	std::string C_inputFile;
 
+	std::string C_fileName;
+
 	//Atributos cargados desde archivo
 	VSample C_trainingSet;
 	VSample C_testingSet;
@@ -76,6 +78,11 @@ private:
 
 	//Auxiliares
 	void fillActualY();
+	void saveParams();
+	void loadParams();
+	void showParams();
+	void init();
+	int C_n;
 };
 
 #endif /* SVMACHINE_H_ */
