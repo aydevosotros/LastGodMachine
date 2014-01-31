@@ -41,28 +41,44 @@ void SVMachine::setParameters(char *argv[]){
 
 //		std::cout	<< "Training with " << C_trainingFile
 //					<< " and testing with " << C_testingFile << std::endl;
+		int margin = atoi(argv[5]);
+
+		if(margin == 0){
+	//		std::cout << "The margin is soft" << std::endl;
+		} else if(margin == 1){
+	//		std::cout << "The margin is hard" << std::endl;
+		}
+
+		int ker = atoi(argv[6]);
+		switch(ker){
+		case 0: C_kernel = new LinearKernel();
+		break;
+		case 1: C_kernel = new PolynomialKernel(6);
+		break;
+		case 2: C_kernel = new RBFKernel();
+		break;
+		}
 	} else 	if(C_executionMode == 1){
 		C_inputFile = argv[3];
 
 //		std::cout	<< "Predicting " << C_inputFile << std::endl;
-	}
+		int margin = atoi(argv[4]);
 
-	int margin = atoi(argv[5]);
+		if(margin == 0){
+	//		std::cout << "The margin is soft" << std::endl;
+		} else if(margin == 1){
+	//		std::cout << "The margin is hard" << std::endl;
+		}
 
-	if(margin == 0){
-//		std::cout << "The margin is soft" << std::endl;
-	} else if(margin == 1){
-//		std::cout << "The margin is hard" << std::endl;
-	}
-
-	int ker = atoi(argv[6]);
-	switch(ker){
-	case 0: C_kernel = new LinearKernel();
-	break;
-	case 1: C_kernel = new PolynomialKernel(6);
-	break;
-	case 2: C_kernel = new RBFKernel();
-	break;
+		int ker = atoi(argv[5]);
+		switch(ker){
+		case 0: C_kernel = new LinearKernel();
+		break;
+		case 1: C_kernel = new PolynomialKernel(6);
+		break;
+		case 2: C_kernel = new RBFKernel();
+		break;
+		}
 	}
 }
 
@@ -160,32 +176,33 @@ void SVMachine::run(){
 		loadTrainingSet(C_trainingFile);
 		loadTestingSet(C_testingFile);
 
-		//Comprobamos que se han cargado bien los dos archivos
-
-		for(unsigned int i = 0; i < C_trainingSet.size(); i++){
-			for(unsigned int j = 0; j < C_trainingSet[i].getInput().size(); j++){
-				std::cout << C_trainingSet[i].getInput()[j] << ' ';
-			}
-			std::cout << std::endl << C_trainingSet[i].getResult()[0] << std::endl;
-		}
-
-		std::cout << std::endl;
-
-		for(unsigned int i = 0; i < C_testingSet.size(); i++){
-			for(unsigned int j = 0; j < C_testingSet[i].getInput().size(); j++){
-				std::cout << C_testingSet[i].getInput()[j] << ' ';
-			}
-			std::cout << std::endl << C_testingSet[i].getResult()[0] << std::endl;
-		}
-
-		//Fin de la comprobacion
+//		//Comprobamos que se han cargado bien los dos archivos
+//
+//		for(unsigned int i = 0; i < C_trainingSet.size(); i++){
+//			for(unsigned int j = 0; j < C_trainingSet[i].getInput().size(); j++){
+//				std::cout << C_trainingSet[i].getInput()[j] << ' ';
+//			}
+//			std::cout << std::endl << C_trainingSet[i].getResult()[0] << std::endl;
+//		}
+//
+//		std::cout << std::endl;
+//
+//		for(unsigned int i = 0; i < C_testingSet.size(); i++){
+//			for(unsigned int j = 0; j < C_testingSet[i].getInput().size(); j++){
+//				std::cout << C_testingSet[i].getInput()[j] << ' ';
+//			}
+//			std::cout << std::endl << C_testingSet[i].getResult()[0] << std::endl;
+//		}
+//
+//		//Fin de la comprobacion
 
 		train();
-		test();
+//		test();
 	} else if(C_executionMode == 1){
 //		std::cout << "Predict" << std::endl;
 
 		loadInput(C_inputFile);
+		loadParams();
 
 //		//Comprobamos que se leen bien los archivos
 //
@@ -202,6 +219,7 @@ void SVMachine::run(){
 //		//Fin de la comprobacion
 
 		predict(C_input);
+		showParams();
 
 		//Escribir lo que devuelve input en algun lado?
 	}
@@ -214,6 +232,188 @@ void SVMachine::train(){
 	C_nFeatures=C_trainingSet[0].getNFeatures();
 
 	trainByQuadraticProgramming();
+
+	saveParams();
+}
+
+void SVMachine::loadParams(){
+	//	std::cout << "I'm loading Thetas with the NNMachine" << std::endl;
+
+	//Ahora averiguaremos el nombre que debe tener el archivo de thetas
+
+	std::vector<std::string> trainingFileParts(Utils::split(C_inputFile,'-'));
+
+	std::string root = trainingFileParts[0].substr(0,10);
+
+	std::string machinefolder = "SVM/";
+
+	std::string value = trainingFileParts[0].substr(10,trainingFileParts[0].length());
+
+	std::string route = "";
+
+	route.append(root);
+
+	route.append(machinefolder);
+
+	route.append(value);	route.append("/");
+
+	std::string prefix = "";
+
+	prefix.append(root);
+	prefix.append(value);
+
+	std::string name = C_inputFile.substr(prefix.length()+1,C_inputFile.length());
+
+	route.append(name);
+
+	C_fileName = route;
+
+//	std::cout << "EL archivo que vamos a leer es: " << C_fileName << std::endl;
+
+	//Y para terminar, escribimos las thetas en un archivo
+
+	std::string line;
+	std::ifstream paramsFile(C_fileName.c_str());
+
+	if(paramsFile.is_open()){
+		std::getline(paramsFile,line);
+
+		C_b = ET(atof(line.c_str()));
+
+		std::getline(paramsFile,line);
+
+		C_n = atoi(line.c_str());
+
+		init();
+
+		std::getline(paramsFile,line);
+
+		for(int i=0; i<C_n; i++){
+			if(C_SupportVectors.at(i) > 0.0){
+				C_SupportVectors(i) = atof(line.c_str());
+
+				std::getline(paramsFile,line);
+
+				C_y(i) = atof(line.c_str());
+
+				std::getline(paramsFile,line);
+
+				std::vector<double> aux = Utils::vStovD(Utils::split(line,';'));
+
+				for(int j = 0; j < aux.size(); j++){
+					C_X(i,j) = aux[j];
+				}
+
+				std::getline(paramsFile,line);
+			}
+		}
+
+		paramsFile.close();
+
+		std::cout << "Ya he cargado" << std::endl;
+	} else{
+		std::cout << "Unable to open file" << std::endl;
+	}
+}
+
+void SVMachine::showParams(){
+	std::cout << C_b << std::endl;
+
+	std::cout << C_n << std::endl;
+
+	for(int i=0; i<C_n; i++){
+		if(C_SupportVectors.at(i) > 0.0){
+			std::cout << C_SupportVectors.at(i) << std::endl;
+			std::cout << C_y.at(i) << std::endl;
+
+			std::cout << C_X(i,0);
+
+			for(int j = 1; j < C_X.row(i).n_elem; j++){
+				std::cout << ";" << C_X(i,j);
+			}
+
+			std::cout << std::endl;
+		}
+	}
+}
+
+void SVMachine::saveParams(){
+	//Ahora averiguaremos el nombre que debe tener el archivo de thetas
+
+	std::string command = "mkdir -p ";
+
+	std::vector<std::string> trainingFileParts(Utils::split(C_trainingFile,'-'));
+
+	std::string root = trainingFileParts[0].substr(0,10);
+
+	std::string machinefolder = "SVM/";
+
+	std::string value = trainingFileParts[0].substr(10,trainingFileParts[0].length());
+
+	std::string route = "";
+
+	route.append(root);
+
+	route.append(machinefolder);
+
+	route.append(value);	route.append("/");
+
+	command.append(route);
+
+	system(command.c_str());
+
+	std::cout << "El comando ha sido: "<< std::endl << command << std::endl;
+
+	std::string prefix = "";
+
+	prefix.append(root);
+	prefix.append(value);
+
+	std::string name = C_trainingFile.substr(prefix.length()+1,C_trainingFile.length());
+
+	route.append(name);
+
+	C_fileName = route;
+
+	std::cout << "EL archivo creado es: " << C_fileName << std::endl;
+
+	//Y para terminar, escribimos las thetas en un archivo
+
+	std::string line;
+	std::ofstream paramsFile(C_fileName.c_str());
+
+	if(paramsFile.is_open()){
+		paramsFile << C_b << std::endl;
+
+		int n = 0;
+		for(int i=0; i<C_trainingSet.size(); i++){
+			if(C_SupportVectors.at(i) > 0.0){
+				n++;
+			}
+		}
+		paramsFile << n << std::endl;
+
+		for(int i=0; i<C_trainingSet.size(); i++){
+			if(C_SupportVectors.at(i) > 0.0){
+				paramsFile << C_SupportVectors.at(i) << std::endl;
+				paramsFile << C_y.at(i) << std::endl;
+
+				paramsFile << C_X(i,0);
+
+				for(int j = 1; j < C_X.row(i).n_elem; j++){
+					paramsFile << ";" << C_X(i,j);
+				}
+
+				paramsFile << std::endl;
+			}
+		}
+
+		paramsFile.close();
+
+		std::cout << "Ya he escrito" << std::endl;
+	} else{
+		std::cout << "Unable to open file" << std::endl;
+	}
 }
 
 void SVMachine::test(){
@@ -407,6 +607,20 @@ void SVMachine::clearTrainingSet(){
 //
 //	return true;
 //}
+
+void SVMachine::init(){
+	std::cout << "El numero magico es " << C_n << std::endl;
+
+	if(C_executionMode == 0){
+		C_nFeatures = C_trainingSet[0].getNFeatures();
+	} else if (C_executionMode == 1){
+		C_nFeatures = C_input.getNFeatures();
+	}
+
+	C_X = arma::mat(C_n, C_nFeatures);
+	C_y = arma::mat(C_n, 1);
+	C_SupportVectors = arma::mat(C_n,1);
+}
 
 //Está un poco fuzzy, habrá que estructurarlo y tal, pero correcto
 void SVMachine::quadraticSolution() {
