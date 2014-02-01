@@ -68,6 +68,7 @@ int main(int argvc, char *argv[]) {
     		machine = new GodMachine(LogisticRegression);
     		break;
     	case 1: // Neural Network
+    		std::cout << "Iniciando la red neuronal..." << std::endl;
 			machine = new GodMachine(NeuralNetwork);
 			break;
     	case 2: // SVM
@@ -80,9 +81,9 @@ int main(int argvc, char *argv[]) {
     		machine = new GodMachine(LogisticRegression);
     		break;
     	}
-
+    	std::cout << "Seteando parámetros de la máquina..." << std::endl;
     	machine->setParameters(argv);
-
+    	std::cout << "Ejecutando la máquina" << std::endl;
     	machine->run();
     }
 }
