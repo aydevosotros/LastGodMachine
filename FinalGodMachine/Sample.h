@@ -5,12 +5,6 @@
 
 class Sample{
 public:
-	void scalate(double value){
-		for(unsigned int i = 0; i < input.size(); i++){
-			input[i] /= value;
-		}
-	}
-
 	int getNFeatures(){
 		return input.size();
 	}
