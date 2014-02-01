@@ -74,7 +74,7 @@ void SVMachine::setParameters(char *argv[]){
 		switch(ker){
 		case 0: C_kernel = new LinearKernel();
 		break;
-		case 1: C_kernel = new PolynomialKernel(6);
+		case 1: C_kernel = new PolynomialKernel(2); // Esto ha de entrar por parámetro
 		break;
 		case 2: C_kernel = new RBFKernel();
 		break;
