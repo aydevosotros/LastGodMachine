@@ -114,25 +114,43 @@ public:
 	}
 
 	static void scalation(std::vector<Sample> &trainingSet){
-		double absolMax = DBL_MIN;
+		std::vector<double> absoluts = std::vector<double>();
 
-		for(unsigned int i = 0; i < trainingSet.size(); i++){
-			for(unsigned int j = 0; j < trainingSet[i].getInput().size(); j++){
+		unsigned int i,j,k;
+
+		for(i = 0; i < trainingSet[0].getInput().size(); i++){
+			absoluts.push_back(DBL_MIN);
+		}
+
+		for(i = 0; i < trainingSet.size(); i++){
+			for(j = 0; j < trainingSet[i].getInput().size(); j++){
 				double num = trainingSet[i].getInput()[j];
 
 				if(num < 0){
 					num *= -1.0;
 				}
 
-				if(num > absolMax){
-					absolMax = num;
+				if(num > absoluts[j]){
+					absoluts[j] = num;
 				}
 			}
 		}
 
-		for(unsigned int i = 0; i < trainingSet.size(); i++){
-			trainingSet[i].scalate(absolMax);
+		std::cout << "Escalo..." << std::endl;
+
+		for(i = 0; i < trainingSet.size(); i++){
+			std::cout << "i = " << i << std::endl;
+
+			std::vector<double> aux = trainingSet[i].getInput();
+
+			for(k = 0; k < aux.size(); k++){
+				aux[k] = aux[k] / absoluts[k];
+			}
+
+			trainingSet[i].setInput(aux);
 		}
+
+		std::cout << "Acabo..." << std::endl;
 	}
 
 	static double uniformRandomDouble(double min, double max) {
