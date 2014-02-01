@@ -58,6 +58,8 @@ void SVMachine::setParameters(char *argv[]){
 		case 2: C_kernel = new RBFKernel();
 		break;
 		}
+
+		C_treshold = atoi(argv[7]);
 	} else 	if(C_executionMode == 1){
 		C_inputFile = argv[3];
 
@@ -79,6 +81,8 @@ void SVMachine::setParameters(char *argv[]){
 		case 2: C_kernel = new RBFKernel();
 		break;
 		}
+
+		C_treshold = atoi(argv[6]);
 	}
 }
 
@@ -418,33 +422,12 @@ void SVMachine::saveParams(){
 
 void SVMachine::test(){
 //	std::cout << "I'm testing with the SVMachine" << std::endl;
-	double treshold = 0.3;
-
 	fillActualY();
 
 	for(unsigned int i = 0; i < C_testingSet.size(); i++){
 		double p = predict(C_testingSet[i]);
 
-		if((p>treshold && C_actualY[i] > 0) || (p<=treshold && C_actualY[i] < 0)){
-			if(p>treshold){
-//				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
-			} else {
-//				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
-			}
-
-//			std::cout << "Ni Sandro Rey" << std::endl;
-
-		} else if((p>treshold && C_actualY[i] < 0) || (p<=treshold && C_actualY[i] > 0)){
-			if(p>treshold){
-//				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
-			} else {
-//				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
-			}
-
-//			std::cout << "Pinyico..." << std::endl;
-		} else {
-			std::cout << "No se que carajo ha pasado" << std::endl;
-		}
+		std::cout << "Predigo p=" << p << std::endl;
 
 		C_predictedY.push_back(p);
 	}
@@ -469,16 +452,21 @@ void SVMachine::test(){
 	double fNegatives = 0.0;
 
 	for(unsigned int i = 0; i < C_actualY.size(); i++){
-		if(C_actualY[i] > 0 && C_predictedY[i] > 0){
+		if(C_actualY[i] > C_treshold && C_predictedY[i] > C_treshold){
 			tPositives++;
-		} else if(C_actualY[i] > 0 && C_predictedY[i] < 0){
+		} else if(C_actualY[i] > C_treshold && C_predictedY[i] < C_treshold){
 			fNegatives++;
-		} else if(C_actualY[i] < 0 && C_predictedY[i] > 0){
+		} else if(C_actualY[i] < C_treshold && C_predictedY[i] > C_treshold){
 			fPositives++;
-		} else if(C_actualY[i] < 0 && C_predictedY[i] < 0){
+		} else if(C_actualY[i] < C_treshold && C_predictedY[i] < C_treshold){
 			tNegatives++;
 		}
 	}
+
+	std::cout << "tPositives = " << tPositives << std::endl;
+	std::cout << "fNegatives = " << fNegatives << std::endl;
+	std::cout << "fPositives = " << fPositives << std::endl;
+	std::cout << "tNegatives = " << tNegatives << std::endl;
 
 	double precission = tPositives / (tPositives + fPositives);
 

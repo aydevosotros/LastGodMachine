@@ -83,6 +83,7 @@ private:
 	void showParams();
 	void init();
 	int C_n;
+	double C_treshold;
 };
 
 #endif /* SVMACHINE_H_ */

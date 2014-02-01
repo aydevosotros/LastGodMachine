@@ -56,6 +56,8 @@ private:
 	int C_iterations; //Numero de iteraciones, en el gradiente
 	double C_alpha; //Alpha del gradiente
 
+	double C_treshold;
+
 	//FUNCIONES
 
 	// Internal functions

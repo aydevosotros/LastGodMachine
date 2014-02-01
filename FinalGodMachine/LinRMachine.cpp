@@ -32,10 +32,13 @@ void LinRMachine::setParameters(char *argv[]) {
 
 //			std::cout << "Alpha " << C_alpha << std::endl;
 		}
+
+		C_treshold = atof(argv[7]);
 	} else 	if(C_executionMode == 1){
 		C_inputFile = argv[3];
 
 //		std::cout	<< "Predicting " << C_inputFile << std::endl;
+		C_treshold = atof(argv[4]);
 	}
 }
 
@@ -259,8 +262,6 @@ void LinRMachine::train(){
 
 //Hay que repasar cuando los outputs sean buenos
 void LinRMachine::test(){
-	double treshold = 0.0;
-
 //	std::cout << "I'm testing with the LinRMachine" << std::endl;
 
 	fillActualY();
@@ -270,7 +271,7 @@ void LinRMachine::test(){
 	for(unsigned int i = 0; i < C_testingSet.size(); i++){
 		double p = (double)predict(C_testingSet[i]);
 
-//		std::cout << p << std::endl;
+		std::cout << "Predigo p = " << p << std::endl;
 
 		C_predictedY.push_back(p);
 	}
@@ -283,16 +284,21 @@ void LinRMachine::test(){
 	double fNegatives = 0.0;
 
 	for(unsigned int i = 0; i < C_actualY.size(); i++){
-		if(C_actualY[i] > 0 && C_predictedY[i] > 0){
+		if(C_actualY[i] > C_treshold && C_predictedY[i] > C_treshold){
 			tPositives++;
-		} else if(C_actualY[i] > 0 && C_predictedY[i] < 0){
+		} else if(C_actualY[i] > C_treshold && C_predictedY[i] < C_treshold){
 			fNegatives++;
-		} else if(C_actualY[i] < 0 && C_predictedY[i] > 0){
+		} else if(C_actualY[i] < C_treshold && C_predictedY[i] > C_treshold){
 			fPositives++;
-		} else if(C_actualY[i] < 0 && C_predictedY[i] < 0){
+		} else if(C_actualY[i] < C_treshold && C_predictedY[i] < C_treshold){
 			tNegatives++;
 		}
 	}
+
+	std::cout << "tPositives = " << tPositives << std::endl;
+	std::cout << "fNegatives = " << fNegatives << std::endl;
+	std::cout << "fPositives = " << fPositives << std::endl;
+	std::cout << "tNegatives = " << tNegatives << std::endl;
 
 	double precission = tPositives / (tPositives + fPositives);
 

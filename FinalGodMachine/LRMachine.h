@@ -57,6 +57,8 @@ private:
 	int iterTrain;
 	double alphaTrain;
 
+	double C_treshold;
+
 	//FUNCIONES
 
 	// Internal functions

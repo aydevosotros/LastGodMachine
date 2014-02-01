@@ -25,6 +25,8 @@ void LRMachine::setParameters(char *argv[]) {
 
 		C_lambda = atoi(argv[5]);
 //		std::cout << "Lambda set to " << C_lambda << std::endl;
+
+		C_treshold = atof(argv[6]);
 	} else 	if(C_executionMode == 1){
 		C_inputFile = argv[3];
 
@@ -262,8 +264,6 @@ void LRMachine::train(){
 }
 
 void LRMachine::test(){
-	double treshold = 0.6;
-
 //	std::cout << "I'm testing with the LRMachine" << std::endl;
 
 	fillActualY();
@@ -286,16 +286,21 @@ void LRMachine::test(){
 	double fNegatives = 0.0;
 
 	for(unsigned int i = 0; i < C_actualY.size(); i++){
-		if(C_actualY[0][i] > 0 && C_predictedY[0][i] > 0){
+		if(C_actualY[0][i] > C_treshold && C_predictedY[0][i] > C_treshold){
 			tPositives++;
-		} else if(C_actualY[0][i] > 0 && C_predictedY[0][i] < 0){
+		} else if(C_actualY[0][i] > C_treshold && C_predictedY[0][i] < C_treshold){
 			fNegatives++;
-		} else if(C_actualY[0][i] < 0 && C_predictedY[0][i] > 0){
+		} else if(C_actualY[0][i] < C_treshold && C_predictedY[0][i] > C_treshold){
 			fPositives++;
-		} else if(C_actualY[0][i] < 0 && C_predictedY[0][i] < 0){
+		} else if(C_actualY[0][i] < C_treshold && C_predictedY[0][i] < C_treshold){
 			tNegatives++;
 		}
 	}
+
+	std::cout << "tPositives = " << tPositives << std::endl;
+	std::cout << "fNegatives = " << fNegatives << std::endl;
+	std::cout << "fPositives = " << fPositives << std::endl;
+	std::cout << "tNegatives = " << tNegatives << std::endl;
 
 	double precission = tPositives / (tPositives + fPositives);
 
