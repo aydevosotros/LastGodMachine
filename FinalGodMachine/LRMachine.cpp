@@ -124,10 +124,44 @@ void LRMachine::loadInput(std::string filename) {
 void LRMachine::loadThetas(std::string filename) {
 //	std::cout << "I'm loading Thetas with the LRMachine from " << filename << std::endl;
 
+	//Ahora averiguaremos el nombre que debe tener el archivo de thetas
+
+	std::vector<std::string> trainingFileParts(Utils::split(filename,'-'));
+
+	std::string root = trainingFileParts[0].substr(0,10);
+
+	std::string machinefolder = "LR/";
+
+	std::string value = trainingFileParts[0].substr(10,trainingFileParts[0].length());
+
+	std::string route = "";
+
+	route.append(root);
+
+	route.append(machinefolder);
+
+	route.append(value);	route.append("/");
+
+	std::string prefix = "";
+
+	prefix.append(root);
+	prefix.append(value);
+
+	std::string thetaName = filename.substr(prefix.length()+1,filename.length());
+
+	route.append(thetaName);
+
+	C_thetaFileName = route;
+
+//	std::cout << "EL archivo que vamos a leer es: " << thetasFileName << std::endl;
+
+	//Y para terminar, escribimos las thetas en un archivo
+
 	std::string line;
-	std::ifstream thetasFile(filename.c_str());
+	std::ifstream thetasFile(C_thetaFileName.c_str());
 
 	if(thetasFile.is_open()){
+
 		while(std::getline(thetasFile,line)) {
 			C_theta.push_back(atof(line.c_str()));
 		}
@@ -172,8 +206,8 @@ void LRMachine::run(){
 	} else if(C_executionMode == 1){
 //		std::cout << "Predict" << std::endl;
 
-		loadThetas("LR_C_theta.txt");
-		loadInput(C_inputFile);
+
+//		loadInput(C_inputFile);
 
 //		//Comprobamos que se leen bien los archivos
 //
@@ -189,7 +223,7 @@ void LRMachine::run(){
 //
 //		//Fin de la comprobacion
 
-		predict(C_input);
+//		predict(C_input);
 
 		//Escribir lo que devuelve input en algun lado?
 	}
@@ -317,6 +351,8 @@ void LRMachine::test(){
 
 double LRMachine::predict(Sample input){
 //	std::cout << "I'm predicting this input with the LRMachine" << std::endl;
+
+	loadThetas("../Values/LR/MSFT/20101001-20131201-1d-14d-OpenValue-Training");
 
 	// Como tengo un sigmoide, con un threshold voy to cheto
 	double p = 0.0;
@@ -476,7 +512,7 @@ void LRMachine::fillTheta() {
 		C_theta.push_back(0.5);
 	}
 }
-//Ys adaptadas
+
 void LRMachine::fillY() {
 	std::vector<double> aux;
 
@@ -490,7 +526,7 @@ void LRMachine::fillY() {
 		C_y.push_back(aux);
 	}
 }
-//Ys adaptadas
+
 void LRMachine::fillActualY(){
 	std::vector<double> aux;
 

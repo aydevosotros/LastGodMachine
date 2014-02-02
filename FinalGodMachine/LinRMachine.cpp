@@ -119,10 +119,44 @@ void LinRMachine::loadInput(std::string filename) {
 void LinRMachine::loadThetas(std::string filename) {
 //	std::cout << "I'm loading Thetas with the LinRMachine from " << filename << std::endl;
 
+	//Ahora averiguaremos el nombre que debe tener el archivo de thetas
+
+	std::vector<std::string> trainingFileParts(Utils::split(filename,'-'));
+
+	std::string root = trainingFileParts[0].substr(0,10);
+
+	std::string machinefolder = "LR/";
+
+	std::string value = trainingFileParts[0].substr(10,trainingFileParts[0].length());
+
+	std::string route = "";
+
+	route.append(root);
+
+	route.append(machinefolder);
+
+	route.append(value);	route.append("/");
+
+	std::string prefix = "";
+
+	prefix.append(root);
+	prefix.append(value);
+
+	std::string thetaName = filename.substr(prefix.length()+1,filename.length());
+
+	route.append(thetaName);
+
+	C_thetaFileName = route;
+
+//	std::cout << "EL archivo que vamos a leer es: " << thetasFileName << std::endl;
+
+	//Y para terminar, escribimos las thetas en un archivo
+
 	std::string line;
-	std::ifstream thetasFile(filename.c_str());
+	std::ifstream thetasFile(C_thetaFileName.c_str());
 
 	if(thetasFile.is_open()){
+
 		while(std::getline(thetasFile,line)) {
 			C_theta.push_back(atof(line.c_str()));
 		}
@@ -167,8 +201,8 @@ void LinRMachine::run(){
 	} else if(C_executionMode == 1){
 //		std::cout << "Predict" << std::endl;
 
-		loadThetas("LR_C_theta.txt");
-		loadInput(C_inputFile);
+
+//		loadInput(C_inputFile);
 
 //		//Comprobamos que se leen bien los archivos
 //
@@ -184,7 +218,7 @@ void LinRMachine::run(){
 //
 //		//Fin de la comprobacion
 
-		std::cout << predict(C_input) << std::endl;
+//		std::cout << predict(C_input) << std::endl;
 
 		//Escribir lo que devuelve input en algun lado?
 	}
@@ -315,6 +349,8 @@ void LinRMachine::test(){
 
 double LinRMachine::predict(Sample input){
 //	std::cout << "I'm predicting with the LinRMachine" << std::endl;
+
+	loadThetas("../Values/LinR/MSFT/20101001-20131201-1d-14d-OpenValue-Training");
 
 	return h(input.getInput());
 }
