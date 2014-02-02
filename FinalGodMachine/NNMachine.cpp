@@ -1,12 +1,12 @@
 #include "NNMachine.h"
 
-NNMachine::NNMachine() {}
+NNMachine::NNMachine() {	executionMode = 1;
+}
 
 NNMachine::~NNMachine() {}
 
 void NNMachine::setParameters(char* argv[]) {
 	this->executionMode = atoi(argv[2]);
-	executionMode = 1;
 
 
 	if(executionMode == 0){
