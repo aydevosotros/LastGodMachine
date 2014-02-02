@@ -430,7 +430,7 @@ void NNMachine::initRandomThetas() {
 		arma::mat thetaL(s_l[l+1], s_l[l]+1);
 		for(int i=0; i<s_l[l+1]; i++)
 			for(int j=0; j<s_l[l]+1; j++)
-				thetaL(i,j) = Utils::uniformRandomDouble(0.0,1.0);
+				thetaL(i,j) = Utils::uniformRandomDouble(0.0,10.0);
 		this->thetas.push_back(thetaL);
 	}
 }
@@ -547,7 +547,7 @@ void NNMachine::trainByGradient(int iter, double alpha) {
 		double vari = std::abs(pCoste-coste);
 		std::cout << "La variación en el coste para la iteración "<< it <<" es de: " << vari << std::endl;
 		if(it>0){
-			if(vari <= 0.0001){
+			if(vari <= 0.00001){
 				std::cout << "Estoy suficientemente entrenado!!!!!!\n";
 				break;
 			}
