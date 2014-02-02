@@ -6,6 +6,8 @@ NNMachine::~NNMachine() {}
 
 void NNMachine::setParameters(char* argv[]) {
 	this->executionMode = atoi(argv[2]);
+	executionMode = 1;
+
 
 	if(executionMode == 0){
 		this->trainingFile = argv[3];
@@ -294,7 +296,8 @@ void NNMachine::test() {
 
 double NNMachine::predict(Sample input) {
 	std::cout << "Cargando la thetas" << std::endl;
-	loadThetas();
+	if(executionMode == 1)
+		loadThetas();
 	std::cout << "Propagando..." << std::endl;
 	forwardPropagate(input);
 	return this->a[L-1](0);

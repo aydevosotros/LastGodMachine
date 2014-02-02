@@ -6,6 +6,7 @@ LRMachine::LRMachine() {
 	iterTrain = 1000;
 	alphaTrain = 0.01;
 	trainType = 1; //1 normal, 2 gradiente
+	C_executionMode = 1;
 }
 
 LRMachine::~LRMachine() {}
@@ -351,8 +352,8 @@ void LRMachine::test(){
 
 double LRMachine::predict(Sample input){
 //	std::cout << "I'm predicting this input with the LRMachine" << std::endl;
-
-	loadThetas("../Values/LR/MSFT/20101001-20131201-1d-14d-OpenValue-Training");
+	if(C_executionMode == 1)
+		loadThetas("../Values/LR/MSFT/20101001-20131201-1d-14d-OpenValue-Training");
 
 	// Como tengo un sigmoide, con un threshold voy to cheto
 	double p = 0.0;

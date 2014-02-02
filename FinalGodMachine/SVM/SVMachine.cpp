@@ -4,6 +4,8 @@ SVMachine::SVMachine() {
 	C_kernel = new LinearKernel();
 	C_nFeatures = 0;
 	C_m = 0;
+	C_executionMode = 1;
+
 }
 
 SVMachine::SVMachine(KernelType t) {
@@ -485,8 +487,8 @@ void SVMachine::test(){
 
 double SVMachine::predict(Sample input){
 //	std::cout << "I'm predicting with the SVMachine" << std::endl;
-
-	loadParams();
+	if(C_executionMode == 1)
+		loadParams();
 
     ET aux(0.0);
     // Hago esto provisional para escalar
