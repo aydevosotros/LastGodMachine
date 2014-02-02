@@ -99,7 +99,7 @@ void NNMachine::loadThetas(){
 
 	//Ahora averiguaremos el nombre que debe tener el archivo de thetas
 
-	std::vector<std::string> trainingFileParts(Utils::split(inputFile,'-'));
+	/*std::vector<std::string> trainingFileParts(Utils::split(inputFile,'-'));
 	std::string root = trainingFileParts[0].substr(0,10);
 	std::string machinefolder = "NN/";
 	std::string value = trainingFileParts[0].substr(10,trainingFileParts[0].length());
@@ -111,7 +111,7 @@ void NNMachine::loadThetas(){
 	prefix.append(root);
 	prefix.append(value);
 	std::string thetaName = inputFile.substr(prefix.length()+1,inputFile.length());
-	route.append(thetaName);
+	route.append(thetaName);*/
 //	thetasFileName = route;
 	thetasFileName = "thetas.txt";
 
