@@ -12,7 +12,15 @@
 #include "Utils.h"
 #include "IMachine.h"
 
+//For optimization
+#include "stdafx.h"
+#include "optimization.h"
+
+using namespace alglib;
+
 typedef arma::mat M2;
+
+
 
 class NNMachine: public IMachine {
 public:
@@ -76,6 +84,10 @@ private:
 
 	//Para los tests
 	void fillTestingY();
+
+	//AdvancedOptimization
+	void trainByOM();
+	void s1_grad(const real_1d_array &x, double &func, real_1d_array &grad, void *ptr);
 };
 
 #endif /* NNMACHINE_H_ */

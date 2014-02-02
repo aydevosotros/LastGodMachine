@@ -367,8 +367,9 @@ void NNMachine::backPropagate() {
 		}
 		for(int l=L-1; l>0; l--){
 			if(l==L-1){
+				int r = (trainingSet[s].getResult()[0]==-1)?0:1;
 //				std::cout << "La activación para la última capa es: " << a[l] << "y el resultado es: " << this->trainingSet[s].getResult()[0] << std::endl;
-				lowerDelta[l](0) = a[l](0)-this->trainingSet[s].getResult()[0]; // esto es lo que tengo que generalizar para muchas salidas
+				lowerDelta[l](0) = a[l](0)-r; // esto es lo que tengo que generalizar para muchas salidas
 			} else {
 				arma::Col<double> aux;
 				arma::mat gP = this->a[l]%(1-a[l]);
@@ -427,7 +428,7 @@ void NNMachine::initRandomThetas() {
 		arma::mat thetaL(s_l[l+1], s_l[l]+1);
 		for(int i=0; i<s_l[l+1]; i++)
 			for(int j=0; j<s_l[l]+1; j++)
-				thetaL(i,j) = Utils::uniformRandomDouble(-9.0,9.0);
+				thetaL(i,j) = Utils::uniformRandomDouble(0.0,1.0);
 		this->thetas.push_back(thetaL);
 	}
 }
@@ -508,22 +509,19 @@ void NNMachine::gradChecking() {
 double NNMachine::cost(){
 	double J = 0.0;
 	for(int i=0; i<this->trainingSet.size(); i++){
+		int r = (trainingSet[i].getResult()[0]==-1)?0:1;
 		this->forwardPropagate(trainingSet[i]);
-		for(int k=0; k<s_l[L-1]; k++){
-			J += trainingSet[i].getResult()[0] * std::log(a[L-1](k)) + (1-trainingSet[i].getResult()[0])*std::log(1-a[L-1](k));
-		}
+		J += r*std::log(a[L-1](0)) + (1-r)*std::log(1-a[L-1](0));
 	}
-//	std::cout << " el parcial vale " << J << " y tengo: " << trainingSet.size() << " elementos " << std::endl;
 	J /= trainingSet.size()*(-1.0);
-//	std::cout << "LLego hasta aquí con un coste de: " << J << std::endl;
-	double aux = 0.0;
+//	std::cout << "El coste sin regularizar: " << J << std::endl;
+	double regularization = 0.0;
 	for(int l=0; l<L-1; l++)
 		for(int i=0; i<s_l[l]; i++)
 			for(int j=0; j<s_l[l+1]; j++)
-				aux+=std::pow(this->thetas[l](j,i),2);
-	aux*=this->lambda;
-	aux/=2*this->trainingSet.size();
-	return J+aux;
+				regularization+=std::pow(this->thetas[l](j,i),2);
+	regularization = (this->lambda/2.0*this->trainingSet.size())*regularization;
+	return J+regularization;
 }
 
 void NNMachine::trainByGradient(int iter, double alpha) {
@@ -536,7 +534,7 @@ void NNMachine::trainByGradient(int iter, double alpha) {
 //			std::cout << "D para la capa " << l << " vale: " << std::endl << this->D[l];
 //		gradChecking();
 		double coste = cost();
-//		std::cout << "Para la iteración " << it << " el coste es: " << coste << std::endl;
+		std::cout << "Para la iteración " << it << " el coste es: " << coste << std::endl;
 		// Recalculo theta para la siguiente iteracion
 		for(int l=0; l<L-1; l++){
 //			for(int i=0; i<s_l[l+1]; i++)
@@ -586,4 +584,8 @@ void NNMachine::pruebaXorBasica() {
 void NNMachine::fillTestingY() {
 	for(int i=0; i<this->testingSet.size(); i++)
 		this->actualY.push_back(this->testingSet[i].getResult()[0]);
+}
+
+void NNMachine::trainByOM() {
+
 }
