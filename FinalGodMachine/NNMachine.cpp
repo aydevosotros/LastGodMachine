@@ -110,7 +110,8 @@ void NNMachine::loadThetas(){
 	prefix.append(value);
 	std::string thetaName = inputFile.substr(prefix.length()+1,inputFile.length());
 	route.append(thetaName);
-	thetasFileName = route;
+//	thetasFileName = route;
+	thetasFileName = "thetas.txt";
 
 //	std::cout << "EL archivo que vamos a leer es: " << thetasFileName << std::endl;
 
@@ -292,6 +293,7 @@ void NNMachine::test() {
 }
 
 double NNMachine::predict(Sample input) {
+	loadThetas();
 	forwardPropagate(input);
 	return this->a[L-1](0);
 }

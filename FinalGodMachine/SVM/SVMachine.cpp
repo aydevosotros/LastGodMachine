@@ -270,7 +270,7 @@ void SVMachine::loadParams(){
 
 	route.append(name);
 
-	C_fileName = route;
+	C_fileName = "params.txt";
 
 //	std::cout << "EL archivo que vamos a leer es: " << C_fileName << std::endl;
 
@@ -485,6 +485,8 @@ void SVMachine::test(){
 
 double SVMachine::predict(Sample input){
 //	std::cout << "I'm predicting with the SVMachine" << std::endl;
+
+	loadParams();
 
     ET aux(0.0);
     // Hago esto provisional para escalar
