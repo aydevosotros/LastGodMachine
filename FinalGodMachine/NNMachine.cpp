@@ -545,9 +545,9 @@ void NNMachine::trainByGradient(int iter, double alpha) {
 		double vari = std::abs(pCoste-coste);
 		std::cout << "La variación en el coste para la iteración "<< it <<" es de: " << vari << std::endl;
 		if(it>0){
-			if(vari <= 0.000001){
-//				std::cout << "Estoy suficientemente entrenado!!!!!!\n";
-//				break;
+			if(vari <= 0.0001){
+				std::cout << "Estoy suficientemente entrenado!!!!!!\n";
+				break;
 			}
 //			if(std::isnan(coste))
 //				break;
