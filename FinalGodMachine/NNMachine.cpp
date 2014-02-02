@@ -181,6 +181,7 @@ void NNMachine::saveThetas(){
 	} else{
 		std::cout << "Unable to open file" << std::endl;
 	}
+	std::cout << "LLego hasta aquí después de guardar las thetas" << std::endl;
 }
 
 void NNMachine::showThetas(){
@@ -202,11 +203,12 @@ void NNMachine::clearTrainingSet(){
 void NNMachine::run() {
 	if(this->executionMode == 0){
 		std::cout << "Cargando el training set..." << std::endl;
-		loadTrainingSet("na");
+		loadTrainingSet(trainingFile);
 		std::cout << "Cargando el testing set..." << std::endl;
-		loadTestingSet("na");
+		loadTestingSet(testFile);
 		std::cout << "Entrenando..." << std::endl;
 		train();
+		std::cout << "Después de entrenar hago el test" << std::endl;
 		test();
 	} else if(this->executionMode == 1){
 		std::cout << "Cargando input" << std::endl;
@@ -222,10 +224,8 @@ void NNMachine::run() {
 void NNMachine::test() {
 	double treshold = 0.5;
 
-//	std::cout << "I'm testing with the LinRMachine" << std::endl;
-
 	this->fillTestingY();
-
+	std::cout << "I'm testing with the NNMachine" << std::endl;
 	std::vector<int> auxY;
 
 	for(unsigned int i = 0; i < this->testingSet.size(); i++){
@@ -293,7 +293,9 @@ void NNMachine::test() {
 }
 
 double NNMachine::predict(Sample input) {
+	std::cout << "Cargando la thetas" << std::endl;
 	loadThetas();
+	std::cout << "Propagando..." << std::endl;
 	forwardPropagate(input);
 	return this->a[L-1](0);
 }
