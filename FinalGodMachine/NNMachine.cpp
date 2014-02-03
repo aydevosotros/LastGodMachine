@@ -128,7 +128,7 @@ void NNMachine::loadThetas(){
 		std::cout << "nFeatures es " << nFeatures << std::endl;
 
 		init();
-
+		initTraining();
 		while(std::getline(thetasFile,line)){
 			lectura.push_back(line);
 		}
@@ -325,7 +325,8 @@ void NNMachine::test() {
 
 double NNMachine::predict(Sample input) {
 	forwardPropagate(input);
-	return this->a[L-1](0);
+	std::cerr << this->a[L-1](0) << std::endl;
+	return (this->a[L-1](0)>0.5)?1:-1;
 }
 
 void NNMachine::train(){
