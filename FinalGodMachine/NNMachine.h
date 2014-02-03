@@ -80,6 +80,7 @@ private:
 	void loadThetas();
 	void saveThetas();
 	void showThetas();
+	void readThetas(std::vector<std::string> lectura);
 	void init();
 
 	//Para los tests
