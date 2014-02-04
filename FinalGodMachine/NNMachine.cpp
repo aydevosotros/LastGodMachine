@@ -348,8 +348,8 @@ void NNMachine::init(){
 	s_l.push_back(this->nFeatures);
 	s_l.push_back(this->nFeatures*2);
 	s_l.push_back(this->nFeatures*3);
-//	s_l.push_back(this->nFeatures*3);
-//	s_l.push_back(this->nFeatures*2);
+	s_l.push_back(this->nFeatures*3);
+	s_l.push_back(this->nFeatures*2);
 	s_l.push_back(1);
 	L = s_l.size();
 

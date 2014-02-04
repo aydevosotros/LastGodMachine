@@ -79,6 +79,7 @@ private:
 	void pruebaXorBasica();
 	void loadThetas();
 	void saveThetas();
+	void readThetas(std::vector<std::string> lectura);
 	void showThetas();
 	void init();
 
