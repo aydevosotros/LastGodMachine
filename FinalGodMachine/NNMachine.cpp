@@ -257,11 +257,11 @@ void NNMachine::test() {
 
 	for(unsigned int i = 0; i < this->testingSet.size(); i++){
 		double p = (double)predict(this->testingSet[i]);
-		std::cout << "Para una entrada de: ";
-		for(int j=0; j<this->nFeatures; j++){
-			std::cout << testingSet[i].getInput()[j] << " ";
-		}
-		std::cout << std::endl;
+//		std::cout << "Para una entrada de: ";
+//		for(int j=0; j<this->nFeatures; j++){
+//			std::cout << testingSet[i].getInput()[j] << " ";
+//		}
+//		std::cout << std::endl;
 		std::cout << "Obtengo una predicción de: " << p << std::endl;
 
 		if((p>treshold && this->actualY[i] > 0) || (p<=treshold && this->actualY[i] < 0)){
@@ -347,7 +347,7 @@ void NNMachine::init(){
 	s_l.clear();
 	s_l.push_back(this->nFeatures);
 	s_l.push_back(this->nFeatures*2);
-	s_l.push_back(this->nFeatures*3);
+	s_l.push_back(this->nFeatures*2);
 //	s_l.push_back(this->nFeatures*3);
 //	s_l.push_back(this->nFeatures*2);
 	s_l.push_back(1);
