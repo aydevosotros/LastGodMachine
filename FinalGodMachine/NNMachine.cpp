@@ -309,6 +309,10 @@ void NNMachine::test() {
 	}
 
 	std::cout << "Acierto: " << (tPositives + tNegatives) / this->actualY.size() << std::endl;
+	std::cout << "tPositives = " << tPositives << std::endl;
+	std::cout << "fNegatives = " << fNegatives << std::endl;
+	std::cout << "fPositives = " << fPositives << std::endl;
+	std::cout << "tNegatives = " << tNegatives << std::endl;
 
 	double precission = tPositives / (tPositives + fPositives);
 
