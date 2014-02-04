@@ -16,6 +16,8 @@ void NNMachine::setParameters(char* argv[]) {
 		this->alpha = atof(argv[6]);
 
 		this->iteraciones = atoi(argv[7]);
+
+		this->threshold = atof(argv[8]);
 	} else if(executionMode == 1){
 //		this->inputFile = argv[3];
 //		this->trainingFile = argv[3];
@@ -247,8 +249,6 @@ void NNMachine::run() {
 }
 
 void NNMachine::test() {
-	double treshold = 0.5;
-
 //	std::cout << "I'm testing with the LinRMachine" << std::endl;
 
 	this->fillTestingY();
@@ -264,8 +264,8 @@ void NNMachine::test() {
 //		std::cout << std::endl;
 		std::cout << "Obtengo una predicción de: " << p << std::endl;
 
-		if((p>treshold && this->actualY[i] > 0) || (p<=treshold && this->actualY[i] < 0)){
-			if(p>treshold){
+		if((p>threshold && this->actualY[i] > 0) || (p<=threshold && this->actualY[i] < 0)){
+			if(p>threshold){
 				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
 			} else {
 				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
@@ -273,8 +273,8 @@ void NNMachine::test() {
 //
 			std::cout << "Ni Sandro Rey" << std::endl;
 
-		} else if((p>treshold && this->actualY[i] < 0) || (p<=treshold && this->actualY[i] > 0)){
-			if(p>treshold){
+		} else if((p>threshold && this->actualY[i] < 0) || (p<=threshold && this->actualY[i] > 0)){
+			if(p>threshold){
 				std::cout << "Predigo que el siguiente periodo será de subida" << std::endl;
 			} else {
 				std::cout << "Predigo que el siguiente periodo será de bajada" << std::endl;
@@ -284,7 +284,7 @@ void NNMachine::test() {
 		} else {
 			std::cout << "No se que carajo ha pasado" << std::endl;
 		}
-		if(p>treshold)
+		if(p>threshold)
 			this->predictedY.push_back(1);
 		else this->predictedY.push_back(-1);
 	}
@@ -347,9 +347,7 @@ void NNMachine::init(){
 	s_l.clear();
 	s_l.push_back(this->nFeatures);
 	s_l.push_back(this->nFeatures*2);
-	s_l.push_back(this->nFeatures*2);
-//	s_l.push_back(this->nFeatures*3);
-//	s_l.push_back(this->nFeatures*2);
+	s_l.push_back(this->nFeatures);
 	s_l.push_back(1);
 	L = s_l.size();
 
@@ -462,7 +460,7 @@ void NNMachine::initRandomThetas() {
 		arma::mat thetaL(s_l[l+1], s_l[l]+1);
 		for(int i=0; i<s_l[l+1]; i++)
 			for(int j=0; j<s_l[l]+1; j++)
-				thetaL(i,j) = Utils::uniformRandomDouble(-10.0,1.0);
+				thetaL(i,j) = Utils::uniformRandomDouble(-10.0,10.0);
 		this->thetas.push_back(thetaL);
 	}
 }

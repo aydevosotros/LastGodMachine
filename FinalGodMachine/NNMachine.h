@@ -6,7 +6,6 @@
 #include <fstream>
 #include <vector>
 
-
 #include "armadillo"
 
 #include "Utils.h"
@@ -46,6 +45,7 @@ private:
 	std::string inputFile;
 	std::string thetasFileName;
 	Sample input;
+	double threshold;
 
 	int L; //Número de capas
 	int nFeatures;
