@@ -55,6 +55,10 @@ public:
 		C_machine->loadInput(filename);
 	}
 
+	void loadThetas(){
+		C_machine->loadThetas();
+	}
+
 	void run(){
 		C_machine->run();
 	}

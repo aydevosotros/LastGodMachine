@@ -19,6 +19,7 @@ public:
 	void loadTrainingSet(std::string filename);
 	void loadTestingSet(std::string filename);
 	void loadInput(std::string filename);
+	void loadThetas(){}
 	void run();
 	void train();
 	void test();

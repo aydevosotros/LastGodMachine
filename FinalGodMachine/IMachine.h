@@ -9,6 +9,7 @@ public:
 	virtual void loadTrainingSet(std::string filename)=0;
 	virtual void loadTestingSet(std::string filename)=0;
 	virtual void loadInput(std::string filename)=0;
+	virtual void loadThetas()=0;
 	virtual void run()=0;
 	virtual void train()=0;
 	virtual void test()=0;
