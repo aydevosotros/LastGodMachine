@@ -348,8 +348,8 @@ void NNMachine::init(){
 	s_l.push_back(this->nFeatures);
 	s_l.push_back(this->nFeatures*2);
 	s_l.push_back(this->nFeatures*3);
-	s_l.push_back(this->nFeatures*3);
-	s_l.push_back(this->nFeatures*2);
+//	s_l.push_back(this->nFeatures*3);
+//	s_l.push_back(this->nFeatures*2);
 	s_l.push_back(1);
 	L = s_l.size();
 
@@ -462,7 +462,7 @@ void NNMachine::initRandomThetas() {
 		arma::mat thetaL(s_l[l+1], s_l[l]+1);
 		for(int i=0; i<s_l[l+1]; i++)
 			for(int j=0; j<s_l[l]+1; j++)
-				thetaL(i,j) = Utils::uniformRandomDouble(0.0,1.0);
+				thetaL(i,j) = Utils::uniformRandomDouble(-1.0,1.0);
 		this->thetas.push_back(thetaL);
 	}
 }
